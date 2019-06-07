@@ -52,6 +52,22 @@ namespace BLL
         {
             List<string> erros = new List<string>();
 
+            #region Nome Empresa
+            if (string.IsNullOrWhiteSpace(For.NomeEmpresa))
+            {
+                erros.Add("O nome da empresa deve ser informado");
+            }
+            else
+            {
+                For.NomeContato = Regex.Replace(For.NomeContato, " {2,}", " ");
+                For.NomeContato = For.NomeContato.Trim();
+                if (For.NomeEmpresa.Length < 2 || For.NomeEmpresa.Length > 60)
+                {
+                    erros.Add("Nome da Empresa deve conter entre 2 e 60 caracteres.");
+                }
+            }
+            #endregion
+
             #region Nome Contato
             if (string.IsNullOrWhiteSpace(For.NomeContato))
             {
