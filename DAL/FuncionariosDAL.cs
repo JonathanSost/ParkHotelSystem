@@ -36,6 +36,23 @@ namespace DAL
             command.Parameters.AddWithValue("@senha", fun.Email);
 
             command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "";
         }
 
         public Funcionarios LerPorID(int id)

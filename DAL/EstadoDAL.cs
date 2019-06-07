@@ -1,6 +1,7 @@
 ﻿using Metadata;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,34 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public string Inserir(Estados item)
+        public string Inserir(Estados estado)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "insert into administradores (sigla, nome) values (@sigla, @nome)";
+            command.Parameters.AddWithValue("@sigla", estado.Sigla);
+            command.Parameters.AddWithValue("@nome", estado.Nome);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "";
         }
 
         public Estados LerPorID(int id)
