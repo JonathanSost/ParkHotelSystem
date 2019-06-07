@@ -40,8 +40,6 @@ namespace BLL
                 return builder.ToString();
             }
             return dal.Inserir(qua);
-
-            
         }
     }
 }

@@ -43,6 +43,7 @@
             // 
             // btnGerProdutos
             // 
+            this.btnGerProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerProdutos.Location = new System.Drawing.Point(36, 64);
             this.btnGerProdutos.Name = "btnGerProdutos";
@@ -54,6 +55,7 @@
             // 
             // btnGerClientes
             // 
+            this.btnGerClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerClientes.Location = new System.Drawing.Point(177, 64);
             this.btnGerClientes.Name = "btnGerClientes";
@@ -65,6 +67,7 @@
             // 
             // btnGerFornecedores
             // 
+            this.btnGerFornecedores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerFornecedores.Location = new System.Drawing.Point(319, 64);
             this.btnGerFornecedores.Name = "btnGerFornecedores";
@@ -76,6 +79,7 @@
             // 
             // btnGerQuartos
             // 
+            this.btnGerQuartos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerQuartos.Location = new System.Drawing.Point(459, 64);
             this.btnGerQuartos.Name = "btnGerQuartos";
@@ -87,6 +91,7 @@
             // 
             // btnLogoff
             // 
+            this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.Location = new System.Drawing.Point(559, 262);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(92, 31);
@@ -97,6 +102,7 @@
             // 
             // btnRegQuartos
             // 
+            this.btnRegQuartos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegQuartos.Location = new System.Drawing.Point(459, 184);
             this.btnRegQuartos.Name = "btnRegQuartos";
@@ -108,6 +114,7 @@
             // 
             // btnRegFornecedores
             // 
+            this.btnRegFornecedores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegFornecedores.Location = new System.Drawing.Point(319, 184);
             this.btnRegFornecedores.Name = "btnRegFornecedores";
@@ -119,6 +126,7 @@
             // 
             // btnRegClientes
             // 
+            this.btnRegClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegClientes.Location = new System.Drawing.Point(177, 184);
             this.btnRegClientes.Name = "btnRegClientes";
@@ -130,6 +138,7 @@
             // 
             // btnRegProdutos
             // 
+            this.btnRegProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegProdutos.Location = new System.Drawing.Point(36, 184);
             this.btnRegProdutos.Name = "btnRegProdutos";
@@ -176,8 +185,11 @@
             this.Controls.Add(this.btnGerFornecedores);
             this.Controls.Add(this.btnGerClientes);
             this.Controls.Add(this.btnGerProdutos);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "FormMenu";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "";
             this.Text = "Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
