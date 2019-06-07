@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using DAL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,10 +66,11 @@ namespace BLL
             #endregion
 
             #region Cidade
-
-
-
-
+            CidadeDAL cidades = new CidadeDAL();
+            if (!cidades.VerificarExistenciaCidade(endereco.Cidade))
+            {
+                erros.Add("Cidade inexistente!");
+            }
             #endregion
 
             #region Bairro
