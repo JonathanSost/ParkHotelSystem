@@ -26,7 +26,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into administradores (sigla, nome) values (@sigla, @nome)";
+            command.CommandText = "insert into estados (sigla, nome) values (@sigla, @nome)";
             command.Parameters.AddWithValue("@sigla", estado.Sigla);
             command.Parameters.AddWithValue("@nome", estado.Nome);
 

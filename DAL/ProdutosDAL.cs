@@ -26,11 +26,11 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into funcionarios (nome, descricao, precound, estoque) values (@nome, @descricao, @precound, @estoque)";
+            command.CommandText = "insert into produtos (nome, descricao, precound, estoque) values (@nome, @descricao, @precound, @estoque)";
             command.Parameters.AddWithValue("@nome", produto.Nome);
             command.Parameters.AddWithValue("@descricao", produto.Descricao);
             command.Parameters.AddWithValue("@precound", produto.Preco);
-            command.Parameters.AddWithValue("@estoque", produto.est);
+            command.Parameters.AddWithValue("@estoque", produto.Estoque);
 
             command.Connection = connection;
 
@@ -39,7 +39,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Banco de dados indisponível, favor contatar o suporte.";
             }

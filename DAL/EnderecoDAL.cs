@@ -26,7 +26,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into administradores (cep, cidade, rua, bairro, numero, complemento) values (@cep, @cidade, @rua, @bairro, @numero, @complemento)";
+            command.CommandText = "insert into enderecos (cep, cidade, rua, bairro, numero, complemento) values (@cep, @cidade, @rua, @bairro, @numero, @complemento)";
             command.Parameters.AddWithValue("@cep", ende.CEP);
             command.Parameters.AddWithValue("@cidade", ende.Cidade);
             command.Parameters.AddWithValue("@rua", ende.Rua);
