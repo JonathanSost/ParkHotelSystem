@@ -24,6 +24,11 @@ namespace BLL
             {
                 erros.Add("Quarto Indisponível");
             }
+
+            if (!dal.VerificarExistenciaQuarto(qua.ID))
+            {
+                erros.Add("Quarto Inexistente!");
+            }
             if (erros.Count != 0)
             {
                 StringBuilder builder = new StringBuilder();
