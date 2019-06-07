@@ -50,18 +50,24 @@ namespace BLL
             {
                 erros.Add("Estado deve ser informado");
             }
-            else
+            //else
+            //{
+            //    if (endereco.Estado.ToLower() != "sc" && endereco.Estado.ToLower() != "rs" && endereco.Estado.ToLower() != "sp"
+            //        && endereco.Estado.ToLower() != "ac" && endereco.Estado.ToLower() != "pr" && endereco.Estado.ToLower() != "al" && endereco.Estado.ToLower() != "ap" &&
+            //         endereco.Estado.ToLower() != "am" && endereco.Estado.ToLower() != "ba" && endereco.Estado.ToLower() != "ce" && endereco.Estado.ToLower() != "df"
+            //         && endereco.Estado.ToLower() != "es" && endereco.Estado.ToLower() != "go" && endereco.Estado.ToLower() != "ma" && endereco.Estado.ToLower() != "mt"
+            //         && endereco.Estado.ToLower() != "ms" && endereco.Estado.ToLower() != "mg" && endereco.Estado.ToLower() != "pa" && endereco.Estado.ToLower() != "pb"
+            //         && endereco.Estado.ToLower() != "pe" && endereco.Estado.ToLower() != "pi" && endereco.Estado.ToLower() != "rj" && endereco.Estado.ToLower() != "rn"
+            //         && endereco.Estado.ToLower() != "ro" && endereco.Estado.ToLower() != "rr" && endereco.Estado.ToLower() != "se" && endereco.Estado.ToLower() != "to")
+            //    {
+            //        erros.Add("Estado inválido");
+            //    }
+            //}
+            EstadoDAL estdal = new EstadoDAL();
+
+            if (!estdal.VerificarExistenciaEstado(endereco.Estado))
             {
-                if (endereco.Estado != "SC" && endereco.Estado != "RS" && endereco.Estado != "SP"
-                    && endereco.Estado != "AC" && endereco.Estado != "PR" && endereco.Estado != "AL" && endereco.Estado != "AP" &&
-                     endereco.Estado != "AM" && endereco.Estado != "BA" && endereco.Estado != "CE" && endereco.Estado != "DF"
-                     && endereco.Estado != "ES" && endereco.Estado != "GO" && endereco.Estado != "MA" && endereco.Estado != "MT"
-                     && endereco.Estado != "MS" && endereco.Estado != "MG" && endereco.Estado != "PA" && endereco.Estado != "PB"
-                     && endereco.Estado != "PE" && endereco.Estado != "PI" && endereco.Estado != "RJ" && endereco.Estado != "RN"
-                     && endereco.Estado != "RO" && endereco.Estado != "RR" && endereco.Estado != "SE" && endereco.Estado != "TO")
-                {
-                    erros.Add("Estado inválido");
-                }
+                erros.Add("Estado inexistente!");
             }
             #endregion
 

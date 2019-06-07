@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Administradores
+    public class Administradores 
     {
         public Administradores(int id, string nome, string cpf, string rg, Enderecos endereco, string telefone, string email, string senha)
         {

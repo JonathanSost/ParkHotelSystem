@@ -59,5 +59,34 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public bool VerificarExistenciaEstado(string estado)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from estados where nome = @nome";
+            command.Parameters.AddWithValue("@nome", estado);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
     }
 }
