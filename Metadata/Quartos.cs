@@ -18,6 +18,7 @@ namespace Metadata
         public int ID { get; set; }
         public double Preco { get; set; }
         public string Tipo { get; set; }
+        public bool QuartoDisponivel { get; set; }
 
         public string LerDadosQuarto()
         {

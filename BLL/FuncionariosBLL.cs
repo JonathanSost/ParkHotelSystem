@@ -13,6 +13,7 @@ namespace BLL
     {
         private bool ValidarCPF(string cpf)
         {
+            #region Codigo Validar CPF
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             string tempCpf;
@@ -44,6 +45,7 @@ namespace BLL
                 resto = 11 - resto;
             digito = digito + resto.ToString();
             return cpf.EndsWith(digito);
+            #endregion
         }
 
         public string Cadastrar(Funcionarios fun)

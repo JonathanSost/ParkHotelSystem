@@ -45,7 +45,9 @@
     <Compile Include="EnderecosBLL.cs" />
     <Compile Include="FornecedoresBLL.cs" />
     <Compile Include="FuncionariosBLL.cs" />
+    <Compile Include="ProdutosBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuartosBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
