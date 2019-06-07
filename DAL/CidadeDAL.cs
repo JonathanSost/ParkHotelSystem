@@ -59,6 +59,35 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public bool VerificarExistenciaCidade(string cidade)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from cidades where nome = @nome";
+            command.Parameters.AddWithValue("@nome", cidade);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+
         public List<Cidades> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
