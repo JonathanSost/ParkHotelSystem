@@ -17,6 +17,8 @@ namespace ParkHotel
             InitializeComponent();
         }
 
+        private string teste = "";
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
