@@ -29,7 +29,7 @@ namespace Metadata
 
         public string LerDadosFornecedores()
         {
-            return NomeContato + "\r\n" + Telefone + "\r\n" + Email + "\r\n";
+            return NomeEmpresa + "\r\n" + NomeContato + "\r\n" + Telefone + "\r\n" + Email + "\r\n";
         }
         
     }

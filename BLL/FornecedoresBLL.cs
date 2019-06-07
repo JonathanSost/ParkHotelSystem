@@ -15,6 +15,7 @@ namespace BLL
         /// </summary>
         public bool ValidarCNPJ(string cnpj)
         {
+            #region Codigo Validar CNPJ
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int soma;
@@ -46,6 +47,7 @@ namespace BLL
                 resto = 11 - resto;
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
+            #endregion
         }
 
         public string Cadastrar(Fornecedores For)
