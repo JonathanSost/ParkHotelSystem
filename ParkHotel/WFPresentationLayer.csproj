@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBFCBDE5-6897-4E01-950C-5813A5DDDE78}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ParkHotel</RootNamespace>
+    <AssemblyName>ParkHotel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormGerClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerClientes.Designer.cs">
+      <DependentUpon>FormGerClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerFornecedores.Designer.cs">
+      <DependentUpon>FormGerFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerProdutos.Designer.cs">
+      <DependentUpon>FormGerProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGerQuartos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerQuartos.Designer.cs">
+      <DependentUpon>FormGerQuartos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegClientes.Designer.cs">
+      <DependentUpon>FormRegClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegFornecedores.Designer.cs">
+      <DependentUpon>FormRegFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegProdutos.Designer.cs">
+      <DependentUpon>FormRegProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegQuartos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegQuartos.Designer.cs">
+      <DependentUpon>FormRegQuartos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormGerClientes.resx">
+      <DependentUpon>FormGerClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerFornecedores.resx">
+      <DependentUpon>FormGerFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerProdutos.resx">
+      <DependentUpon>FormGerProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGerQuartos.resx">
+      <DependentUpon>FormGerQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegClientes.resx">
+      <DependentUpon>FormRegClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegFornecedores.resx">
+      <DependentUpon>FormRegFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegProdutos.resx">
+      <DependentUpon>FormRegProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegQuartos.resx">
+      <DependentUpon>FormRegQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
