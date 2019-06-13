@@ -97,13 +97,13 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
-                    Enderecos endereco = Convert.ToString(reader["ENDERECO"]);
+                    //Enderecos endereco = Convert.ToString(reader["ENDERECO"]);
                     string telefone1 = Convert.ToString(reader["TELEFONE1"]);
                     string telefone2 = Convert.ToString(reader["TELEFONE2"]);
                     string email = Convert.ToString(reader["EMAIL"]);
 
-                    Clientes cli = new Clientes(id, nome, cpf, rg, endereco, telefone1, telefone2, email);
-                    clientes.Add(cli);
+                    //Clientes cli = new Clientes(id, nome, cpf, rg, endereco, telefone1, telefone2, email);
+                    //clientes.Add(cli);
                 }
             }
             catch

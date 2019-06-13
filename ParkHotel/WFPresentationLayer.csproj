@@ -160,5 +160,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{26674eaa-6ede-421a-86d1-ddcc625fd876}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Metadata\Metadata.csproj">
+      <Project>{f6b01557-1883-4959-8758-0bf72f2a8fe7}</Project>
+      <Name>Metadata</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
