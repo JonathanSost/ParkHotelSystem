@@ -115,7 +115,37 @@ namespace DAL
                 connection.Dispose();
             }
 
+
+
             return clientes;
+        }
+        public bool VerificarExistenciaCliente(int idcliente)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from clientes where id = @id";
+            command.Parameters.AddWithValue("@id", idcliente);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
         }
     }
 }
