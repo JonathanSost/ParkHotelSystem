@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administradores.cs" />
     <Compile Include="Cidades.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="Enderecos.cs" />
@@ -53,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quartos.cs" />
     <Compile Include="Registro.cs" />
+    <Compile Include="Reservas.cs" />
     <Compile Include="Vendas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
