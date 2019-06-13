@@ -45,9 +45,6 @@ namespace BLL
             }
             #endregion
 
-
-            //afonso cláudio
-
             #region Estado
             if (string.IsNullOrWhiteSpace(endereco.Estado))
             {

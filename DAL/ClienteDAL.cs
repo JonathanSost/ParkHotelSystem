@@ -10,12 +10,12 @@ namespace DAL
 {
     public class ClienteDAL : IEntityCRUD<Clientes>
     {
-        public string Atualizar(Clientes item)
+        public string Atualizar(Clientes cli)
         {
             throw new NotImplementedException();
         }
 
-        public string Excluir(Clientes item)
+        public string Excluir(Clientes cli)
         {
             throw new NotImplementedException();
         }
@@ -97,7 +97,7 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
-                    string endereco = Convert.ToString(reader["ENDERECO"]);
+                    Enderecos endereco = Convert.ToString(reader["ENDERECO"]);
                     string telefone1 = Convert.ToString(reader["TELEFONE1"]);
                     string telefone2 = Convert.ToString(reader["TELEFONE2"]);
                     string email = Convert.ToString(reader["EMAIL"]);
