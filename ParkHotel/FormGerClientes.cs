@@ -14,12 +14,14 @@ namespace ParkHotel
 {
     public partial class FormGerClientes : Form
     {
+        ClientesBLL bll = new ClientesBLL();
+
         public FormGerClientes()
         {
             InitializeComponent();
-        }
+            dataGridView1.DataSource = bll.LerTodos();
 
-        ClientesBLL bll = new ClientesBLL();
+        }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -27,7 +29,6 @@ namespace ParkHotel
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
-            dataGridView1.DataSource = bll.LerTodos();
         }
     }
 }
