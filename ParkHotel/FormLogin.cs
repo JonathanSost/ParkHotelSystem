@@ -16,18 +16,29 @@ namespace ParkHotel
         {
             InitializeComponent();
         }
-
+        
  
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
+            
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cbVerSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVerSenha.Checked)
+            {
+                txtSenha.UseSystemPasswordChar = false;
+                return;
+            }
+            txtSenha.UseSystemPasswordChar = true;
         }
     }
 }

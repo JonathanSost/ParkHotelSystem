@@ -34,6 +34,7 @@
             this.lblSenha = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.cbVerSenha = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -55,6 +56,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(201, 27);
             this.txtSenha.TabIndex = 1;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // lblUsuario
             // 
@@ -104,6 +106,17 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // cbVerSenha
+            // 
+            this.cbVerSenha.AutoSize = true;
+            this.cbVerSenha.Location = new System.Drawing.Point(386, 144);
+            this.cbVerSenha.Name = "cbVerSenha";
+            this.cbVerSenha.Size = new System.Drawing.Size(108, 25);
+            this.cbVerSenha.TabIndex = 6;
+            this.cbVerSenha.Text = "Ver Senha";
+            this.cbVerSenha.UseVisualStyleBackColor = true;
+            this.cbVerSenha.CheckedChanged += new System.EventHandler(this.cbVerSenha_CheckedChanged);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -112,6 +125,7 @@
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(538, 312);
             this.ControlBox = false;
+            this.Controls.Add(this.cbVerSenha);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblSenha);
@@ -138,6 +152,7 @@
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.CheckBox cbVerSenha;
     }
 }
 
