@@ -16,13 +16,17 @@ namespace ParkHotel
         {
             InitializeComponent();
         }
-
+        
  
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
+            if (true)
+            {
+
+            }
 
             if (true)
             {
