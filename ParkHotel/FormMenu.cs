@@ -80,7 +80,5 @@ namespace ParkHotel
             this.Hide();
             login.Show();
         }
-
-        
     }
 }

@@ -36,8 +36,8 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.cbVerSenha = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNome1 = new System.Windows.Forms.Label();
+            this.lblNome2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.SystemColors.MenuText;
             this.txtUsuario.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtUsuario.Location = new System.Drawing.Point(181, 279);
+            this.txtUsuario.Location = new System.Drawing.Point(135, 281);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(274, 27);
@@ -55,7 +55,7 @@
             // 
             this.txtSenha.BackColor = System.Drawing.SystemColors.MenuText;
             this.txtSenha.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.txtSenha.Location = new System.Drawing.Point(181, 347);
+            this.txtSenha.Location = new System.Drawing.Point(135, 349);
             this.txtSenha.Margin = new System.Windows.Forms.Padding(5);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(201, 27);
@@ -66,7 +66,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblUsuario.Location = new System.Drawing.Point(84, 284);
+            this.lblUsuario.Location = new System.Drawing.Point(38, 286);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(70, 21);
@@ -77,7 +77,7 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblSenha.Location = new System.Drawing.Point(84, 352);
+            this.lblSenha.Location = new System.Drawing.Point(38, 354);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(63, 21);
@@ -88,7 +88,7 @@
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(111, 405);
+            this.btnLogin.Location = new System.Drawing.Point(65, 407);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 37);
@@ -101,7 +101,7 @@
             // 
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Location = new System.Drawing.Point(372, 405);
+            this.btnSair.Location = new System.Drawing.Point(326, 407);
             this.btnSair.Margin = new System.Windows.Forms.Padding(5);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(125, 37);
@@ -113,7 +113,7 @@
             // cbVerSenha
             // 
             this.cbVerSenha.AutoSize = true;
-            this.cbVerSenha.Location = new System.Drawing.Point(390, 347);
+            this.cbVerSenha.Location = new System.Drawing.Point(344, 349);
             this.cbVerSenha.Name = "cbVerSenha";
             this.cbVerSenha.Size = new System.Drawing.Size(108, 25);
             this.cbVerSenha.TabIndex = 6;
@@ -124,33 +124,33 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ParkHotel.Properties.Resources.aiosfgasifuashfoasfausfsa1;
-            this.pictureBox1.Location = new System.Drawing.Point(181, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(146, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 182);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // lblNome
+            // lblNome1
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Adventure", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(176, 206);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(78, 28);
-            this.lblNome.TabIndex = 8;
-            this.lblNome.Text = "Santo";
+            this.lblNome1.AutoSize = true;
+            this.lblNome1.Font = new System.Drawing.Font("Adventure", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Location = new System.Drawing.Point(141, 206);
+            this.lblNome1.Name = "lblNome1";
+            this.lblNome1.Size = new System.Drawing.Size(78, 28);
+            this.lblNome1.TabIndex = 8;
+            this.lblNome1.Text = "Santo";
             // 
-            // label1
+            // lblNome2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Adventure", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(250, 206);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 28);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Soninho";
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Adventure", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(215, 206);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(109, 28);
+            this.lblNome2.TabIndex = 9;
+            this.lblNome2.Text = "Soninho";
             // 
             // FormLogin
             // 
@@ -158,10 +158,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(538, 490);
+            this.ClientSize = new System.Drawing.Size(480, 478);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.lblNome2);
+            this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbVerSenha);
             this.Controls.Add(this.btnSair);
@@ -174,7 +174,8 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.MinimumSize = new System.Drawing.Size(538, 312);
+            this.MaximumSize = new System.Drawing.Size(480, 478);
+            this.MinimumSize = new System.Drawing.Size(480, 478);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Park Hotel";
@@ -194,8 +195,8 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.CheckBox cbVerSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNome1;
+        private System.Windows.Forms.Label lblNome2;
     }
 }
 

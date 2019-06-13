@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministradoresDAL.cs" />
     <Compile Include="CidadeDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="EnderecoDAL.cs" />
