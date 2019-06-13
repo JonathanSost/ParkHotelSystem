@@ -8,6 +8,17 @@ namespace Metadata
 {
     public class Funcionarios
     {
+        public Funcionarios()
+        {
+
+        }
+
+        public Funcionarios(int id, string email, string senha)
+        {
+            this.Email = email;
+            this.Senha = senha;
+        }
+
         public Funcionarios(int id, string nome, string cpf, string rg, Enderecos endereco, string telefone, string email, string senha, bool ehadm)
         {
             this.ID = id;

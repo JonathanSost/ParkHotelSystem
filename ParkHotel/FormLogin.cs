@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +18,27 @@ namespace ParkHotel
         {
             InitializeComponent();
         }
-        
- 
+
+        FuncionariosBLL bll = new FuncionariosBLL();
+        FormMenu menu = new FormMenu();
+
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu menu = new FormMenu();
-            menu.Show();
-            if (true)
+            if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
-
+                MessageBox.Show("Usuário e senha devem ser informados!");
+                return;
             }
+            Funcionarios fun = new Funcionarios(Registro.NOVO_REGISTRO, txtUsuario.Text, txtSenha.Text);
+            if (!bll.FuncionarioExiste())
+            {
+                MessageBox.Show("Usuário ou senha incorretos!");
+                return;
+            }
+        
+            this.Hide();
+            menu.Show();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace DAL
     {
         public static string GetConnectionString()
         {
-            return "";
+            return @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\moc\Documents\avalsjada.mdf;Integrated Security=True;Connect Timeout=30";
         }
     }
 }

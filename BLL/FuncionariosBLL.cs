@@ -48,6 +48,9 @@ namespace BLL
             #endregion
         }
 
+        FuncionariosDAL dal = new FuncionariosDAL();
+        Funcionarios funci = new Funcionarios();
+
         public string Cadastrar(Funcionarios fun)
         {
 
@@ -193,6 +196,11 @@ namespace BLL
             //chamar o DAL para cadastrar
             new FuncionariosDAL().Inserir(fun);
             return "Funcionário cadastrado com sucesso";
+        }
+
+        public bool FuncionarioExiste()
+        {
+            return dal.VerificarExistenciaFuncionario(funci.ID);
         }
     }
 }
