@@ -48,6 +48,8 @@ namespace BLL
             #endregion
         }
 
+        ClienteDAL dal = new ClienteDAL();
+
         public string Cadastrar(Clientes cli)
         {
             List<string> erros = new List<string>();
@@ -179,6 +181,11 @@ namespace BLL
             }
             new ClienteDAL().Inserir(cli);
             return "Cliente cadastrado com sucesso!";
+        }
+
+        public List<Clientes> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }

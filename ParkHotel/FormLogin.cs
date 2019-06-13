@@ -23,6 +23,11 @@ namespace ParkHotel
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
+
+            if (true)
+            {
+
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)

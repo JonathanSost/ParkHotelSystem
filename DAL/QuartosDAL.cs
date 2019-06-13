@@ -27,9 +27,9 @@ namespace DAL
             SqlCommand command = new SqlCommand();
 
             command.CommandText = "insert into produtos (preco, tipo, disponivel) values (@preco, @tipo, @disponivel)";
-            command.Parameters.AddWithValue("@precound", quarto.Preco);
-            command.Parameters.AddWithValue("@nome", quarto.Tipo);
-            command.Parameters.AddWithValue("@descricao", quarto.QuartoDisponivel);
+            command.Parameters.AddWithValue("@preco", quarto.Preco);
+            command.Parameters.AddWithValue("@tipo", quarto.Tipo);
+            command.Parameters.AddWithValue("@disponivel", quarto.QuartoDisponivel);
 
             command.Connection = connection;
 

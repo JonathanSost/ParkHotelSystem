@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,11 +19,15 @@ namespace ParkHotel
             InitializeComponent();
         }
 
+        ClientesBLL bll = new ClientesBLL();
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
+            dataGridView1.DataSource = bll.LerTodos();
         }
     }
 }

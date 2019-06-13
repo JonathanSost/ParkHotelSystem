@@ -65,7 +65,48 @@ namespace DAL
 
         public List<Enderecos> LerTodos()
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select * from enderecos";
+
+            command.Connection = connection;
+
+            List<Enderecos> enderecos = new List<Enderecos>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    //Enderecos ende = new Enderecos(id, cep, Estado, Cidade, bairro, rua, numero, complemento);
+                    //enderecos.Add(ende);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+
+            return enderecos;
         }
     }
 }
