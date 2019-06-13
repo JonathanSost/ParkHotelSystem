@@ -38,16 +38,20 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.Window;
             this.txtUsuario.Location = new System.Drawing.Point(177, 76);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(274, 27);
             this.txtUsuario.TabIndex = 0;
             // 
             // txtSenha
             // 
+            this.txtSenha.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtSenha.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.txtSenha.Location = new System.Drawing.Point(177, 144);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(5);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(201, 27);
             this.txtSenha.TabIndex = 1;
@@ -55,6 +59,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblUsuario.Location = new System.Drawing.Point(80, 81);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsuario.Name = "lblUsuario";
@@ -65,6 +70,7 @@
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
+            this.lblSenha.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblSenha.Location = new System.Drawing.Point(80, 149);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSenha.Name = "lblSenha";
@@ -74,9 +80,10 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Location = new System.Drawing.Point(107, 202);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 37);
             this.btnLogin.TabIndex = 4;
@@ -86,9 +93,10 @@
             // 
             // btnSair
             // 
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Location = new System.Drawing.Point(368, 202);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(5);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(125, 37);
             this.btnSair.TabIndex = 5;
@@ -113,7 +121,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Park Hotel";
