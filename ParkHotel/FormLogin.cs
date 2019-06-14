@@ -20,6 +20,7 @@ namespace ParkHotel
         }
 
         FuncionariosBLL bll = new FuncionariosBLL();
+        public string Nome { get; set; }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

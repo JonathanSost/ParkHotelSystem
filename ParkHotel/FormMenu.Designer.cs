@@ -41,13 +41,13 @@
             this.lblGerenciamento = new System.Windows.Forms.Label();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNome = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblNome = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnInfo = new System.Windows.Forms.Button();
             this.lblHora = new System.Windows.Forms.Label();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.Relogio = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -66,7 +66,7 @@
             this.btnGerProdutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerProdutos.Name = "btnGerProdutos";
             this.btnGerProdutos.Size = new System.Drawing.Size(168, 58);
-            this.btnGerProdutos.TabIndex = 0;
+            this.btnGerProdutos.TabIndex = 7;
             this.btnGerProdutos.Text = "Produtos";
             this.btnGerProdutos.UseVisualStyleBackColor = false;
             this.btnGerProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
@@ -81,7 +81,7 @@
             this.btnGerClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerClientes.Name = "btnGerClientes";
             this.btnGerClientes.Size = new System.Drawing.Size(168, 58);
-            this.btnGerClientes.TabIndex = 1;
+            this.btnGerClientes.TabIndex = 2;
             this.btnGerClientes.Text = "Clientes";
             this.btnGerClientes.UseVisualStyleBackColor = false;
             this.btnGerClientes.Click += new System.EventHandler(this.btnClientes_Click);
@@ -96,7 +96,7 @@
             this.btnGerFornecedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerFornecedores.Name = "btnGerFornecedores";
             this.btnGerFornecedores.Size = new System.Drawing.Size(168, 58);
-            this.btnGerFornecedores.TabIndex = 2;
+            this.btnGerFornecedores.TabIndex = 3;
             this.btnGerFornecedores.Text = "Fornecedores";
             this.btnGerFornecedores.UseVisualStyleBackColor = false;
             this.btnGerFornecedores.Click += new System.EventHandler(this.btnFornecedores_Click);
@@ -111,7 +111,7 @@
             this.btnGerQuartos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerQuartos.Name = "btnGerQuartos";
             this.btnGerQuartos.Size = new System.Drawing.Size(168, 58);
-            this.btnGerQuartos.TabIndex = 3;
+            this.btnGerQuartos.TabIndex = 4;
             this.btnGerQuartos.Text = "Quartos";
             this.btnGerQuartos.UseVisualStyleBackColor = false;
             this.btnGerQuartos.Click += new System.EventHandler(this.btnQuartos_Click);
@@ -125,7 +125,7 @@
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
-            this.btnLogoff.TabIndex = 8;
+            this.btnLogoff.TabIndex = 6;
             this.btnLogoff.Text = "Logoff";
             this.btnLogoff.UseVisualStyleBackColor = false;
             this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
@@ -140,7 +140,7 @@
             this.btnRegQuartos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegQuartos.Name = "btnRegQuartos";
             this.btnRegQuartos.Size = new System.Drawing.Size(168, 58);
-            this.btnRegQuartos.TabIndex = 7;
+            this.btnRegQuartos.TabIndex = 10;
             this.btnRegQuartos.Text = "Quartos";
             this.btnRegQuartos.UseVisualStyleBackColor = false;
             this.btnRegQuartos.Click += new System.EventHandler(this.btnRegQuartos_Click);
@@ -155,7 +155,7 @@
             this.btnRegFornecedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegFornecedores.Name = "btnRegFornecedores";
             this.btnRegFornecedores.Size = new System.Drawing.Size(168, 58);
-            this.btnRegFornecedores.TabIndex = 6;
+            this.btnRegFornecedores.TabIndex = 9;
             this.btnRegFornecedores.Text = "Fornecedores";
             this.btnRegFornecedores.UseVisualStyleBackColor = false;
             this.btnRegFornecedores.Click += new System.EventHandler(this.btnRegFornecedores_Click);
@@ -170,7 +170,7 @@
             this.btnRegClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegClientes.Name = "btnRegClientes";
             this.btnRegClientes.Size = new System.Drawing.Size(168, 58);
-            this.btnRegClientes.TabIndex = 5;
+            this.btnRegClientes.TabIndex = 8;
             this.btnRegClientes.Text = "Clientes";
             this.btnRegClientes.UseVisualStyleBackColor = false;
             this.btnRegClientes.Click += new System.EventHandler(this.btnRegClientes_Click);
@@ -185,7 +185,7 @@
             this.btnRegProdutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegProdutos.Name = "btnRegProdutos";
             this.btnRegProdutos.Size = new System.Drawing.Size(168, 58);
-            this.btnRegProdutos.TabIndex = 4;
+            this.btnRegProdutos.TabIndex = 1;
             this.btnRegProdutos.Text = "Produtos";
             this.btnRegProdutos.UseVisualStyleBackColor = false;
             this.btnRegProdutos.Click += new System.EventHandler(this.btnRegProdutos_Click);
@@ -229,8 +229,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 468);
+            this.panel1.Size = new System.Drawing.Size(278, 468);
             this.panel1.TabIndex = 11;
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(10, 437);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(12, 20);
+            this.lblNome.TabIndex = 9;
+            this.lblNome.Text = "l";
             // 
             // lblNome2
             // 
@@ -255,22 +264,13 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SlateGray;
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.btnLogoff);
             this.panel2.Location = new System.Drawing.Point(354, 408);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(259, 60);
             this.panel2.TabIndex = 12;
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(10, 437);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(12, 20);
-            this.lblNome.TabIndex = 9;
-            this.lblNome.Text = "l";
             // 
             // panel3
             // 
@@ -288,21 +288,6 @@
             this.panel3.Size = new System.Drawing.Size(282, 468);
             this.panel3.TabIndex = 12;
             // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.Location = new System.Drawing.Point(131, 19);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(157, 58);
-            this.btnInfo.TabIndex = 12;
-            this.btnInfo.Text = "Minhas Informações";
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
@@ -313,6 +298,21 @@
             this.lblHora.TabIndex = 13;
             this.lblHora.Text = "label1";
             // 
+            // btnInfo
+            // 
+            this.btnInfo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.Location = new System.Drawing.Point(131, 19);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(157, 58);
+            this.btnInfo.TabIndex = 5;
+            this.btnInfo.Text = "Minhas Informações";
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
             // Relogio
             // 
             this.Relogio.Enabled = true;
@@ -321,12 +321,12 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Controls.Add(this.btnInfo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(272, 0);
+            this.panel4.Location = new System.Drawing.Point(278, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(408, 100);
+            this.panel4.Size = new System.Drawing.Size(402, 100);
             this.panel4.TabIndex = 13;
             // 
             // FormMenu
@@ -341,7 +341,6 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(962, 504);
             this.Name = "FormMenu";
