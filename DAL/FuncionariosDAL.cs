@@ -33,7 +33,7 @@ namespace DAL
             command.Parameters.AddWithValue("@endereco", fun.Endereco);
             command.Parameters.AddWithValue("@telefone", fun.Telefone);
             command.Parameters.AddWithValue("@email", fun.Email);
-            command.Parameters.AddWithValue("@senha", fun.Email);
+            command.Parameters.AddWithValue("@senha", fun.Senha);
 
             command.Connection = connection;
 
@@ -92,6 +92,22 @@ namespace DAL
                 connection.Dispose();
             }
             return false;
+        }
+
+        public string EstaLogado(Funcionarios fun)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from funcionarios where email = @email and senha = @senha";
+            command.Parameters.AddWithValue("@email", fun.Email);
+            command.Parameters.AddWithValue("@senha", fun.Senha);
+            command.Connection = connection;
+
+
+            return "";
         }
     }
 }
