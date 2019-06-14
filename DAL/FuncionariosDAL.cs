@@ -35,8 +35,6 @@ namespace DAL
             command.Parameters.AddWithValue("@email", fun.Email);
             command.Parameters.AddWithValue("@senha", fun.Senha);
 
-            //aaaa
-
             command.Connection = connection;
 
             try
