@@ -62,7 +62,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Quartos q = new Quartos(0, 0, "");
+            Quartos q = new Quartos(0, 0, "", true);
 
             try
             {
@@ -76,7 +76,8 @@ namespace DAL
                     //int id = (int)reader["ID"];
                     double preco = Convert.ToDouble(reader["PRECO"]);
                     string tipo = Convert.ToString(reader["TIPO"]);
-                    q = new Quartos(id, preco, tipo);
+                    bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
+                    q = new Quartos(id, preco, tipo, disponivel);
                 }
             }
             catch
@@ -92,7 +93,42 @@ namespace DAL
 
         public List<Quartos> LerTodos()
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from quartos";
+            command.Connection = connection;
+
+            List<Quartos> quartos = new List<Quartos>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    double preco = Convert.ToDouble(reader["PRECO"]);
+                    string tipo = Convert.ToString(reader["TIPO"]);
+                    bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
+                    Quartos quarto = new Quartos(id, preco, tipo, disponivel);
+                    quartos.Add(quarto);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
         }
 
         public bool VerificarExistenciaQuarto(int idquarto)

@@ -8,11 +8,12 @@ namespace Metadata
 {
     public class Quartos
     {
-        public Quartos (int id, double preco, string tipo)
+        public Quartos (int id, double preco, string tipo, bool quartodisponivel)
         {
             this.ID = id;
             this.Preco = preco;
             this.Tipo = tipo;
+            this.QuartoDisponivel = quartodisponivel;
         }
 
         public int ID { get; set; }

@@ -10,14 +10,68 @@ namespace DAL
 {
     public class EnderecoDAL : IEntityCRUD<Enderecos>
     {
-        public string Atualizar(Enderecos item)
+        public string Atualizar(Enderecos ende)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "update enderecos set cep = @cep, cidade = @cidade, rua = @rua, " +
+                "bairro = @bairro, numero = @numero, complemento = @complemento where id = @id";
+            command.Parameters.AddWithValue("@cep", ende.CEP);
+            command.Parameters.AddWithValue("@cidade", ende.Cidade);
+            command.Parameters.AddWithValue("@rua", ende.Rua);
+            command.Parameters.AddWithValue("@bairro", ende.Bairro);
+            command.Parameters.AddWithValue("@numero", ende.Numero);
+            command.Parameters.AddWithValue("@complemento", ende.Complemento);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Cliente atualizado com sucesso!";
         }
 
-        public string Excluir(Enderecos item)
+        public string Excluir(Enderecos ende)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "delete from enderecos where id = @id";
+            command.Parameters.AddWithValue("@id", ende.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Endereço deletado do sistema com sucesso!";
         }
 
         public string Inserir(Enderecos ende)

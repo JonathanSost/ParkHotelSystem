@@ -42,7 +42,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Banco de dados indisponível, favor contatar o suporte.";
             }

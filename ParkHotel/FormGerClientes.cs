@@ -26,9 +26,14 @@ namespace ParkHotel
         private void btnVoltar_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
+            this.Close();
             FormMenu menu = new FormMenu();
             menu.Show();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

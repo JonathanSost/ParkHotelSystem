@@ -16,7 +16,8 @@ namespace ParkHotel
         public FormMenu()
         {
             InitializeComponent();
-            lblNome.Text = "Bem-Vindo, " + new Funcionarios().Nome;
+            lblNome.Text = "Bem-Vindo, ";// + Funcionarios.Nome;
+            lblHora.Text = DateTime.Now.ToString("dddd, dd MMM yyyy, HH:mm");
         }
 
         //FormGerProdutos produtos = new FormGerProdutos();
@@ -81,6 +82,16 @@ namespace ParkHotel
         {
             this.Hide();
             new FormLogin().Show();
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Relogio_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("dddd, dd MMM yyyy, HH:mm");
         }
     }
 }

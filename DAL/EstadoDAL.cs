@@ -52,12 +52,81 @@ namespace DAL
 
         public Estados LerPorID(int id)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from estados where id = @id";
+            command.Parameters.AddWithValue("@id", id);
+            command.Connection = connection;
+
+            Estados est = new Estados(0, "", "");
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string sigla = Convert.ToString(reader["SIGLA"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    Estados estado = new Estados(id, sigla, nome);
+                    est = estado;
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return est;
         }
 
         public List<Estados> LerTodos()
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from estados";
+            command.Connection = connection;
+
+            List<Estados> estados = new List<Estados>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string sigla = Convert.ToString(reader["SIGLA"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    Estados estado = new Estados(id, sigla, nome);
+                    estados.Add(estado);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return estados;
         }
 
         public bool VerificarExistenciaEstado(string estado)

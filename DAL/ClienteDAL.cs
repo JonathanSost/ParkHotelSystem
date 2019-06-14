@@ -12,12 +12,65 @@ namespace DAL
     {
         public string Atualizar(Clientes cli)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "update cidades set nome = @nome where id = @id";
+            command.Parameters.AddWithValue("@nome", cli.Nome);
+            command.Parameters.AddWithValue("@id", cli.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Cliente atualizado com sucesso!";
         }
 
         public string Excluir(Clientes cli)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "delete from cidades where id = @id";
+            command.Parameters.AddWithValue("@id", cli.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("FK"))
+                {
+                    return "Estado inválido!";
+                }
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Cidade deletada do sistema com sucesso!";
         }
 
         public string Inserir(Clientes cli)
