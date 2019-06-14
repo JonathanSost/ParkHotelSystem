@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,70 +16,71 @@ namespace ParkHotel
         public FormMenu()
         {
             InitializeComponent();
+            lblNome.Text = "Bem-Vindo, " + new Funcionarios().Nome;
         }
 
-        FormGerProdutos produtos = new FormGerProdutos();
-        FormGerClientes clientes = new FormGerClientes();
-        FormGerFornecedores fornecedores = new FormGerFornecedores();
-        FormGerQuartos quartos = new FormGerQuartos();
-        FormRegClientes regClientes = new FormRegClientes();
-        FormRegFornecedores regFornecedores = new FormRegFornecedores();
-        FormRegProdutos regProdutos = new FormRegProdutos();
-        FormRegQuartos regQuartos = new FormRegQuartos();
-        FormLogin login = new FormLogin();
+        //FormGerProdutos produtos = new FormGerProdutos();
+        //FormGerClientes clientes = new FormGerClientes();
+        //FormGerFornecedores fornecedores = new FormGerFornecedores();
+        //FormGerQuartos quartos = new FormGerQuartos();
+        //FormRegClientes regClientes = new FormRegClientes();
+        //FormRegFornecedores regFornecedores = new FormRegFornecedores();
+        //FormRegProdutos regProdutos = new FormRegProdutos();
+        //FormRegQuartos regQuartos = new FormRegQuartos();
+        //FormLogin login = new FormLogin();
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            produtos.Show();
+            new FormGerProdutos().Show();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            clientes.Show();
+            new FormGerClientes().Show();
         }
 
         private void btnFornecedores_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fornecedores.Show();
+            new FormGerFornecedores().Show();
         }
 
         private void btnQuartos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            quartos.Show();
+            new FormGerQuartos().Show();
         }
 
         private void btnRegProdutos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            regProdutos.Show();
+            new FormRegProdutos().Show();
         }
 
         private void btnRegClientes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            regClientes.Show();
+            new FormRegClientes().Show();
         }
 
         private void btnRegFornecedores_Click(object sender, EventArgs e)
         {
             this.Hide();
-            regFornecedores.Show();
+            new FormRegFornecedores().Show();
         }
 
         private void btnRegQuartos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            regQuartos.Show();
+            new FormRegQuartos().Show();
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
         {
             this.Hide();
-            login.Show();
+            new FormLogin().Show();
         }
     }
 }

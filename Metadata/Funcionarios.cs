@@ -13,7 +13,7 @@ namespace Metadata
 
         }
 
-        public Funcionarios(int id, string email, string senha)
+        public Funcionarios(string email, string senha)
         {
             this.Email = email;
             this.Senha = senha;
@@ -42,9 +42,9 @@ namespace Metadata
         public string Senha { get; set; }
         public bool EhADM { get; set; }
 
-        public string LerDadosFuncionario()
-        {
-            return Nome + "\r\n" + CPF + "\r\n" + RG + "\r\n" + Telefone + "\r\n" + Endereco + "\r\n" + Email + "\r\n" + Senha + "\r\n";
-        }
+        //public string LerDadosFuncionario()
+        //{
+        //    return Nome + "\r\n" + CPF + "\r\n" + RG + "\r\n" + Telefone + "\r\n" + Endereco + "\r\n" + Email + "\r\n" + Senha + "\r\n";
+        //}
     }
 }

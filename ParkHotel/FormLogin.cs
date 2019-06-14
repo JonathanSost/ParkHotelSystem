@@ -20,8 +20,6 @@ namespace ParkHotel
         }
 
         FuncionariosBLL bll = new FuncionariosBLL();
-        FormMenu menu = new FormMenu();
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -30,15 +28,15 @@ namespace ParkHotel
                 MessageBox.Show("Usuário e senha devem ser informados!");
                 return;
             }
-            Funcionarios fun = new Funcionarios(Registro.NOVO_REGISTRO, txtUsuario.Text, txtSenha.Text);
-            if (!bll.FuncionarioExiste())
+            Funcionarios fun = new Funcionarios(txtUsuario.Text, txtSenha.Text);
+            if (!bll.FuncionarioExiste(fun))
             {
                 MessageBox.Show("Usuário ou senha incorretos!");
                 return;
             }
         
             this.Hide();
-            menu.Show();
+            new FormMenu().Show();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

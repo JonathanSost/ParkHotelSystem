@@ -40,11 +40,12 @@
             this.lblGerenciamento = new System.Windows.Forms.Label();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -204,7 +205,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblNome2);
             this.panel1.Controls.Add(this.lblNome1);
             this.panel1.Controls.Add(this.lblGerenciamento);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -213,24 +214,24 @@
             this.panel1.Size = new System.Drawing.Size(963, 63);
             this.panel1.TabIndex = 11;
             // 
-            // label2
+            // lblNome2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Adventure", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(49, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Soninho";
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Algerian", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(69, 21);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(65, 15);
+            this.lblNome2.TabIndex = 11;
+            this.lblNome2.Text = "Soninho";
             // 
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Adventure", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Algerian", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(10, 21);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(44, 16);
+            this.lblNome1.Size = new System.Drawing.Size(53, 15);
             this.lblNome1.TabIndex = 10;
             this.lblNome1.Text = "Santo";
             // 
@@ -238,6 +239,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.OrangeRed;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.lblNome);
             this.panel2.Controls.Add(this.btnLogoff);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 402);
@@ -265,6 +267,15 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" +
     " - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(13, 22);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(12, 20);
+            this.lblNome.TabIndex = 9;
+            this.lblNome.Text = "l";
             // 
             // FormMenu
             // 
@@ -296,6 +307,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -320,7 +332,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;
+        private System.Windows.Forms.Label lblNome;
     }
 }

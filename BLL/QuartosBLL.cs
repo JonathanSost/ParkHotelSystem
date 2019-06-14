@@ -18,7 +18,6 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(qua.Tipo))
             {
                 erros.Add("Tipo do Quarto deve ser informado.");
-
             }
             if (!qua.QuartoDisponivel)
             {

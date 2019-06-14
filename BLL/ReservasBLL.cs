@@ -42,8 +42,5 @@ namespace BLL
             }
             return dal.Inserir(res);
         }
-        
-       
-        
     }
 }

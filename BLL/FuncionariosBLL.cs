@@ -49,7 +49,6 @@ namespace BLL
         }
 
         FuncionariosDAL dal = new FuncionariosDAL();
-        Funcionarios funci = new Funcionarios();
 
         public string Cadastrar(Funcionarios fun)
         {
@@ -198,9 +197,9 @@ namespace BLL
             return "Funcionário cadastrado com sucesso";
         }
 
-        public bool FuncionarioExiste()
+        public bool FuncionarioExiste(Funcionarios funci)
         {
-            return dal.VerificarExistenciaFuncionario(funci.ID);
+            return dal.VerificarExistenciaFuncionario(funci);
         }
     }
 }
