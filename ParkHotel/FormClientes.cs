@@ -88,7 +88,6 @@ namespace ParkHotel
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
             cmbEstado.DataSource = estbll.LerTodos();
-            cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);

@@ -276,7 +276,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select c.nome from cidades c inner join estados e on c.estado = e.id where e.id = @id";
+            command.CommandText = "select * from cidades c inner join estados e on c.estado = e.id where e.id = @id";
             command.Parameters.AddWithValue("@id", idestado);
 
             List<Cidades> cidades = new List<Cidades>();
