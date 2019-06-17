@@ -10,6 +10,7 @@ namespace DAL
 {
     public class FornecedoresDAL : IEntityCRUD<Fornecedores>
     {
+        #region Atualizar
         public string Atualizar(Fornecedores fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -43,7 +44,9 @@ namespace DAL
 
             return "Fornecedor atualizado com sucesso!";
         }
+        #endregion
 
+        #region Excluir
         public string Excluir(Fornecedores fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -72,7 +75,9 @@ namespace DAL
 
             return "Cidade deletada do sistema com sucesso!";
         }
+        #endregion
 
+        #region Inserir
         public string Inserir(Fornecedores fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -105,7 +110,9 @@ namespace DAL
 
             return "";
         }
+        #endregion
 
+        #region Ler Por ID
         public Fornecedores LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -148,7 +155,9 @@ namespace DAL
             }
             return f;
         }
+        #endregion
 
+        #region Ler Todos
         public List<Fornecedores> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
@@ -191,5 +200,6 @@ namespace DAL
             }
             return fornecedores;
         }
+        #endregion
     }
 }

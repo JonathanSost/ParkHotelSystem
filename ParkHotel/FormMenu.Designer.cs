@@ -41,7 +41,7 @@
             this.lblGerenciamento = new System.Windows.Forms.Label();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNome = new System.Windows.Forms.Label();
+            this.lblNomeFuncionario = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -50,6 +50,8 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.Relogio = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnGerFuncionarios = new System.Windows.Forms.Button();
+            this.btnRegFuncionarios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,11 +63,11 @@
             this.btnGerProdutos.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnGerProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerProdutos.Location = new System.Drawing.Point(70, 80);
+            this.btnGerProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerProdutos.Location = new System.Drawing.Point(100, 104);
             this.btnGerProdutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerProdutos.Name = "btnGerProdutos";
-            this.btnGerProdutos.Size = new System.Drawing.Size(168, 58);
+            this.btnGerProdutos.Size = new System.Drawing.Size(130, 37);
             this.btnGerProdutos.TabIndex = 7;
             this.btnGerProdutos.Text = "Produtos";
             this.btnGerProdutos.UseVisualStyleBackColor = false;
@@ -77,10 +79,10 @@
             this.btnGerClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerClientes.Location = new System.Drawing.Point(46, 169);
+            this.btnGerClientes.Location = new System.Drawing.Point(46, 172);
             this.btnGerClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerClientes.Name = "btnGerClientes";
-            this.btnGerClientes.Size = new System.Drawing.Size(168, 58);
+            this.btnGerClientes.Size = new System.Drawing.Size(130, 37);
             this.btnGerClientes.TabIndex = 2;
             this.btnGerClientes.Text = "Clientes";
             this.btnGerClientes.UseVisualStyleBackColor = false;
@@ -92,10 +94,10 @@
             this.btnGerFornecedores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerFornecedores.Location = new System.Drawing.Point(46, 257);
+            this.btnGerFornecedores.Location = new System.Drawing.Point(46, 241);
             this.btnGerFornecedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerFornecedores.Name = "btnGerFornecedores";
-            this.btnGerFornecedores.Size = new System.Drawing.Size(168, 58);
+            this.btnGerFornecedores.Size = new System.Drawing.Size(130, 37);
             this.btnGerFornecedores.TabIndex = 3;
             this.btnGerFornecedores.Text = "Fornecedores";
             this.btnGerFornecedores.UseVisualStyleBackColor = false;
@@ -107,10 +109,10 @@
             this.btnGerQuartos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGerQuartos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerQuartos.Location = new System.Drawing.Point(46, 345);
+            this.btnGerQuartos.Location = new System.Drawing.Point(46, 304);
             this.btnGerQuartos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerQuartos.Name = "btnGerQuartos";
-            this.btnGerQuartos.Size = new System.Drawing.Size(168, 58);
+            this.btnGerQuartos.Size = new System.Drawing.Size(130, 37);
             this.btnGerQuartos.TabIndex = 4;
             this.btnGerQuartos.Text = "Quartos";
             this.btnGerQuartos.UseVisualStyleBackColor = false;
@@ -136,10 +138,10 @@
             this.btnRegQuartos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegQuartos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegQuartos.Location = new System.Drawing.Point(70, 343);
+            this.btnRegQuartos.Location = new System.Drawing.Point(100, 304);
             this.btnRegQuartos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegQuartos.Name = "btnRegQuartos";
-            this.btnRegQuartos.Size = new System.Drawing.Size(168, 58);
+            this.btnRegQuartos.Size = new System.Drawing.Size(130, 37);
             this.btnRegQuartos.TabIndex = 10;
             this.btnRegQuartos.Text = "Quartos";
             this.btnRegQuartos.UseVisualStyleBackColor = false;
@@ -151,10 +153,10 @@
             this.btnRegFornecedores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegFornecedores.Location = new System.Drawing.Point(70, 257);
+            this.btnRegFornecedores.Location = new System.Drawing.Point(100, 241);
             this.btnRegFornecedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegFornecedores.Name = "btnRegFornecedores";
-            this.btnRegFornecedores.Size = new System.Drawing.Size(168, 58);
+            this.btnRegFornecedores.Size = new System.Drawing.Size(130, 37);
             this.btnRegFornecedores.TabIndex = 9;
             this.btnRegFornecedores.Text = "Fornecedores";
             this.btnRegFornecedores.UseVisualStyleBackColor = false;
@@ -166,10 +168,10 @@
             this.btnRegClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegClientes.Location = new System.Drawing.Point(70, 169);
+            this.btnRegClientes.Location = new System.Drawing.Point(100, 172);
             this.btnRegClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegClientes.Name = "btnRegClientes";
-            this.btnRegClientes.Size = new System.Drawing.Size(168, 58);
+            this.btnRegClientes.Size = new System.Drawing.Size(130, 37);
             this.btnRegClientes.TabIndex = 8;
             this.btnRegClientes.Text = "Clientes";
             this.btnRegClientes.UseVisualStyleBackColor = false;
@@ -180,11 +182,11 @@
             this.btnRegProdutos.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnRegProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegProdutos.Location = new System.Drawing.Point(46, 80);
+            this.btnRegProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegProdutos.Location = new System.Drawing.Point(46, 104);
             this.btnRegProdutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegProdutos.Name = "btnRegProdutos";
-            this.btnRegProdutos.Size = new System.Drawing.Size(168, 58);
+            this.btnRegProdutos.Size = new System.Drawing.Size(130, 37);
             this.btnRegProdutos.TabIndex = 1;
             this.btnRegProdutos.Text = "Produtos";
             this.btnRegProdutos.UseVisualStyleBackColor = false;
@@ -195,7 +197,7 @@
             this.lblGerenciamento.AutoSize = true;
             this.lblGerenciamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGerenciamento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblGerenciamento.Location = new System.Drawing.Point(75, 54);
+            this.lblGerenciamento.Location = new System.Drawing.Point(52, 65);
             this.lblGerenciamento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGerenciamento.Name = "lblGerenciamento";
             this.lblGerenciamento.Size = new System.Drawing.Size(119, 20);
@@ -207,7 +209,7 @@
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistro.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblRegistro.Location = new System.Drawing.Point(113, 51);
+            this.lblRegistro.Location = new System.Drawing.Point(125, 61);
             this.lblRegistro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(79, 24);
@@ -218,7 +220,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lblNome);
+            this.panel1.Controls.Add(this.lblNomeFuncionario);
+            this.panel1.Controls.Add(this.btnGerFuncionarios);
             this.panel1.Controls.Add(this.lblNome2);
             this.panel1.Controls.Add(this.lblNome1);
             this.panel1.Controls.Add(this.lblGerenciamento);
@@ -229,17 +232,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 468);
+            this.panel1.Size = new System.Drawing.Size(280, 468);
             this.panel1.TabIndex = 11;
             // 
-            // lblNome
+            // lblNomeFuncionario
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(10, 437);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(12, 20);
-            this.lblNome.TabIndex = 9;
-            this.lblNome.Text = "l";
+            this.lblNomeFuncionario.AutoSize = true;
+            this.lblNomeFuncionario.Location = new System.Drawing.Point(10, 437);
+            this.lblNomeFuncionario.Name = "lblNomeFuncionario";
+            this.lblNomeFuncionario.Size = new System.Drawing.Size(12, 20);
+            this.lblNomeFuncionario.TabIndex = 9;
+            this.lblNomeFuncionario.Text = "l";
             // 
             // lblNome2
             // 
@@ -276,6 +279,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.SlateGray;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btnRegFuncionarios);
             this.panel3.Controls.Add(this.lblHora);
             this.panel3.Controls.Add(this.lblRegistro);
             this.panel3.Controls.Add(this.btnGerProdutos);
@@ -291,10 +295,10 @@
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("DFGothic-EB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.Location = new System.Drawing.Point(13, 439);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(56, 16);
+            this.lblHora.Size = new System.Drawing.Size(51, 20);
             this.lblHora.TabIndex = 13;
             this.lblHora.Text = "label1";
             // 
@@ -324,10 +328,40 @@
             this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.Controls.Add(this.btnInfo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(278, 0);
+            this.panel4.Location = new System.Drawing.Point(280, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(402, 100);
+            this.panel4.Size = new System.Drawing.Size(400, 100);
             this.panel4.TabIndex = 13;
+            // 
+            // btnGerFuncionarios
+            // 
+            this.btnGerFuncionarios.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGerFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGerFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerFuncionarios.Location = new System.Drawing.Point(46, 364);
+            this.btnGerFuncionarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGerFuncionarios.Name = "btnGerFuncionarios";
+            this.btnGerFuncionarios.Size = new System.Drawing.Size(130, 37);
+            this.btnGerFuncionarios.TabIndex = 14;
+            this.btnGerFuncionarios.Text = "Funcionários";
+            this.btnGerFuncionarios.UseVisualStyleBackColor = false;
+            this.btnGerFuncionarios.Click += new System.EventHandler(this.btnGerFuncionarios_Click);
+            // 
+            // btnRegFuncionarios
+            // 
+            this.btnRegFuncionarios.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRegFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegFuncionarios.Location = new System.Drawing.Point(100, 364);
+            this.btnRegFuncionarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRegFuncionarios.Name = "btnRegFuncionarios";
+            this.btnRegFuncionarios.Size = new System.Drawing.Size(130, 37);
+            this.btnRegFuncionarios.TabIndex = 15;
+            this.btnRegFuncionarios.Text = "Funcionários";
+            this.btnRegFuncionarios.UseVisualStyleBackColor = false;
+            this.btnRegFuncionarios.Click += new System.EventHandler(this.btnRegFuncionarios_Click);
             // 
             // FormMenu
             // 
@@ -376,10 +410,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;
-        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblNomeFuncionario;
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer Relogio;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnGerFuncionarios;
+        private System.Windows.Forms.Button btnRegFuncionarios;
     }
 }

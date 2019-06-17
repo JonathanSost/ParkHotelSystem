@@ -21,7 +21,7 @@ namespace Metadata
             this.Senha = senha;
         }
 
-        public Funcionarios(int id, string nome, string cpf, string rg, Enderecos endereco, string telefone, string email, string senha, bool ehadm)
+        public Funcionarios(int id, string nome, string cpf, string rg, int endereco, string telefone, string email, string senha, bool ehadm)
         {
             this.ID = id;
             this.Nome = nome;
@@ -38,7 +38,7 @@ namespace Metadata
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-        public Enderecos Endereco { get; set; }
+        public int Endereco { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }

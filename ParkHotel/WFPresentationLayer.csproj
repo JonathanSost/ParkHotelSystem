@@ -64,6 +64,12 @@
     <Compile Include="FormGerFornecedores.Designer.cs">
       <DependentUpon>FormGerFornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGerFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGerFuncionarios.Designer.cs">
+      <DependentUpon>FormGerFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     <Compile Include="FormRegFornecedores.Designer.cs">
       <DependentUpon>FormRegFornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRegFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegFuncionarios.Designer.cs">
+      <DependentUpon>FormRegFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,9 @@
     <EmbeddedResource Include="FormGerFornecedores.resx">
       <DependentUpon>FormGerFornecedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGerFuncionarios.resx">
+      <DependentUpon>FormGerFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegFornecedores.resx">
       <DependentUpon>FormRegFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegFuncionarios.resx">
+      <DependentUpon>FormRegFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegProdutos.resx">
       <DependentUpon>FormRegProdutos.cs</DependentUpon>
