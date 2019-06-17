@@ -19,7 +19,7 @@ namespace ParkHotel
         public FormGerClientes()
         {
             InitializeComponent();
-            dataGridView1.DataSource = bll.LerTodos();
+            //dataGridView1.DataSource = bll.LerTodos();
 
         }
 
