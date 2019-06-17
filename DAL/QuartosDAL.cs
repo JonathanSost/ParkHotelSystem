@@ -12,12 +12,62 @@ namespace DAL
     {
         public string Atualizar(Quartos quarto)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "update quartos set preco = @preco, tipo = @tipo, disponivel = @disponivel where id = @id";
+            command.Parameters.AddWithValue("@preco", quarto.Preco);
+            command.Parameters.AddWithValue("@tipo", quarto.Tipo);
+            command.Parameters.AddWithValue("@disponivel", quarto.QuartoDisponivel);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Quarto atualizado com sucesso!";
         }
 
         public string Excluir(Quartos quarto)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "delete from quartos where id = @id";
+            command.Parameters.AddWithValue("@id", quarto.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Quarto deletado do sistema com sucesso!";
         }
 
         public string Inserir(Quartos quarto)
@@ -62,7 +112,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Quartos q = new Quartos(0, 0, "", true);
+            Quartos q = null;
 
             try
             {

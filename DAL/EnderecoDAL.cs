@@ -10,6 +10,7 @@ namespace DAL
 {
     public class EnderecoDAL : IEntityCRUD<Enderecos>
     {
+        #region Atualizar
         public string Atualizar(Enderecos ende)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -44,7 +45,9 @@ namespace DAL
 
             return "Cliente atualizado com sucesso!";
         }
+        #endregion
 
+        #region Excluir
         public string Excluir(Enderecos ende)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -73,7 +76,9 @@ namespace DAL
 
             return "Endereço deletado do sistema com sucesso!";
         }
+        #endregion
 
+        #region Inserir
         public string Inserir(Enderecos ende)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -111,11 +116,8 @@ namespace DAL
 
             return "";
         }
+        #endregion
 
-        public Enderecos LerPorID(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<Enderecos> LerTodos()
         {

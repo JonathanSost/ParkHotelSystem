@@ -10,16 +10,71 @@ namespace DAL
 {
     public class EstadoDAL : IEntityCRUD<Estados>
     {
-        public string Atualizar(Estados item)
+        #region Atualizar
+        public string Atualizar(Estados estado)
         {
-            throw new NotImplementedException();
-        }
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
 
-        public string Excluir(Estados item)
+            command.CommandText = "update estados set nome = @nome, sigla = @sigla where id = @id";
+            command.Parameters.AddWithValue("@nome", estado.Nome);
+            command.Parameters.AddWithValue("@sigla", estado.Sigla);
+            command.Parameters.AddWithValue("@id", estado.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Estado atualizado com sucesso!";
+        }
+        #endregion
+
+        #region Excluir
+        public string Excluir(Estados estado)
         {
-            throw new NotImplementedException();
-        }
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
 
+            command.CommandText = "delete from estados where id = @id";
+            command.Parameters.AddWithValue("@id", estado.ID);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return "Banco de dados indisponível, favor contatar o suporte.";
+            }
+            finally
+            {
+                //código executado SEMPRE
+                connection.Dispose();
+            }
+
+            return "Estado deletado do sistema com sucesso!";
+        }
+        #endregion
+
+        #region Inserir
         public string Inserir(Estados estado)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -49,7 +104,9 @@ namespace DAL
 
             return "";
         }
+        #endregion
 
+        #region Ler Por ID
         public Estados LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -89,7 +146,9 @@ namespace DAL
             }
             return est;
         }
+        #endregion
 
+        #region Ler Por Todos
         public List<Estados> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
@@ -128,7 +187,9 @@ namespace DAL
             }
             return estados;
         }
+        #endregion
 
+        #region Verificar Existência de Estado
         public bool VerificarExistenciaEstado(string estado)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -157,5 +218,6 @@ namespace DAL
             }
             return false;
         }
+        #endregion
     }
 }

@@ -114,7 +114,47 @@ namespace DAL
 
         public Clientes LerPorID(int id)
         {
-            throw new NotImplementedException();
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from clientes where id = @id";
+            command.Parameters.AddWithValue("@id", id);
+            command.Connection = connection;
+
+            Clientes cli = null;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["TELEFONE1"]);
+                    string telefone2 = Convert.ToString(reader["TELEFONE2"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+                    double conta = Convert.ToDouble(reader["CONTA"]);
+
+                    cli= new Clientes(id, nome, cpf, rg, ???, telefone1, telefone2, email, conta);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return cli;
         }
 
         public List<Clientes> LerTodos()

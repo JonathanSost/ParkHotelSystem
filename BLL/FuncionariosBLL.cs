@@ -201,5 +201,10 @@ namespace BLL
         {
             return dal.VerificarExistenciaFuncionario(funci);
         }
+
+        public bool Logar(Funcionarios funci)
+        {
+            return dal.Logar(funci);
+        }
     }
 }

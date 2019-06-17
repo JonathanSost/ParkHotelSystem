@@ -8,7 +8,7 @@ namespace Metadata
 {
     public class Clientes
     {
-        public Clientes (int id, string nome, string cpf, string rg, Enderecos endereco, string telefone1, string telefone2, string email, double conta )
+        public Clientes (int id, string nome, string cpf, string rg, int endereco, string telefone1, string telefone2, string email, double conta )
         {
             this.ID = id;
             this.Nome = nome;
@@ -25,7 +25,7 @@ namespace Metadata
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-        public Enderecos Endereco { get; set; }
+        public int Endereco { get; set; }
         public string Telefone1 { get; set; }
         public string Telefone2 { get; set; }
         public string Email { get; set; }
