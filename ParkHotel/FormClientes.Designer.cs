@@ -64,12 +64,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtNumeroRua = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.lblNome1 = new System.Windows.Forms.Label();
+            this.lblNome2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(747, 490);
+            this.btnVoltar.Location = new System.Drawing.Point(818, 567);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(74, 23);
@@ -81,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 34);
+            this.label3.Location = new System.Drawing.Point(22, 209);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 13);
@@ -91,7 +93,7 @@
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(34, 53);
+            this.txtID.Location = new System.Drawing.Point(22, 228);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(168, 20);
@@ -99,6 +101,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +119,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(414, 251);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -130,13 +134,13 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(362, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(924, 132);
             this.dataGridView1.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 85);
+            this.label2.Location = new System.Drawing.Point(22, 260);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
@@ -146,7 +150,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 139);
+            this.label1.Location = new System.Drawing.Point(22, 314);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
@@ -155,7 +159,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(34, 102);
+            this.txtNome.Location = new System.Drawing.Point(22, 277);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(168, 20);
@@ -163,7 +167,7 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(729, 417);
+            this.btnAtualizar.Location = new System.Drawing.Point(254, 136);
             this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
@@ -174,7 +178,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(615, 417);
+            this.btnExcluir.Location = new System.Drawing.Point(127, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 52);
@@ -185,7 +189,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(501, 417);
+            this.btnEditar.Location = new System.Drawing.Point(381, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
@@ -196,7 +200,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(386, 417);
+            this.btnCadastrar.Location = new System.Drawing.Point(3, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 52);
@@ -208,7 +212,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 197);
+            this.label4.Location = new System.Drawing.Point(22, 372);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
@@ -218,7 +222,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 251);
+            this.label5.Location = new System.Drawing.Point(22, 435);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -228,7 +232,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 308);
+            this.label6.Location = new System.Drawing.Point(22, 492);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
@@ -238,7 +242,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 367);
+            this.label7.Location = new System.Drawing.Point(22, 551);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
@@ -247,7 +251,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(34, 386);
+            this.txtEmail.Location = new System.Drawing.Point(22, 570);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(168, 20);
@@ -255,7 +259,7 @@
             // 
             // msktxtRG
             // 
-            this.msktxtRG.Location = new System.Drawing.Point(34, 213);
+            this.msktxtRG.Location = new System.Drawing.Point(22, 388);
             this.msktxtRG.Mask = "0,000,000";
             this.msktxtRG.Name = "msktxtRG";
             this.msktxtRG.Size = new System.Drawing.Size(100, 20);
@@ -263,7 +267,7 @@
             // 
             // msktxtCPF
             // 
-            this.msktxtCPF.Location = new System.Drawing.Point(34, 155);
+            this.msktxtCPF.Location = new System.Drawing.Point(22, 330);
             this.msktxtCPF.Mask = "000,000,000-00";
             this.msktxtCPF.Name = "msktxtCPF";
             this.msktxtCPF.Size = new System.Drawing.Size(100, 20);
@@ -271,7 +275,7 @@
             // 
             // msktxtTelefone
             // 
-            this.msktxtTelefone.Location = new System.Drawing.Point(34, 270);
+            this.msktxtTelefone.Location = new System.Drawing.Point(22, 454);
             this.msktxtTelefone.Mask = "(99)00000-0000";
             this.msktxtTelefone.Name = "msktxtTelefone";
             this.msktxtTelefone.Size = new System.Drawing.Size(100, 20);
@@ -281,7 +285,7 @@
             // 
             this.cmbCidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCidade.FormattingEnabled = true;
-            this.cmbCidade.Location = new System.Drawing.Point(516, 109);
+            this.cmbCidade.Location = new System.Drawing.Point(219, 453);
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(196, 21);
             this.cmbCidade.TabIndex = 93;
@@ -295,7 +299,7 @@
             "RS",
             "SP",
             "AC"});
-            this.cmbEstado.Location = new System.Drawing.Point(261, 52);
+            this.cmbEstado.Location = new System.Drawing.Point(223, 228);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(200, 21);
             this.cmbEstado.TabIndex = 92;
@@ -303,7 +307,7 @@
             // 
             // txtCEP
             // 
-            this.txtCEP.Location = new System.Drawing.Point(516, 53);
+            this.txtCEP.Location = new System.Drawing.Point(219, 388);
             this.txtCEP.Mask = "00000-000";
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(196, 20);
@@ -311,7 +315,7 @@
             // 
             // txtComplemento
             // 
-            this.txtComplemento.Location = new System.Drawing.Point(512, 206);
+            this.txtComplemento.Location = new System.Drawing.Point(219, 570);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(200, 20);
             this.txtComplemento.TabIndex = 90;
@@ -319,7 +323,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(513, 184);
+            this.label18.Location = new System.Drawing.Point(224, 551);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(71, 13);
             this.label18.TabIndex = 89;
@@ -327,7 +331,7 @@
             // 
             // txtRua
             // 
-            this.txtRua.Location = new System.Drawing.Point(512, 155);
+            this.txtRua.Location = new System.Drawing.Point(219, 514);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(200, 20);
             this.txtRua.TabIndex = 88;
@@ -335,7 +339,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(513, 133);
+            this.label9.Location = new System.Drawing.Point(224, 492);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 13);
             this.label9.TabIndex = 87;
@@ -344,7 +348,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(513, 82);
+            this.label10.Location = new System.Drawing.Point(224, 435);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 86;
@@ -353,7 +357,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(513, 31);
+            this.label11.Location = new System.Drawing.Point(224, 372);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 13);
             this.label11.TabIndex = 85;
@@ -361,7 +365,7 @@
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(261, 98);
+            this.txtBairro.Location = new System.Drawing.Point(219, 277);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(200, 20);
             this.txtBairro.TabIndex = 84;
@@ -369,7 +373,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(262, 85);
+            this.label8.Location = new System.Drawing.Point(224, 261);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 83;
@@ -378,7 +382,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(262, 34);
+            this.label12.Location = new System.Drawing.Point(224, 209);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 13);
             this.label12.TabIndex = 82;
@@ -386,7 +390,7 @@
             // 
             // txtNumeroRua
             // 
-            this.txtNumeroRua.Location = new System.Drawing.Point(261, 149);
+            this.txtNumeroRua.Location = new System.Drawing.Point(219, 330);
             this.txtNumeroRua.Name = "txtNumeroRua";
             this.txtNumeroRua.Size = new System.Drawing.Size(200, 20);
             this.txtNumeroRua.TabIndex = 81;
@@ -394,18 +398,41 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(262, 132);
+            this.label13.Location = new System.Drawing.Point(224, 314);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 13);
             this.label13.TabIndex = 80;
             this.label13.Text = "Número";
             // 
+            // lblNome1
+            // 
+            this.lblNome1.AutoSize = true;
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Location = new System.Drawing.Point(542, 258);
+            this.lblNome1.Name = "lblNome1";
+            this.lblNome1.Size = new System.Drawing.Size(316, 127);
+            this.lblNome1.TabIndex = 94;
+            this.lblNome1.Text = "Santo";
+            // 
+            // lblNome2
+            // 
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(488, 356);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(409, 127);
+            this.lblNome2.TabIndex = 95;
+            this.lblNome2.Text = "Soninho";
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 528);
+            this.ClientSize = new System.Drawing.Size(924, 602);
             this.ControlBox = false;
+            this.Controls.Add(this.lblNome2);
+            this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.cmbCidade);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.txtCEP);
@@ -488,5 +515,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtNumeroRua;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblNome1;
+        private System.Windows.Forms.Label lblNome2;
     }
 }
