@@ -85,6 +85,8 @@ namespace ParkHotel
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = clibll.LerTodos();
+
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
             cmbEstado.DataSource = estbll.LerTodos();
