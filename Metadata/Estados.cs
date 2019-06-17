@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Estados
+    public class Estado
     {
-        public Estados(int id, string sigla, string nome)
+        public Estado(int id, string sigla, string nome)
         {
             this.ID = id;
             this.Sigla = sigla;

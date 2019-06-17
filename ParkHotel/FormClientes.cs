@@ -14,12 +14,14 @@ namespace ParkHotel
 {
     public partial class FormClientes : Form
     {
-        ClientesBLL bll = new ClientesBLL();
+        ClientesBLL clibll = new ClientesBLL();
+        CidadesBLL cidbll = new CidadesBLL();
+        EstadosBLL estbll = new EstadosBLL();
 
         public FormClientes()
         {
             InitializeComponent();
-            dataGridView1.DataSource = bll.LerTodos();
+            dataGridView1.DataSource = clibll.LerTodos();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -49,6 +51,9 @@ namespace ParkHotel
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            int idEstado = (int)cmbEstado.SelectedValue;
+
+
             FormCleaner.Clear(this);
         }
 
@@ -71,6 +76,22 @@ namespace ParkHotel
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+        }
+
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            cmbEstado.DisplayMember = "Sigla";
+            cmbEstado.ValueMember = "ID";
+            cmbEstado.DataSource = estbll.LerTodos();
+            cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+            cmbCidade.DisplayMember = "Nome";
+            cmbCidade.ValueMember = "ID";
+            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
     }
 }

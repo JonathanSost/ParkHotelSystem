@@ -129,7 +129,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Cidades c = new Cidades(0, "", new Estados(0, "", ""));
+            Cidades c = new Cidades(0, "", new Estado(0, "", ""));
 
             try
             {
@@ -142,7 +142,7 @@ namespace DAL
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    Cidades cidade = new Cidades(id, nome, new Estados((int)reader["ESTADO"], "", ""));
+                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     c = cidade;
                 }
             }
@@ -182,7 +182,7 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    Cidades cidade = new Cidades(id, nome, new Estados((int)reader["ESTADO"], "", ""));
+                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     cidades.Add(cidade);
                 }
             }
@@ -223,7 +223,6 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    cidade = new Cidades(id, nome, new Estados((int)reader["ESTADO"], "", ""));
                     cidades.Add(cidade);
                 }
             }
@@ -269,5 +268,46 @@ namespace DAL
             return false;
         }
         #endregion
+
+        public List<Cidades> LerPorEstado(int idestado)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select c.nome from cidades c inner join estados e on c.estado = e.id where e.id = @id";
+            command.Parameters.AddWithValue("@id", idestado);
+
+            List<Cidades> cidades = new List<Cidades>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string sigla = Convert.ToString(reader["SIGLA"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
+                    cidades.Add(cidade);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return cidades;
+        }
     }
+
+
 }

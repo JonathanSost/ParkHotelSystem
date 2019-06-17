@@ -10,9 +10,9 @@ namespace Metadata
     {
         public int ID { get; set; }
         public string Nome { get; set; }
-        public Estados Estado { get; set; }
+        public Estado Estado { get; set; }
 
-        public Cidades(int id, string nome, Estados estado)
+        public Cidades(int id, string nome, Estado estado)
         {
             this.ID = id;
             this.Nome = nome;

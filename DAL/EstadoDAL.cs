@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class EstadoDAL : IEntityCRUD<Estados>
+    public class EstadoDAL : IEntityCRUD<Estado>
     {
         #region Atualizar
-        public string Atualizar(Estados estado)
+        public string Atualizar(Estado estado)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -44,7 +44,7 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(Estados estado)
+        public string Excluir(Estado estado)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -75,7 +75,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Estados estado)
+        public string Inserir(Estado estado)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -107,7 +107,7 @@ namespace DAL
         #endregion
 
         #region Ler Por ID
-        public Estados LerPorID(int id)
+        public Estado LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -118,7 +118,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Estados est = new Estados(0, "", "");
+            Estado est = new Estado(0, "", "");
 
             try
             {
@@ -132,7 +132,7 @@ namespace DAL
                     //int id = (int)reader["ID"];
                     string sigla = Convert.ToString(reader["SIGLA"]);
                     string nome = Convert.ToString(reader["NOME"]);
-                    Estados estado = new Estados(id, sigla, nome);
+                    Estado estado = new Estado(id, sigla, nome);
                     est = estado;
                 }
             }
@@ -148,8 +148,8 @@ namespace DAL
         }
         #endregion
 
-        #region Ler Por Todos
-        public List<Estados> LerTodos()
+        #region Ler Todos
+        public List<Estado> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -159,7 +159,7 @@ namespace DAL
             command.CommandText = "select * from estados";
             command.Connection = connection;
 
-            List<Estados> estados = new List<Estados>();
+            List<Estado> estados = new List<Estado>();
 
             try
             {
@@ -173,7 +173,7 @@ namespace DAL
                     //int id = (int)reader["ID"];
                     string sigla = Convert.ToString(reader["SIGLA"]);
                     string nome = Convert.ToString(reader["NOME"]);
-                    Estados estado = new Estados(id, sigla, nome);
+                    Estado estado = new Estado(id, sigla, nome);
                     estados.Add(estado);
                 }
             }
