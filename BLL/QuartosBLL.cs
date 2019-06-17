@@ -11,6 +11,7 @@ namespace BLL
     public class QuartosBLL
     {
         private QuartosDAL dal = new QuartosDAL();
+
         public string Cadastrar (Quartos qua)
         {
             
@@ -39,6 +40,26 @@ namespace BLL
                 return builder.ToString();
             }
             return dal.Inserir(qua);
+        }
+
+        public string Atualizar(Quartos quarto)
+        {
+            return dal.Atualizar(quarto);
+        }
+
+        public string Excluir(Quartos quarto)
+        {
+            return dal.Excluir(quarto);
+        }
+
+        public Quartos LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Quartos> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }

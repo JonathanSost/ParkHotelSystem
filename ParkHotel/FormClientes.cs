@@ -19,8 +19,7 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-            //dataGridView1.DataSource = bll.LerTodos();
-
+            dataGridView1.DataSource = bll.LerTodos();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -36,16 +35,7 @@ namespace ParkHotel
 
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-
-            MessageBox.Show("Excluido com sucesso!");
-        }
+        
 
         private void FormClientes_KeyUp(object sender, KeyEventArgs e)
         {
@@ -55,6 +45,32 @@ namespace ParkHotel
                 FormMenu menu = new FormMenu();
                 menu.Show();
             }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            MessageBox.Show("Excluido com sucesso!");
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

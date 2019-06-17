@@ -50,6 +50,8 @@ namespace BLL
             #endregion
         }
 
+        FornecedoresDAL dal = new FornecedoresDAL();
+
         public string Cadastrar(Fornecedores For)
         {
             List<string> erros = new List<string>();
@@ -157,6 +159,26 @@ namespace BLL
             }
             new FornecedoresDAL().Inserir(For);
             return "Fornecedor cadastrado com sucesso!";
+        }
+
+        public string Atualizar(Fornecedores fornecedor)
+        {
+            return dal.Atualizar(fornecedor);
+        }
+
+        public string Excluir(Fornecedores fornecedor)
+        {
+            return dal.Excluir(fornecedor);
+        }
+
+        public Fornecedores LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Fornecedores> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }

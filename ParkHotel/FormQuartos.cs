@@ -26,6 +26,7 @@ namespace ParkHotel
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            FormCleaner.Clear(this);
 
         }
 

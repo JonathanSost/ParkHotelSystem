@@ -24,6 +24,27 @@ namespace ParkHotel
             menu.Show();
         }
 
+        private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu();
+                menu.Show();
+            }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -35,14 +56,9 @@ namespace ParkHotel
             MessageBox.Show("Excluido com sucesso!");
         }
 
-        private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
+        private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                FormMenu menu = new FormMenu();
-                menu.Show();
-            }
+
         }
     }
 }

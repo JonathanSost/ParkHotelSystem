@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using DAL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace BLL
 {
     public class ProdutosBLL
     {
+
+        ProdutosDAL dal = new ProdutosDAL();
+
         public string Cadastrar (Produtos pro)
         {
             List<string> erros = new List<string>();
@@ -47,6 +51,26 @@ namespace BLL
             }
 
             return "";
+        }
+
+        public string Atualizar(Produtos produto)
+        {
+            return dal.Atualizar(produto);
+        }
+
+        public string Excluir(Produtos produto)
+        {
+            return dal.Excluir(produto);
+        }
+
+        public Produtos LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Produtos> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }

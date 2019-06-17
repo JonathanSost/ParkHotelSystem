@@ -280,6 +280,21 @@ namespace BLL
             return "Cliente cadastrado com sucesso!";
         }
 
+        public string Atualizar(Clientes cli)
+        {
+            return dal.Atualizar(cli);
+        }
+
+        public string Excluir(Clientes cli)
+        {
+            return dal.Excluir(cli);
+        }
+
+        public Clientes LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
         public List<Clientes> LerTodos()
         {
             return dal.LerTodos();

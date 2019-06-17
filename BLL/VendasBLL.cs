@@ -35,5 +35,25 @@ namespace BLL
             }
             return dal.Inserir(ven);
         }
+
+        public string Atualizar(Vendas venda)
+        {
+            return dal.Atualizar(venda);
+        }
+
+        public string Excluir(Vendas venda)
+        {
+            return dal.Excluir(venda);
+        }
+
+        public Vendas LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Vendas> LerTodos()
+        {
+            return dal.LerTodos();
+        }
     }
 }

@@ -10,14 +10,21 @@ namespace DAL
 {
     public class ClienteDAL : IEntityCRUD<Clientes>
     {
+        #region Atualizar
         public string Atualizar(Clientes cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update cidades set nome = @nome where id = @id";
+            command.CommandText = "update clientes set nome = @nome, cpf = @cpf, rg = @rg, telefone1 = @telefone1, " +
+                "telefone2 = @telefone2, email = @email where id = @id";
             command.Parameters.AddWithValue("@nome", cli.Nome);
+            command.Parameters.AddWithValue("@cpf", cli.CPF);
+            command.Parameters.AddWithValue("@rg", cli.RG);
+            command.Parameters.AddWithValue("@telefone1", cli.Telefone1);
+            command.Parameters.AddWithValue("@telefone2", cli.Telefone2);
+            command.Parameters.AddWithValue("@email", cli.Email);
             command.Parameters.AddWithValue("@id", cli.ID);
 
             command.Connection = connection;
@@ -39,14 +46,16 @@ namespace DAL
 
             return "Cliente atualizado com sucesso!";
         }
+        #endregion
 
+        #region Excluir
         public string Excluir(Clientes cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "delete from cidades where id = @id";
+            command.CommandText = "delete from clientes where id = @id";
             command.Parameters.AddWithValue("@id", cli.ID);
 
             command.Connection = connection;
@@ -70,9 +79,11 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Cidade deletada do sistema com sucesso!";
+            return "Cliente deletado do sistema com sucesso!";
         }
+        #endregion
 
+        #region Inserir
         public string Inserir(Clientes cli)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -106,7 +117,9 @@ namespace DAL
 
             return "Cliente cadastrado com sucesso!";
         }
+        #endregion
 
+        #region Ler Por ID
         public Clientes LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -151,7 +164,9 @@ namespace DAL
             }
             return cli;
         }
+        #endregion
 
+        #region Ler Todos
         public List<Clientes> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
@@ -208,6 +223,9 @@ namespace DAL
 
             return clientes;
         }
+        #endregion
+
+        #region Verificar Existência do Cliente
         public bool VerificarExistenciaCliente(int idcliente)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -236,5 +254,6 @@ namespace DAL
             }
             return false;
         }
+        #endregion
     }
 }

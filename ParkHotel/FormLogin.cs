@@ -20,7 +20,6 @@ namespace ParkHotel
         }
 
         FuncionariosBLL bll = new FuncionariosBLL();
-        public string Nome { get; set; }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -46,6 +45,7 @@ namespace ParkHotel
             Application.Exit();
         }
 
+        #region Componente_Changed
         private void cbVerSenha_CheckedChanged(object sender, EventArgs e)
         {
             if (cbVerSenha.Checked)
@@ -61,6 +61,13 @@ namespace ParkHotel
             txtUsuario.MaxLength = 40;
         }
 
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            txtSenha.MaxLength = 20;
+        }
+        #endregion
+
+        #region KeyUp
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -84,5 +91,6 @@ namespace ParkHotel
                 Application.Exit();
             }
         }
+        #endregion
     }
 }

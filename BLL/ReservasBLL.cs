@@ -11,6 +11,7 @@ namespace BLL
     public class ReservasBLL
     {
         ReservasDAL dal = new ReservasDAL();
+
         List<string> erros = new List<string>();
 
         public string Cadastrar(Reservas res)
@@ -41,6 +42,26 @@ namespace BLL
                 return builder.ToString();
             }
             return dal.Inserir(res);
+        }
+
+        public string Atualizar(Reservas reserva)
+        {
+            return dal.Atualizar(reserva);
+        }
+
+        public string Excluir(Reservas reserva)
+        {
+            return dal.Excluir(reserva);
+        }
+
+        public Reservas LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Reservas> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }

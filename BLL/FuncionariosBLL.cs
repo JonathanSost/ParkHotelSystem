@@ -116,7 +116,6 @@ namespace BLL
             #endregion
 
             #region Endereço
-            #region Endereço
 
             #region CEP
             if (string.IsNullOrWhiteSpace(fun.CEP))
@@ -222,8 +221,6 @@ namespace BLL
 
             #endregion
 
-            #endregion
-
             #region Telefone
             if (string.IsNullOrWhiteSpace(fun.Telefone))
             {
@@ -300,6 +297,26 @@ namespace BLL
         public bool FuncionarioExiste(Funcionarios funci)
         {
             return dal.VerificarExistenciaFuncionario(funci);
+        }
+
+        public string Atualizar(Funcionarios funcionario)
+        {
+            return dal.Atualizar(funcionario);
+        }
+
+        public string Excluir(Funcionarios funcionario)
+        {
+            return dal.Excluir(funcionario);
+        }
+
+        public Funcionarios LerPorID(int id)
+        {
+            return dal.LerPorID(id);
+        }
+
+        public List<Funcionarios> LerTodos()
+        {
+            return dal.LerTodos();
         }
     }
 }
