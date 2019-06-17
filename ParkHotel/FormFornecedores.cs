@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ParkHotel
 {
-    public partial class FormRegQuartos : Form
+    public partial class FormFornecedores : Form
     {
-        public FormRegQuartos()
+        public FormFornecedores()
         {
             InitializeComponent();
         }
@@ -22,6 +22,17 @@ namespace ParkHotel
             this.Hide();
             FormMenu menu = new FormMenu();
             menu.Show();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            MessageBox.Show("Excluido com sucesso!");
         }
     }
 }

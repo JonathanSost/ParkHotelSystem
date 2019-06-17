@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace ParkHotel
 {
-    public partial class FormGerClientes : Form
+    public partial class FormClientes : Form
     {
         ClientesBLL bll = new ClientesBLL();
 
-        public FormGerClientes()
+        public FormClientes()
         {
             InitializeComponent();
             //dataGridView1.DataSource = bll.LerTodos();
@@ -34,6 +34,17 @@ namespace ParkHotel
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            MessageBox.Show("Excluido com sucesso!");
         }
     }
 }

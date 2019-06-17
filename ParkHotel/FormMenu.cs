@@ -33,61 +33,31 @@ namespace ParkHotel
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGerProdutos().Show();
+            new FormProdutos().Show();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGerClientes().Show();
+            new FormClientes().Show();
         }
 
         private void btnFornecedores_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGerFornecedores().Show();
+            new FormFornecedores().Show();
         }
 
         private void btnQuartos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGerQuartos().Show();
+            new FormQuartos().Show();
         }
 
         private void btnGerFuncionarios_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FormGerFuncionarios().Show();
-        }
-
-        private void btnRegProdutos_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormRegProdutos().Show();
-        }
-
-        private void btnRegClientes_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormRegClientes().Show();
-        }
-
-        private void btnRegFornecedores_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormRegFornecedores().Show();
-        }
-
-        private void btnRegQuartos_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormRegQuartos().Show();
-        }
-
-        private void btnRegFuncionarios_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormRegFuncionarios().Show();
+            new FormFuncionarios().Show();
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
