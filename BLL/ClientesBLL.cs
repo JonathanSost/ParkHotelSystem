@@ -114,12 +114,6 @@ namespace BLL
             #endregion
 
             #region Endereço
-            EnderecosBLL eBLL = new EnderecosBLL();
-            string errosEndereco = eBLL.Validar(cli.Endereco);
-            if (!string.IsNullOrWhiteSpace(errosEndereco))
-            {
-                erros.Add(errosEndereco);
-            }
             #endregion
 
             #region Telefone1

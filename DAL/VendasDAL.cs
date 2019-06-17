@@ -133,7 +133,7 @@ namespace DAL
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
 
-                    v = new Vendas();
+                    //v = new Vendas();
                 }
             }
             catch
@@ -170,8 +170,8 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
 
-                    Vendas venda = new Vendas();
-                    vendas.Add(venda);
+                    //Vendas venda = new Vendas();
+                    //vendas.Add(venda);
                 }
             }
             catch

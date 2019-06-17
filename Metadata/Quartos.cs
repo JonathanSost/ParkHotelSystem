@@ -20,10 +20,5 @@ namespace Metadata
         public double Preco { get; set; }
         public string Tipo { get; set; }
         public bool QuartoDisponivel { get; set; }
-
-        public string LerDadosQuarto()
-        {
-            return Preco + "\r\n" + Tipo + "\r\n";
-        }
     }
 }

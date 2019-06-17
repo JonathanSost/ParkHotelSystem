@@ -17,7 +17,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update fornecedores set nome = @nome, cpf = @cpf, rg = @rg, " +
+            command.CommandText = "update funcionarios set nome = @nome, cpf = @cpf, rg = @rg, " +
                 "endereco = @endereco, email = @email, senha = @senha, ehadm = @ehadm, where id = @id";
             command.Parameters.AddWithValue("@nome", funci.Nome);
             command.Parameters.AddWithValue("@cpf", funci.CPF);
@@ -88,11 +88,10 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into funcionarios (nome, cpf, rg, endereco, telefone, email, senha) values (@nome, @cpf, @rg, @endereco, @telefone, @email, @senha)";
+            command.CommandText = "insert into funcionarios (nome, cpf, rg, telefone, email, senha) values (@nome, @cpf, @rg, @telefone, @email, @senha)";
             command.Parameters.AddWithValue("@nome", fun.Nome);
             command.Parameters.AddWithValue("@cpf", fun.CPF);
             command.Parameters.AddWithValue("@rg", fun.RG);
-            command.Parameters.AddWithValue("@endereco", fun.Endereco);
             command.Parameters.AddWithValue("@telefone", fun.Telefone);
             command.Parameters.AddWithValue("@email", fun.Email);
             command.Parameters.AddWithValue("@senha", fun.Senha);
@@ -145,12 +144,13 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
                     string email = Convert.ToString(reader["EMAIL"]);
                     string senha = Convert.ToString(reader["SENHA"]);
-                    string ehadm = Convert.ToString(reader["EHADM"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
 
-                    f = new Funcionarios(id, nome, cpf, rg, email, senha, ehadm);
+                    f = new Funcionarios(id, nome, cpf, rg, telefone, email, senha, ehadm);
                 }
             }
             catch
@@ -191,11 +191,12 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
                     string email = Convert.ToString(reader["EMAIL"]);
                     string senha = Convert.ToString(reader["SENHA"]);
-                    string ehadm = Convert.ToString(reader["EHADM"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
-                    Funcionarios funcionario = new Funcionarios(id, nome, cpf, rg, email, senha, ehadm);
+                    Funcionarios funcionario = new Funcionarios(id, nome, cpf, rg, telefone, email, senha, ehadm);
                     funcionarios.Add(funcionario);
                 }
             }

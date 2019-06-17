@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="CidadeDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
-    <Compile Include="EnderecoDAL.cs" />
     <Compile Include="EstadoDAL.cs" />
     <Compile Include="FornecedoresDAL.cs" />
     <Compile Include="FuncionariosDAL.cs" />

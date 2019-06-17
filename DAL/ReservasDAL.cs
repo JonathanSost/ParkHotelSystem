@@ -127,7 +127,7 @@ namespace DAL
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     
-                    r = new Reservas();
+                    //r = new Reservas();
                 }
             }
             catch
@@ -164,8 +164,8 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     
-                    Reservas reserva = new Reservas();
-                    reservas.Add(reserva);
+                    //Reservas reserva = new Reservas();
+                    //reservas.Add(reserva);
                 }
             }
             catch

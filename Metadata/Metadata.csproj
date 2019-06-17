@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Cidades.cs" />
     <Compile Include="Clientes.cs" />
-    <Compile Include="Enderecos.cs" />
     <Compile Include="Estados.cs" />
     <Compile Include="Fornecedores.cs" />
     <Compile Include="Funcionarios.cs" />

@@ -79,9 +79,8 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into clientes (nome, endereco, cpf, rg, telefone1, telefone2, email) values (@nome, @endereco, @cpf, @rg, @telefone1, @telefone2, @email)";
+            command.CommandText = "insert into clientes (nome, cpf, rg, telefone1, telefone2, email) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email)";
             command.Parameters.AddWithValue("@nome", cli.Nome);
-            command.Parameters.AddWithValue("@endereco", cli.Endereco);
             command.Parameters.AddWithValue("@cpf", cli.CPF);
             command.Parameters.AddWithValue("@rg", cli.RG);
             command.Parameters.AddWithValue("@telefone1", cli.Telefone1);
@@ -95,12 +94,8 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                if (ex.Message.Contains("FK"))
-                {
-                    return "Endereço inválido!";
-                }
                 return "Banco de dados indisponível, favor contatar o suporte.";
             }
             finally
@@ -143,7 +138,7 @@ namespace DAL
                     string email = Convert.ToString(reader["EMAIL"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    cli= new Clientes(id, nome, cpf, rg, ???, telefone1, telefone2, email, conta);
+                    cli= new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, conta);
                 }
             }
             catch
@@ -194,9 +189,10 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["TELEFONE1"]);
                     string telefone2 = Convert.ToString(reader["TELEFONE2"]);
                     string email = Convert.ToString(reader["EMAIL"]);
+                    double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    //Clientes cli = new Clientes(id, nome, cpf, rg, endereco, telefone1, telefone2, email);
-                    //clientes.Add(cli);
+                    Clientes cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, conta);
+                    clientes.Add(cli);
                 }
             }
             catch

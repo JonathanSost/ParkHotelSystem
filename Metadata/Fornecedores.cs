@@ -25,12 +25,5 @@ namespace Metadata
         public string NomeContato { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        
-
-        public string LerDadosFornecedores()
-        {
-            return NomeEmpresa + "\r\n" + NomeContato + "\r\n" + Telefone + "\r\n" + Email + "\r\n";
-        }
-        
     }
 }

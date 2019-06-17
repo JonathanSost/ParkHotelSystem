@@ -21,13 +21,12 @@ namespace Metadata
             this.Senha = senha;
         }
 
-        public Funcionarios(int id, string nome, string cpf, string rg, int endereco, string telefone, string email, string senha, bool ehadm)
+        public Funcionarios(int id, string nome, string cpf, string rg, string telefone, string email, string senha, bool ehadm)
         {
             this.ID = id;
             this.Nome = nome;
             this.CPF = cpf;
             this.RG = rg;
-            this.Endereco = endereco;
             this.Telefone = telefone;
             this.Email = email;
             this.Senha = senha;
@@ -38,15 +37,9 @@ namespace Metadata
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-        public int Endereco { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
         public bool EhADM { get; set; }
-
-        //public string LerDadosFuncionario()
-        //{
-        //    return Nome + "\r\n" + CPF + "\r\n" + RG + "\r\n" + Telefone + "\r\n" + Endereco + "\r\n" + Email + "\r\n" + Senha + "\r\n";
-        //}
     }
 }

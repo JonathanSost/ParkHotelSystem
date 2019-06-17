@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesBLL.cs" />
-    <Compile Include="EnderecosBLL.cs" />
     <Compile Include="FornecedoresBLL.cs" />
     <Compile Include="FuncionariosBLL.cs" />
     <Compile Include="ProdutosBLL.cs" />
