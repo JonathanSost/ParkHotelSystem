@@ -60,6 +60,12 @@ namespace ParkHotel
             new FormFuncionarios().Show();
         }
 
+        private void btnRegProdutos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FormProdutos().Show();
+        }
+
         private void btnLogoff_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -74,6 +80,15 @@ namespace ParkHotel
         private void Relogio_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("dddd, dd MMM yyyy, HH:mm");
+        }
+
+        private void FormMenu_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                new FormLogin().Show();
+            }
         }
     }
 }

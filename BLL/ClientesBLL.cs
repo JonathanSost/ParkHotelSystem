@@ -114,6 +114,109 @@ namespace BLL
             #endregion
 
             #region Endereço
+
+            #region CEP
+            if (string.IsNullOrWhiteSpace(cli.CEP))
+            {
+                erros.Add("CEP deve ser informado");
+            }
+            else
+            {
+                cli.CEP =
+                cli.CEP.Replace(" ", "").Replace("-", "");
+
+
+
+                if (cli.CEP.Length != 8)
+                {
+                    erros.Add("CEP deve conter 8 digitos");
+                }
+                else
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (!char.IsNumber(cli.CEP[i]))
+                        {
+                            erros.Add("CEP deve conter apenas numeros");
+                            break;
+                        }
+                    }
+
+                }
+            }
+            #endregion
+
+            #region Estado
+            if (string.IsNullOrWhiteSpace(cli.Estado))
+            {
+                erros.Add("Estado deve ser informado");
+            }
+            
+            EstadoDAL estdal = new EstadoDAL();
+
+            if (!estdal.VerificarExistenciaEstado(cli.Estado))
+            {
+                erros.Add("Estado inexistente!");
+            }
+            #endregion
+
+            #region Cidade
+            CidadeDAL cidades = new CidadeDAL();
+            if (!cidades.VerificarExistenciaCidade(cli.Cidade))
+            {
+                erros.Add("Cidade inexistente!");
+            }
+            #endregion
+
+            #region Bairro
+            if (string.IsNullOrWhiteSpace(cli.Bairro))
+            {
+                erros.Add("Bairro deve ser informado");
+            }
+            else
+            {
+                cli.Bairro = cli.Bairro.Replace(" ", "");
+                if (cli.Bairro.Length < 3 || cli.Bairro.Length > 50)
+                {
+                    erros.Add("Bairro deve conter entre 3 e 50 caracteres");
+                }
+
+            }
+            #endregion
+
+            #region Rua
+            if (string.IsNullOrWhiteSpace(cli.Rua))
+            {
+                erros.Add("Rua deve ser informada");
+            }
+            else
+            {
+                cli.Rua = cli.Rua.Replace(" ", "");
+                if (cli.Rua.Length < 3 || cli.Rua.Length > 70)
+                {
+                    erros.Add("Rua deve conter entre 3 e 70 caracteres");
+                }
+
+            }
+            #endregion
+
+            #region Numero
+            if (string.IsNullOrWhiteSpace(cli.Numero))
+            {
+                erros.Add("Número deve ser informado");
+            }
+            else
+            {
+                for (int i = 0; i < cli.CEP.Length; i++)
+                {
+                    if (!char.IsNumber(cli.CEP[i]))
+                    {
+                        erros.Add("Número de residência inválido");
+                    }
+                }
+            }
+            #endregion
+
             #endregion
 
             #region Telefone1

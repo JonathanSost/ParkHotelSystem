@@ -60,5 +60,29 @@ namespace ParkHotel
         {
             txtUsuario.MaxLength = 40;
         }
+
+        private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin.PerformClick();
+            }
+        }
+
+        private void txtSenha_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin.PerformClick();
+            }
+        }
+
+        private void FormLogin_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

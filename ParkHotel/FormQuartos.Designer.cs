@@ -92,6 +92,7 @@
             this.btnEditar.TabIndex = 26;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dtgInfoQuartos
             // 
@@ -114,6 +115,7 @@
             this.btnCadastrar.TabIndex = 24;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // label2
             // 
@@ -160,6 +162,7 @@
             this.btnAtualizar.TabIndex = 30;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // FormQuartos
             // 
@@ -179,9 +182,11 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.btnVoltar);
+            this.KeyPreview = true;
             this.Name = "FormQuartos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Quartos";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormQuartos_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dtgInfoQuartos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

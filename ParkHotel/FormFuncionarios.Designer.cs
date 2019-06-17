@@ -179,8 +179,10 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.btnVoltar);
+            this.KeyPreview = true;
             this.Name = "FormFuncionarios";
             this.Text = "FormGerFuncionarios";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFuncionarios_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

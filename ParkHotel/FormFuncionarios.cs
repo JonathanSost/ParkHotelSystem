@@ -34,5 +34,15 @@ namespace ParkHotel
 
             MessageBox.Show("Excluido com sucesso!");
         }
+
+        private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu();
+                menu.Show();
+            }
+        }
     }
 }

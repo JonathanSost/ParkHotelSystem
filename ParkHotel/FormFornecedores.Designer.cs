@@ -179,9 +179,11 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.btnVoltar);
+            this.KeyPreview = true;
             this.Name = "FormFornecedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Fornecedores";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFornecedores_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
