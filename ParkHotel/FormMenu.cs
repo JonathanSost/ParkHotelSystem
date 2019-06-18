@@ -30,36 +30,6 @@ namespace ParkHotel
         //FormRegQuartos regQuartos = new FormRegQuartos();
         //FormLogin login = new FormLogin();
 
-        private void btnProdutos_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormProdutos().Show();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormClientes().Show();
-        }
-
-        private void btnFornecedores_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormFornecedores().Show();
-        }
-
-        private void btnQuartos_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormQuartos().Show();
-        }
-
-        private void btnGerFuncionarios_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormFuncionarios().Show();
-        }
-
         private void btnRegProdutos_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -89,6 +59,36 @@ namespace ParkHotel
                 this.Close();
                 new FormLogin().Show();
             }
+        }
+
+        private void lnkProdutos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormProdutos().Show();
+        }
+
+        private void lnkClientes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormClientes().Show();
+        }
+
+        private void lnkFornecedores_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormFornecedores().Show();
+        }
+
+        private void lnkQuartos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormQuartos().Show();
+        }
+
+        private void lnkFuncionarios_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormFuncionarios().Show();
         }
     }
 }

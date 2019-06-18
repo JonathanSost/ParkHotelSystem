@@ -292,7 +292,6 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
-                    string sigla = Convert.ToString(reader["SIGLA"]);
                     string nome = Convert.ToString(reader["NOME"]);
                     Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     cidades.Add(cidade);

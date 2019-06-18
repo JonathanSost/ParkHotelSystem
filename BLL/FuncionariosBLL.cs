@@ -149,10 +149,10 @@ namespace BLL
             #endregion
 
             #region Estado
-            if (string.IsNullOrWhiteSpace(fun.Estado))
-            {
-                erros.Add("Estado deve ser informado");
-            }
+            //if (string.IsNullOrWhiteSpace(fun.Estado))
+            //{
+            //    erros.Add("Estado deve ser informado");
+            //}
 
             EstadoDAL estdal = new EstadoDAL();
 

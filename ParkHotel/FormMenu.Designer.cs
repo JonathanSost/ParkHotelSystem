@@ -29,80 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnGerClientes = new System.Windows.Forms.Button();
-            this.btnGerFornecedores = new System.Windows.Forms.Button();
-            this.btnGerQuartos = new System.Windows.Forms.Button();
             this.btnLogoff = new System.Windows.Forms.Button();
-            this.btnRegProdutos = new System.Windows.Forms.Button();
             this.lblGerenciamento = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNomeFuncionario = new System.Windows.Forms.Label();
-            this.btnGerFuncionarios = new System.Windows.Forms.Button();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.lblHora = new System.Windows.Forms.Label();
             this.btnInfo = new System.Windows.Forms.Button();
             this.Relogio = new System.Windows.Forms.Timer(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.lnkProdutos = new System.Windows.Forms.LinkLabel();
+            this.lnkClientes = new System.Windows.Forms.LinkLabel();
+            this.lnkFornecedores = new System.Windows.Forms.LinkLabel();
+            this.lnkQuartos = new System.Windows.Forms.LinkLabel();
+            this.lnkFuncionarios = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnGerClientes
-            // 
-            this.btnGerClientes.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGerClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGerClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerClientes.Location = new System.Drawing.Point(46, 172);
-            this.btnGerClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGerClientes.Name = "btnGerClientes";
-            this.btnGerClientes.Size = new System.Drawing.Size(130, 37);
-            this.btnGerClientes.TabIndex = 2;
-            this.btnGerClientes.Text = "Clientes";
-            this.btnGerClientes.UseVisualStyleBackColor = false;
-            this.btnGerClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // btnGerFornecedores
-            // 
-            this.btnGerFornecedores.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGerFornecedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGerFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerFornecedores.Location = new System.Drawing.Point(46, 241);
-            this.btnGerFornecedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGerFornecedores.Name = "btnGerFornecedores";
-            this.btnGerFornecedores.Size = new System.Drawing.Size(130, 37);
-            this.btnGerFornecedores.TabIndex = 3;
-            this.btnGerFornecedores.Text = "Fornecedores";
-            this.btnGerFornecedores.UseVisualStyleBackColor = false;
-            this.btnGerFornecedores.Click += new System.EventHandler(this.btnFornecedores_Click);
-            // 
-            // btnGerQuartos
-            // 
-            this.btnGerQuartos.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGerQuartos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGerQuartos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerQuartos.Location = new System.Drawing.Point(46, 304);
-            this.btnGerQuartos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGerQuartos.Name = "btnGerQuartos";
-            this.btnGerQuartos.Size = new System.Drawing.Size(130, 37);
-            this.btnGerQuartos.TabIndex = 4;
-            this.btnGerQuartos.Text = "Quartos";
-            this.btnGerQuartos.UseVisualStyleBackColor = false;
-            this.btnGerQuartos.Click += new System.EventHandler(this.btnQuartos_Click);
             // 
             // btnLogoff
             // 
             this.btnLogoff.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogoff.Location = new System.Drawing.Point(66, 5);
+            this.btnLogoff.Location = new System.Drawing.Point(134, 409);
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
@@ -110,21 +59,6 @@
             this.btnLogoff.Text = "Logoff";
             this.btnLogoff.UseVisualStyleBackColor = false;
             this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
-            // 
-            // btnRegProdutos
-            // 
-            this.btnRegProdutos.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnRegProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegProdutos.Location = new System.Drawing.Point(46, 104);
-            this.btnRegProdutos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegProdutos.Name = "btnRegProdutos";
-            this.btnRegProdutos.Size = new System.Drawing.Size(130, 37);
-            this.btnRegProdutos.TabIndex = 1;
-            this.btnRegProdutos.Text = "Produtos";
-            this.btnRegProdutos.UseVisualStyleBackColor = false;
-            this.btnRegProdutos.Click += new System.EventHandler(this.btnRegProdutos_Click);
             // 
             // lblGerenciamento
             // 
@@ -142,15 +76,18 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblHora);
+            this.panel1.Controls.Add(this.btnInfo);
+            this.panel1.Controls.Add(this.btnLogoff);
+            this.panel1.Controls.Add(this.lnkFuncionarios);
             this.panel1.Controls.Add(this.lblNomeFuncionario);
-            this.panel1.Controls.Add(this.btnGerFuncionarios);
+            this.panel1.Controls.Add(this.lnkQuartos);
             this.panel1.Controls.Add(this.lblNome2);
+            this.panel1.Controls.Add(this.lnkFornecedores);
             this.panel1.Controls.Add(this.lblNome1);
+            this.panel1.Controls.Add(this.lnkClientes);
             this.panel1.Controls.Add(this.lblGerenciamento);
-            this.panel1.Controls.Add(this.btnRegProdutos);
-            this.panel1.Controls.Add(this.btnGerClientes);
-            this.panel1.Controls.Add(this.btnGerFornecedores);
-            this.panel1.Controls.Add(this.btnGerQuartos);
+            this.panel1.Controls.Add(this.lnkProdutos);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -165,21 +102,6 @@
             this.lblNomeFuncionario.Size = new System.Drawing.Size(12, 20);
             this.lblNomeFuncionario.TabIndex = 9;
             this.lblNomeFuncionario.Text = "l";
-            // 
-            // btnGerFuncionarios
-            // 
-            this.btnGerFuncionarios.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGerFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGerFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGerFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGerFuncionarios.Location = new System.Drawing.Point(46, 364);
-            this.btnGerFuncionarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnGerFuncionarios.Name = "btnGerFuncionarios";
-            this.btnGerFuncionarios.Size = new System.Drawing.Size(130, 37);
-            this.btnGerFuncionarios.TabIndex = 14;
-            this.btnGerFuncionarios.Text = "Funcionários";
-            this.btnGerFuncionarios.UseVisualStyleBackColor = false;
-            this.btnGerFuncionarios.Click += new System.EventHandler(this.btnGerFuncionarios_Click);
             // 
             // lblNome2
             // 
@@ -202,32 +124,11 @@
             this.lblNome1.TabIndex = 10;
             this.lblNome1.Text = "Santo";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.btnLogoff);
-            this.panel2.Location = new System.Drawing.Point(354, 408);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(259, 60);
-            this.panel2.TabIndex = 12;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.SlateGray;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.lblHora);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(680, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(282, 468);
-            this.panel3.TabIndex = 12;
-            // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(13, 439);
+            this.lblHora.Location = new System.Drawing.Point(65, 384);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(51, 20);
             this.lblHora.TabIndex = 13;
@@ -239,7 +140,7 @@
             this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.Location = new System.Drawing.Point(131, 19);
+            this.btnInfo.Location = new System.Drawing.Point(115, -2);
             this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(157, 58);
@@ -254,25 +155,67 @@
             this.Relogio.Interval = 1000;
             this.Relogio.Tick += new System.EventHandler(this.Relogio_Tick);
             // 
-            // panel4
+            // lnkProdutos
             // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Controls.Add(this.btnInfo);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(280, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 100);
-            this.panel4.TabIndex = 13;
+            this.lnkProdutos.AutoSize = true;
+            this.lnkProdutos.Location = new System.Drawing.Point(78, 143);
+            this.lnkProdutos.Name = "lnkProdutos";
+            this.lnkProdutos.Size = new System.Drawing.Size(73, 20);
+            this.lnkProdutos.TabIndex = 14;
+            this.lnkProdutos.TabStop = true;
+            this.lnkProdutos.Text = "Produtos";
+            this.lnkProdutos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkProdutos_LinkClicked);
+            // 
+            // lnkClientes
+            // 
+            this.lnkClientes.AutoSize = true;
+            this.lnkClientes.Location = new System.Drawing.Point(78, 190);
+            this.lnkClientes.Name = "lnkClientes";
+            this.lnkClientes.Size = new System.Drawing.Size(66, 20);
+            this.lnkClientes.TabIndex = 15;
+            this.lnkClientes.TabStop = true;
+            this.lnkClientes.Text = "Clientes";
+            this.lnkClientes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClientes_LinkClicked);
+            // 
+            // lnkFornecedores
+            // 
+            this.lnkFornecedores.AutoSize = true;
+            this.lnkFornecedores.Location = new System.Drawing.Point(78, 230);
+            this.lnkFornecedores.Name = "lnkFornecedores";
+            this.lnkFornecedores.Size = new System.Drawing.Size(108, 20);
+            this.lnkFornecedores.TabIndex = 16;
+            this.lnkFornecedores.TabStop = true;
+            this.lnkFornecedores.Text = "Fornecedores";
+            this.lnkFornecedores.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFornecedores_LinkClicked);
+            // 
+            // lnkQuartos
+            // 
+            this.lnkQuartos.AutoSize = true;
+            this.lnkQuartos.Location = new System.Drawing.Point(78, 276);
+            this.lnkQuartos.Name = "lnkQuartos";
+            this.lnkQuartos.Size = new System.Drawing.Size(66, 20);
+            this.lnkQuartos.TabIndex = 17;
+            this.lnkQuartos.TabStop = true;
+            this.lnkQuartos.Text = "Quartos";
+            this.lnkQuartos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkQuartos_LinkClicked);
+            // 
+            // lnkFuncionarios
+            // 
+            this.lnkFuncionarios.AutoSize = true;
+            this.lnkFuncionarios.Location = new System.Drawing.Point(78, 322);
+            this.lnkFuncionarios.Name = "lnkFuncionarios";
+            this.lnkFuncionarios.Size = new System.Drawing.Size(100, 20);
+            this.lnkFuncionarios.TabIndex = 18;
+            this.lnkFuncionarios.TabStop = true;
+            this.lnkFuncionarios.Text = "Funcionários";
+            this.lnkFuncionarios.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFuncionarios_LinkClicked);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 468);
+            this.ClientSize = new System.Drawing.Size(276, 468);
             this.ControlBox = false;
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -287,31 +230,24 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormMenu_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnGerClientes;
-        private System.Windows.Forms.Button btnGerFornecedores;
-        private System.Windows.Forms.Button btnGerQuartos;
         private System.Windows.Forms.Button btnLogoff;
-        private System.Windows.Forms.Button btnRegProdutos;
         private System.Windows.Forms.Label lblGerenciamento;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNomeFuncionario;
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer Relogio;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnGerFuncionarios;
+        private System.Windows.Forms.LinkLabel lnkProdutos;
+        private System.Windows.Forms.LinkLabel lnkClientes;
+        private System.Windows.Forms.LinkLabel lnkFornecedores;
+        private System.Windows.Forms.LinkLabel lnkQuartos;
+        private System.Windows.Forms.LinkLabel lnkFuncionarios;
     }
 }

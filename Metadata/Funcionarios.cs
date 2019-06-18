@@ -42,8 +42,8 @@ namespace Metadata
         public string Senha { get; set; }
         public bool EhADM { get; set; }
 
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
+        public int Estado { get; set; }
+        public int Cidade { get; set; }
         public string Rua { get; set; }
         public string Bairro { get; set; }
         public string Numero { get; set; }
