@@ -28,35 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtCNPJ = new System.Windows.Forms.TextBox();
+            this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtSigla = new System.Windows.Forms.TextBox();
-            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.lblNome2 = new System.Windows.Forms.Label();
+            this.lblNome1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(531, 316);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
-            this.btnVoltar.TabIndex = 0;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 62);
+            this.label3.Location = new System.Drawing.Point(33, 211);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 13);
@@ -66,122 +64,212 @@
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(59, 81);
+            this.txtID.Location = new System.Drawing.Point(33, 230);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(76, 20);
+            this.txtID.Size = new System.Drawing.Size(126, 20);
             this.txtID.TabIndex = 27;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(225, 51);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(362, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(924, 132);
             this.dataGridView1.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 169);
+            this.label2.Location = new System.Drawing.Point(31, 318);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Nome";
+            this.label2.Text = "CNPJ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 115);
+            this.label1.Location = new System.Drawing.Point(31, 264);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Sigla";
+            this.label1.Text = "Nome da Empresa";
+            // 
+            // txtCNPJ
+            // 
+            this.txtCNPJ.Location = new System.Drawing.Point(31, 335);
+            this.txtCNPJ.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCNPJ.Name = "txtCNPJ";
+            this.txtCNPJ.Size = new System.Drawing.Size(128, 20);
+            this.txtCNPJ.TabIndex = 21;
+            // 
+            // txtNomeEmpresa
+            // 
+            this.txtNomeEmpresa.Location = new System.Drawing.Point(31, 283);
+            this.txtNomeEmpresa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
+            this.txtNomeEmpresa.Size = new System.Drawing.Size(128, 20);
+            this.txtNomeEmpresa.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 373);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Nome";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(57, 186);
+            this.txtNome.Location = new System.Drawing.Point(31, 390);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(76, 20);
-            this.txtNome.TabIndex = 21;
+            this.txtNome.Size = new System.Drawing.Size(128, 20);
+            this.txtNome.TabIndex = 35;
             // 
-            // txtSigla
+            // label5
             // 
-            this.txtSigla.Location = new System.Drawing.Point(57, 134);
-            this.txtSigla.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(76, 20);
-            this.txtSigla.TabIndex = 20;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(28, 425);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Telefone";
             // 
-            // btnAtualizar
+            // txtTelefone
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(513, 211);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
-            this.btnAtualizar.TabIndex = 34;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            this.txtTelefone.Location = new System.Drawing.Point(28, 442);
+            this.txtTelefone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(131, 20);
+            this.txtTelefone.TabIndex = 37;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 481);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "E-Mail";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(28, 498);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(131, 20);
+            this.txtEmail.TabIndex = 39;
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(399, 211);
+            this.btnExcluir.Location = new System.Drawing.Point(126, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 52);
-            this.btnExcluir.TabIndex = 33;
+            this.btnExcluir.TabIndex = 43;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(253, 136);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
+            this.btnAtualizar.TabIndex = 44;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(285, 211);
+            this.btnEditar.Location = new System.Drawing.Point(380, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
-            this.btnEditar.TabIndex = 32;
+            this.btnEditar.TabIndex = 42;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(170, 211);
+            this.btnCadastrar.Location = new System.Drawing.Point(2, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 52);
-            this.btnCadastrar.TabIndex = 31;
+            this.btnCadastrar.TabIndex = 41;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(755, 537);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(125, 39);
+            this.btnVoltar.TabIndex = 45;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            // 
+            // lblNome2
+            // 
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(473, 345);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(409, 127);
+            this.lblNome2.TabIndex = 97;
+            this.lblNome2.Text = "Soninho";
+            // 
+            // lblNome1
+            // 
+            this.lblNome1.AutoSize = true;
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Location = new System.Drawing.Point(527, 247);
+            this.lblNome1.Name = "lblNome1";
+            this.lblNome1.Size = new System.Drawing.Size(316, 127);
+            this.lblNome1.TabIndex = 96;
+            this.lblNome1.Text = "Santo";
             // 
             // FormFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 378);
+            this.ClientSize = new System.Drawing.Size(924, 602);
             this.ControlBox = false;
-            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.lblNome2);
+            this.Controls.Add(this.lblNome1);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtSigla);
-            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.txtNomeEmpresa);
             this.KeyPreview = true;
             this.Name = "FormFornecedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -194,18 +282,25 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCNPJ;
+        private System.Windows.Forms.TextBox txtNomeEmpresa;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtSigla;
-        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTelefone;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Label lblNome2;
+        private System.Windows.Forms.Label lblNome1;
     }
 }

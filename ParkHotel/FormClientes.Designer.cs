@@ -304,7 +304,7 @@
             "AC"});
             this.cmbEstado.Location = new System.Drawing.Point(219, 228);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(200, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(204, 21);
             this.cmbEstado.TabIndex = 92;
             this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
