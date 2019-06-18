@@ -60,5 +60,17 @@ namespace ParkHotel
         {
 
         }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMenu menu = new FormMenu();
+            menu.Show();
+        }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

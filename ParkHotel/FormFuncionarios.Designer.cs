@@ -146,6 +146,7 @@
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(204, 21);
             this.cmbEstado.TabIndex = 122;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // txtCEP
             // 
@@ -376,10 +377,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(433, 214);
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(430, 209);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(113, 20);
+            this.checkBox2.Size = new System.Drawing.Size(130, 24);
             this.checkBox2.TabIndex = 127;
             this.checkBox2.Text = " Administrador";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -422,6 +423,7 @@
             this.btnVoltar.TabIndex = 129;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
             // 
             // FormFuncionarios
             // 

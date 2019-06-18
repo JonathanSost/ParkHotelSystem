@@ -17,12 +17,7 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormMenu menu = new FormMenu();
-            menu.Show();
-        }
+      
 
         private void FormFornecedores_KeyUp(object sender, KeyEventArgs e)
         {
@@ -59,6 +54,13 @@ namespace ParkHotel
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMenu menu = new FormMenu();
+            menu.Show();
         }
     }
 }
