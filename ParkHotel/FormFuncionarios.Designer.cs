@@ -121,6 +121,7 @@
             this.btnCadastrar.TabIndex = 45;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
             // 
             // cmbCidade
             // 
