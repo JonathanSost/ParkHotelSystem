@@ -52,15 +52,15 @@ namespace ParkHotel
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            int idEstado = (int)cmbEstado.SelectedValue;
-
             c = new Clientes(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue, 
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
 
-            clibll.Cadastrar(c);
-
-            FormCleaner.Clear(this);
+            MessageBox.Show(clibll.Cadastrar(c));
+            if (clibll.ValidarCliente(c))
+            {
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

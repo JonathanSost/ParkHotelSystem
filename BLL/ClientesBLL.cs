@@ -21,6 +21,8 @@ namespace BLL
             int soma;
             int resto;
 
+            cpf = cpf.Replace(".", "").Replace("-", "");
+
             if (cpf.Length != 11)
                 return false;
             tempCpf = cpf.Substring(0, 9);
@@ -49,10 +51,21 @@ namespace BLL
         }
 
         ClienteDAL dal = new ClienteDAL();
+        List<string> erros = null;
+
+        public bool ValidarCliente(Clientes cli)
+        {
+            Cadastrar(cli);
+            if (erros.Count != 0)
+            {
+                return false;
+            }
+            return true;
+        }
 
         public string Cadastrar(Clientes cli)
         {
-            List<string> erros = new List<string>();
+            erros = new List<string>();
 
             #region Nome
             if (string.IsNullOrWhiteSpace(cli.Nome))
@@ -88,7 +101,6 @@ namespace BLL
             }
             else
             {
-                cli.CPF = cli.CPF.Trim();
                 cli.CPF = cli.CPF.Replace(".", "").Replace("-", "");
                 if (!this.ValidarCPF(cli.CPF))
                 {
