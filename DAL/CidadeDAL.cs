@@ -280,6 +280,8 @@ namespace DAL
             command.CommandText = "select * from cidades c inner join estados e on c.estado = e.id where e.id = @id";
             command.Parameters.AddWithValue("@id", idestado);
 
+            command.Connection = connection;
+
             List<Cidades> cidades = new List<Cidades>();
 
             try

@@ -92,9 +92,7 @@ namespace ParkHotel
 
         private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
-
-
+            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
