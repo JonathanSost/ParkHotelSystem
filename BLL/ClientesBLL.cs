@@ -147,13 +147,13 @@ namespace BLL
             #endregion
 
             #region Estado
-            if (string.IsNullOrWhiteSpace(cli.Estado))
-            {
-                erros.Add("Estado deve ser informado");
-            }
-            
+            //if (int.IsNullOrWhiteSpace(cli.Estado))
+            //{
+            //    erros.Add("Estado deve ser informado");
+            //}
+            //
             EstadoDAL estdal = new EstadoDAL();
-
+            
             if (!estdal.VerificarExistenciaEstado(cli.Estado))
             {
                 erros.Add("Estado inexistente!");
@@ -285,9 +285,24 @@ namespace BLL
             return dal.Atualizar(cli);
         }
 
-        public string Excluir(Clientes cli)
+        public string Excluir(int idCliente)
         {
-            return dal.Excluir(cli);
+            List<string> erros = new List<string>();
+
+            if (!dal.VerificarExistenciaCliente(idCliente))
+            {
+                erros.Add("Cliente inexistente");
+            }
+            StringBuilder builder = new StringBuilder();
+            if (erros.Count != 0)
+            {
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    builder.AppendLine(erros[i]);
+                }
+                return builder.ToString();
+            }
+            return dal.Excluir(idCliente);
         }
 
         public Clientes LerPorID(int id)

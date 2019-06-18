@@ -8,8 +8,27 @@ namespace Metadata
 {
     public class Clientes
     {
-        public Clientes (int id, string nome, string cpf, string rg, string telefone1, 
+        public Clientes (string nome, string cpf, string rg, string telefone1, 
             string telefone2, string email, string cep, int estado, int cidade, string rua, 
+            string bairro, string numero, string complemento)
+        {
+            this.Nome = nome;
+            this.CPF = cpf;
+            this.RG = rg;
+            this.Telefone1 = telefone1;
+            this.Telefone2 = telefone2;
+            this.Email = email;
+            this.CEP = cep;
+            this.Estado = estado;
+            this.Cidade = cidade;
+            this.Rua = rua;
+            this.Bairro = bairro;
+            this.Numero = numero;
+            this.Complemento = complemento;
+        }
+
+        public Clientes(int id, string nome, string cpf, string rg, string telefone1,
+            string telefone2, string email, string cep, int estado, int cidade, string rua,
             string bairro, string numero, string complemento)
         {
             this.ID = id;

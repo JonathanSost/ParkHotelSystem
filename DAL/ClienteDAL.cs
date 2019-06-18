@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ClienteDAL : IEntityCRUD<Clientes>
+    public class ClienteDAL
     {
         #region Atualizar
         public string Atualizar(Clientes cli)
@@ -49,14 +49,14 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(Clientes cli)
+        public string Excluir(int idCliente)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
             command.CommandText = "delete from clientes where id = @id";
-            command.Parameters.AddWithValue("@id", cli.ID);
+            command.Parameters.AddWithValue("@id", idCliente);
 
             command.Connection = connection;
 
@@ -90,13 +90,22 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into clientes (nome, cpf, rg, telefone1, telefone2, email) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email)";
+            command.CommandText = "insert into clientes (nome, cpf, rg, telefone1, telefone2, email, cep, estado, " +
+                "cidade, rua, bairro, numero, complemento) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email, " +
+                "@cep, @estado, @cidade, @rua, @bairro, @numero, @complemento)";
             command.Parameters.AddWithValue("@nome", cli.Nome);
             command.Parameters.AddWithValue("@cpf", cli.CPF);
             command.Parameters.AddWithValue("@rg", cli.RG);
             command.Parameters.AddWithValue("@telefone1", cli.Telefone1);
             command.Parameters.AddWithValue("@telefone2", cli.Telefone2);
             command.Parameters.AddWithValue("@email", cli.Email);
+            command.Parameters.AddWithValue("@cep", cli.CEP);
+            command.Parameters.AddWithValue("@estado", cli.Estado);
+            command.Parameters.AddWithValue("@cidade", cli.Cidade);
+            command.Parameters.AddWithValue("@rua", cli.Rua);
+            command.Parameters.AddWithValue("@bairro", cli.Bairro);
+            command.Parameters.AddWithValue("@numero", cli.Numero);
+            command.Parameters.AddWithValue("@complemento", cli.Complemento);
 
             command.Connection = connection;
 
@@ -149,9 +158,17 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["TELEFONE1"]);
                     string telefone2 = Convert.ToString(reader["TELEFONE2"]);
                     string email = Convert.ToString(reader["EMAIL"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int cidade = Convert.ToInt32(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    cli= new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, conta);
+                    cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade,
+                        rua, bairro, numero, complemento);
                 }
             }
             catch
@@ -174,13 +191,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select cli.Nome, cli.CPF, cli.RG, c.nome 'Cidade', e.nome 'Estado', 
-                                  ende.CEP, ende.Rua, ende.Bairro, ende.Numero 'Número', ende.Complemento, 
-                                  cli.Telefone1 'Telefone 1', cli.Telefone2 'Telefone 2', 
-                                  cli.email 'E-Mail' from clientes cli inner
-                                  join enderecos ende on cli.endereco = ende.id inner
-                                  join cidades c on ende.cidade = c.id inner
-                                  join estados e on c.estado = e.id";
+            command.CommandText = @"select * from clientes";
             
             command.Connection = connection;
 
@@ -200,13 +211,20 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
-                    //Enderecos endereco = Convert.ToString(reader["ENDERECO"]);
                     string telefone1 = Convert.ToString(reader["TELEFONE1"]);
                     string telefone2 = Convert.ToString(reader["TELEFONE2"]);
                     string email = Convert.ToString(reader["EMAIL"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int cidade = Convert.ToInt32(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    Clientes cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, conta);
+                    Clientes cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade, 
+                        rua, bairro, numero, complemento);
                     clientes.Add(cli);
                 }
             }

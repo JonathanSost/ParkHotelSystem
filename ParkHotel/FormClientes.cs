@@ -17,6 +17,7 @@ namespace ParkHotel
         ClientesBLL clibll = new ClientesBLL();
         CidadesBLL cidbll = new CidadesBLL();
         EstadosBLL estbll = new EstadosBLL();
+        Clientes c = null;
 
         public FormClientes()
         {
@@ -53,7 +54,7 @@ namespace ParkHotel
         {
             int idEstado = (int)cmbEstado.SelectedValue;
 
-            Clientes c = new Clientes(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
+            c = new Clientes(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue, 
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
 
@@ -64,17 +65,23 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            clibll.Atualizar(c);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("Cliente deve ser informado.");
+                return;
+            }
             DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
-
+            
+            clibll.Excluir(int.Parse(txtID.Text));
             MessageBox.Show("Excluido com sucesso!");
         }
 

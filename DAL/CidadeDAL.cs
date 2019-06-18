@@ -239,15 +239,15 @@ namespace DAL
         #endregion
 
         #region Verificar Existência da Cidade
-        public bool VerificarExistenciaCidade(string cidade)
+        public bool VerificarExistenciaCidade(int idCidade)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from cidades where nome = @nome";
-            command.Parameters.AddWithValue("@nome", cidade);
+            command.CommandText = "select * from cidades where id = @id";
+            command.Parameters.AddWithValue("@id", idCidade);
             command.Connection = connection;
 
             try
@@ -269,6 +269,7 @@ namespace DAL
         }
         #endregion
 
+        #region Ler Por Estado
         public List<Cidades> LerPorEstado(int idestado)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -307,7 +308,6 @@ namespace DAL
             }
             return cidades;
         }
+        #endregion
     }
-
-
 }

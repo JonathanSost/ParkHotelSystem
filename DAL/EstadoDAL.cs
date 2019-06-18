@@ -190,15 +190,15 @@ namespace DAL
         #endregion
 
         #region Verificar Existência de Estado
-        public bool VerificarExistenciaEstado(string estado)
+        public bool VerificarExistenciaEstado(int idEstado)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from estados where nome = @nome";
-            command.Parameters.AddWithValue("@nome", estado);
+            command.CommandText = "select * from estados where id = @id";
+            command.Parameters.AddWithValue("@id", idEstado);
             command.Connection = connection;
 
             try
