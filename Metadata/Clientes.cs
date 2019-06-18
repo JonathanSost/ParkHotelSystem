@@ -8,7 +8,9 @@ namespace Metadata
 {
     public class Clientes
     {
-        public Clientes (int id, string nome, string cpf, string rg, string telefone1, string telefone2, string email, double conta )
+        public Clientes (int id, string nome, string cpf, string rg, string telefone1, 
+            string telefone2, string email, string cep, int estado, int cidade, string rua, 
+            string bairro, string numero, string complemento)
         {
             this.ID = id;
             this.Nome = nome;
@@ -17,7 +19,13 @@ namespace Metadata
             this.Telefone1 = telefone1;
             this.Telefone2 = telefone2;
             this.Email = email;
-            this.Conta = conta;
+            this.CEP = cep;
+            this.Estado = estado;
+            this.Cidade = cidade;
+            this.Rua = rua;
+            this.Bairro = bairro;
+            this.Numero = numero;
+            this.Complemento = complemento;
         }
 
         public int ID { get; set; }
@@ -29,11 +37,12 @@ namespace Metadata
         public string Email { get; set; }
         public double Conta { get; set; }
 
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
+        public int Estado { get; set; }
+        public int Cidade { get; set; }
         public string Rua { get; set; }
         public string Bairro { get; set; }
         public string Numero { get; set; }
         public string CEP { get; set; }
+        public string Complemento { get; set; }
     }
 }

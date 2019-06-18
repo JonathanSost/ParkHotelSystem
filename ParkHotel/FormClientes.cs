@@ -53,6 +53,11 @@ namespace ParkHotel
         {
             int idEstado = (int)cmbEstado.SelectedValue;
 
+            Clientes c = new Clientes(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
+                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue, 
+                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
+
+            clibll.Cadastrar(c);
 
             FormCleaner.Clear(this);
         }
