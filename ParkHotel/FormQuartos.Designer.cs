@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
@@ -153,17 +152,6 @@
             this.txtPreco.Size = new System.Drawing.Size(150, 26);
             this.txtPreco.TabIndex = 20;
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(345, 136);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
-            this.btnAtualizar.TabIndex = 30;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
-            // 
             // chkDisponivel
             // 
             this.chkDisponivel.AutoSize = true;
@@ -217,7 +205,6 @@
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.chkDisponivel);
-            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
@@ -250,7 +237,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtPreco;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.CheckBox chkDisponivel;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;

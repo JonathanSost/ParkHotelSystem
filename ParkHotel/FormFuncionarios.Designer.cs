@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.cmbCidade = new System.Windows.Forms.ComboBox();
@@ -92,19 +91,9 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(252, 136);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
-            this.btnAtualizar.TabIndex = 48;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(379, 136);
+            this.btnEditar.Location = new System.Drawing.Point(254, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
@@ -466,7 +455,6 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.dataGridView1);
@@ -484,7 +472,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.ComboBox cmbCidade;

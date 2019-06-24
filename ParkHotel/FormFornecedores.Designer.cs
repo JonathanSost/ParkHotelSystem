@@ -42,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -184,19 +183,9 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Location = new System.Drawing.Point(253, 136);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(110, 52);
-            this.btnAtualizar.TabIndex = 44;
-            this.btnAtualizar.Text = "Atualizar";
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(380, 136);
+            this.btnEditar.Location = new System.Drawing.Point(250, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
@@ -257,7 +246,6 @@
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label6);
@@ -299,7 +287,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltar;
