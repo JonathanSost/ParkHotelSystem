@@ -59,6 +59,36 @@ namespace ParkHotel
                 this.Close();
                 new FormLogin().Show();
             }
+            else if (e.KeyCode == Keys.F1)
+            {
+                IButtonControl i = null;
+                i = lnkProdutos;
+                i.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F2)
+            {
+                IButtonControl i = null;
+                i = lnkClientes;
+                i.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                IButtonControl i = null;
+                i = lnkFornecedores;
+                i.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F4)
+            {
+                IButtonControl i = null;
+                i = lnkQuartos;
+                i.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                IButtonControl i = null;
+                i = lnkFuncionarios;
+                i.PerformClick();
+            }
         }
 
         private void lnkProdutos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

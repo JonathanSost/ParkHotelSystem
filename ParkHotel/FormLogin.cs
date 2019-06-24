@@ -90,6 +90,10 @@ namespace ParkHotel
             {
                 Application.Exit();
             }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin.PerformClick();
+            }
         }
         #endregion
     }
