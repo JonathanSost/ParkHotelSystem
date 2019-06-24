@@ -28,13 +28,15 @@ namespace ParkHotel
             //    MessageBox.Show("Usuário e senha devem ser informados!");
             //    return;
             //}
-            //Funcionario fun = new Funcionario(txtUsuario.Text, txtSenha.Text);
-            //if (!bll.FuncionarioExiste(fun))
+            //Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            //if (fun != null)
             //{
-            //    MessageBox.Show("Usuário ou senha incorretos!");
+            //    Parametros.FuncionarioLogado = fun;
+            //    this.Hide();
+            //    new FormMenu().Show();
             //    return;
             //}
-
+            //MessageBox.Show("Usuário ou senha incorretos!");
 
             this.Hide();
             new FormMenu().Show();
@@ -89,10 +91,6 @@ namespace ParkHotel
             if (e.KeyCode == Keys.Escape)
             {
                 Application.Exit();
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                this.btnLogin.PerformClick();
             }
         }
         #endregion

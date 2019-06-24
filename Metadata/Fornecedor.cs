@@ -16,8 +16,16 @@ namespace Metadata
             this.NomeContato = nomeContato;
             this.Telefone = telefone;
             this.Email = email;
-           
-        }   
+        }
+
+        public Fornecedor(string nomeEmpresa, string cnpj, string nomeContato, string telefone, string email)
+        {
+            this.NomeEmpresa = nomeEmpresa;
+            this.CNPJ = cnpj;
+            this.NomeContato = nomeContato;
+            this.Telefone = telefone;
+            this.Email = email;
+        }
 
         public int ID { get; set; }
         public string NomeEmpresa { get; set; }

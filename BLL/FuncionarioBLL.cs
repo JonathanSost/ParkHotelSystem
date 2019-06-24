@@ -294,9 +294,13 @@ namespace BLL
             return "Funcionário cadastrado com sucesso";
         }
 
-        public bool FuncionarioExiste(Funcionario funci)
+        public Funcionario FuncionarioExiste(string usuario, string senha)
         {
-            return dal.VerificarExistenciaFuncionario(funci);
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
+            {
+
+            }
+            return dal.VerificarExistenciaFuncionario(usuario, senha);
         }
 
         public string Atualizar(Funcionario funcionario)

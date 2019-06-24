@@ -138,9 +138,7 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     id = Convert.ToInt32(reader["ID"]);
-                    //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
@@ -213,7 +211,7 @@ namespace DAL
         #endregion
 
         #region Verificar Existência do Funcionário
-        public bool VerificarExistenciaFuncionario(Funcionario fun)
+        public Funcionario VerificarExistenciaFuncionario(string usuario, string senha)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -221,15 +219,30 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = "select * from funcionarios where email = @email and senha = @senha";
-            command.Parameters.AddWithValue("@email", fun.Email);
-            command.Parameters.AddWithValue("@senha", fun.Senha);
+            command.Parameters.AddWithValue("@email", usuario);
+            command.Parameters.AddWithValue("@senha", senha);
             command.Connection = connection;
+
+            Funcionario f = null;
 
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                return reader.Read();
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    usuario = Convert.ToString(reader["EMAIL"]);
+                    senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+
+
+                    f = new Funcionario(id, nome, cpf, rg, telefone, usuario, senha, ehadm);
+                }
             }
             catch
             {
@@ -239,7 +252,7 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return false;
+            return f;
         }
         #endregion
     }

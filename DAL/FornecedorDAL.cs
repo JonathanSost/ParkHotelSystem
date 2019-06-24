@@ -84,7 +84,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into administradores (nomeempresa, cnpj, nome, telefone, email) values (@nomeempresa, @cnpj, @nome, @telefone, @email)";
+            command.CommandText = "insert into fornecedores (nomeempresa, cnpj, nome, telefone, email) values (@nomeempresa, @cnpj, @nome, @telefone, @email)";
             command.Parameters.AddWithValue("@nomeempresa", fornecedor.NomeEmpresa);
             command.Parameters.AddWithValue("@cnpj", fornecedor.CNPJ);
             command.Parameters.AddWithValue("@nome", fornecedor.NomeContato);

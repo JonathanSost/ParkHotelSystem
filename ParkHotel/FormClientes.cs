@@ -84,6 +84,7 @@ namespace ParkHotel
             MessageBox.Show(clibll.Cadastrar(c));
             if (clibll.ValidarCliente(c))
             {
+                clibll.LerClientes();
                 FormCleaner.Clear(this);
             }
         }

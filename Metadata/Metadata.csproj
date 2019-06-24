@@ -49,6 +49,7 @@
     <Compile Include="Funcionario.cs" />
     <Compile Include="IClienteDataService.cs" />
     <Compile Include="IEntityCRUD.cs" />
+    <Compile Include="Parametros.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quarto.cs" />
