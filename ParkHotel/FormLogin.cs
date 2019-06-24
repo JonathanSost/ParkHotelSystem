@@ -28,7 +28,7 @@ namespace ParkHotel
             //    MessageBox.Show("Usuário e senha devem ser informados!");
             //    return;
             //}
-            //Funcionarios fun = new Funcionarios(txtUsuario.Text, txtSenha.Text);
+            //Funcionario fun = new Funcionario(txtUsuario.Text, txtSenha.Text);
             //if (!bll.FuncionarioExiste(fun))
             //{
             //    MessageBox.Show("Usuário ou senha incorretos!");

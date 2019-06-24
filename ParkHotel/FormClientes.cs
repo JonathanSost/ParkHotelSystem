@@ -27,7 +27,6 @@ namespace ParkHotel
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-
             this.Close();
             FormMenu menu = new FormMenu();
             menu.Show();
