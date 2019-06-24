@@ -398,7 +398,7 @@
             // 
             this.lblNome1.AutoSize = true;
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome1.Location = new System.Drawing.Point(542, 258);
+            this.lblNome1.Location = new System.Drawing.Point(542, 249);
             this.lblNome1.Name = "lblNome1";
             this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 130;
