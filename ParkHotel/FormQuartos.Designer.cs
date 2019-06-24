@@ -142,6 +142,7 @@
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(152, 26);
             this.txtTipo.TabIndex = 21;
+            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
             // 
             // txtPreco
             // 
@@ -151,6 +152,7 @@
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(150, 26);
             this.txtPreco.TabIndex = 20;
+            this.txtPreco.TextChanged += new System.EventHandler(this.txtPreco_TextChanged);
             // 
             // chkDisponivel
             // 

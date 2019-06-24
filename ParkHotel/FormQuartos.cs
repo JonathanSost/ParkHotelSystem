@@ -63,5 +63,15 @@ namespace ParkHotel
             FormMenu menu = new FormMenu();
             menu.Show();
         }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+            txtPreco.MaxLength = 10;
+        }
+
+        private void txtTipo_TextChanged(object sender, EventArgs e)
+        {
+            txtTipo.MaxLength = 2;
+        }
     }
 }

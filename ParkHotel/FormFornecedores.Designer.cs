@@ -110,6 +110,7 @@
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(128, 20);
             this.txtCNPJ.TabIndex = 21;
+            this.txtCNPJ.TextChanged += new System.EventHandler(this.txtCNPJ_TextChanged);
             // 
             // txtNomeEmpresa
             // 
@@ -118,6 +119,7 @@
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
             this.txtNomeEmpresa.Size = new System.Drawing.Size(128, 20);
             this.txtNomeEmpresa.TabIndex = 20;
+            this.txtNomeEmpresa.TextChanged += new System.EventHandler(this.txtNomeEmpresa_TextChanged);
             // 
             // label4
             // 
@@ -136,6 +138,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(128, 20);
             this.txtNome.TabIndex = 35;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label5
             // 
@@ -154,6 +157,7 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(131, 20);
             this.txtTelefone.TabIndex = 37;
+            this.txtTelefone.TextChanged += new System.EventHandler(this.txtTelefone_TextChanged);
             // 
             // label6
             // 
@@ -172,6 +176,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(131, 20);
             this.txtEmail.TabIndex = 39;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnExcluir
             // 

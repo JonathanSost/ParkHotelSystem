@@ -68,5 +68,25 @@ namespace ParkHotel
         {
 
         }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.MaxLength = 70;
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+            txtDescricao.MaxLength = 80;
+        }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+            txtPreco.MaxLength = 10;
+        }
+
+        private void txtEstoque_TextChanged(object sender, EventArgs e)
+        {
+            txtEstoque.MaxLength = 4;
+        }
     }
 }

@@ -86,6 +86,29 @@ namespace ParkHotel
             txtEmail.Text = email;
         }
 
-        
+        private void txtNomeEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            txtNomeEmpresa.MaxLength = 60;
+        }
+
+        private void txtCNPJ_TextChanged(object sender, EventArgs e)
+        {
+            txtCNPJ.MaxLength = 14;
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.MaxLength = 70;
+        }
+
+        private void txtTelefone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            txtEmail.MaxLength = 70;
+        }
     }
 }
