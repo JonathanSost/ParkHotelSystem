@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class FuncionariosBLL
+    public class FuncionarioBLL
     {
         private bool ValidarCPF(string cpf)
         {
@@ -48,9 +48,9 @@ namespace BLL
             #endregion
         }
 
-        FuncionariosDAL dal = new FuncionariosDAL();
+        FuncionarioDAL dal = new FuncionarioDAL();
 
-        public string Cadastrar(Funcionarios fun)
+        public string Cadastrar(Funcionario fun)
         {
 
             List<string> erros = new List<string>();
@@ -290,31 +290,31 @@ namespace BLL
                 return errosCliente.ToString();
             }
             //chamar o DAL para cadastrar
-            new FuncionariosDAL().Inserir(fun);
+            new FuncionarioDAL().Inserir(fun);
             return "Funcionário cadastrado com sucesso";
         }
 
-        public bool FuncionarioExiste(Funcionarios funci)
+        public bool FuncionarioExiste(Funcionario funci)
         {
             return dal.VerificarExistenciaFuncionario(funci);
         }
 
-        public string Atualizar(Funcionarios funcionario)
+        public string Atualizar(Funcionario funcionario)
         {
             return dal.Atualizar(funcionario);
         }
 
-        public string Excluir(Funcionarios funcionario)
+        public string Excluir(Funcionario funcionario)
         {
             return dal.Excluir(funcionario);
         }
 
-        public Funcionarios LerPorID(int id)
+        public Funcionario LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
 
-        public List<Funcionarios> LerTodos()
+        public List<Funcionario> LerTodos()
         {
             return dal.LerTodos();
         }

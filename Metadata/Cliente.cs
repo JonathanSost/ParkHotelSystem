@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Clientes
+    public class Cliente
     {
-        public Clientes (string nome, string cpf, string rg, string telefone1, 
+        public Cliente (string nome, string cpf, string rg, string telefone1, 
             string telefone2, string email, string cep, int estado, int cidade, string rua, 
             string bairro, string numero, string complemento)
         {
@@ -27,7 +27,7 @@ namespace Metadata
             this.Complemento = complemento;
         }
 
-        public Clientes(int id, string nome, string cpf, string rg, string telefone1,
+        public Cliente(int id, string nome, string cpf, string rg, string telefone1,
             string telefone2, string email, string cep, int estado, int cidade, string rua,
             string bairro, string numero, string complemento)
         {

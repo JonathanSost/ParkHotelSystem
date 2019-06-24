@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ProdutosBLL
+    public class ProdutoBLL
     {
 
-        ProdutosDAL dal = new ProdutosDAL();
+        ProdutoDAL dal = new ProdutoDAL();
 
-        public string Cadastrar (Produtos pro)
+        public string Cadastrar (Produto pro)
         {
             List<string> erros = new List<string>();
 
@@ -53,22 +53,22 @@ namespace BLL
             return "";
         }
 
-        public string Atualizar(Produtos produto)
+        public string Atualizar(Produto produto)
         {
             return dal.Atualizar(produto);
         }
 
-        public string Excluir(Produtos produto)
+        public string Excluir(Produto produto)
         {
             return dal.Excluir(produto);
         }
 
-        public Produtos LerPorID(int id)
+        public Produto LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
 
-        public List<Produtos> LerTodos()
+        public List<Produto> LerTodos()
         {
             return dal.LerTodos();
         }

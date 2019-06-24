@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ClienteDAL
+    public class ClienteDAL : IClienteDataService
     {
         #region Atualizar
-        public string Atualizar(Clientes cli)
+        public string Atualizar(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -84,7 +84,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Clientes cli)
+        public string Inserir(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -114,7 +114,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return "Banco de dados indisponível, favor contatar o suporte.";
             }
@@ -128,8 +128,85 @@ namespace DAL
         }
         #endregion
 
+        #region Ler Clientes (ClienteViewModel)
+        public List<ClienteViewModel> LerClientes()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', cli.Telefone2 'Celular', 
+            cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, 
+            cli.Conta from clientes cli inner join cidades cid on cli.cidade = cid.id inner join estados est on 
+            cli.estado = est.id";
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+                    double conta = Convert.ToDouble(reader["CONTA"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                        Conta = conta
+
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+
+            return clientes;
+        }
+        #endregion
+
         #region Ler Por ID
-        public Clientes LerPorID(int id)
+        public Cliente LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -140,7 +217,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Clientes cli = null;
+            Cliente cli = null;
 
             try
             {
@@ -167,7 +244,7 @@ namespace DAL
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade,
+                    cli = new Cliente(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade,
                         rua, bairro, numero, complemento);
                 }
             }
@@ -184,7 +261,7 @@ namespace DAL
         #endregion
 
         #region Ler Todos
-        public List<Clientes> LerTodos()
+        public List<Cliente> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -195,7 +272,7 @@ namespace DAL
             
             command.Connection = connection;
 
-            List<Clientes> clientes = new List<Clientes>();
+            List<Cliente> clientes = new List<Cliente>();
 
             try
             {
@@ -211,11 +288,11 @@ namespace DAL
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
-                    string telefone1 = Convert.ToString(reader["TELEFONE1"]);
-                    string telefone2 = Convert.ToString(reader["TELEFONE2"]);
-                    string email = Convert.ToString(reader["EMAIL"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["E-mail"]);
                     string cep = Convert.ToString(reader["CEP"]);
-                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int estado = Convert.ToInt32(reader["Estado"]);
                     int cidade = Convert.ToInt32(reader["CIDADE"]);
                     string rua = Convert.ToString(reader["RUA"]);
                     string bairro = Convert.ToString(reader["BAIRRO"]);
@@ -223,12 +300,12 @@ namespace DAL
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
 
-                    Clientes cli = new Clientes(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade, 
+                    Cliente cli = new Cliente(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade, 
                         rua, bairro, numero, complemento);
                     clientes.Add(cli);
                 }
             }
-            catch
+            catch(Exception ex)
             {
 
             }
@@ -236,8 +313,6 @@ namespace DAL
             {
                 connection.Dispose();
             }
-
-
 
             return clientes;
         }

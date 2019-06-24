@@ -19,7 +19,7 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-        FuncionariosBLL bll = new FuncionariosBLL();
+        FuncionarioBLL bll = new FuncionarioBLL();
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Cidades
+    public class Cidade
     {
         public int ID { get; set; }
         public string Nome { get; set; }
         public Estado Estado { get; set; }
 
-        public Cidades(int id, string nome, Estado estado)
+        public Cidade(int id, string nome, Estado estado)
         {
             this.ID = id;
             this.Nome = nome;

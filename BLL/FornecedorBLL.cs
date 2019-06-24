@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class FornecedoresBLL
+    public class FornecedorBLL
     {   /// <summary>
         /// Realiza a validação do CNPJ
         /// </summary>
@@ -50,9 +50,9 @@ namespace BLL
             #endregion
         }
 
-        FornecedoresDAL dal = new FornecedoresDAL();
+        FornecedorDAL dal = new FornecedorDAL();
 
-        public string Cadastrar(Fornecedores For)
+        public string Cadastrar(Fornecedor For)
         {
             List<string> erros = new List<string>();
 
@@ -157,26 +157,26 @@ namespace BLL
                 }
                 return ErrosFornecedor.ToString();
             }
-            new FornecedoresDAL().Inserir(For);
+            new FornecedorDAL().Inserir(For);
             return "Fornecedor cadastrado com sucesso!";
         }
 
-        public string Atualizar(Fornecedores fornecedor)
+        public string Atualizar(Fornecedor fornecedor)
         {
             return dal.Atualizar(fornecedor);
         }
 
-        public string Excluir(Fornecedores fornecedor)
+        public string Excluir(Fornecedor fornecedor)
         {
             return dal.Excluir(fornecedor);
         }
 
-        public Fornecedores LerPorID(int id)
+        public Fornecedor LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
 
-        public List<Fornecedores> LerTodos()
+        public List<Fornecedor> LerTodos()
         {
             return dal.LerTodos();
         }

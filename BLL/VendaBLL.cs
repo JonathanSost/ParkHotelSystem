@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class VendasBLL
+    public class VendaBLL
     {
-        VendasDAL dal = new VendasDAL();
+        VendaDAL dal = new VendaDAL();
         List<string> erros = new List<string>();
 
         public string Cadastrar(Vendas ven)

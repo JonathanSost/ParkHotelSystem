@@ -14,10 +14,10 @@ namespace ParkHotel
 {
     public partial class FormClientes : Form
     {
-        ClientesBLL clibll = new ClientesBLL();
-        CidadesBLL cidbll = new CidadesBLL();
-        EstadosBLL estbll = new EstadosBLL();
-        Clientes c = null;
+        ClienteBLL clibll = new ClienteBLL();
+        CidadeBLL cidbll = new CidadeBLL();
+        EstadoBLL estbll = new EstadoBLL();
+        Cliente c = null;
 
         public FormClientes()
         {
@@ -35,10 +35,36 @@ namespace ParkHotel
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+            string cpf = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+            string rg = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
+            string telefone1 = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+            string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
+            string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
+            int estado = (int)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
+            int cidade = (int)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
+            string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
+            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
+            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
 
+            txtID.Text = id.ToString();
+            txtNome.Text = nome;
+            msktxtCPF.Text = cpf;
+            msktxtRG.Text = rg;
+            msktxtTelefone.Text = telefone1;
+            msktxtCelular.Text = telefone2;
+            txtEmail.Text = email;
+            txtCEP.Text = cep;
+            cmbEstado.Text = estado.ToString();
+            cmbCidade.Text = cidade.ToString();
+            txtRua.Text = rua;
+            txtBairro.Text = bairro;
+            txtNumero.Text = numero;
+            txtComplemento.Text = complemento;
         }
-
-        
 
         private void FormClientes_KeyUp(object sender, KeyEventArgs e)
         {
@@ -52,7 +78,7 @@ namespace ParkHotel
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            c = new Clientes(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
+            c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue, 
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
 
@@ -72,10 +98,10 @@ namespace ParkHotel
         {
             if (string.IsNullOrWhiteSpace(txtID.Text))
             {
-                MessageBox.Show("Cliente deve ser informado.");
+                MessageBox.Show("ID do cliente deve ser informado.");
                 return;
             }
-            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o cliente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
@@ -97,7 +123,7 @@ namespace ParkHotel
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.LerTodos();
+            dataGridView1.DataSource = clibll.LerClientes();
 
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";

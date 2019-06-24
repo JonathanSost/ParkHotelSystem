@@ -44,14 +44,14 @@
     <Compile Include="CidadeDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="EstadoDAL.cs" />
-    <Compile Include="FornecedoresDAL.cs" />
-    <Compile Include="FuncionariosDAL.cs" />
+    <Compile Include="FornecedorDAL.cs" />
+    <Compile Include="FuncionarioDAL.cs" />
     <Compile Include="Parametros.cs" />
-    <Compile Include="ProdutosDAL.cs" />
+    <Compile Include="ProdutoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuartosDAL.cs" />
-    <Compile Include="ReservasDAL.cs" />
-    <Compile Include="VendasDAL.cs" />
+    <Compile Include="QuartoDAL.cs" />
+    <Compile Include="ReservaDAL.cs" />
+    <Compile Include="VendaDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Metadata\Metadata.csproj">

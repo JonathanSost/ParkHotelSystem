@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class CidadeDAL : IEntityCRUD<Cidades>
+    public class CidadeDAL : IEntityCRUD<Cidade>
     {
         #region Atualizar
-        public string Atualizar(Cidades cidade)
+        public string Atualizar(Cidade cidade)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -47,7 +47,7 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(Cidades cidade)
+        public string Excluir(Cidade cidade)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -82,7 +82,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Cidades cidade)
+        public string Inserir(Cidade cidade)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -118,7 +118,7 @@ namespace DAL
         #endregion
 
         #region Ler Por ID
-        public Cidades LerPorID(int id)
+        public Cidade LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -129,7 +129,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Cidades c = new Cidades(0, "", new Estado(0, "", ""));
+            Cidade c = new Cidade(0, "", new Estado(0, "", ""));
 
             try
             {
@@ -142,7 +142,7 @@ namespace DAL
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
+                    Cidade cidade = new Cidade(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     c = cidade;
                 }
             }
@@ -159,7 +159,7 @@ namespace DAL
         #endregion
 
         #region Ler Todos
-        public List<Cidades> LerTodos()
+        public List<Cidade> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -169,7 +169,7 @@ namespace DAL
             command.CommandText = "select * from cidades";
             command.Connection = connection;
 
-            List<Cidades> cidades = new List<Cidades>();
+            List<Cidade> cidades = new List<Cidade>();
 
             try
             {
@@ -182,7 +182,7 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
+                    Cidade cidade = new Cidade(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     cidades.Add(cidade);
                 }
             }
@@ -199,7 +199,7 @@ namespace DAL
         #endregion
 
         #region Ler Parecidos
-        public List<Cidades> LerParecidos(Cidades cidade)
+        public List<Cidade> LerParecidos(Cidade cidade)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -210,7 +210,7 @@ namespace DAL
             command.Parameters.AddWithValue("@nome", cidade.Nome);
             command.Connection = connection;
 
-            List<Cidades> cidades = new List<Cidades>();
+            List<Cidade> cidades = new List<Cidade>();
 
             try
             {
@@ -270,7 +270,7 @@ namespace DAL
         #endregion
 
         #region Ler Por Estado
-        public List<Cidades> LerPorEstado(int idestado)
+        public List<Cidade> LerPorEstado(int idestado)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -282,7 +282,7 @@ namespace DAL
 
             command.Connection = connection;
 
-            List<Cidades> cidades = new List<Cidades>();
+            List<Cidade> cidades = new List<Cidade>();
 
             try
             {
@@ -295,7 +295,7 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
-                    Cidades cidade = new Cidades(id, nome, new Estado((int)reader["ESTADO"], "", ""));
+                    Cidade cidade = new Cidade(id, nome, new Estado((int)reader["ESTADO"], "", ""));
                     cidades.Add(cidade);
                 }
             }

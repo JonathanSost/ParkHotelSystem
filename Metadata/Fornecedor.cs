@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Fornecedores
+    public class Fornecedor
     {
-        public Fornecedores(int id, string nomeEmpresa, string cnpj, string nomeContato, string telefone, string email)
+        public Fornecedor(int id, string nomeEmpresa, string cnpj, string nomeContato, string telefone, string email)
         {
             this.ID = id;
             this.NomeEmpresa = nomeEmpresa;

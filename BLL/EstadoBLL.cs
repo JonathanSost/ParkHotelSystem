@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class EstadosBLL
+    public class EstadoBLL
     {
         EstadoDAL dal = new EstadoDAL();
         public List<Estado> LerTodos()

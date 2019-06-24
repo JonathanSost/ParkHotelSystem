@@ -8,22 +8,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class VendasDAL : IEntityCRUD<Vendas>
+    public class ReservaDAL : IEntityCRUD<Reservas>
     {
-        public string Atualizar(Vendas venda)
+        #region Atualizar
+        public string Atualizar(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update vendas set datadevenda = @datadevenda, funcionario = @funcionario, " +
-                "cliente = @cliente, produto = @produto, quantidade = @quantidade, valor = @valor where id = @id";
-            command.Parameters.AddWithValue("@datadevenda", venda.DataDeVenda);
-            command.Parameters.AddWithValue("@funcionario", venda.IdCliente);
-            command.Parameters.AddWithValue("@cliente", venda.IdCliente);
-            command.Parameters.AddWithValue("@produto", venda.Produto);
-            command.Parameters.AddWithValue("@quantidade", venda.Quantidade);
-            command.Parameters.AddWithValue("@valor", venda.Valor);
+            command.CommandText = "update reservas set quarto = @quarto, cliente = @cliente, diareserva = @diareserva, diaquesai = @diaquesai where id = @id";
+            command.Parameters.AddWithValue("@quarto", reserva.IDQuarto);
+            command.Parameters.AddWithValue("@cliente", reserva.IDCliente);
+            command.Parameters.AddWithValue("@diareserva", reserva.DiaReserva);
+            command.Parameters.AddWithValue("@diaquesai", reserva.DiaQueSai);
 
             command.Connection = connection;
 
@@ -42,17 +40,19 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Venda atualizada com sucesso!";
+            return "Reserva atualizada com sucesso!";
         }
+        #endregion
 
-        public string Excluir(Vendas venda)
+        #region Excluir
+        public string Excluir(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "delete from vendas where id = @id";
-            command.Parameters.AddWithValue("@id", venda.IDVenda);
+            command.CommandText = "delete from reservas where id = @id";
+            command.Parameters.AddWithValue("@id", reserva.ID);
 
             command.Connection = connection;
 
@@ -71,23 +71,22 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Venda deletada do sistema com sucesso!";
+            return "Reserva deletada do sistema com sucesso!";
         }
+        #endregion
 
-        public string Inserir(Vendas venda)
+        #region Inserir
+        public string Inserir(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into vendas (datadevenda, funcionario, cliente, produto, quantidade, valor) values " +
-                "(@datadevenda, @funcionario, @cliente, @produto, @quantidade, @valor)";
-            command.Parameters.AddWithValue("@datadevenda", venda.DataDeVenda);
-            command.Parameters.AddWithValue("@funcionario", venda.IdFuncionario);
-            command.Parameters.AddWithValue("@cliente", venda.IdCliente);
-            command.Parameters.AddWithValue("@produto", venda.Produto);
-            command.Parameters.AddWithValue("@quantidade", venda.Quantidade);
-            command.Parameters.AddWithValue("@valor", venda.Valor);
+            command.CommandText = "insert into reservas (quarto, cliente, diareserva, diaquesai) values (@quarto, @cliente, @diareserva, @diaquesai)";
+            command.Parameters.AddWithValue("@quarto", reserva.IDQuarto);
+            command.Parameters.AddWithValue("@cliente", reserva.IDCliente);
+            command.Parameters.AddWithValue("@diareserva", reserva.DiaReserva);
+            command.Parameters.AddWithValue("@diaquesai", reserva.DiaQueSai);
 
             command.Connection = connection;
 
@@ -108,19 +107,21 @@ namespace DAL
 
             return "";
         }
+        #endregion
 
-        public Vendas LerPorID(int id)
+        #region Ler Por ID
+        public Reservas LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from vendas where id = @id";
+            command.CommandText = "select * from reservas where id = @id";
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Vendas v = null;
+            Reservas r = null;
 
             try
             {
@@ -132,8 +133,8 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
-
-                    //v = new Vendas();
+                    
+                    //r = new Reservas();
                 }
             }
             catch
@@ -144,20 +145,22 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return v;
+            return r;
         }
+        #endregion
 
-        public List<Vendas> LerTodos()
+        #region Ler Todos
+        public List<Reservas> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from vendas";
+            command.CommandText = "select * from reservas";
             command.Connection = connection;
 
-            List<Vendas> vendas = new List<Vendas>();
+            List<Reservas> reservas = new List<Reservas>();
 
             try
             {
@@ -169,9 +172,9 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
-
-                    //Vendas venda = new Vendas();
-                    //vendas.Add(venda);
+                    
+                    //Reservas reserva = new Reservas();
+                    //reservas.Add(reserva);
                 }
             }
             catch
@@ -182,7 +185,8 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return vendas;
+            return reservas;
         }
+        #endregion
     }
 }

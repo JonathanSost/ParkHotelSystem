@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ClientesBLL
+    public class ClienteBLL
     {
         private bool ValidarCPF(string cpf)
         {
@@ -53,9 +53,222 @@ namespace BLL
         ClienteDAL dal = new ClienteDAL();
         List<string> erros = null;
 
-        public bool ValidarCliente(Clientes cli)
+        public bool ValidarCliente(Cliente cli)
         {
-            Cadastrar(cli);
+            erros = new List<string>();
+
+            #region Nome
+            if (string.IsNullOrWhiteSpace(cli.Nome))
+            {
+                erros.Add("Nome deve ser informado.");
+            }
+            else
+            {
+                cli.Nome = Regex.Replace(cli.Nome, " {2,}", " ");
+                cli.Nome = cli.Nome.Trim();
+                if (cli.Nome.Length < 3 || cli.Nome.Length > 60)
+                {
+                    erros.Add("Nome deve conter entre 3 e 60 caracteres.");
+                }
+                else
+                {
+                    for (int i = 0; i < cli.Nome.Length; i++)
+                    {
+                        if (!char.IsLetter(cli.Nome[i]) && cli.Nome[i] != ' ')
+                        {
+                            erros.Add("Nome inválido");
+                            break;
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region CPF
+            if (string.IsNullOrWhiteSpace(cli.CPF))
+            {
+                erros.Add("CPF deve ser informado.");
+            }
+            else
+            {
+                cli.CPF = cli.CPF.Replace(".", "").Replace("-", "");
+                if (!this.ValidarCPF(cli.CPF))
+                {
+                    erros.Add("CPF inválido");
+                }
+            }
+            #endregion
+
+            #region RG
+            if (string.IsNullOrWhiteSpace(cli.RG))
+            {
+                erros.Add("RG deve ser informado.");
+            }
+            else
+            {
+                cli.RG = cli.RG.Trim();
+                cli.RG = cli.RG.Replace(".", "").Replace("/", "").Replace("-", "");
+                if (cli.RG.Length < 5 || cli.RG.Length > 9)
+                {
+                    erros.Add("RG deve conter entre 5 e 9 caracteres.");
+                }
+            }
+            #endregion
+
+            #region Endereço
+
+            #region CEP
+            if (string.IsNullOrWhiteSpace(cli.CEP))
+            {
+                erros.Add("CEP deve ser informado");
+            }
+            else
+            {
+                cli.CEP =
+                cli.CEP.Replace(" ", "").Replace("-", "");
+
+
+
+                if (cli.CEP.Length != 8)
+                {
+                    erros.Add("CEP deve conter 8 digitos");
+                }
+                else
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (!char.IsNumber(cli.CEP[i]))
+                        {
+                            erros.Add("CEP deve conter apenas numeros");
+                            break;
+                        }
+                    }
+
+                }
+            }
+            #endregion
+
+            #region Estado
+            //if (int.IsNullOrWhiteSpace(cli.Estado))
+            //{
+            //    erros.Add("Estado deve ser informado");
+            //}
+            //
+            EstadoDAL estdal = new EstadoDAL();
+
+            if (!estdal.VerificarExistenciaEstado(cli.Estado))
+            {
+                erros.Add("Estado inexistente!");
+            }
+            #endregion
+
+            #region Cidade
+            CidadeDAL cidades = new CidadeDAL();
+            if (!cidades.VerificarExistenciaCidade(cli.Cidade))
+            {
+                erros.Add("Cidade inexistente!");
+            }
+            #endregion
+
+            #region Bairro
+            if (string.IsNullOrWhiteSpace(cli.Bairro))
+            {
+                erros.Add("Bairro deve ser informado");
+            }
+            else
+            {
+                cli.Bairro = cli.Bairro.Replace(" ", "");
+                if (cli.Bairro.Length < 3 || cli.Bairro.Length > 50)
+                {
+                    erros.Add("Bairro deve conter entre 3 e 50 caracteres");
+                }
+
+            }
+            #endregion
+
+            #region Rua
+            if (string.IsNullOrWhiteSpace(cli.Rua))
+            {
+                erros.Add("Rua deve ser informada");
+            }
+            else
+            {
+                cli.Rua = cli.Rua.Replace(" ", "");
+                if (cli.Rua.Length < 3 || cli.Rua.Length > 70)
+                {
+                    erros.Add("Rua deve conter entre 3 e 70 caracteres");
+                }
+
+            }
+            #endregion
+
+            #region Numero
+            if (string.IsNullOrWhiteSpace(cli.Numero))
+            {
+                erros.Add("Número deve ser informado");
+            }
+            else
+            {
+                for (int i = 0; i < cli.CEP.Length; i++)
+                {
+                    if (!char.IsNumber(cli.CEP[i]))
+                    {
+                        erros.Add("Número de residência inválido");
+                    }
+                }
+            }
+            #endregion
+
+            #endregion
+
+            #region Telefone1
+            if (string.IsNullOrWhiteSpace(cli.Telefone1))
+            {
+                erros.Add("Telefone deve ser informado.");
+            }
+            else
+            {
+                cli.Telefone1 =
+                    cli.Telefone1.Replace(" ", "")
+                                .Replace("(", "")
+                                .Replace(")", "")
+                                .Replace("-", "");
+
+                if (cli.Telefone1.Length < 8 || cli.Telefone1.Length > 15)
+                {
+                    erros.Add("Telefone deve conter entre 8 e 15 caracteres.");
+                }
+            }
+            #endregion
+
+            #region Telefone2
+            if (string.IsNullOrWhiteSpace(cli.Telefone2))
+            {
+                erros.Add("Telefone deve ser informado.");
+            }
+            else
+            {
+                cli.Telefone2 =
+                    cli.Telefone2.Replace(" ", "")
+                                .Replace("(", "")
+                                .Replace(")", "")
+                                .Replace("-", "");
+
+                if (cli.Telefone2.Length < 8 || cli.Telefone2.Length > 15)
+                {
+                    erros.Add("Telefone deve conter entre 8 e 15 caracteres.");
+                }
+            }
+            #endregion
+
+            #region Email
+            bool isEmail = Regex.IsMatch(cli.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            if (!isEmail)
+            {
+                erros.Add("Email deve ser informado.");
+            }
+            #endregion
+
             if (erros.Count != 0)
             {
                 return false;
@@ -63,7 +276,7 @@ namespace BLL
             return true;
         }
 
-        public string Cadastrar(Clientes cli)
+        public string Cadastrar(Cliente cli)
         {
             erros = new List<string>();
 
@@ -288,11 +501,11 @@ namespace BLL
                 }
                 return builder.ToString();
             }
-            new ClienteDAL().Inserir(cli);
+            dal.Inserir(cli);
             return "Cliente cadastrado com sucesso!";
         }
 
-        public string Atualizar(Clientes cli)
+        public string Atualizar(Cliente cli)
         {
             return dal.Atualizar(cli);
         }
@@ -317,14 +530,19 @@ namespace BLL
             return dal.Excluir(idCliente);
         }
 
-        public Clientes LerPorID(int id)
+        public Cliente LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
 
-        public List<Clientes> LerTodos()
+        public List<Cliente> LerTodos()
         {
             return dal.LerTodos();
+        }
+
+        public List<ClienteViewModel>LerClientes()
+        {
+            return dal.LerClientes();
         }
     }
 }

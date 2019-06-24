@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class FuncionariosDAL : IEntityCRUD<Funcionarios>
+    public class FuncionarioDAL : IEntityCRUD<Funcionario>
     {
         #region Atualizar
-        public string Atualizar(Funcionarios funci)
+        public string Atualizar(Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -51,7 +51,7 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(Funcionarios funci)
+        public string Excluir(Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -82,7 +82,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Funcionarios fun)
+        public string Inserir(Funcionario fun)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -118,7 +118,7 @@ namespace DAL
         #endregion
 
         #region Ler Por ID
-        public Funcionarios LerPorID(int id)
+        public Funcionario LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -129,7 +129,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Funcionarios f = null;
+            Funcionario f = null;
 
             try
             {
@@ -150,7 +150,7 @@ namespace DAL
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
 
-                    f = new Funcionarios(id, nome, cpf, rg, telefone, email, senha, ehadm);
+                    f = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm);
                 }
             }
             catch
@@ -166,7 +166,7 @@ namespace DAL
         #endregion
 
         #region Ler Todos
-        public List<Funcionarios> LerTodos()
+        public List<Funcionario> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -176,7 +176,7 @@ namespace DAL
             command.CommandText = "select * from funcionarios";
             command.Connection = connection;
 
-            List<Funcionarios> funcionarios = new List<Funcionarios>();
+            List<Funcionario> funcionarios = new List<Funcionario>();
 
             try
             {
@@ -196,7 +196,7 @@ namespace DAL
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
-                    Funcionarios funcionario = new Funcionarios(id, nome, cpf, rg, telefone, email, senha, ehadm);
+                    Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm);
                     funcionarios.Add(funcionario);
                 }
             }
@@ -213,7 +213,7 @@ namespace DAL
         #endregion
 
         #region Verificar Existência do Funcionário
-        public bool VerificarExistenciaFuncionario(Funcionarios fun)
+        public bool VerificarExistenciaFuncionario(Funcionario fun)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();

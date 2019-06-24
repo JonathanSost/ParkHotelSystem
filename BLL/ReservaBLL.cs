@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ReservasBLL
+    public class ReservaBLL
     {
-        ReservasDAL dal = new ReservasDAL();
+        ReservaDAL dal = new ReservaDAL();
 
         List<string> erros = new List<string>();
 
@@ -20,7 +20,7 @@ namespace BLL
             {
                 erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
             }
-            QuartosDAL quartos = new QuartosDAL();
+            QuartoDAL quartos = new QuartoDAL();
             if (!quartos.VerificarExistenciaQuarto(res.IDQuarto))
             {
                 erros.Add("Quarto Inexistente");

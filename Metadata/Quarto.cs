@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Quartos
+    public class Quarto
     {
-        public Quartos (int id, double preco, string tipo, bool quartodisponivel)
+        public Quarto (int id, double preco, string tipo, bool quartodisponivel)
         {
             this.ID = id;
             this.Preco = preco;

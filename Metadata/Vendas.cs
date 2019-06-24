@@ -8,7 +8,7 @@ namespace Metadata
 {
     public class Vendas
     {
-        public Vendas(int idvenda, int idfuncionario, int idcliente, DateTime dataDevenda, int quantidade, double valor, Produtos produto)
+        public Vendas(int idvenda, int idfuncionario, int idcliente, DateTime dataDevenda, int quantidade, double valor, Produto produto)
         {
             this.IDVenda = idvenda;
             this.IdFuncionario = idfuncionario;
@@ -25,6 +25,6 @@ namespace Metadata
         public DateTime DataDeVenda { get; set; }
         public int Quantidade { get; set; }
         public double Valor { get; set; }
-        public Produtos Produto { get; set; }
+        public Produto Produto { get; set; }
     }
 }

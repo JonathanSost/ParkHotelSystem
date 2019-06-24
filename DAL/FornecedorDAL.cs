@@ -8,18 +8,22 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class QuartosDAL : IEntityCRUD<Quartos>
+    public class FornecedorDAL : IEntityCRUD<Fornecedor>
     {
-        public string Atualizar(Quartos quarto)
+        #region Atualizar
+        public string Atualizar(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update quartos set preco = @preco, tipo = @tipo, disponivel = @disponivel where id = @id";
-            command.Parameters.AddWithValue("@preco", quarto.Preco);
-            command.Parameters.AddWithValue("@tipo", quarto.Tipo);
-            command.Parameters.AddWithValue("@disponivel", quarto.QuartoDisponivel);
+            command.CommandText = "update fornecedores set nomeempresa = @nomeempresa, cnpj = @cnpj, " +
+                "nome = @nome, telefone = @telefone, email = @email where id = @id";
+            command.Parameters.AddWithValue("@nomeempresa", fornecedor.NomeEmpresa);
+            command.Parameters.AddWithValue("@cnpj", fornecedor.CNPJ);
+            command.Parameters.AddWithValue("@nome", fornecedor.NomeContato);
+            command.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
+            command.Parameters.AddWithValue("@email", fornecedor.Email);
 
             command.Connection = connection;
 
@@ -38,17 +42,19 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Quarto atualizado com sucesso!";
+            return "Fornecedor atualizado com sucesso!";
         }
+        #endregion
 
-        public string Excluir(Quartos quarto)
+        #region Excluir
+        public string Excluir(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "delete from quartos where id = @id";
-            command.Parameters.AddWithValue("@id", quarto.ID);
+            command.CommandText = "delete from fornecedores where id = @id";
+            command.Parameters.AddWithValue("@id", fornecedor.ID);
 
             command.Connection = connection;
 
@@ -67,19 +73,23 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Quarto deletado do sistema com sucesso!";
+            return "Cidade deletada do sistema com sucesso!";
         }
+        #endregion
 
-        public string Inserir(Quartos quarto)
+        #region Inserir
+        public string Inserir(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into produtos (preco, tipo, disponivel) values (@preco, @tipo, @disponivel)";
-            command.Parameters.AddWithValue("@preco", quarto.Preco);
-            command.Parameters.AddWithValue("@tipo", quarto.Tipo);
-            command.Parameters.AddWithValue("@disponivel", quarto.QuartoDisponivel);
+            command.CommandText = "insert into administradores (nomeempresa, cnpj, nome, telefone, email) values (@nomeempresa, @cnpj, @nome, @telefone, @email)";
+            command.Parameters.AddWithValue("@nomeempresa", fornecedor.NomeEmpresa);
+            command.Parameters.AddWithValue("@cnpj", fornecedor.CNPJ);
+            command.Parameters.AddWithValue("@nome", fornecedor.NomeContato);
+            command.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
+            command.Parameters.AddWithValue("@email", fornecedor.Email);
 
             command.Connection = connection;
 
@@ -88,7 +98,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return "Banco de dados indisponível, favor contatar o suporte.";
             }
@@ -100,19 +110,21 @@ namespace DAL
 
             return "";
         }
+        #endregion
 
-        public Quartos LerPorID(int id)
+        #region Ler Por ID
+        public Fornecedor LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from quartos where id = @id";
+            command.CommandText = "select * from fornecedores where id = @id";
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Quartos q = null;
+            Fornecedor f = null;
 
             try
             {
@@ -124,10 +136,13 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
-                    double preco = Convert.ToDouble(reader["PRECO"]);
-                    string tipo = Convert.ToString(reader["TIPO"]);
-                    bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
-                    q = new Quartos(id, preco, tipo, disponivel);
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    f = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
                 }
             }
             catch
@@ -138,20 +153,22 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return q;
+            return f;
         }
+        #endregion
 
-        public List<Quartos> LerTodos()
+        #region Ler Todos
+        public List<Fornecedor> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from quartos";
+            command.CommandText = "select * from fornecedores";
             command.Connection = connection;
 
-            List<Quartos> quartos = new List<Quartos>();
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
 
             try
             {
@@ -163,11 +180,14 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
-                    double preco = Convert.ToDouble(reader["PRECO"]);
-                    string tipo = Convert.ToString(reader["TIPO"]);
-                    bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
-                    Quartos quarto = new Quartos(id, preco, tipo, disponivel);
-                    quartos.Add(quarto);
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
                 }
             }
             catch
@@ -178,36 +198,8 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return quartos;
+            return fornecedores;
         }
-
-        public bool VerificarExistenciaQuarto(int idquarto)
-        {
-            string connectionString = Parametros.GetConnectionString();
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = connectionString;
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from quartos where id = @id";
-            command.Parameters.AddWithValue("@id", idquarto);
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                return reader.Read();
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                connection.Dispose();
-            }
-            return false;
-        }
+        #endregion
     }
 }

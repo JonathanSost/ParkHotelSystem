@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class QuartosBLL
+    public class QuartoBLL
     {
-        private QuartosDAL dal = new QuartosDAL();
+        private QuartoDAL dal = new QuartoDAL();
 
-        public string Cadastrar (Quartos qua)
+        public string Cadastrar (Quarto qua)
         {
             
             List<string> erros = new List<string>();
@@ -42,22 +42,22 @@ namespace BLL
             return dal.Inserir(qua);
         }
 
-        public string Atualizar(Quartos quarto)
+        public string Atualizar(Quarto quarto)
         {
             return dal.Atualizar(quarto);
         }
 
-        public string Excluir(Quartos quarto)
+        public string Excluir(Quarto quarto)
         {
             return dal.Excluir(quarto);
         }
 
-        public Quartos LerPorID(int id)
+        public Quarto LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
 
-        public List<Quartos> LerTodos()
+        public List<Quarto> LerTodos()
         {
             return dal.LerTodos();
         }
