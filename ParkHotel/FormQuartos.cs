@@ -18,12 +18,7 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormMenu menu = new FormMenu();
-            menu.Show();
-        }
+        
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -60,6 +55,13 @@ namespace ParkHotel
                 FormMenu menu = new FormMenu();
                 menu.Show();
             }
+        }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMenu menu = new FormMenu();
+            menu.Show();
         }
     }
 }

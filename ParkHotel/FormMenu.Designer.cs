@@ -104,6 +104,7 @@
             // 
             this.lnkFuncionarios.AutoSize = true;
             this.lnkFuncionarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkFuncionarios.LinkColor = System.Drawing.Color.Blue;
             this.lnkFuncionarios.Location = new System.Drawing.Point(54, 296);
             this.lnkFuncionarios.Name = "lnkFuncionarios";
             this.lnkFuncionarios.Size = new System.Drawing.Size(106, 21);
@@ -125,6 +126,7 @@
             // 
             this.lnkQuartos.AutoSize = true;
             this.lnkQuartos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkQuartos.LinkColor = System.Drawing.Color.Blue;
             this.lnkQuartos.Location = new System.Drawing.Point(55, 255);
             this.lnkQuartos.Name = "lnkQuartos";
             this.lnkQuartos.Size = new System.Drawing.Size(73, 21);
@@ -148,6 +150,7 @@
             // 
             this.lnkFornecedores.AutoSize = true;
             this.lnkFornecedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkFornecedores.LinkColor = System.Drawing.Color.Blue;
             this.lnkFornecedores.Location = new System.Drawing.Point(55, 213);
             this.lnkFornecedores.Name = "lnkFornecedores";
             this.lnkFornecedores.Size = new System.Drawing.Size(115, 21);
@@ -170,6 +173,7 @@
             // 
             this.lnkClientes.AutoSize = true;
             this.lnkClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkClientes.LinkColor = System.Drawing.Color.Blue;
             this.lnkClientes.Location = new System.Drawing.Point(55, 169);
             this.lnkClientes.Name = "lnkClientes";
             this.lnkClientes.Size = new System.Drawing.Size(72, 21);
@@ -182,6 +186,7 @@
             // 
             this.lnkProdutos.AutoSize = true;
             this.lnkProdutos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkProdutos.LinkColor = System.Drawing.Color.Blue;
             this.lnkProdutos.Location = new System.Drawing.Point(54, 127);
             this.lnkProdutos.Name = "lnkProdutos";
             this.lnkProdutos.Size = new System.Drawing.Size(78, 21);

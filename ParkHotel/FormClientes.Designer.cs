@@ -421,6 +421,7 @@
             this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 94;
             this.lblNome1.Text = "Santo";
+            this.lblNome1.Click += new System.EventHandler(this.lblNome1_Click);
             // 
             // lblNome2
             // 
@@ -432,6 +433,7 @@
             this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 95;
             this.lblNome2.Text = "Soninho";
+            this.lblNome2.Click += new System.EventHandler(this.lblNome2_Click);
             // 
             // msktxtCelular
             // 

@@ -80,7 +80,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(924, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(656, 132);
             this.dataGridView1.TabIndex = 25;
             // 
             // label2
@@ -215,7 +215,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(755, 537);
+            this.btnVoltar.Location = new System.Drawing.Point(520, 521);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
@@ -229,7 +229,7 @@
             this.lblNome2.AutoSize = true;
             this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
-            this.lblNome2.Location = new System.Drawing.Point(473, 345);
+            this.lblNome2.Location = new System.Drawing.Point(241, 326);
             this.lblNome2.Name = "lblNome2";
             this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 97;
@@ -239,7 +239,7 @@
             // 
             this.lblNome1.AutoSize = true;
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome1.Location = new System.Drawing.Point(527, 247);
+            this.lblNome1.Location = new System.Drawing.Point(295, 228);
             this.lblNome1.Name = "lblNome1";
             this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 96;
@@ -249,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 602);
+            this.ClientSize = new System.Drawing.Size(656, 571);
             this.ControlBox = false;
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);

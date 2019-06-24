@@ -132,6 +132,14 @@ namespace ParkHotel
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
 
-        
+        private void lblNome1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNome2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
