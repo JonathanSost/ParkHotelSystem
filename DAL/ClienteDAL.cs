@@ -174,6 +174,7 @@ namespace DAL
                     ClienteViewModel cli = new ClienteViewModel()
                     {
                         ID = id,
+                        Nome = nome,
                         CPF = cpf,
                         RG = rg,
                         Telefone1 = telefone1,

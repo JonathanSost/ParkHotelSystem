@@ -32,7 +32,7 @@ namespace ParkHotel
             menu.Show();
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
             string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
@@ -42,8 +42,8 @@ namespace ParkHotel
             string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
             string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
             string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
-            int estado = (int)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
-            int cidade = (int)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
+            string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
+            string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
             string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
             string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
             string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
@@ -131,5 +131,7 @@ namespace ParkHotel
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
+
+        
     }
 }
