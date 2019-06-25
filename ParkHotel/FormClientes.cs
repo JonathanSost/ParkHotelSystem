@@ -103,12 +103,16 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            c = new Cliente(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
+                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue,
+                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
             MessageBox.Show(clibll.Atualizar(c));
             dataGridView1.DataSource = clibll.LerClientes();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            c.ID = int.Parse(txtID.Text);
             if (string.IsNullOrWhiteSpace(txtID.Text))
             {
                 MessageBox.Show("ID do cliente deve ser informado.");
@@ -120,7 +124,9 @@ namespace ParkHotel
                 return;
             }
 
-            MessageBox.Show(clibll.Excluir(int.Parse(txtID.Text)));
+            MessageBox.Show(clibll.Excluir(c));
+            clibll.LerClientes();
+            FormCleaner.Clear(this);
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -167,5 +173,60 @@ namespace ParkHotel
             txtComplemento.MaxLength = 70;
         }
         #endregion
+
+        private void btnPesquisarPorNome_Click(object sender, EventArgs e)
+        {
+            clibll.PesquisarPorNome(txtNome.Text);
+        }
+
+        private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorRG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorTelefone_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorCidade_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorCEP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorBairro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorRua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorNumero_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

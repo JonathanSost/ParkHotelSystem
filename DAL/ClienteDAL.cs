@@ -18,13 +18,22 @@ namespace DAL
             SqlCommand command = new SqlCommand();
 
             command.CommandText = "update clientes set nome = @nome, cpf = @cpf, rg = @rg, telefone1 = @telefone1, " +
-                "telefone2 = @telefone2, email = @email where id = @id";
+                "telefone2 = @telefone2, email = @email, cep = @cep, estado = @estado, cidade = @cidade, rua = @rua, " +
+                "bairro = @bairro, numero = @numero, complemento = @complemento where id = @id";
             command.Parameters.AddWithValue("@nome", cli.Nome);
             command.Parameters.AddWithValue("@cpf", cli.CPF);
             command.Parameters.AddWithValue("@rg", cli.RG);
             command.Parameters.AddWithValue("@telefone1", cli.Telefone1);
             command.Parameters.AddWithValue("@telefone2", cli.Telefone2);
             command.Parameters.AddWithValue("@email", cli.Email);
+            command.Parameters.AddWithValue("@cep", cli.CEP);
+            command.Parameters.AddWithValue("@estado", cli.Estado);
+            command.Parameters.AddWithValue("@cidade", cli.Cidade);
+            command.Parameters.AddWithValue("@rua", cli.Rua);
+            command.Parameters.AddWithValue("@bairro", cli.Bairro);
+            command.Parameters.AddWithValue("@numero", cli.Numero);
+            command.Parameters.AddWithValue("@complemento", cli.Complemento);
+
             command.Parameters.AddWithValue("@id", cli.ID);
 
             command.Connection = connection;
@@ -49,14 +58,14 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(int idCliente)
+        public string Excluir(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
             command.CommandText = "delete from clientes where id = @id";
-            command.Parameters.AddWithValue("@id", idCliente);
+            command.Parameters.AddWithValue("@id", cli.ID);
 
             command.Connection = connection;
 
@@ -330,7 +339,7 @@ namespace DAL
         #endregion
 
         #region Verificar Existência do Cliente
-        public bool VerificarExistenciaCliente(int idcliente)
+        public bool VerificarExistenciaCliente(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -338,7 +347,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = "select * from clientes where id = @id";
-            command.Parameters.AddWithValue("@id", idcliente);
+            command.Parameters.AddWithValue("@id", cli.ID);
             command.Connection = connection;
 
             try
@@ -359,7 +368,79 @@ namespace DAL
             return false;
         }
         #endregion
+
+        public List<ClienteViewModel> PesquisarPorNome(string Nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.nome like '%@nome%'";
+
+            command.Parameters.AddWithValue("@nome", Nome);
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
     }
-
-
 }

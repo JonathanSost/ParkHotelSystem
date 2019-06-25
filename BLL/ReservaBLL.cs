@@ -26,10 +26,10 @@ namespace BLL
                 erros.Add("Quarto Inexistente");
             }
             ClienteDAL clientes = new ClienteDAL();
-            if (!clientes.VerificarExistenciaCliente(res.IDCliente))
-            {
-                erros.Add("Cliente Inexistente.");
-            }
+            //if (!clientes.VerificarExistenciaCliente(res.IDCliente))
+            //{
+            //    erros.Add("Cliente Inexistente.");
+            //}
 
             if (erros.Count != 0)
             {

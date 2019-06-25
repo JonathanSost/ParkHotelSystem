@@ -160,5 +160,11 @@
   <ItemGroup>
     <None Include="Resources\52030754-search-icon-lupa-simple.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupahiafugfiasf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

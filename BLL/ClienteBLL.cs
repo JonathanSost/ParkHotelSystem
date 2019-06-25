@@ -742,11 +742,11 @@ namespace BLL
             return "Cliente atualizado com sucesso";
         }
 
-        public string Excluir(int idCliente)
+        public string Excluir(Cliente cli)
         {
             List<string> erros = new List<string>();
 
-            if (!dal.VerificarExistenciaCliente(idCliente))
+            if (!dal.VerificarExistenciaCliente(cli))
             {
                 erros.Add("Cliente inexistente");
             }
@@ -759,7 +759,7 @@ namespace BLL
                 }
                 return builder.ToString();
             }
-            return dal.Excluir(idCliente);
+            return dal.Excluir(cli);
         }
 
         public Cliente LerPorID(int id)
@@ -776,7 +776,10 @@ namespace BLL
         {
             return dal.LerClientes();
         }
-    }
 
-   
+        public List<ClienteViewModel> PesquisarPorNome(string Nome)
+        {
+            return dal.PesquisarPorNome(Nome);
+        }
+    }
 }
