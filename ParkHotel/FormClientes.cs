@@ -65,7 +65,7 @@ namespace ParkHotel
             msktxtTelefone.Text = telefone1;
             msktxtCelular.Text = telefone2;
             txtEmail.Text = email;
-            txtCEP.Text = cep;
+            msktxtCEP.Text = cep;
             cmbEstado.Text = estado.ToString();
             cmbCidade.Text = cidade.ToString();
             txtRua.Text = rua;
@@ -88,7 +88,7 @@ namespace ParkHotel
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
-                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue,
+                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
 
             MessageResponse response = clibll.Cadastrar(c);
@@ -104,7 +104,7 @@ namespace ParkHotel
         private void btnEditar_Click(object sender, EventArgs e)
         {
             c = new Cliente(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
-                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue,
+                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
             MessageBox.Show(clibll.Atualizar(c));
             dataGridView1.DataSource = clibll.LerClientes();
@@ -174,59 +174,46 @@ namespace ParkHotel
         }
         #endregion
 
+        #region Pesquisar
         private void btnPesquisarPorNome_Click(object sender, EventArgs e)
         {
-            clibll.PesquisarPorNome(txtNome.Text);
+            dataGridView1.DataSource = clibll.PesquisarPorNome(txtNome.Text);
         }
 
         private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
         {
-            clibll.PesquisarPorCPF(msktxtCPF.Text);
+            dataGridView1.DataSource = clibll.PesquisarPorCPF(msktxtCPF.Text);
         }
 
         private void btnPesquisarPorRG_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnPesquisarPorTelefone_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPesquisarPorEmail_Click(object sender, EventArgs e)
-        {
-
+            dataGridView1.DataSource = clibll.PesquisarPorRG(msktxtRG.Text);
         }
 
         private void btnPesquisarPorEstado_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clibll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
         }
 
         private void btnPesquisarPorCidade_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clibll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
         }
 
         private void btnPesquisarPorCEP_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clibll.PesquisarPorCEP(msktxtCEP.Text);
         }
 
         private void btnPesquisarPorBairro_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clibll.PesquisarPorBairro(txtBairro.Text);
         }
 
         private void btnPesquisarPorRua_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = clibll.PesquisarPorRua(txtRua.Text);
         }
-
-        private void btnPesquisarPorNumero_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

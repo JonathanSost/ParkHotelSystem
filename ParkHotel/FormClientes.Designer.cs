@@ -46,7 +46,7 @@
             this.msktxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.cmbCidade = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.msktxtCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,11 +70,8 @@
             this.btnPesquisarPorEstado = new System.Windows.Forms.Button();
             this.btnPesquisarPorCEP = new System.Windows.Forms.Button();
             this.btnPesquisarPorBairro = new System.Windows.Forms.Button();
-            this.btnPesquisarPorNumero = new System.Windows.Forms.Button();
             this.btnPesquisarPorRua = new System.Windows.Forms.Button();
             this.btnPesquisarPorCidade = new System.Windows.Forms.Button();
-            this.btnPesquisarPorEmail = new System.Windows.Forms.Button();
-            this.btnPesquisarPorTelefone = new System.Windows.Forms.Button();
             this.btnPesquisarPorRG = new System.Windows.Forms.Button();
             this.btnPesquisarPorCPF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -278,15 +275,15 @@
             this.cmbEstado.TabIndex = 92;
             this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
-            // txtCEP
+            // msktxtCEP
             // 
-            this.txtCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCEP.Location = new System.Drawing.Point(234, 330);
-            this.txtCEP.Mask = "00000-000";
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(90, 26);
-            this.txtCEP.TabIndex = 91;
-            this.txtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.msktxtCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msktxtCEP.Location = new System.Drawing.Point(234, 330);
+            this.msktxtCEP.Mask = "00000-000";
+            this.msktxtCEP.Name = "msktxtCEP";
+            this.msktxtCEP.Size = new System.Drawing.Size(90, 26);
+            this.msktxtCEP.TabIndex = 91;
+            this.msktxtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtComplemento
             // 
@@ -524,17 +521,6 @@
             this.btnPesquisarPorBairro.UseVisualStyleBackColor = true;
             this.btnPesquisarPorBairro.Click += new System.EventHandler(this.btnPesquisarPorBairro_Click);
             // 
-            // btnPesquisarPorNumero
-            // 
-            this.btnPesquisarPorNumero.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorNumero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNumero.Location = new System.Drawing.Point(444, 514);
-            this.btnPesquisarPorNumero.Name = "btnPesquisarPorNumero";
-            this.btnPesquisarPorNumero.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorNumero.TabIndex = 112;
-            this.btnPesquisarPorNumero.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorNumero.Click += new System.EventHandler(this.btnPesquisarPorNumero_Click);
-            // 
             // btnPesquisarPorRua
             // 
             this.btnPesquisarPorRua.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
@@ -556,28 +542,6 @@
             this.btnPesquisarPorCidade.TabIndex = 116;
             this.btnPesquisarPorCidade.UseVisualStyleBackColor = true;
             this.btnPesquisarPorCidade.Click += new System.EventHandler(this.btnPesquisarPorCidade_Click);
-            // 
-            // btnPesquisarPorEmail
-            // 
-            this.btnPesquisarPorEmail.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorEmail.Location = new System.Drawing.Point(195, 571);
-            this.btnPesquisarPorEmail.Name = "btnPesquisarPorEmail";
-            this.btnPesquisarPorEmail.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorEmail.TabIndex = 117;
-            this.btnPesquisarPorEmail.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorEmail.Click += new System.EventHandler(this.btnPesquisarPorEmail_Click);
-            // 
-            // btnPesquisarPorTelefone
-            // 
-            this.btnPesquisarPorTelefone.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorTelefone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorTelefone.Location = new System.Drawing.Point(158, 454);
-            this.btnPesquisarPorTelefone.Name = "btnPesquisarPorTelefone";
-            this.btnPesquisarPorTelefone.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorTelefone.TabIndex = 118;
-            this.btnPesquisarPorTelefone.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorTelefone.Click += new System.EventHandler(this.btnPesquisarPorTelefone_Click);
             // 
             // btnPesquisarPorRG
             // 
@@ -609,11 +573,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnPesquisarPorCPF);
             this.Controls.Add(this.btnPesquisarPorRG);
-            this.Controls.Add(this.btnPesquisarPorTelefone);
-            this.Controls.Add(this.btnPesquisarPorEmail);
             this.Controls.Add(this.btnPesquisarPorCidade);
             this.Controls.Add(this.btnPesquisarPorRua);
-            this.Controls.Add(this.btnPesquisarPorNumero);
             this.Controls.Add(this.btnPesquisarPorBairro);
             this.Controls.Add(this.btnPesquisarPorCEP);
             this.Controls.Add(this.btnPesquisarPorEstado);
@@ -633,7 +594,7 @@
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.cmbCidade);
             this.Controls.Add(this.cmbEstado);
-            this.Controls.Add(this.txtCEP);
+            this.Controls.Add(this.msktxtCEP);
             this.Controls.Add(this.txtComplemento);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label10);
@@ -684,7 +645,7 @@
         private System.Windows.Forms.MaskedTextBox msktxtTelefone;
         private System.Windows.Forms.ComboBox cmbCidade;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.MaskedTextBox txtCEP;
+        private System.Windows.Forms.MaskedTextBox msktxtCEP;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label label10;
@@ -708,11 +669,8 @@
         private System.Windows.Forms.Button btnPesquisarPorEstado;
         private System.Windows.Forms.Button btnPesquisarPorCEP;
         private System.Windows.Forms.Button btnPesquisarPorBairro;
-        private System.Windows.Forms.Button btnPesquisarPorNumero;
         private System.Windows.Forms.Button btnPesquisarPorRua;
         private System.Windows.Forms.Button btnPesquisarPorCidade;
-        private System.Windows.Forms.Button btnPesquisarPorEmail;
-        private System.Windows.Forms.Button btnPesquisarPorTelefone;
         private System.Windows.Forms.Button btnPesquisarPorRG;
         private System.Windows.Forms.Button btnPesquisarPorCPF;
     }

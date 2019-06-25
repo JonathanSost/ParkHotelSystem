@@ -786,5 +786,35 @@ namespace BLL
         {
             return dal.PesquisarPorCPF(CPF);
         }
+
+        public List<ClienteViewModel> PesquisarPorRG(string RG)
+        {
+            return dal.PesquisarPorRG(RG);
+        }
+
+        public List<ClienteViewModel> PesquisarPorEstado(int Estado)
+        {
+            return dal.PesquisarPorEstado(Estado);
+        }
+
+        public List<ClienteViewModel> PesquisarPorCidade(int Cidade)
+        {
+            return dal.PesquisarPorCidade(Cidade);
+        }
+
+        public List<ClienteViewModel> PesquisarPorCEP(string CEP)
+        {
+            return dal.PesquisarPorCEP(CEP);
+        }
+
+        public List<ClienteViewModel> PesquisarPorBairro(string Bairro)
+        {
+            return dal.PesquisarPorBairro(Bairro);
+        }
+
+        public List<ClienteViewModel> PesquisarPorRua(string Rua)
+        {
+            return dal.PesquisarPorRua(Rua);
+        }
     }
 }
