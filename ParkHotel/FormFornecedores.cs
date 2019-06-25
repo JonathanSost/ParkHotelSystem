@@ -34,11 +34,17 @@ namespace ParkHotel
 
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text, txtCNPJ.Text, txtNome.Text, txtTelefone.Text, txtEmail.Text);
-            forbll.Cadastrar(fornecedor);
-            dataGridView1.DataSource = forbll.LerTodos();
+            Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text, 
+                msktxtCNPJ.Text, txtNome.Text, msktxtTelefone.Text, txtEmail.Text);
 
-            FormCleaner.Clear(this);
+            MessageResponse response = new MessageResponse();
+            MessageBox.Show(response.Message);
+
+            if (response.Success)
+            {
+                dataGridView1.DataSource = forbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -55,11 +61,6 @@ namespace ParkHotel
             }
 
             MessageBox.Show("Excluido com sucesso!");
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)
@@ -80,20 +81,15 @@ namespace ParkHotel
 
             txtID.Text = id.ToString();
             txtNomeEmpresa.Text = nomeEmpresa;
-            txtCNPJ.Text = cnpj;
+            msktxtCNPJ.Text = cnpj;
             txtNome.Text = nome;
-            txtTelefone.Text = telefone;
+            msktxtTelefone.Text = telefone;
             txtEmail.Text = email;
         }
 
         private void txtNomeEmpresa_TextChanged(object sender, EventArgs e)
         {
             txtNomeEmpresa.MaxLength = 60;
-        }
-
-        private void txtCNPJ_TextChanged(object sender, EventArgs e)
-        {
-            txtCNPJ.MaxLength = 14;
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)

@@ -18,8 +18,6 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-       
-
         private void FormProdutos_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -33,7 +31,6 @@ namespace ParkHotel
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -50,11 +47,6 @@ namespace ParkHotel
             }
 
             MessageBox.Show("Excluido com sucesso!");
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)

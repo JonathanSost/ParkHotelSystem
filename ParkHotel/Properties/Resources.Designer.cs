@@ -63,6 +63,16 @@ namespace ParkHotel.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _52030754_search_icon_lupa_simple {
+            get {
+                object obj = ResourceManager.GetObject("52030754-search-icon-lupa-simple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aiosfgasifuashfoasfausfsa {
             get {
                 object obj = ResourceManager.GetObject("aiosfgasifuashfoasfausfsa", resourceCulture);

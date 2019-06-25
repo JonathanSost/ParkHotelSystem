@@ -60,7 +60,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkAdministrador = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
@@ -371,16 +371,16 @@
             this.label6.TabIndex = 125;
             this.label6.Text = "Senha";
             // 
-            // checkBox2
+            // chkAdministrador
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(430, 209);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(130, 24);
-            this.checkBox2.TabIndex = 127;
-            this.checkBox2.Text = " Administrador";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkAdministrador.AutoSize = true;
+            this.chkAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdministrador.Location = new System.Drawing.Point(430, 209);
+            this.chkAdministrador.Name = "chkAdministrador";
+            this.chkAdministrador.Size = new System.Drawing.Size(130, 24);
+            this.chkAdministrador.TabIndex = 127;
+            this.chkAdministrador.Text = " Administrador";
+            this.chkAdministrador.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -432,7 +432,7 @@
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.chkAdministrador);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.cmbCidade);
@@ -510,7 +510,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chkAdministrador;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;

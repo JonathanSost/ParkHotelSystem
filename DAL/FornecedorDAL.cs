@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class FornecedorDAL : IEntityCRUD<Fornecedor>
+    public class FornecedorDAL
     {
         #region Atualizar
         public string Atualizar(Fornecedor fornecedor)
@@ -78,7 +78,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Fornecedor fornecedor)
+        public MessageResponse Inserir(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -92,6 +92,7 @@ namespace DAL
             command.Parameters.AddWithValue("@email", fornecedor.Email);
 
             command.Connection = connection;
+            MessageResponse response = new MessageResponse();
 
             try
             {
@@ -100,7 +101,9 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "aoihfaosifh";
+                return response;
             }
             finally
             {
@@ -108,7 +111,7 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "";
+            return response;
         }
         #endregion
 

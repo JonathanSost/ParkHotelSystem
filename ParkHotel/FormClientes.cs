@@ -14,6 +14,7 @@ namespace ParkHotel
 {
     public partial class FormClientes : Form
     {
+        #region Inicialização do Form
         ClienteBLL clibll = new ClienteBLL();
         CidadeBLL cidbll = new CidadeBLL();
         EstadoBLL estbll = new EstadoBLL();
@@ -22,15 +23,21 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-            dataGridView1.DataSource = clibll.LerTodos();
+            dataGridView1.DataSource = clibll.LerClientes();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void FormClientes_Load(object sender, EventArgs e)
         {
-            this.Close();
-            FormMenu menu = new FormMenu();
-            menu.Show();
+            dataGridView1.DataSource = clibll.LerClientes();
+
+            cmbEstado.DisplayMember = "Sigla";
+            cmbEstado.ValueMember = "ID";
+            cmbEstado.DataSource = estbll.LerTodos();
+            cmbCidade.DisplayMember = "Nome";
+            cmbCidade.ValueMember = "ID";
+            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
+        #endregion
 
         private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -48,6 +55,8 @@ namespace ParkHotel
             string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
             string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
             string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
+
+            c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
 
             txtID.Text = id.ToString();
             txtNome.Text = nome;
@@ -75,23 +84,26 @@ namespace ParkHotel
             }
         }
 
+        #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
-                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue, 
+            c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
+                msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, txtCEP.Text, (int)cmbEstado.SelectedValue,
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
 
-            MessageBox.Show(clibll.Cadastrar(c));
-            if (clibll.ValidarCliente(c))
+            MessageResponse response = clibll.Cadastrar(c);
+            MessageBox.Show(response.Message);
+
+            if (response.Success)
             {
-                clibll.LerClientes();
+                dataGridView1.DataSource = clibll.LerClientes();
                 FormCleaner.Clear(this);
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            clibll.Atualizar(c);
+            MessageBox.Show(clibll.Atualizar(c));
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -106,41 +118,22 @@ namespace ParkHotel
             {
                 return;
             }
-            
-            clibll.Excluir(int.Parse(txtID.Text));
-            MessageBox.Show("Excluido com sucesso!");
+
+            MessageBox.Show(clibll.Excluir(int.Parse(txtID.Text)));
         }
 
-        private void btnAtualizar_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            FormMenu menu = new FormMenu();
+            menu.Show();
         }
+        #endregion
 
+        #region TextBox Changed
         private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
-        }
-
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = clibll.LerClientes();
-
-            cmbEstado.DisplayMember = "Sigla";
-            cmbEstado.ValueMember = "ID";
-            cmbEstado.DataSource = estbll.LerTodos();
-            cmbCidade.DisplayMember = "Nome";
-            cmbCidade.ValueMember = "ID";
-            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
-        }
-
-        private void lblNome1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNome2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)
@@ -172,5 +165,6 @@ namespace ParkHotel
         {
             txtComplemento.MaxLength = 70;
         }
+        #endregion
     }
 }

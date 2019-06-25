@@ -21,6 +21,7 @@ namespace ParkHotel
 
         FuncionarioBLL bll = new FuncionarioBLL();
 
+        #region Buttons
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
@@ -46,6 +47,7 @@ namespace ParkHotel
         {
             Application.Exit();
         }
+        #endregion
 
         #region Componente_Changed
         private void cbVerSenha_CheckedChanged(object sender, EventArgs e)

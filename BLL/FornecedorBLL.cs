@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace BLL
 {
     public class FornecedorBLL
-    {   /// <summary>
+    {
+        /// <summary>
         /// Realiza a validação do CNPJ
         /// </summary>
         public bool ValidarCNPJ(string cnpj)
@@ -52,7 +53,7 @@ namespace BLL
 
         FornecedorDAL dal = new FornecedorDAL();
 
-        public string Cadastrar(Fornecedor For)
+        public MessageResponse Cadastrar(Fornecedor For)
         {
             List<string> erros = new List<string>();
 
@@ -148,6 +149,7 @@ namespace BLL
             }
             #endregion
 
+            MessageResponse response = new MessageResponse();
             StringBuilder ErrosFornecedor = new StringBuilder();
             if (erros.Count != 0)
             {
@@ -155,10 +157,13 @@ namespace BLL
                 {
                     ErrosFornecedor.AppendLine(erros[i]);
                 }
-                return ErrosFornecedor.ToString();
+                response.Success = false;
+                response.Message = ErrosFornecedor.ToString();
+                return response;
             }
-            new FornecedorDAL().Inserir(For);
-            return "Fornecedor cadastrado com sucesso!";
+            response = dal.Inserir(For);
+            response.Message = "Fornecedor cadastrado com sucesso.";
+            return response;
         }
 
         public string Atualizar(Fornecedor fornecedor)

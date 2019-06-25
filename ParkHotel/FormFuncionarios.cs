@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using BLL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,29 @@ namespace ParkHotel
 {
     public partial class FormFuncionarios : Form
     {
+        #region Inicialização do Form
+        CidadeBLL cidbll = new CidadeBLL();
+        EstadoBLL estbll = new EstadoBLL();
+        FuncionarioBLL funbll = new FuncionarioBLL();
+        Funcionario f = null;
+
         public FormFuncionarios()
         {
             InitializeComponent();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void FormFuncionarios_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu menu = new FormMenu();
-            menu.Show();
+            cmbEstado.DisplayMember = "Sigla";
+            cmbEstado.ValueMember = "ID";
+            cmbEstado.DataSource = estbll.LerTodos();
+            cmbCidade.DisplayMember = "Nome";
+            cmbCidade.ValueMember = "ID";
+            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+
+            dataGridView1.DataSource = funbll.LerTodos();
         }
+        #endregion
 
         private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
         {
@@ -35,15 +48,26 @@ namespace ParkHotel
             }
         }
 
+        #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            bool Admin;
+            if (chkAdministrador.Checked)
+            {
+                Admin = true;
+            }
+            else
+            {
+                Admin = false;
+            }
+            MessageBox.Show(funbll.Cadastrar(new Funcionario(Registro.NOVO_REGISTRO, txtNome.Text, msktxtCPF.Text, 
+                msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text, Admin)));
             FormCleaner.Clear(this);
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(funbll.Atualizar(f));
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -54,12 +78,8 @@ namespace ParkHotel
                 return;
             }
 
+            funbll.Excluir(f);
             MessageBox.Show("Excluido com sucesso!");
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)
@@ -69,14 +89,23 @@ namespace ParkHotel
             menu.Show();
         }
 
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCadastrar_Click_1(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            FormMenu menu = new FormMenu();
+            menu.Show();
+        }
+        #endregion
 
+        #region Componente Changed
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)
@@ -92,11 +121,6 @@ namespace ParkHotel
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
             txtSenha.MaxLength = 25;
-        }
-
-        private void FormFuncionarios_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void txtBairro_TextChanged(object sender, EventArgs e)
@@ -118,5 +142,6 @@ namespace ParkHotel
         {
             txtComplemento.MaxLength = 70;
         }
+        #endregion
     }
 }

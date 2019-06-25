@@ -18,8 +18,6 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-        
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
@@ -40,11 +38,6 @@ namespace ParkHotel
             }
 
             MessageBox.Show("Excluido com sucesso!");
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FormQuartos_KeyUp(object sender, KeyEventArgs e)
