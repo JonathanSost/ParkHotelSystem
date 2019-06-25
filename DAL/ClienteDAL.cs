@@ -379,9 +379,83 @@ namespace DAL
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
             cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
-            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.nome like '%@nome%'";
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.Nome like '%@Nome%'";
 
-            command.Parameters.AddWithValue("@nome", Nome);
+            command.Parameters.AddWithValue("@Nome", Nome);
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+
+        public List<ClienteViewModel> PesquisarPorCPF(string CPF)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.CPF like '%@CPF%'";
+
+            command.Parameters.AddWithValue("@CPF", CPF);
 
             command.Connection = connection;
 

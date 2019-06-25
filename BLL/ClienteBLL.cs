@@ -781,5 +781,10 @@ namespace BLL
         {
             return dal.PesquisarPorNome(Nome);
         }
+
+        public List<ClienteViewModel> PesquisarPorCPF(string CPF)
+        {
+            return dal.PesquisarPorCPF(CPF);
+        }
     }
 }

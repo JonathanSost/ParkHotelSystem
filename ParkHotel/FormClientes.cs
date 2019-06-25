@@ -181,7 +181,7 @@ namespace ParkHotel
 
         private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
         {
-
+            clibll.PesquisarPorCPF(msktxtCPF.Text);
         }
 
         private void btnPesquisarPorRG_Click(object sender, EventArgs e)
