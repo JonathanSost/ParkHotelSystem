@@ -51,10 +51,10 @@ namespace ParkHotel
             string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
             string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
             string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
-            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
-            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
-            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[15].Value;
+            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[11].Value;
+            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
+            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
 
             c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
 
@@ -104,6 +104,7 @@ namespace ParkHotel
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(clibll.Atualizar(c));
+            dataGridView1.DataSource = clibll.LerClientes();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
