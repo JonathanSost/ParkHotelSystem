@@ -48,13 +48,13 @@ namespace ParkHotel
             string telefone1 = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
             string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
             string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
             string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
             string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
             string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
             string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
             string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
+            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
+            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[15].Value;
 
             c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
 
