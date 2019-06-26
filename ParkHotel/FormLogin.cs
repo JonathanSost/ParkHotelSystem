@@ -26,12 +26,13 @@ namespace ParkHotel
         #region Buttons
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                MessageBox.Show("Usuário e senha devem ser informados!");
-                return;
-            }
-            Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            //if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
+            //{
+            //    MessageBox.Show("Usuário e senha devem ser informados!");
+            //    return;
+            //}
+            //Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            Funcionario fun = new Funcionario();
             if (fun != null)
             {
                 Parametros.FuncionarioLogado = fun;
@@ -40,6 +41,7 @@ namespace ParkHotel
                 return;
             }
             MessageBox.Show("Usuário ou senha incorretos!");
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)

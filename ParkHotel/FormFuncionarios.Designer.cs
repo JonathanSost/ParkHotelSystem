@@ -78,7 +78,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(924, 132);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.TabIndex = 150;
             // 
             // btnExcluir
             // 
