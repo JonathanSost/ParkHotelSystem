@@ -316,6 +316,7 @@
             this.chkAdministrador.TabIndex = 127;
             this.chkAdministrador.Text = " Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = true;
+            this.chkAdministrador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkAdministrador_KeyUp);
             // 
             // lblNome2
             // 

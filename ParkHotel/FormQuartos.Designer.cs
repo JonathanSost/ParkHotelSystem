@@ -164,6 +164,7 @@
             this.chkDisponivel.TabIndex = 4;
             this.chkDisponivel.Text = "Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
+            this.chkDisponivel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkDisponivel_KeyUp);
             // 
             // lblNome2
             // 

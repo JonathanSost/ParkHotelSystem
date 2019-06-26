@@ -88,6 +88,18 @@ namespace ParkHotel
                 menu.Show();
             }
         }
+
+        private void chkAdministrador_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chkAdministrador.Checked)
+            {
+                chkAdministrador.Checked = true;
+            }
+            else
+            {
+                chkAdministrador.Checked = false;
+            }
+        }
         #endregion
 
         #region Componente Changed

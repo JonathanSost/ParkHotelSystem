@@ -46,12 +46,24 @@ namespace ParkHotel
         {
             Application.Exit();
         }
+
+        private void cbVerSenha_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chkVerSenha.Checked)
+            {
+                chkVerSenha.Checked = true;
+            }
+            else
+            {
+                chkVerSenha.Checked = false;
+            }
+        }
         #endregion
 
         #region Componente Changed
         private void cbVerSenha_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbVerSenha.Checked)
+            if (chkVerSenha.Checked)
             {
                 txtSenha.UseSystemPasswordChar = false;
                 return;

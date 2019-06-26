@@ -34,7 +34,7 @@
             this.lblSenha = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.cbVerSenha = new System.Windows.Forms.CheckBox();
+            this.chkVerSenha = new System.Windows.Forms.CheckBox();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -114,16 +114,17 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // cbVerSenha
+            // chkVerSenha
             // 
-            this.cbVerSenha.AutoSize = true;
-            this.cbVerSenha.Location = new System.Drawing.Point(344, 349);
-            this.cbVerSenha.Name = "cbVerSenha";
-            this.cbVerSenha.Size = new System.Drawing.Size(108, 25);
-            this.cbVerSenha.TabIndex = 6;
-            this.cbVerSenha.Text = "Ver Senha";
-            this.cbVerSenha.UseVisualStyleBackColor = true;
-            this.cbVerSenha.CheckedChanged += new System.EventHandler(this.cbVerSenha_CheckedChanged);
+            this.chkVerSenha.AutoSize = true;
+            this.chkVerSenha.Location = new System.Drawing.Point(344, 349);
+            this.chkVerSenha.Name = "chkVerSenha";
+            this.chkVerSenha.Size = new System.Drawing.Size(108, 25);
+            this.chkVerSenha.TabIndex = 6;
+            this.chkVerSenha.Text = "Ver Senha";
+            this.chkVerSenha.UseVisualStyleBackColor = true;
+            this.chkVerSenha.CheckedChanged += new System.EventHandler(this.cbVerSenha_CheckedChanged);
+            this.chkVerSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbVerSenha_KeyUp);
             // 
             // lblNome1
             // 
@@ -167,7 +168,7 @@
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cbVerSenha);
+            this.Controls.Add(this.chkVerSenha);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblSenha);
@@ -199,7 +200,7 @@
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.CheckBox cbVerSenha;
+        private System.Windows.Forms.CheckBox chkVerSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNome2;
