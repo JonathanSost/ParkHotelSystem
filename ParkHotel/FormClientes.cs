@@ -39,51 +39,6 @@ namespace ParkHotel
         }
         #endregion
 
-        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-            string cpf = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-            string rg = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-            string telefone1 = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-            string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
-            string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-            string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
-            string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
-            string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[11].Value;
-            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
-            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
-
-            c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
-
-            txtID.Text = id.ToString();
-            txtNome.Text = nome;
-            msktxtCPF.Text = cpf;
-            msktxtRG.Text = rg;
-            msktxtTelefone.Text = telefone1;
-            msktxtCelular.Text = telefone2;
-            txtEmail.Text = email;
-            msktxtCEP.Text = cep;
-            cmbEstado.Text = estado.ToString();
-            cmbCidade.Text = cidade.ToString();
-            txtRua.Text = rua;
-            txtBairro.Text = bairro;
-            txtNumero.Text = numero;
-            txtComplemento.Text = complemento;
-        }
-
-        private void FormClientes_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                FormMenu menu = new FormMenu();
-                menu.Show();
-            }
-        }
-
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
@@ -132,12 +87,57 @@ namespace ParkHotel
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormMenu menu = new FormMenu();
+            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
             menu.Show();
+        }
+
+        private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+            string cpf = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+            string rg = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
+            string telefone1 = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
+            string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
+            string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+            string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
+            string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
+            string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
+            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[11].Value;
+            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
+            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
+
+            c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
+
+            txtID.Text = id.ToString();
+            txtNome.Text = nome;
+            msktxtCPF.Text = cpf;
+            msktxtRG.Text = rg;
+            msktxtTelefone.Text = telefone1;
+            msktxtCelular.Text = telefone2;
+            txtEmail.Text = email;
+            msktxtCEP.Text = cep;
+            cmbEstado.Text = estado.ToString();
+            cmbCidade.Text = cidade.ToString();
+            txtRua.Text = rua;
+            txtBairro.Text = bairro;
+            txtNumero.Text = numero;
+            txtComplemento.Text = complemento;
+        }
+
+        private void FormClientes_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+                menu.Show();
+            }
         }
         #endregion
 
-        #region TextBox Changed
+        #region Componente Changed
         private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);

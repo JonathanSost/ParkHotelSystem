@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using BLL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,15 @@ namespace ParkHotel
 {
     public partial class FormQuartos : Form
     {
+        #region Inicialização do Form
+        QuartoBLL qbll = new QuartoBLL();
         public FormQuartos()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
@@ -40,23 +45,25 @@ namespace ParkHotel
             MessageBox.Show("Excluido com sucesso!");
         }
 
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+            menu.Show();
+        }
+
         private void FormQuartos_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-                FormMenu menu = new FormMenu();
+                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
                 menu.Show();
             }
         }
+        #endregion
 
-        private void btnVoltar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            FormMenu menu = new FormMenu();
-            menu.Show();
-        }
-
+        #region Componente Changed
         private void txtPreco_TextChanged(object sender, EventArgs e)
         {
             txtPreco.MaxLength = 10;
@@ -66,5 +73,6 @@ namespace ParkHotel
         {
             txtTipo.MaxLength = 2;
         }
+        #endregion
     }
 }

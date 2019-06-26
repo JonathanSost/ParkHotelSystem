@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using BLL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,21 +14,21 @@ namespace ParkHotel
 {
     public partial class FormProdutos : Form
     {
+        #region Inicialização do Form
+        ProdutoBLL pbll = new ProdutoBLL();
+
         public FormProdutos()
         {
             InitializeComponent();
         }
 
-        private void FormProdutos_KeyUp(object sender, KeyEventArgs e)
+        private void FormProdutos_Load(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                FormMenu menu = new FormMenu();
-                menu.Show();
-            }
-        }
 
+        }
+        #endregion
+
+        #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
@@ -52,15 +53,22 @@ namespace ParkHotel
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            FormMenu menu = new FormMenu();
+            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
             menu.Show();
         }
 
-        private void FormProdutos_Load(object sender, EventArgs e)
+        private void FormProdutos_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+                menu.Show();
+            }
         }
+        #endregion
 
+        #region Componente Changed
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
             txtNome.MaxLength = 70;
@@ -80,5 +88,6 @@ namespace ParkHotel
         {
             txtEstoque.MaxLength = 4;
         }
+        #endregion
     }
 }

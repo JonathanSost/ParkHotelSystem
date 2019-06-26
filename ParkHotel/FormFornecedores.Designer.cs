@@ -69,7 +69,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(126, 26);
-            this.txtID.TabIndex = 27;
+            this.txtID.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -103,7 +103,7 @@
             this.txtNomeEmpresa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
             this.txtNomeEmpresa.Size = new System.Drawing.Size(151, 26);
-            this.txtNomeEmpresa.TabIndex = 20;
+            this.txtNomeEmpresa.TabIndex = 1;
             this.txtNomeEmpresa.TextChanged += new System.EventHandler(this.txtNomeEmpresa_TextChanged);
             // 
             // label4
@@ -124,7 +124,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(128, 26);
-            this.txtNome.TabIndex = 35;
+            this.txtNome.TabIndex = 3;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label6
@@ -145,7 +145,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(151, 26);
-            this.txtEmail.TabIndex = 39;
+            this.txtEmail.TabIndex = 5;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnExcluir
@@ -154,9 +154,10 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 52);
-            this.btnExcluir.TabIndex = 43;
+            this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
             // 
             // btnEditar
             // 
@@ -164,9 +165,10 @@
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
-            this.btnEditar.TabIndex = 42;
+            this.btnEditar.TabIndex = 9;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // btnCadastrar
             // 
@@ -174,7 +176,7 @@
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 52);
-            this.btnCadastrar.TabIndex = 41;
+            this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
@@ -185,7 +187,7 @@
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
-            this.btnVoltar.TabIndex = 45;
+            this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
@@ -218,7 +220,7 @@
             this.msktxtCNPJ.Mask = "99,999,999/9999-99";
             this.msktxtCNPJ.Name = "msktxtCNPJ";
             this.msktxtCNPJ.Size = new System.Drawing.Size(151, 26);
-            this.msktxtCNPJ.TabIndex = 98;
+            this.msktxtCNPJ.TabIndex = 2;
             // 
             // msktxtTelefone
             // 
@@ -227,7 +229,7 @@
             this.msktxtTelefone.Mask = "(00)09999-9999";
             this.msktxtTelefone.Name = "msktxtTelefone";
             this.msktxtTelefone.Size = new System.Drawing.Size(126, 26);
-            this.msktxtTelefone.TabIndex = 99;
+            this.msktxtTelefone.TabIndex = 4;
             // 
             // label7
             // 

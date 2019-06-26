@@ -13,23 +13,16 @@ namespace ParkHotel
 {
     public partial class FormMenu : Form
     {
-        public FormMenu()
+        #region Inicialização do Form
+        public FormMenu(Funcionario Funci)
         {
             InitializeComponent();
-            //lblNomeFuncionario.Text = "Bem-Vindo, " + Parametros.FuncionarioLogado.Nome;
+            lblNomeFuncionario.Text = "Bem-Vindo, " + Parametros.FuncionarioLogado.Nome;
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
+        #endregion
 
-        //FormGerProdutos produtos = new FormGerProdutos();
-        //FormGerClientes clientes = new FormGerClientes();
-        //FormGerFornecedores fornecedores = new FormGerFornecedores();
-        //FormGerQuartos quartos = new FormGerQuartos();
-        //FormRegClientes regClientes = new FormRegClientes();
-        //FormRegFornecedores regFornecedores = new FormRegFornecedores();
-        //FormRegProdutos regProdutos = new FormRegProdutos();
-        //FormRegQuartos regQuartos = new FormRegQuartos();
-        //FormLogin login = new FormLogin();
-
+        #region Buttons
         private void btnRegProdutos_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -45,11 +38,6 @@ namespace ParkHotel
         private void btnInfo_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Relogio_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
 
         private void FormMenu_KeyUp(object sender, KeyEventArgs e)
@@ -120,5 +108,13 @@ namespace ParkHotel
             this.Hide();
             new FormFuncionarios().Show();
         }
+        #endregion
+
+        #region Relógio
+        private void Relogio_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
+        }
+        #endregion
     }
 }

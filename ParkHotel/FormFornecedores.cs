@@ -14,6 +14,7 @@ namespace ParkHotel
 {
     public partial class FormFornecedores : Form
     {
+        #region Inicialização do Form
         FornecedorBLL forbll = new FornecedorBLL();
 
         public FormFornecedores()
@@ -21,17 +22,9 @@ namespace ParkHotel
             InitializeComponent();
             dataGridView1.DataSource = forbll.LerTodos();
         }
+        #endregion
 
-        private void FormFornecedores_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                FormMenu menu = new FormMenu();
-                menu.Show();
-            }
-        }
-
+        #region Buttons
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
             Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text, 
@@ -47,12 +40,12 @@ namespace ParkHotel
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnExcluir_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.No)
@@ -66,8 +59,18 @@ namespace ParkHotel
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            FormMenu menu = new FormMenu();
+            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
             menu.Show();
+        }
+
+        private void FormFornecedores_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+                menu.Show();
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -86,7 +89,9 @@ namespace ParkHotel
             msktxtTelefone.Text = telefone;
             txtEmail.Text = email;
         }
+        #endregion
 
+        #region Componente Changed
         private void txtNomeEmpresa_TextChanged(object sender, EventArgs e)
         {
             txtNomeEmpresa.MaxLength = 60;
@@ -106,5 +111,6 @@ namespace ParkHotel
         {
             txtEmail.MaxLength = 70;
         }
+        #endregion
     }
 }

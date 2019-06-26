@@ -14,33 +14,32 @@ namespace ParkHotel
 {
     public partial class FormLogin : Form
     {
+        #region Inicialização do Form
+        FuncionarioBLL bll = new FuncionarioBLL();
+
         public FormLogin()
         {
             InitializeComponent();
         }
-
-        FuncionarioBLL bll = new FuncionarioBLL();
+        #endregion
 
         #region Buttons
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
-            //{
-            //    MessageBox.Show("Usuário e senha devem ser informados!");
-            //    return;
-            //}
-            //Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
-            //if (fun != null)
-            //{
-            //    Parametros.FuncionarioLogado = fun;
-            //    this.Hide();
-            //    new FormMenu().Show();
-            //    return;
-            //}
-            //MessageBox.Show("Usuário ou senha incorretos!");
-
-            this.Hide();
-            new FormMenu().Show();
+            if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MessageBox.Show("Usuário e senha devem ser informados!");
+                return;
+            }
+            Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            if (fun != null)
+            {
+                Parametros.FuncionarioLogado = fun;
+                this.Hide();
+                new FormMenu(Parametros.FuncionarioLogado).Show();
+                return;
+            }
+            MessageBox.Show("Usuário ou senha incorretos!");
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -49,7 +48,7 @@ namespace ParkHotel
         }
         #endregion
 
-        #region Componente_Changed
+        #region Componente Changed
         private void cbVerSenha_CheckedChanged(object sender, EventArgs e)
         {
             if (cbVerSenha.Checked)
