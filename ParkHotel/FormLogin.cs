@@ -46,18 +46,6 @@ namespace ParkHotel
         {
             Application.Exit();
         }
-
-        private void cbVerSenha_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (!chkVerSenha.Checked)
-            {
-                chkVerSenha.Checked = true;
-            }
-            else
-            {
-                chkVerSenha.Checked = false;
-            }
-        }
         #endregion
 
         #region Componente Changed
@@ -104,6 +92,18 @@ namespace ParkHotel
             if (e.KeyCode == Keys.Escape)
             {
                 Application.Exit();
+            }
+        }
+
+        private void cbVerSenha_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chkVerSenha.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkVerSenha.Checked = true;
+            }
+            else if (chkVerSenha.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkVerSenha.Checked = false;
             }
         }
         #endregion

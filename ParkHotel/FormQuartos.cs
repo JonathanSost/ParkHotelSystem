@@ -64,11 +64,11 @@ namespace ParkHotel
 
         private void chkDisponivel_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!chkDisponivel.Checked)
+            if (!chkDisponivel.Checked && e.KeyCode == Keys.Enter)
             {
-                chkDisponivel.Checked = true;
+                 chkDisponivel.Checked = true;
             }
-            else
+            else if(chkDisponivel.Checked && e.KeyCode == Keys.Enter)
             {
                 chkDisponivel.Checked = false;
             }

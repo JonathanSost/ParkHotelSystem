@@ -91,11 +91,11 @@ namespace ParkHotel
 
         private void chkAdministrador_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!chkAdministrador.Checked)
+            if (!chkAdministrador.Checked && e.KeyCode == Keys.Enter)
             {
                 chkAdministrador.Checked = true;
             }
-            else
+            else if (chkAdministrador.Checked && e.KeyCode == Keys.Enter)
             {
                 chkAdministrador.Checked = false;
             }
