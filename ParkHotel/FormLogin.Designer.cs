@@ -96,7 +96,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 37);
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -109,7 +109,7 @@
             this.btnSair.Margin = new System.Windows.Forms.Padding(5);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(125, 37);
-            this.btnSair.TabIndex = 3;
+            this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -120,7 +120,7 @@
             this.chkVerSenha.Location = new System.Drawing.Point(344, 349);
             this.chkVerSenha.Name = "chkVerSenha";
             this.chkVerSenha.Size = new System.Drawing.Size(108, 25);
-            this.chkVerSenha.TabIndex = 6;
+            this.chkVerSenha.TabIndex = 2;
             this.chkVerSenha.Text = "Ver Senha";
             this.chkVerSenha.UseVisualStyleBackColor = true;
             this.chkVerSenha.CheckedChanged += new System.EventHandler(this.cbVerSenha_CheckedChanged);

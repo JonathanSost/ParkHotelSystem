@@ -58,7 +58,7 @@
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
-            this.btnLogoff.TabIndex = 6;
+            this.btnLogoff.TabIndex = 7;
             this.btnLogoff.Text = "Logoff";
             this.btnLogoff.UseVisualStyleBackColor = false;
             this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
@@ -72,7 +72,7 @@
             this.lblGerenciamento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGerenciamento.Name = "lblGerenciamento";
             this.lblGerenciamento.Size = new System.Drawing.Size(135, 21);
-            this.lblGerenciamento.TabIndex = 9;
+            this.lblGerenciamento.TabIndex = 0;
             this.lblGerenciamento.Text = "Gerenciamento";
             // 
             // lblHora
@@ -95,7 +95,7 @@
             this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(129, 50);
-            this.btnInfo.TabIndex = 5;
+            this.btnInfo.TabIndex = 6;
             this.btnInfo.Text = "Minhas Informações";
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
@@ -108,7 +108,7 @@
             this.lnkFuncionarios.Location = new System.Drawing.Point(54, 296);
             this.lnkFuncionarios.Name = "lnkFuncionarios";
             this.lnkFuncionarios.Size = new System.Drawing.Size(139, 21);
-            this.lnkFuncionarios.TabIndex = 18;
+            this.lnkFuncionarios.TabIndex = 5;
             this.lnkFuncionarios.TabStop = true;
             this.lnkFuncionarios.Text = "Funcionários (F5)";
             this.lnkFuncionarios.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFuncionarios_LinkClicked);
@@ -131,7 +131,7 @@
             this.lnkQuartos.Location = new System.Drawing.Point(55, 255);
             this.lnkQuartos.Name = "lnkQuartos";
             this.lnkQuartos.Size = new System.Drawing.Size(106, 21);
-            this.lnkQuartos.TabIndex = 17;
+            this.lnkQuartos.TabIndex = 4;
             this.lnkQuartos.TabStop = true;
             this.lnkQuartos.Text = "Quartos (F4)";
             this.lnkQuartos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkQuartos_LinkClicked);
@@ -155,7 +155,7 @@
             this.lnkFornecedores.Location = new System.Drawing.Point(55, 213);
             this.lnkFornecedores.Name = "lnkFornecedores";
             this.lnkFornecedores.Size = new System.Drawing.Size(148, 21);
-            this.lnkFornecedores.TabIndex = 16;
+            this.lnkFornecedores.TabIndex = 3;
             this.lnkFornecedores.TabStop = true;
             this.lnkFornecedores.Text = "Fornecedores (F3)";
             this.lnkFornecedores.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFornecedores_LinkClicked);
@@ -178,7 +178,7 @@
             this.lnkClientes.Location = new System.Drawing.Point(55, 169);
             this.lnkClientes.Name = "lnkClientes";
             this.lnkClientes.Size = new System.Drawing.Size(105, 21);
-            this.lnkClientes.TabIndex = 15;
+            this.lnkClientes.TabIndex = 2;
             this.lnkClientes.TabStop = true;
             this.lnkClientes.Text = "Clientes (F2)";
             this.lnkClientes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClientes_LinkClicked);
@@ -191,7 +191,7 @@
             this.lnkProdutos.Location = new System.Drawing.Point(54, 127);
             this.lnkProdutos.Name = "lnkProdutos";
             this.lnkProdutos.Size = new System.Drawing.Size(111, 21);
-            this.lnkProdutos.TabIndex = 14;
+            this.lnkProdutos.TabIndex = 1;
             this.lnkProdutos.TabStop = true;
             this.lnkProdutos.Text = "Produtos (F1)";
             this.lnkProdutos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkProdutos_LinkClicked);
