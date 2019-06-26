@@ -34,7 +34,8 @@ namespace ParkHotel
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
 
-            dataGridView1.DataSource = funbll.LerTodos();
+            dataGridView1.DataSource = funbll.LerFuncionarios();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         #endregion
 
@@ -144,5 +145,11 @@ namespace ParkHotel
         }
 
         #endregion
+
+        private void btnPesquisarPorNome_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorNome(txtNome.Text);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
     }
 }
