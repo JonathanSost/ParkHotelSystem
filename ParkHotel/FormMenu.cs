@@ -17,7 +17,8 @@ namespace ParkHotel
         public FormMenu(Funcionario Funci)
         {
             InitializeComponent();
-            lblNomeFuncionario.Text = "Bem-Vindo, " + Parametros.FuncionarioLogado.Nome;
+            lblNomeFuncionario.Text = "Bem-Vindo,";
+            lnkFuncionarioLogado.Text = Parametros.FuncionarioLogado.Nome;
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
         #endregion

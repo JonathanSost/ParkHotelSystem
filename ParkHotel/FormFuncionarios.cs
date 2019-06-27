@@ -19,6 +19,7 @@ namespace ParkHotel
         EstadoBLL estbll = new EstadoBLL();
         FuncionarioBLL funbll = new FuncionarioBLL();
         Funcionario f = null;
+        bool Admin;
 
         public FormFuncionarios()
         {
@@ -27,6 +28,8 @@ namespace ParkHotel
 
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
+            Admin = false;
+
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
             cmbEstado.DataSource = estbll.LerTodos();
@@ -66,18 +69,17 @@ namespace ParkHotel
 
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            bool Admin;
-            if (chkAdministrador.Checked)
+            f = new Funcionario(Registro.NOVO_REGISTRO, txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
+                Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
+                txtComplemento.Text);
+
+            MessageResponse response = funbll.Cadastrar(f);
+            MessageBox.Show(response.Message);
+            if (response.Success)
             {
-                Admin = true;
+                FormCleaner.Clear(this);
+                dataGridView1.DataSource = funbll.LerFuncionarios();
             }
-            else
-            {
-                Admin = false;
-            }
-            MessageBox.Show(funbll.Cadastrar(new Funcionario(Registro.NOVO_REGISTRO, txtNome.Text, msktxtCPF.Text,
-                msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text, Admin)));
-            FormCleaner.Clear(this);
         }
 
         private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
@@ -144,12 +146,50 @@ namespace ParkHotel
             txtComplemento.MaxLength = 70;
         }
 
-        #endregion
-
-        private void btnPesquisarPorNome_Click(object sender, EventArgs e)
+        private void msktxtCPF_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorNome(txtNome.Text);
+            if (msktxtCPF.Text.Length == 14)
+            {
+                msktxtRG.Focus();
+            }
         }
+
+        private void msktxtRG_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtRG.Text.Length == 9)
+            {
+                msktxtTelefone.Focus();
+            }
+        }
+
+        private void msktxtTelefone_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtTelefone.Text.Length == 14)
+            {
+                txtEmail.Focus();
+            }
+        }
+
+        private void msktxtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtCEP.Text.Length == 9)
+            {
+                txtBairro.Focus();
+            }
+        }
+
+        private void chkAdministrador_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAdministrador.Checked)
+            {
+                Admin = true;
+            }
+            else
+            {
+                Admin = false;
+            }
+        }
+        #endregion
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -167,5 +207,52 @@ namespace ParkHotel
                 e.Control.Text = dataGridView1.CurrentRow.Tag.ToString();
             }
         }
+
+        #region Pesquisar
+        private void btnPesquisarPorNome_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorNome(txtNome.Text);
+        }
+
+        private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorCPF(msktxtCPF.Text);
+        }
+
+        private void btnPesquisarPorRG_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorRG(msktxtRG.Text);
+        }
+
+        private void btnPesquisarPorEstado_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
+        }
+
+        private void btnPesquisarPorCidade_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
+        }
+
+        private void btnPesquisarPorCEP_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorCEP(msktxtCEP.Text);
+        }
+
+        private void btnPesquisarPorBairro_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorBairro(txtBairro.Text);
+        }
+
+        private void btnPesquisarPorRua_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarPorRua(txtRua.Text);
+        }
+
+        private void btnPesquisarAdmin_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = funbll.PesquisarAdmin(Admin);
+        }
+        #endregion
     }
 }

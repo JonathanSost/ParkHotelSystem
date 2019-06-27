@@ -50,9 +50,9 @@ namespace BLL
 
         FuncionarioDAL dal = new FuncionarioDAL();
 
-        public string Cadastrar(Funcionario fun)
+        public MessageResponse Cadastrar(Funcionario fun)
         {
-
+            MessageResponse response = new MessageResponse();
             List<string> erros = new List<string>();
 
             #region Nome
@@ -266,7 +266,7 @@ namespace BLL
                 {
                     for (int i = 0; i < fun.Senha.Length; i++)
                     {
-                        if (!char.IsLetter(fun.Senha[i]) || !char.IsNumber(fun.Senha[i]))
+                        if (!char.IsLetter(fun.Senha[i]) && !char.IsNumber(fun.Senha[i]))
                         {
                             erros.Add("Senha deve conter apenas letras ou números!");
                             break;
@@ -287,11 +287,14 @@ namespace BLL
                 {
                     errosCliente.AppendLine(erros[i].ToString());
                 }
-                return errosCliente.ToString();
+                response.Success = false;
+                response.Message = errosCliente.ToString();
+                return response;
             }
             //chamar o DAL para cadastrar
-            new FuncionarioDAL().Inserir(fun);
-            return "Funcionário cadastrado com sucesso";
+            response = dal.Inserir(fun);
+            response.Message = "Funcionário cadastrado com sucesso!";
+            return response;
         }
 
         public Funcionario FuncionarioExiste(string usuario, string senha)
@@ -331,6 +334,46 @@ namespace BLL
         public List<FuncionarioViewModel> PesquisarPorNome(string Nome)
         {
             return dal.PesquisarPorNome(Nome);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorCPF(string CPF)
+        {
+            return dal.PesquisarPorCPF(CPF);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorRG(string RG)
+        {
+            return dal.PesquisarPorRG(RG);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorEstado(int Estado)
+        {
+            return dal.PesquisarPorEstado(Estado);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorCidade(int Cidade)
+        {
+            return dal.PesquisarPorCidade(Cidade);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorCEP(string CEP)
+        {
+            return dal.PesquisarPorCEP(CEP);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorBairro(string Bairro)
+        {
+            return dal.PesquisarPorBairro(Bairro);
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorRua(string Rua)
+        {
+            return dal.PesquisarPorRua(Rua);
+        }
+
+        public List<FuncionarioViewModel> PesquisarAdmin(bool Admin)
+        {
+            return dal.PesquisarAdmin(Admin);
         }
     }
 }

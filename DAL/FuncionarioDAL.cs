@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class FuncionarioDAL : IEntityCRUD<Funcionario>
+    public class FuncionarioDAL
     {
         #region Atualizar
         public string Atualizar(Funcionario funci)
@@ -82,30 +82,42 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public string Inserir(Funcionario fun)
+        public MessageResponse Inserir(Funcionario fun)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into funcionarios (nome, cpf, rg, telefone, email, senha) values (@nome, @cpf, @rg, @telefone, @email, @senha)";
+            command.CommandText = "insert into funcionarios (nome, cpf, rg, telefone, email, senha, ehadm, estado, cidade, rua, bairro, numero, cep, complemento) " +
+                "values (@nome, @cpf, @rg, @telefone, @email, @senha, @admin, @estado, @cidade, @rua, @bairro, @numero, @cep, @complemento)";
             command.Parameters.AddWithValue("@nome", fun.Nome);
             command.Parameters.AddWithValue("@cpf", fun.CPF);
             command.Parameters.AddWithValue("@rg", fun.RG);
             command.Parameters.AddWithValue("@telefone", fun.Telefone);
             command.Parameters.AddWithValue("@email", fun.Email);
             command.Parameters.AddWithValue("@senha", fun.Senha);
+            command.Parameters.AddWithValue("@admin", fun.EhADM);
+            command.Parameters.AddWithValue("@estado", fun.Estado);
+            command.Parameters.AddWithValue("@cidade", fun.Cidade);
+            command.Parameters.AddWithValue("@rua", fun.Rua);
+            command.Parameters.AddWithValue("@bairro", fun.Bairro);
+            command.Parameters.AddWithValue("@numero", fun.Numero);
+            command.Parameters.AddWithValue("@cep", fun.CEP);
+            command.Parameters.AddWithValue("@complemento", fun.Complemento);
+
 
             command.Connection = connection;
-
+            MessageResponse response = new MessageResponse();
             try
             {
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -113,7 +125,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "";
+            response.Success = true;
+            response.Message = "Cadastrado com sucesso.";
+            return response;
         }
         #endregion
 
@@ -138,17 +152,23 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    id = Convert.ToInt32(reader["ID"]);
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
                     string telefone = Convert.ToString(reader["TELEFONE"]);
                     string email = Convert.ToString(reader["EMAIL"]);
                     string senha = Convert.ToString(reader["SENHA"]);
+                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int cidade = Convert.ToInt32(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
-
-                    f = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm);
+                    Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm,
+                        estado, cidade, cep, bairro, rua, numero, complemento);
                 }
             }
             catch
@@ -192,9 +212,17 @@ namespace DAL
                     string telefone = Convert.ToString(reader["TELEFONE"]);
                     string email = Convert.ToString(reader["EMAIL"]);
                     string senha = Convert.ToString(reader["SENHA"]);
+                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int cidade = Convert.ToInt32(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
-                    Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm);
+                    Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm, 
+                        estado, cidade, cep, bairro, rua, numero, complemento);
                     funcionarios.Add(funcionario);
                 }
             }
@@ -314,10 +342,18 @@ namespace DAL
                     string telefone = Convert.ToString(reader["TELEFONE"]);
                     usuario = Convert.ToString(reader["EMAIL"]);
                     senha = Convert.ToString(reader["SENHA"]);
+                    int estado = Convert.ToInt32(reader["ESTADO"]);
+                    int cidade = Convert.ToInt32(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
 
 
-                    f = new Funcionario(id, nome, cpf, rg, telefone, usuario, senha, ehadm);
+                    f = new Funcionario(id, nome, cpf, rg, telefone, usuario, senha, ehadm,
+                        estado, cidade, cep, bairro, rua, numero, complemento);
                 }
             }
             catch
@@ -378,6 +414,630 @@ namespace DAL
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
 
                     FuncionarioViewModel fun = new FuncionarioViewModel() 
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por CPF
+        public List<FuncionarioViewModel> PesquisarPorCPF(string CPF)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.CPF like @CPF";
+
+            command.Parameters.AddWithValue("@CPF", "%" + CPF + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por RG
+        public List<FuncionarioViewModel> PesquisarPorRG(string RG)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.RG like @RG";
+
+            command.Parameters.AddWithValue("@RG", "%" + RG + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por Estado
+        public List<FuncionarioViewModel> PesquisarPorEstado(int Estado)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.Estado like @Estado";
+
+            command.Parameters.AddWithValue("@Estado", "%" + Estado + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por Cidade
+        public List<FuncionarioViewModel> PesquisarPorCidade(int Cidade)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.Cidade like @Cidade";
+
+            command.Parameters.AddWithValue("@Cidade", "%" + Cidade + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por CEP
+        public List<FuncionarioViewModel> PesquisarPorCEP(string CEP)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.CEP like @CEP";
+
+            command.Parameters.AddWithValue("@CEP", "%" + CEP + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por Bairro
+        public List<FuncionarioViewModel> PesquisarPorBairro(string Bairro)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.Bairro like @Bairro";
+
+            command.Parameters.AddWithValue("@Bairro", "%" + Bairro + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Por Rua
+        public List<FuncionarioViewModel> PesquisarPorRua(string Rua)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.Rua like @Rua";
+
+            command.Parameters.AddWithValue("@Rua", "%" + Rua + "%");
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Admin
+        public List<FuncionarioViewModel> PesquisarAdmin(bool Admin)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.ehadm = @admin";
+
+            command.Parameters.AddWithValue("@admin", Admin);
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
                     {
                         ID = id,
                         Nome = nome,

@@ -32,7 +32,6 @@
             this.btnLogoff = new System.Windows.Forms.Button();
             this.lblGerenciamento = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
-            this.btnInfo = new System.Windows.Forms.Button();
             this.lnkFuncionarios = new System.Windows.Forms.LinkLabel();
             this.lblNomeFuncionario = new System.Windows.Forms.Label();
             this.lnkQuartos = new System.Windows.Forms.LinkLabel();
@@ -47,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lnkFuncionarioLogado = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnLogoff
@@ -54,7 +54,7 @@
             this.btnLogoff.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogoff.Location = new System.Drawing.Point(301, 419);
+            this.btnLogoff.Location = new System.Drawing.Point(301, 390);
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
@@ -79,26 +79,11 @@
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(5, 433);
+            this.lblHora.Location = new System.Drawing.Point(5, 404);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(65, 22);
             this.lblHora.TabIndex = 13;
             this.lblHora.Text = "label1";
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.Location = new System.Drawing.Point(282, 9);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(129, 50);
-            this.btnInfo.TabIndex = 6;
-            this.btnInfo.Text = "Minhas Informações";
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // lnkFuncionarios
             // 
@@ -116,10 +101,10 @@
             // lblNomeFuncionario
             // 
             this.lblNomeFuncionario.AutoSize = true;
-            this.lblNomeFuncionario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeFuncionario.Location = new System.Drawing.Point(12, 355);
+            this.lblNomeFuncionario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeFuncionario.Location = new System.Drawing.Point(265, 9);
             this.lblNomeFuncionario.Name = "lblNomeFuncionario";
-            this.lblNomeFuncionario.Size = new System.Drawing.Size(13, 22);
+            this.lblNomeFuncionario.Size = new System.Drawing.Size(11, 17);
             this.lblNomeFuncionario.TabIndex = 9;
             this.lblNomeFuncionario.Text = "l";
             // 
@@ -252,20 +237,32 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "*";
             // 
+            // lnkFuncionarioLogado
+            // 
+            this.lnkFuncionarioLogado.AutoSize = true;
+            this.lnkFuncionarioLogado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkFuncionarioLogado.LinkColor = System.Drawing.Color.Blue;
+            this.lnkFuncionarioLogado.Location = new System.Drawing.Point(345, 7);
+            this.lnkFuncionarioLogado.Name = "lnkFuncionarioLogado";
+            this.lnkFuncionarioLogado.Size = new System.Drawing.Size(12, 17);
+            this.lnkFuncionarioLogado.TabIndex = 24;
+            this.lnkFuncionarioLogado.TabStop = true;
+            this.lnkFuncionarioLogado.Text = ".";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(452, 473);
+            this.ClientSize = new System.Drawing.Size(452, 454);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkFuncionarioLogado);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHora);
-            this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.lnkProdutos);
@@ -298,7 +295,6 @@
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNomeFuncionario;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer Relogio;
         private System.Windows.Forms.LinkLabel lnkProdutos;
@@ -311,5 +307,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel lnkFuncionarioLogado;
     }
 }

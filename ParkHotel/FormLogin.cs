@@ -16,23 +16,32 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         FuncionarioBLL bll = new FuncionarioBLL();
+        Funcionario fun = new Funcionario();
 
         public FormLogin()
         {
             InitializeComponent();
+            txtUsuario.Text = "altairobama@outlook.com";
+            txtSenha.Text = "altair123";
         }
         #endregion
 
         #region Buttons
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
-            //{
-            //    MessageBox.Show("Usuário e senha devem ser informados!");
-            //    return;
-            //}
-            //Funcionario fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
-            Funcionario fun = new Funcionario();
+            if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MessageBox.Show("Usuário e senha devem ser informados!");
+                return;
+            }
+            fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+
+
+            //Descomente a linha de abaixo e comente as linhas acima para não precisar fazer login
+
+            //fun = new Funcionario();
+
+
             if (fun != null)
             {
                 Parametros.FuncionarioLogado = fun;

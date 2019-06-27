@@ -21,7 +21,8 @@ namespace Metadata
             this.Senha = senha;
         }
 
-        public Funcionario(int id, string nome, string cpf, string rg, string telefone, string email, string senha, bool ehadm)
+        public Funcionario(int id, string nome, string cpf, string rg, string telefone, string email, string senha, 
+            bool ehadm, int estado, int cidade, string cep, string bairro, string rua, string numero, string complemento)
         {
             this.ID = id;
             this.Nome = nome;
@@ -30,6 +31,13 @@ namespace Metadata
             this.Telefone = telefone;
             this.Email = email;
             this.Senha = senha;
+            this.Estado = estado;
+            this.Cidade = cidade;
+            this.CEP = cep;
+            this.Bairro = bairro;
+            this.Rua = rua;
+            this.Numero = numero;
+            this.Complemento = complemento;
             this.EhADM = ehadm;
         }
             
@@ -48,5 +56,6 @@ namespace Metadata
         public string Bairro { get; set; }
         public string Numero { get; set; }
         public string CEP { get; set; }
+        public string Complemento { get; set; }
     }
 }
