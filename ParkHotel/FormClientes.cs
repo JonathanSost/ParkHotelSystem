@@ -172,6 +172,46 @@ namespace ParkHotel
         {
             txtComplemento.MaxLength = 70;
         }
+
+        private void msktxtCPF_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtCPF.Text.Length == 11)
+            {
+                msktxtRG.Focus();
+            }
+        }
+
+        private void msktxtRG_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtRG.Text.Length == 7)
+            {
+                msktxtTelefone.Focus();
+            }
+        }
+
+        private void msktxtTelefone_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtTelefone.Text.Length == 11)
+            {
+                msktxtCelular.Focus();
+            }
+        }
+
+        private void msktxtCelular_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtCelular.Text.Length == 11)
+            {
+                txtEmail.Focus();
+            }
+        }
+
+        private void msktxtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtCEP.Text.Length == 8)
+            {
+                txtBairro.Focus();
+            }
+        }
         #endregion
 
         #region Pesquisar
@@ -215,45 +255,5 @@ namespace ParkHotel
             dataGridView1.DataSource = clibll.PesquisarPorRua(txtRua.Text);
         }
         #endregion
-
-        private void msktxtCPF_TextChanged(object sender, EventArgs e)
-        {
-            if (msktxtCPF.Text.Length == 11)
-            {
-                msktxtRG.Focus();
-            }
-        }
-
-        private void msktxtRG_TextChanged(object sender, EventArgs e)
-        {
-            if (msktxtRG.Text.Length == 7)
-            {
-                msktxtTelefone.Focus();
-            }
-        }
-
-        private void msktxtTelefone_TextChanged(object sender, EventArgs e)
-        {
-            if (msktxtTelefone.Text.Length == 11)
-            {
-                msktxtCelular.Focus();
-            }
-        }
-
-        private void msktxtCelular_TextChanged(object sender, EventArgs e)
-        {
-            if (msktxtCelular.Text.Length == 11)
-            {
-                txtEmail.Focus();
-            }
-        }
-
-        private void msktxtCEP_TextChanged(object sender, EventArgs e)
-        {
-            if (msktxtCEP.Text.Length == 8)
-            {
-                txtBairro.Focus();
-            }
-        }
     }
 }

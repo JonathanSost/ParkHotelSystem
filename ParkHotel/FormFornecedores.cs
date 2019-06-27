@@ -30,7 +30,7 @@ namespace ParkHotel
             Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text, 
                 msktxtCNPJ.Text, txtNome.Text, msktxtTelefone.Text, txtEmail.Text);
 
-            MessageResponse response = new MessageResponse();
+            MessageResponse response = forbll.Cadastrar(fornecedor);
             MessageBox.Show(response.Message);
 
             if (response.Success)

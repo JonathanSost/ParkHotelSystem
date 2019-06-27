@@ -162,7 +162,6 @@ namespace BLL
                 return response;
             }
             response = dal.Inserir(For);
-            response.Message = "Fornecedor cadastrado com sucesso.";
             return response;
         }
 

@@ -18,6 +18,10 @@ namespace ParkHotel
         FuncionarioBLL bll = new FuncionarioBLL();
         Funcionario fun = new Funcionario();
 
+        //select * from sys.objects where type_desc = 'UNIQUE_CONSTRAINT'
+        //ALTER TABLE FORNECEDORES DROP CONSTRAINT UQ__FORNECED__AA57D6B42ECEC601
+        //CONSTRAINT UNIQUE_FUN_EMAIL UNIQUE (EMAIL)
+
         public FormLogin()
         {
             InitializeComponent();

@@ -102,7 +102,12 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
-                response.Message = "aoihfaosifh";
+                if (ex.Message.Contains("CNPJ"))
+                {
+                    response.Message = "CNPJ já cadastrado.";
+                    return response;
+                }
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
                 return response;
             }
             finally
@@ -111,6 +116,8 @@ namespace DAL
                 connection.Dispose();
             }
 
+            response.Success = true;
+            response.Message = "Fornecedor cadastrado com sucesso.";
             return response;
         }
         #endregion
