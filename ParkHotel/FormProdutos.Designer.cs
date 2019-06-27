@@ -237,6 +237,7 @@
             // 
             // picbRefresh
             // 
+            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
             this.picbRefresh.Location = new System.Drawing.Point(641, 137);
             this.picbRefresh.Name = "picbRefresh";
