@@ -322,5 +322,15 @@ namespace BLL
         {
             return dal.LerTodos();
         }
+
+        public List<FuncionarioViewModel> LerFuncionarios()
+        {
+            return dal.LerFuncionarios();
+        }
+
+        public List<FuncionarioViewModel> PesquisarPorNome(string Nome)
+        {
+            return dal.PesquisarPorNome(Nome);
+        }
     }
 }

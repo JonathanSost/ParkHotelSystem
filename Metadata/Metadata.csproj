@@ -47,6 +47,7 @@
     <Compile Include="Estado.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="FuncionarioViewModel.cs" />
     <Compile Include="IClienteDataService.cs" />
     <Compile Include="IEntityCRUD.cs" />
     <Compile Include="MessageResponse.cs" />
