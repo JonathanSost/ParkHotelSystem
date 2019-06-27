@@ -73,6 +73,16 @@ namespace ParkHotel
                 chkDisponivel.Checked = false;
             }
         }
+
+        private void picbRefresh_Click(object sender, EventArgs e)
+        {
+            dgvQuartos.DataSource = qbll.LerTodos();
+        }
+
+        private void picbClear_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+        }
         #endregion
 
         #region Componente Changed

@@ -30,7 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
@@ -45,7 +45,11 @@
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.picbClear = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -69,18 +73,18 @@
             this.txtID.Size = new System.Drawing.Size(161, 26);
             this.txtID.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvProdutos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(683, 132);
-            this.dataGridView1.TabIndex = 25;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvProdutos.Location = new System.Drawing.Point(0, 0);
+            this.dgvProdutos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.RowHeadersVisible = false;
+            this.dgvProdutos.RowTemplate.Height = 24;
+            this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdutos.Size = new System.Drawing.Size(683, 132);
+            this.dgvProdutos.TabIndex = 25;
             // 
             // label2
             // 
@@ -231,12 +235,38 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
             // 
+            // picbRefresh
+            // 
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(641, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 122;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
+            // 
+            // picbClear
+            // 
+            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
+            this.picbClear.Location = new System.Drawing.Point(641, 173);
+            this.picbClear.Name = "picbClear";
+            this.picbClear.Size = new System.Drawing.Size(30, 35);
+            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbClear.TabIndex = 123;
+            this.picbClear.TabStop = false;
+            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.picbClear);
+            this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnVoltar);
@@ -249,7 +279,7 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescricao);
@@ -260,7 +290,9 @@
             this.Text = "Gerenciar Produtos";
             this.Load += new System.EventHandler(this.FormProdutos_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormProdutos_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +301,7 @@
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescricao;
@@ -284,5 +316,7 @@
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.PictureBox picbRefresh;
+        private System.Windows.Forms.PictureBox picbClear;
     }
 }

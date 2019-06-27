@@ -23,12 +23,12 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-            dataGridView1.DataSource = clibll.LerClientes();
+            dgvClientes.DataSource = clibll.LerClientes();
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.LerClientes();
+            dgvClientes.DataSource = clibll.LerClientes();
 
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
@@ -51,7 +51,7 @@ namespace ParkHotel
 
             if (response.Success)
             {
-                dataGridView1.DataSource = clibll.LerClientes();
+                dgvClientes.DataSource = clibll.LerClientes();
                 FormCleaner.Clear(this);
             }
         }
@@ -62,7 +62,7 @@ namespace ParkHotel
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
             MessageBox.Show(clibll.Atualizar(c));
-            dataGridView1.DataSource = clibll.LerClientes();
+            dgvClientes.DataSource = clibll.LerClientes();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -91,22 +91,32 @@ namespace ParkHotel
             menu.Show();
         }
 
+        private void picbRefresh_Click(object sender, EventArgs e)
+        {
+            dgvClientes.DataSource = clibll.LerClientes();
+        }
+
+        private void picbClear_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+        }
+
         private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-            string cpf = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-            string rg = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-            string telefone1 = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-            string telefone2 = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
-            string email = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-            string estado = (string)dataGridView1.Rows[e.RowIndex].Cells[8].Value;
-            string cidade = (string)dataGridView1.Rows[e.RowIndex].Cells[9].Value;
-            string rua = (string)dataGridView1.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dataGridView1.Rows[e.RowIndex].Cells[11].Value;
-            string numero = (string)dataGridView1.Rows[e.RowIndex].Cells[12].Value;
-            string cep = (string)dataGridView1.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dataGridView1.Rows[e.RowIndex].Cells[14].Value;
+            int id = (int)dgvClientes.Rows[e.RowIndex].Cells[0].Value;
+            string nome = (string)dgvClientes.Rows[e.RowIndex].Cells[1].Value;
+            string cpf = (string)dgvClientes.Rows[e.RowIndex].Cells[2].Value;
+            string rg = (string)dgvClientes.Rows[e.RowIndex].Cells[3].Value;
+            string telefone1 = (string)dgvClientes.Rows[e.RowIndex].Cells[4].Value;
+            string telefone2 = (string)dgvClientes.Rows[e.RowIndex].Cells[5].Value;
+            string email = (string)dgvClientes.Rows[e.RowIndex].Cells[6].Value;
+            string estado = (string)dgvClientes.Rows[e.RowIndex].Cells[8].Value;
+            string cidade = (string)dgvClientes.Rows[e.RowIndex].Cells[9].Value;
+            string rua = (string)dgvClientes.Rows[e.RowIndex].Cells[10].Value;
+            string bairro = (string)dgvClientes.Rows[e.RowIndex].Cells[11].Value;
+            string numero = (string)dgvClientes.Rows[e.RowIndex].Cells[12].Value;
+            string cep = (string)dgvClientes.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dgvClientes.Rows[e.RowIndex].Cells[14].Value;
 
             c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
 
@@ -217,42 +227,42 @@ namespace ParkHotel
         #region Pesquisar
         private void btnPesquisarPorNome_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorNome(txtNome.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorNome(txtNome.Text);
         }
 
         private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorCPF(msktxtCPF.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorCPF(msktxtCPF.Text);
         }
 
         private void btnPesquisarPorRG_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorRG(msktxtRG.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorRG(msktxtRG.Text);
         }
 
         private void btnPesquisarPorEstado_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
+            dgvClientes.DataSource = clibll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
         }
 
         private void btnPesquisarPorCidade_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
+            dgvClientes.DataSource = clibll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
         }
 
         private void btnPesquisarPorCEP_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorCEP(msktxtCEP.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorCEP(msktxtCEP.Text);
         }
 
         private void btnPesquisarPorBairro_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorBairro(txtBairro.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorBairro(txtBairro.Text);
         }
 
         private void btnPesquisarPorRua_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clibll.PesquisarPorRua(txtRua.Text);
+            dgvClientes.DataSource = clibll.PesquisarPorRua(txtRua.Text);
         }
         #endregion
     }

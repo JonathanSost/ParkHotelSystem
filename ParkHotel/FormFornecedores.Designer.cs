@@ -30,7 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFornecedores = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +47,11 @@
             this.msktxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.picbClear = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -71,19 +75,19 @@
             this.txtID.Size = new System.Drawing.Size(126, 26);
             this.txtID.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvFornecedores
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(656, 132);
-            this.dataGridView1.TabIndex = 25;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dgvFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFornecedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvFornecedores.Location = new System.Drawing.Point(0, 0);
+            this.dgvFornecedores.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFornecedores.Name = "dgvFornecedores";
+            this.dgvFornecedores.RowHeadersVisible = false;
+            this.dgvFornecedores.RowTemplate.Height = 24;
+            this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFornecedores.Size = new System.Drawing.Size(656, 132);
+            this.dgvFornecedores.TabIndex = 25;
+            this.dgvFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label1
             // 
@@ -257,12 +261,38 @@
             this.label2.TabIndex = 101;
             this.label2.Text = "Telefone";
             // 
+            // picbRefresh
+            // 
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(620, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 122;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
+            // 
+            // picbClear
+            // 
+            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
+            this.picbClear.Location = new System.Drawing.Point(620, 173);
+            this.picbClear.Name = "picbClear";
+            this.picbClear.Size = new System.Drawing.Size(30, 35);
+            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbClear.TabIndex = 123;
+            this.picbClear.TabStop = false;
+            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            // 
             // FormFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(656, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.picbClear);
+            this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.msktxtTelefone);
@@ -279,7 +309,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFornecedores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeEmpresa);
             this.KeyPreview = true;
@@ -287,7 +317,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Fornecedores";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFornecedores_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +328,7 @@
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFornecedores;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeEmpresa;
         private System.Windows.Forms.Label label4;
@@ -313,5 +345,7 @@
         private System.Windows.Forms.MaskedTextBox msktxtTelefone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picbRefresh;
+        private System.Windows.Forms.PictureBox picbClear;
     }
 }

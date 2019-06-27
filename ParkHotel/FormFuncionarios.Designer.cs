@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -64,32 +64,36 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnPesquisarPorNome = new System.Windows.Forms.Button();
-            this.btnPesquisarPorCPF = new System.Windows.Forms.Button();
-            this.btnPesquisarPorRG = new System.Windows.Forms.Button();
-            this.btnPesquisarPorEstado = new System.Windows.Forms.Button();
-            this.btnPesquisarPorCidade = new System.Windows.Forms.Button();
-            this.btnPesquisarPorCEP = new System.Windows.Forms.Button();
-            this.btnPesquisarPorBairro = new System.Windows.Forms.Button();
-            this.btnPesquisarPorRua = new System.Windows.Forms.Button();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.btnPesquisarAdmin = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnPesquisarPorRua = new System.Windows.Forms.Button();
+            this.btnPesquisarPorBairro = new System.Windows.Forms.Button();
+            this.btnPesquisarPorCEP = new System.Windows.Forms.Button();
+            this.btnPesquisarPorCidade = new System.Windows.Forms.Button();
+            this.btnPesquisarPorEstado = new System.Windows.Forms.Button();
+            this.btnPesquisarPorRG = new System.Windows.Forms.Button();
+            this.btnPesquisarPorCPF = new System.Windows.Forms.Button();
+            this.btnPesquisarPorNome = new System.Windows.Forms.Button();
+            this.picbClear = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvFuncionarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(924, 132);
-            this.dataGridView1.TabIndex = 150;
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
+            this.dgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvFuncionarios.Location = new System.Drawing.Point(0, 0);
+            this.dgvFuncionarios.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFuncionarios.Name = "dgvFuncionarios";
+            this.dgvFuncionarios.RowHeadersVisible = false;
+            this.dgvFuncionarios.RowTemplate.Height = 24;
+            this.dgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFuncionarios.Size = new System.Drawing.Size(924, 132);
+            this.dgvFuncionarios.TabIndex = 150;
+            this.dgvFuncionarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dgvFuncionarios.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             // 
             // btnExcluir
             // 
@@ -464,93 +468,16 @@
             this.label19.TabIndex = 138;
             this.label19.Text = "Nome";
             // 
-            // btnPesquisarPorNome
+            // picbRefresh
             // 
-            this.btnPesquisarPorNome.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorNome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNome.Location = new System.Drawing.Point(180, 263);
-            this.btnPesquisarPorNome.Name = "btnPesquisarPorNome";
-            this.btnPesquisarPorNome.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorNome.TabIndex = 151;
-            this.btnPesquisarPorNome.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorNome.Click += new System.EventHandler(this.btnPesquisarPorNome_Click);
-            // 
-            // btnPesquisarPorCPF
-            // 
-            this.btnPesquisarPorCPF.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorCPF.Location = new System.Drawing.Point(139, 316);
-            this.btnPesquisarPorCPF.Name = "btnPesquisarPorCPF";
-            this.btnPesquisarPorCPF.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorCPF.TabIndex = 152;
-            this.btnPesquisarPorCPF.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorCPF.Click += new System.EventHandler(this.btnPesquisarPorCPF_Click);
-            // 
-            // btnPesquisarPorRG
-            // 
-            this.btnPesquisarPorRG.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorRG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorRG.Location = new System.Drawing.Point(100, 374);
-            this.btnPesquisarPorRG.Name = "btnPesquisarPorRG";
-            this.btnPesquisarPorRG.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorRG.TabIndex = 153;
-            this.btnPesquisarPorRG.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorRG.Click += new System.EventHandler(this.btnPesquisarPorRG_Click);
-            // 
-            // btnPesquisarPorEstado
-            // 
-            this.btnPesquisarPorEstado.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorEstado.Location = new System.Drawing.Point(430, 213);
-            this.btnPesquisarPorEstado.Name = "btnPesquisarPorEstado";
-            this.btnPesquisarPorEstado.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorEstado.TabIndex = 154;
-            this.btnPesquisarPorEstado.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorEstado.Click += new System.EventHandler(this.btnPesquisarPorEstado_Click);
-            // 
-            // btnPesquisarPorCidade
-            // 
-            this.btnPesquisarPorCidade.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorCidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorCidade.Location = new System.Drawing.Point(430, 262);
-            this.btnPesquisarPorCidade.Name = "btnPesquisarPorCidade";
-            this.btnPesquisarPorCidade.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorCidade.TabIndex = 155;
-            this.btnPesquisarPorCidade.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorCidade.Click += new System.EventHandler(this.btnPesquisarPorCidade_Click);
-            // 
-            // btnPesquisarPorCEP
-            // 
-            this.btnPesquisarPorCEP.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorCEP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorCEP.Location = new System.Drawing.Point(318, 316);
-            this.btnPesquisarPorCEP.Name = "btnPesquisarPorCEP";
-            this.btnPesquisarPorCEP.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorCEP.TabIndex = 156;
-            this.btnPesquisarPorCEP.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorCEP.Click += new System.EventHandler(this.btnPesquisarPorCEP_Click);
-            // 
-            // btnPesquisarPorBairro
-            // 
-            this.btnPesquisarPorBairro.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorBairro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorBairro.Location = new System.Drawing.Point(430, 374);
-            this.btnPesquisarPorBairro.Name = "btnPesquisarPorBairro";
-            this.btnPesquisarPorBairro.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorBairro.TabIndex = 157;
-            this.btnPesquisarPorBairro.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorBairro.Click += new System.EventHandler(this.btnPesquisarPorBairro_Click);
-            // 
-            // btnPesquisarPorRua
-            // 
-            this.btnPesquisarPorRua.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorRua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorRua.Location = new System.Drawing.Point(430, 439);
-            this.btnPesquisarPorRua.Name = "btnPesquisarPorRua";
-            this.btnPesquisarPorRua.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorRua.TabIndex = 158;
-            this.btnPesquisarPorRua.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorRua.Click += new System.EventHandler(this.btnPesquisarPorRua_Click);
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(882, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 160;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
             // btnPesquisarAdmin
             // 
@@ -563,12 +490,115 @@
             this.btnPesquisarAdmin.UseVisualStyleBackColor = true;
             this.btnPesquisarAdmin.Click += new System.EventHandler(this.btnPesquisarAdmin_Click);
             // 
+            // btnPesquisarPorRua
+            // 
+            this.btnPesquisarPorRua.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorRua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorRua.Location = new System.Drawing.Point(430, 439);
+            this.btnPesquisarPorRua.Name = "btnPesquisarPorRua";
+            this.btnPesquisarPorRua.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorRua.TabIndex = 158;
+            this.btnPesquisarPorRua.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorRua.Click += new System.EventHandler(this.btnPesquisarPorRua_Click);
+            // 
+            // btnPesquisarPorBairro
+            // 
+            this.btnPesquisarPorBairro.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorBairro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorBairro.Location = new System.Drawing.Point(430, 374);
+            this.btnPesquisarPorBairro.Name = "btnPesquisarPorBairro";
+            this.btnPesquisarPorBairro.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorBairro.TabIndex = 157;
+            this.btnPesquisarPorBairro.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorBairro.Click += new System.EventHandler(this.btnPesquisarPorBairro_Click);
+            // 
+            // btnPesquisarPorCEP
+            // 
+            this.btnPesquisarPorCEP.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorCEP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorCEP.Location = new System.Drawing.Point(318, 316);
+            this.btnPesquisarPorCEP.Name = "btnPesquisarPorCEP";
+            this.btnPesquisarPorCEP.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorCEP.TabIndex = 156;
+            this.btnPesquisarPorCEP.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorCEP.Click += new System.EventHandler(this.btnPesquisarPorCEP_Click);
+            // 
+            // btnPesquisarPorCidade
+            // 
+            this.btnPesquisarPorCidade.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorCidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorCidade.Location = new System.Drawing.Point(430, 262);
+            this.btnPesquisarPorCidade.Name = "btnPesquisarPorCidade";
+            this.btnPesquisarPorCidade.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorCidade.TabIndex = 155;
+            this.btnPesquisarPorCidade.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorCidade.Click += new System.EventHandler(this.btnPesquisarPorCidade_Click);
+            // 
+            // btnPesquisarPorEstado
+            // 
+            this.btnPesquisarPorEstado.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorEstado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorEstado.Location = new System.Drawing.Point(430, 213);
+            this.btnPesquisarPorEstado.Name = "btnPesquisarPorEstado";
+            this.btnPesquisarPorEstado.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorEstado.TabIndex = 154;
+            this.btnPesquisarPorEstado.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorEstado.Click += new System.EventHandler(this.btnPesquisarPorEstado_Click);
+            // 
+            // btnPesquisarPorRG
+            // 
+            this.btnPesquisarPorRG.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorRG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorRG.Location = new System.Drawing.Point(100, 374);
+            this.btnPesquisarPorRG.Name = "btnPesquisarPorRG";
+            this.btnPesquisarPorRG.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorRG.TabIndex = 153;
+            this.btnPesquisarPorRG.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorRG.Click += new System.EventHandler(this.btnPesquisarPorRG_Click);
+            // 
+            // btnPesquisarPorCPF
+            // 
+            this.btnPesquisarPorCPF.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorCPF.Location = new System.Drawing.Point(139, 316);
+            this.btnPesquisarPorCPF.Name = "btnPesquisarPorCPF";
+            this.btnPesquisarPorCPF.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorCPF.TabIndex = 152;
+            this.btnPesquisarPorCPF.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorCPF.Click += new System.EventHandler(this.btnPesquisarPorCPF_Click);
+            // 
+            // btnPesquisarPorNome
+            // 
+            this.btnPesquisarPorNome.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNome.Location = new System.Drawing.Point(180, 263);
+            this.btnPesquisarPorNome.Name = "btnPesquisarPorNome";
+            this.btnPesquisarPorNome.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNome.TabIndex = 151;
+            this.btnPesquisarPorNome.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNome.Click += new System.EventHandler(this.btnPesquisarPorNome_Click);
+            // 
+            // picbClear
+            // 
+            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
+            this.picbClear.Location = new System.Drawing.Point(882, 173);
+            this.picbClear.Name = "picbClear";
+            this.picbClear.Size = new System.Drawing.Size(30, 35);
+            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbClear.TabIndex = 161;
+            this.picbClear.TabStop = false;
+            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(924, 602);
             this.ControlBox = false;
+            this.Controls.Add(this.picbClear);
+            this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.btnPesquisarAdmin);
             this.Controls.Add(this.btnPesquisarPorRua);
             this.Controls.Add(this.btnPesquisarPorBairro);
@@ -613,21 +643,23 @@
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFuncionarios);
             this.KeyPreview = true;
             this.Name = "FormFuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormGerFuncionarios";
             this.Load += new System.EventHandler(this.FormFuncionarios_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFuncionarios_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFuncionarios;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCadastrar;
@@ -672,5 +704,7 @@
         private System.Windows.Forms.Button btnPesquisarPorBairro;
         private System.Windows.Forms.Button btnPesquisarPorRua;
         private System.Windows.Forms.Button btnPesquisarAdmin;
+        private System.Windows.Forms.PictureBox picbRefresh;
+        private System.Windows.Forms.PictureBox picbClear;
     }
 }

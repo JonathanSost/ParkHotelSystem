@@ -66,6 +66,16 @@ namespace ParkHotel
                 menu.Show();
             }
         }
+
+        private void picbRefresh_Click(object sender, EventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerTodos();
+        }
+
+        private void picbClear_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+        }
         #endregion
 
         #region Componente Changed

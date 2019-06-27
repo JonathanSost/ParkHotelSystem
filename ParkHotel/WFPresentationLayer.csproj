@@ -172,5 +172,14 @@
   <ItemGroup>
     <None Include="Resources\lupa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashcan-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lvasivdnlkvndbçslnzbihçbp~gspi.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

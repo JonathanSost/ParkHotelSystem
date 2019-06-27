@@ -37,8 +37,8 @@ namespace ParkHotel
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
 
-            dataGridView1.DataSource = funbll.LerFuncionarios();
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvFuncionarios.DataSource = funbll.LerFuncionarios();
+            dgvFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         #endregion
 
@@ -78,7 +78,7 @@ namespace ParkHotel
             if (response.Success)
             {
                 FormCleaner.Clear(this);
-                dataGridView1.DataSource = funbll.LerFuncionarios();
+                dgvFuncionarios.DataSource = funbll.LerFuncionarios();
             }
         }
 
@@ -102,6 +102,16 @@ namespace ParkHotel
             {
                 chkAdministrador.Checked = false;
             }
+        }
+
+        private void picbRefresh_Click(object sender, EventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.LerFuncionarios();
+        }
+
+        private void picbClear_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
         }
         #endregion
 
@@ -193,66 +203,67 @@ namespace ParkHotel
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Senha" && e.Value != null)
+            if (dgvFuncionarios.Columns[e.ColumnIndex].Name == "Senha" && e.Value != null)
             {
-                dataGridView1.Rows[e.RowIndex].Tag = e.Value;
+                dgvFuncionarios.Rows[e.RowIndex].Tag = e.Value;
                 e.Value = new String('*', e.Value.ToString().Length);
             }
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dataGridView1.CurrentRow.Tag != null)
+            if (dgvFuncionarios.CurrentRow.Tag != null)
             {
-                e.Control.Text = dataGridView1.CurrentRow.Tag.ToString();
+                e.Control.Text = dgvFuncionarios.CurrentRow.Tag.ToString();
             }
         }
 
         #region Pesquisar
         private void btnPesquisarPorNome_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorNome(txtNome.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorNome(txtNome.Text);
         }
 
         private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorCPF(msktxtCPF.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorCPF(msktxtCPF.Text);
         }
 
         private void btnPesquisarPorRG_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorRG(msktxtRG.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorRG(msktxtRG.Text);
         }
 
         private void btnPesquisarPorEstado_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorEstado((int)cmbEstado.SelectedValue);
         }
 
         private void btnPesquisarPorCidade_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorCidade((int)cmbCidade.SelectedValue);
         }
 
         private void btnPesquisarPorCEP_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorCEP(msktxtCEP.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorCEP(msktxtCEP.Text);
         }
 
         private void btnPesquisarPorBairro_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorBairro(txtBairro.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorBairro(txtBairro.Text);
         }
 
         private void btnPesquisarPorRua_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarPorRua(txtRua.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorRua(txtRua.Text);
         }
 
         private void btnPesquisarAdmin_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = funbll.PesquisarAdmin(Admin);
+            dgvFuncionarios.DataSource = funbll.PesquisarAdmin(Admin);
         }
+
         #endregion
     }
 }

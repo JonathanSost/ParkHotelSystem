@@ -20,7 +20,7 @@ namespace ParkHotel
         public FormFornecedores()
         {
             InitializeComponent();
-            dataGridView1.DataSource = forbll.LerTodos();
+            dgvFornecedores.DataSource = forbll.LerTodos();
         }
         #endregion
 
@@ -35,7 +35,7 @@ namespace ParkHotel
 
             if (response.Success)
             {
-                dataGridView1.DataSource = forbll.LerTodos();
+                dgvFornecedores.DataSource = forbll.LerTodos();
                 FormCleaner.Clear(this);
             }
         }
@@ -73,14 +73,24 @@ namespace ParkHotel
             }
         }
 
+        private void picbRefresh_Click(object sender, EventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.LerTodos();
+        }
+
+        private void picbClear_Click(object sender, EventArgs e)
+        {
+            FormCleaner.Clear(this);
+        }
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            string nomeEmpresa = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-            string cnpj = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-            string nome = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-            string telefone = (string)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
-            string email = (string)dataGridView1.Rows[e.RowIndex].Cells[5].Value;
+            int id = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value;
+            string nomeEmpresa = (string)dgvFornecedores.Rows[e.RowIndex].Cells[1].Value;
+            string cnpj = (string)dgvFornecedores.Rows[e.RowIndex].Cells[2].Value;
+            string nome = (string)dgvFornecedores.Rows[e.RowIndex].Cells[3].Value;
+            string telefone = (string)dgvFornecedores.Rows[e.RowIndex].Cells[4].Value;
+            string email = (string)dgvFornecedores.Rows[e.RowIndex].Cells[5].Value;
 
             txtID.Text = id.ToString();
             txtNomeEmpresa.Text = nomeEmpresa;
@@ -128,5 +138,7 @@ namespace ParkHotel
                 txtEmail.Focus();
             }
         }
+
+        
     }
 }

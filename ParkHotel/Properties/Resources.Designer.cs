@@ -73,6 +73,16 @@ namespace ParkHotel.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap a {
+            get {
+                object obj = ResourceManager.GetObject("a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aiosfgasifuashfoasfausfsa {
             get {
                 object obj = ResourceManager.GetObject("aiosfgasifuashfoasfausfsa", resourceCulture);
@@ -113,9 +123,29 @@ namespace ParkHotel.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lvasivdnlkvndbçslnzbihçbp_gspi {
+            get {
+                object obj = ResourceManager.GetObject("lvasivdnlkvndbçslnzbihçbp~gspi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sem_título {
             get {
                 object obj = ResourceManager.GetObject("Sem título", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trashcan_png {
+            get {
+                object obj = ResourceManager.GetObject("trashcan-png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
