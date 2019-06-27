@@ -9,5 +9,6 @@ namespace Metadata
     public interface IClienteDataService
     {
         List<ClienteViewModel> LerClientes();
+        //adga
     }
 }
