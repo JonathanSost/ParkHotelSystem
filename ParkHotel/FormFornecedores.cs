@@ -112,5 +112,21 @@ namespace ParkHotel
             txtEmail.MaxLength = 70;
         }
         #endregion
+
+        private void msktxtCNPJ_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtCNPJ.Text.Length == 14)
+            {
+                txtNome.Focus();
+            }
+        }
+
+        private void msktxtTelefone_TextChanged(object sender, EventArgs e)
+        {
+            if (msktxtTelefone.Text.Length == 11)
+            {
+                txtEmail.Focus();
+            }
+        }
     }
 }

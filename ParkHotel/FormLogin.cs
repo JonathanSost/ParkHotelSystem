@@ -29,17 +29,17 @@ namespace ParkHotel
         #region Buttons
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                MessageBox.Show("Usuário e senha devem ser informados!");
-                return;
-            }
-            fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            //if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
+            //{
+            //    MessageBox.Show("Usuário e senha devem ser informados!");
+            //    return;
+            //}
+            //fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
 
 
             //Descomente a linha de abaixo e comente as linhas acima para não precisar fazer login
 
-            //fun = new Funcionario();
+            fun = new Funcionario();
 
 
             if (fun != null)
