@@ -112,11 +112,6 @@ namespace ParkHotel
             txtNome.MaxLength = 70;
         }
 
-        private void txtTelefone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             txtEmail.MaxLength = 70;

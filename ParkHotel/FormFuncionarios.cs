@@ -163,7 +163,7 @@ namespace ParkHotel
 
         private void msktxtCPF_TextChanged(object sender, EventArgs e)
         {
-            if (msktxtCPF.Text.Length == 14)
+            if (msktxtCPF.Text.Length == 11)
             {
                 msktxtRG.Focus();
             }
@@ -171,7 +171,7 @@ namespace ParkHotel
 
         private void msktxtRG_TextChanged(object sender, EventArgs e)
         {
-            if (msktxtRG.Text.Length == 9)
+            if (msktxtRG.Text.Length == 7)
             {
                 msktxtTelefone.Focus();
             }
@@ -179,7 +179,7 @@ namespace ParkHotel
 
         private void msktxtTelefone_TextChanged(object sender, EventArgs e)
         {
-            if (msktxtTelefone.Text.Length == 14)
+            if (msktxtTelefone.Text.Length == 11)
             {
                 txtEmail.Focus();
             }
@@ -187,7 +187,7 @@ namespace ParkHotel
 
         private void msktxtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (msktxtCEP.Text.Length == 9)
+            if (msktxtCEP.Text.Length == 8)
             {
                 txtBairro.Focus();
             }
