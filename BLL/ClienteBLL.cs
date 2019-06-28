@@ -746,7 +746,7 @@ namespace BLL
         {
             List<string> erros = new List<string>();
 
-            if (!dal.VerificarExistenciaCliente(cli))
+            if (!dal.VerificarExistenciaCliente(cli.ID))
             {
                 erros.Add("Cliente inexistente");
             }

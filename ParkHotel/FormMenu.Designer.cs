@@ -41,11 +41,11 @@
             this.lnkClientes = new System.Windows.Forms.LinkLabel();
             this.lnkProdutos = new System.Windows.Forms.LinkLabel();
             this.Relogio = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
             this.lnkFuncionarioLogado = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             this.btnLogoff.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogoff.Location = new System.Drawing.Point(301, 390);
+            this.btnLogoff.Location = new System.Drawing.Point(301, 332);
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
@@ -79,7 +79,7 @@
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(5, 404);
+            this.lblHora.Location = new System.Drawing.Point(5, 346);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(65, 22);
             this.lblHora.TabIndex = 13;
@@ -187,55 +187,55 @@
             this.Relogio.Interval = 1000;
             this.Relogio.Tick += new System.EventHandler(this.Relogio_Tick);
             // 
-            // label1
+            // lbl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 21);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "*";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(36, 128);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(16, 21);
+            this.lbl1.TabIndex = 19;
+            this.lbl1.Text = "*";
             // 
-            // label2
+            // lbl2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 170);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 21);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "*";
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(37, 170);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(16, 21);
+            this.lbl2.TabIndex = 20;
+            this.lbl2.Text = "*";
             // 
-            // label3
+            // lbl3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 214);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 21);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "*";
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.Location = new System.Drawing.Point(37, 214);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(16, 21);
+            this.lbl3.TabIndex = 21;
+            this.lbl3.Text = "*";
             // 
-            // label4
+            // lbl4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 256);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 21);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "*";
+            this.lbl4.AutoSize = true;
+            this.lbl4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4.Location = new System.Drawing.Point(37, 256);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(16, 21);
+            this.lbl4.TabIndex = 22;
+            this.lbl4.Text = "*";
             // 
-            // label5
+            // lbl5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 297);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 21);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "*";
+            this.lbl5.AutoSize = true;
+            this.lbl5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5.Location = new System.Drawing.Point(36, 297);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(16, 21);
+            this.lbl5.TabIndex = 23;
+            this.lbl5.Text = "*";
             // 
             // lnkFuncionarioLogado
             // 
@@ -248,20 +248,21 @@
             this.lnkFuncionarioLogado.TabIndex = 24;
             this.lnkFuncionarioLogado.TabStop = true;
             this.lnkFuncionarioLogado.Text = ".";
+            this.lnkFuncionarioLogado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFuncionarioLogado_LinkClicked);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(452, 454);
+            this.ClientSize = new System.Drawing.Size(452, 399);
             this.ControlBox = false;
             this.Controls.Add(this.lnkFuncionarioLogado);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl5);
+            this.Controls.Add(this.lbl4);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnLogoff);
@@ -302,11 +303,11 @@
         private System.Windows.Forms.LinkLabel lnkFornecedores;
         private System.Windows.Forms.LinkLabel lnkQuartos;
         private System.Windows.Forms.LinkLabel lnkFuncionarios;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.LinkLabel lnkFuncionarioLogado;
     }
 }

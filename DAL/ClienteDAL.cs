@@ -339,7 +339,7 @@ namespace DAL
         #endregion
 
         #region Verificar Existência do Cliente
-        public bool VerificarExistenciaCliente(Cliente cli)
+        public bool VerificarExistenciaCliente(int idCliente)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -347,7 +347,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = "select * from clientes where id = @id";
-            command.Parameters.AddWithValue("@id", cli.ID);
+            command.Parameters.AddWithValue("@id", idCliente);
             command.Connection = connection;
 
             try

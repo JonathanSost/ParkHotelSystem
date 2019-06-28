@@ -106,6 +106,9 @@
     <EmbeddedResource Include="FormFuncionarios.resx">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoFuncionario.resx">
+      <DependentUpon>FormInfoFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
