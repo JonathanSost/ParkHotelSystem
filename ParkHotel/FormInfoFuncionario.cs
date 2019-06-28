@@ -76,6 +76,7 @@ namespace ParkHotel
             lblEmail.Visible = false;
             lblSenha.Visible = false;
             btnEditar.Visible = false;
+            btnCancelar.Visible = true;
             btnConfirmar.Visible = true;
             lblNome.Visible = false;
 
@@ -128,6 +129,7 @@ namespace ParkHotel
             lblEmail.Visible = true;
             lblSenha.Visible = true;
             btnEditar.Visible = true;
+            btnCancelar.Visible = false;
             btnConfirmar.Visible = false;
             lblNome.Visible = true;
 
@@ -163,6 +165,45 @@ namespace ParkHotel
             lblEmail.Text = "E-mail: " + fun.Email;
             lblSenha.Text = "Senha: " + fun.Senha;
             #endregion
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            lblCPF.Visible = true;
+            lblRG.Visible = true;
+            lblCEP.Visible = true;
+            lblTelefone.Visible = true;
+            lblNumero.Visible = true;
+            cmbCidade.Enabled = false;
+            cmbEstado.Enabled = false;
+            lblRua.Visible = true;
+            lblBairro.Visible = true;
+            lblEmail.Visible = true;
+            lblSenha.Visible = true;
+            btnEditar.Visible = true;
+            btnCancelar.Visible = false;
+            btnConfirmar.Visible = false;
+            lblNome.Visible = true;
+
+            txtNome.Visible = false;
+            msktxtCPF.Visible = false;
+            msktxtRG.Visible = false;
+            msktxtCEP.Visible = false;
+            msktxtTelefone.Visible = false;
+            txtNumero.Visible = false;
+            txtRua.Visible = false;
+            txtBairro.Visible = false;
+            txtEmail.Visible = false;
+            txtSenha.Visible = false;
+
+            cmbEstado.DisplayMember = "Sigla";
+            cmbEstado.ValueMember = "ID";
+            cmbCidade.DisplayMember = "Nome";
+            cmbCidade.ValueMember = "ID";
+            cmbEstado.DataSource = estbll.LerTodos();
+            cmbCidade.DataSource = cidbll.LerTodos();
+            cmbEstado.SelectedValue = Parametros.FuncionarioLogado.Estado;
+            cmbCidade.SelectedValue = Parametros.FuncionarioLogado.Cidade;
         }
         #endregion
 
@@ -203,5 +244,7 @@ namespace ParkHotel
             txtRua.MaxLength = 70;
         }
         #endregion
+
+        
     }
 }
