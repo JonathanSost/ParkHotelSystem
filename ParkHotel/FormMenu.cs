@@ -17,7 +17,7 @@ namespace ParkHotel
         public FormMenu(Funcionario Funci)
         {
             InitializeComponent();
-            lblNomeFuncionario.Text = "Bem-Vindo," + Funci.Nome;
+            lblNomeFuncionario.Text = "Bem-Vindo,";
             lnkFuncionarioLogado.Text = Parametros.FuncionarioLogado.Nome;
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
             if (Funci.EhADM)
@@ -125,6 +125,12 @@ namespace ParkHotel
             this.Hide();
             new FormFuncionarios().Show();
         }
+
+        private void lnkFuncionarioLogado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            new FormInfoFuncionario(Parametros.FuncionarioLogado).Show();
+        }
         #endregion
 
         #region Relógio
@@ -133,11 +139,5 @@ namespace ParkHotel
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
         #endregion
-
-        private void lnkFuncionarioLogado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
-            new FormInfoFuncionario(Parametros.FuncionarioLogado).Show();
-        }
     }
 }

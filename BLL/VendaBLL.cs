@@ -19,7 +19,7 @@ namespace BLL
             {
                 erros.Add("Quantidade Requisitada Inválida.");
             }
-            if (ven.DataDeVenda != DateTime.Now)
+            if (ven.DataDeVenda.ToString("dd/MM/yyyy - HH:mm") != DateTime.Now.ToString("dd/MM/yyyy - HH:mm"))
             {
                 erros.Add("Você está a frente do seu tempo.");
             }

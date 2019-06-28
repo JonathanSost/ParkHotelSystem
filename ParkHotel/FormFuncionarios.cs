@@ -37,7 +37,7 @@ namespace ParkHotel
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
 
-            dgvFuncionarios.DataSource = funbll.LerFuncionarios();
+            dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             dgvFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         #endregion
@@ -45,7 +45,12 @@ namespace ParkHotel
         #region Buttons
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show(funbll.Atualizar(f));
+            f = new Funcionario(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
+                Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
+                txtComplemento.Text);
+            MessageResponse response = funbll.Atualizar(f);
+            MessageBox.Show(response.Message);
+            dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
         }
 
         private void btnExcluir_Click_1(object sender, EventArgs e)
@@ -78,7 +83,7 @@ namespace ParkHotel
             if (response.Success)
             {
                 FormCleaner.Clear(this);
-                dgvFuncionarios.DataSource = funbll.LerFuncionarios();
+                dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             }
         }
 
@@ -106,7 +111,7 @@ namespace ParkHotel
 
         private void picbRefresh_Click(object sender, EventArgs e)
         {
-            dgvFuncionarios.DataSource = funbll.LerFuncionarios();
+            dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
         }
 
         private void picbClear_Click(object sender, EventArgs e)
@@ -201,27 +206,10 @@ namespace ParkHotel
         }
         #endregion
 
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvFuncionarios.Columns[e.ColumnIndex].Name == "Senha" && e.Value != null)
-            {
-                dgvFuncionarios.Rows[e.RowIndex].Tag = e.Value;
-                e.Value = new String('*', e.Value.ToString().Length);
-            }
-        }
-
-        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (dgvFuncionarios.CurrentRow.Tag != null)
-            {
-                e.Control.Text = dgvFuncionarios.CurrentRow.Tag.ToString();
-            }
-        }
-
         #region Pesquisar
         private void btnPesquisarPorNome_Click(object sender, EventArgs e)
         {
-            dgvFuncionarios.DataSource = funbll.PesquisarPorNome(txtNome.Text);
+            dgvFuncionarios.DataSource = funbll.PesquisarPorNome(txtNome.Text, Parametros.FuncionarioLogado);
         }
 
         private void btnPesquisarPorCPF_Click(object sender, EventArgs e)
@@ -265,5 +253,44 @@ namespace ParkHotel
         }
 
         #endregion
+
+        private void dgvFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value;
+            string nome = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value;
+            string cpf = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[2].Value;
+            string rg = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[3].Value;
+            string telefone = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[4].Value;
+            string email = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[5].Value;
+            string senha = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[6].Value;
+            bool ehadm = (bool)dgvFuncionarios.Rows[e.RowIndex].Cells[7].Value;
+            string estado = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[8].Value;
+            string cidade = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[9].Value;
+            string rua = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[10].Value;
+            string bairro = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[11].Value;
+            string numero = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[12].Value;
+            string cep = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[14].Value;
+
+
+            f = new Funcionario(nome, cpf, rg, telefone, email, senha, ehadm, 
+                (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, cep, bairro, rua, numero, complemento);
+
+            txtID.Text = id.ToString();
+            txtNome.Text = nome;
+            msktxtCPF.Text = cpf;
+            msktxtRG.Text = rg;
+            msktxtTelefone.Text = telefone;
+            txtEmail.Text = email;
+            txtSenha.Text = senha;
+            chkAdministrador.Checked = ehadm;
+            msktxtCEP.Text = cep;
+            cmbEstado.Text = estado.ToString();
+            cmbCidade.Text = cidade.ToString();
+            txtRua.Text = rua;
+            txtBairro.Text = bairro;
+            txtNumero.Text = numero;
+            txtComplemento.Text = complemento;
+        }
     }
 }

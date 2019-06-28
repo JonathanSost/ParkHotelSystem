@@ -11,42 +11,58 @@ namespace DAL
     public class FuncionarioDAL
     {
         #region Atualizar
-        public string Atualizar(Funcionario funci)
+        public MessageResponse Atualizar(Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update funcionarios set nome = @nome, cpf = @cpf, rg = @rg, " +
-                "endereco = @endereco, email = @email, senha = @senha, ehadm = @ehadm, where id = @id";
+            command.CommandText = @"update funcionarios set nome = @nome, cpf = @cpf, rg = @rg,
+                telefone = @telefone, cep = @cep, estado = @estado, cidade = @cidade, rua = @rua, bairro = @bairro,
+                numero = @numero, complemento = @complemento, email = @email, senha = @senha, ehadm = @ehadm 
+                where id = @id";
             command.Parameters.AddWithValue("@nome", funci.Nome);
             command.Parameters.AddWithValue("@cpf", funci.CPF);
             command.Parameters.AddWithValue("@rg", funci.RG);
-            command.Parameters.AddWithValue("@end", funci.Email);
+            command.Parameters.AddWithValue("@telefone", funci.Telefone);
+            command.Parameters.AddWithValue("@cep", funci.CEP);
+            command.Parameters.AddWithValue("@estado", funci.Estado);
+            command.Parameters.AddWithValue("@cidade", funci.Cidade);
+            command.Parameters.AddWithValue("@rua", funci.Rua);
+            command.Parameters.AddWithValue("@bairro", funci.Bairro);
+            command.Parameters.AddWithValue("@numero", funci.Numero);
+            command.Parameters.AddWithValue("@complemento", funci.Complemento);
             command.Parameters.AddWithValue("@email", funci.Email);
             command.Parameters.AddWithValue("@senha", funci.Senha);
             command.Parameters.AddWithValue("@ehadm", funci.EhADM);
             command.Parameters.AddWithValue("@id", funci.ID);
 
-
             command.Connection = connection;
+            MessageResponse response = new MessageResponse();
 
             try
             {
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                if (ex.Message.Contains(""))
+                {
+
+                }
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
                 //código executado SEMPRE
                 connection.Dispose();
             }
-
-            return "Funcionário atualizado com sucesso!";
+            response.Success = true;
+            response.Message = "Funcionário atualizado com sucesso!";
+            return response;
         }
         #endregion
 
@@ -239,7 +255,7 @@ namespace DAL
         #endregion
 
         #region Ler Funcionários (FuncionarioViewModel)
-        public List<FuncionarioViewModel> LerFuncionarios()
+        public List<FuncionarioViewModel> LerFuncionarios(Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -249,7 +265,9 @@ namespace DAL
             command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
             fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
             from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
-            fun.estado = est.id";
+            fun.estado = est.id where fun.id not like @funid";
+
+            command.Parameters.AddWithValue("@funid", funci.ID);
 
             command.Connection = connection;
 
@@ -369,7 +387,7 @@ namespace DAL
         #endregion
 
         #region Pesquisar Por Nome
-        public List<FuncionarioViewModel> PesquisarPorNome(string Nome)
+        public List<FuncionarioViewModel> PesquisarPorNome(string Nome, Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -379,9 +397,10 @@ namespace DAL
             command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
             fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
             from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
-            fun.estado = est.id where fun.Nome like @Nome";
+            fun.estado = est.id where fun.Nome like @Nome and fun.id not like @funid";
 
             command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
+            command.Parameters.AddWithValue("@funid", funci.ID);
 
             command.Connection = connection;
 

@@ -40,7 +40,26 @@ namespace Metadata
             this.Complemento = complemento;
             this.EhADM = ehadm;
         }
-            
+
+        public Funcionario(string nome, string cpf, string rg, string telefone, string email, string senha,
+            bool ehadm, int estado, int cidade, string cep, string bairro, string rua, string numero, string complemento)
+        {
+            this.Nome = nome;
+            this.CPF = cpf;
+            this.RG = rg;
+            this.Telefone = telefone;
+            this.Email = email;
+            this.Senha = senha;
+            this.Estado = estado;
+            this.Cidade = cidade;
+            this.CEP = cep;
+            this.Bairro = bairro;
+            this.Rua = rua;
+            this.Numero = numero;
+            this.Complemento = complemento;
+            this.EhADM = ehadm;
+        }
+
         public int ID { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
