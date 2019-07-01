@@ -96,5 +96,13 @@ namespace ParkHotel
             txtTipo.MaxLength = 2;
         }
         #endregion
+
+        private void dgvQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+        }
     }
 }

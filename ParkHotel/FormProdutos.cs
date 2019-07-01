@@ -61,7 +61,14 @@ namespace ParkHotel
 
         private void btnPesquisarFornecedores_Click(object sender, EventArgs e)
         {
-
+            FormPesquisarFornecedores frm = new FormPesquisarFornecedores();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+            if (frm.FornecedorSelecionado != null)
+            {
+                txtIDFornecedor.Text = frm.FornecedorSelecionado.ID.ToString();
+            }
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)
@@ -113,5 +120,13 @@ namespace ParkHotel
             txtEstoque.MaxLength = 4;
         }
         #endregion
+
+        private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+        }
     }
 }

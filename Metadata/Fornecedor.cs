@@ -8,6 +8,11 @@ namespace Metadata
 {
     public class Fornecedor
     {
+        public Fornecedor()
+        {
+
+        }
+
         public Fornecedor(int id, string nomeEmpresa, string cnpj, string nomeContato, string telefone, string email)
         {
             this.ID = id;

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,10 @@ namespace ParkHotel
         public FormPesquisarFornecedores()
         {
             InitializeComponent();
+            dgvFornecedores.DataSource = forbll.LerTodos();
         }
+
+        public Fornecedor FornecedorSelecionado { get; set; }
         #endregion
 
         #region Pesquisar
@@ -53,10 +57,31 @@ namespace ParkHotel
         }
         #endregion
 
+        #region Buttons
         private void dgvFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value;
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            this.FornecedorSelecionado = new Fornecedor()
+            {
+                ID = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value
+            };
 
+            this.Close();
         }
+        #endregion
+
+        #region KeyUp
+        private void FormPesquisarFornecedores_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                new FormProdutos().Show();
+            }
+        }
+        #endregion
     }
 }

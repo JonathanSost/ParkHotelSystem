@@ -153,7 +153,10 @@ namespace ParkHotel
 
         private void dgvFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
         }
     }
 }

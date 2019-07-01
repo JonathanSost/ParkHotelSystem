@@ -231,8 +231,11 @@
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.dgvFornecedores);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "FormPesquisarFornecedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPesquisarFornecedores";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormPesquisarFornecedores_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,8 +243,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvFornecedores;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.Button btnPesquisarPorNomeContato;
         private System.Windows.Forms.Button PesquisarPorCNPJ;
@@ -254,5 +255,6 @@
         private System.Windows.Forms.TextBox txtNomeEmpresa;
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNome2;
+        private System.Windows.Forms.DataGridView dgvFornecedores;
     }
 }

@@ -114,6 +114,11 @@ namespace ParkHotel
 
         private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
             int id = (int)dgvClientes.Rows[e.RowIndex].Cells[0].Value;
             string nome = (string)dgvClientes.Rows[e.RowIndex].Cells[1].Value;
             string cpf = (string)dgvClientes.Rows[e.RowIndex].Cells[2].Value;

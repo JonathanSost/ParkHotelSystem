@@ -187,9 +187,7 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
-                    //int id = (int)reader["ID"];
 
                     string nome = Convert.ToString(reader["NOME"]);
                     string cpf = Convert.ToString(reader["CPF"]);

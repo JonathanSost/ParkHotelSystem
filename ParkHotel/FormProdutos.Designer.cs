@@ -45,14 +45,14 @@
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.picbRefresh = new System.Windows.Forms.PictureBox();
-            this.picbClear = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDFornecedor = new System.Windows.Forms.TextBox();
             this.btnPesquisarFornecedores = new System.Windows.Forms.Button();
+            this.picbClear = new System.Windows.Forms.PictureBox();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -88,6 +88,7 @@
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(683, 132);
             this.dgvProdutos.TabIndex = 25;
+            this.dgvProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellDoubleClick);
             // 
             // label2
             // 
@@ -238,30 +239,6 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
             // 
-            // picbRefresh
-            // 
-            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
-            this.picbRefresh.Location = new System.Drawing.Point(641, 137);
-            this.picbRefresh.Name = "picbRefresh";
-            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
-            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbRefresh.TabIndex = 122;
-            this.picbRefresh.TabStop = false;
-            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
-            // 
-            // picbClear
-            // 
-            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
-            this.picbClear.Location = new System.Drawing.Point(641, 173);
-            this.picbClear.Name = "picbClear";
-            this.picbClear.Size = new System.Drawing.Size(30, 35);
-            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbClear.TabIndex = 123;
-            this.picbClear.TabStop = false;
-            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -293,6 +270,30 @@
             this.btnPesquisarFornecedores.Text = "...";
             this.btnPesquisarFornecedores.UseVisualStyleBackColor = true;
             this.btnPesquisarFornecedores.Click += new System.EventHandler(this.btnPesquisarFornecedores_Click);
+            // 
+            // picbClear
+            // 
+            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
+            this.picbClear.Location = new System.Drawing.Point(641, 173);
+            this.picbClear.Name = "picbClear";
+            this.picbClear.Size = new System.Drawing.Size(30, 35);
+            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbClear.TabIndex = 123;
+            this.picbClear.TabStop = false;
+            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            // 
+            // picbRefresh
+            // 
+            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(641, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 122;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
             // FormProdutos
             // 
@@ -330,8 +331,8 @@
             this.Load += new System.EventHandler(this.FormProdutos_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormProdutos_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

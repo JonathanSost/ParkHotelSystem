@@ -256,6 +256,11 @@ namespace ParkHotel
 
         private void dgvFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
             int id = (int)dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value;
             string nome = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value;
             string cpf = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[2].Value;
