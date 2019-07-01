@@ -116,7 +116,6 @@ namespace ParkHotel
         {
             txtEmail.MaxLength = 70;
         }
-        #endregion
 
         private void msktxtCNPJ_TextChanged(object sender, EventArgs e)
         {
@@ -133,7 +132,28 @@ namespace ParkHotel
                 txtEmail.Focus();
             }
         }
+        #endregion
 
-        
+        #region Pesquisar
+        private void btnPesquisarPorNomeEmpresa_Click(object sender, EventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.PesquisarPorNomeEmpresa(txtNomeEmpresa.Text);
+        }
+
+        private void PesquisarPorCNPJ_Click(object sender, EventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.PesquisarPorCNPJ(msktxtCNPJ.Text);
+        }
+
+        private void btnPesquisarPorNomeContato_Click(object sender, EventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.PesquisarPorNome(txtNome.Text);
+        }
+        #endregion
+
+        private void dgvFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

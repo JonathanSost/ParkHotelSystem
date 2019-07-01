@@ -49,6 +49,7 @@
             this.picbClear = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDFornecedor = new System.Windows.Forms.TextBox();
+            this.btnPesquisarFornecedores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
@@ -282,6 +283,17 @@
             this.txtIDFornecedor.Size = new System.Drawing.Size(161, 26);
             this.txtIDFornecedor.TabIndex = 124;
             // 
+            // btnPesquisarFornecedores
+            // 
+            this.btnPesquisarFornecedores.Location = new System.Drawing.Point(197, 508);
+            this.btnPesquisarFornecedores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarFornecedores.Name = "btnPesquisarFornecedores";
+            this.btnPesquisarFornecedores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarFornecedores.TabIndex = 126;
+            this.btnPesquisarFornecedores.Text = "...";
+            this.btnPesquisarFornecedores.UseVisualStyleBackColor = true;
+            this.btnPesquisarFornecedores.Click += new System.EventHandler(this.btnPesquisarFornecedores_Click);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +301,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisarFornecedores);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtIDFornecedor);
             this.Controls.Add(this.picbClear);
@@ -346,5 +359,6 @@
         private System.Windows.Forms.PictureBox picbClear;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIDFornecedor;
+        private System.Windows.Forms.Button btnPesquisarFornecedores;
     }
 }

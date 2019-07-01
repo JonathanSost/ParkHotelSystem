@@ -184,5 +184,20 @@ namespace BLL
         {
             return dal.LerTodos();
         }
+
+        public List<Fornecedor> PesquisarPorNomeEmpresa(string NomeEmpresa)
+        {
+            return dal.PesquisarPorNomeEmpresa(NomeEmpresa);
+        }
+
+        public List<Fornecedor> PesquisarPorCNPJ(string CNPJ)
+        {
+            return dal.PesquisarPorCNPJ(CNPJ);
+        }
+
+        public List<Fornecedor> PesquisarPorNome(string Nome)
+        {
+            return dal.PesquisarPorNome(Nome);
+        }
     }
 }

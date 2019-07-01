@@ -211,5 +211,146 @@ namespace DAL
             return fornecedores;
         }
         #endregion
+
+        #region Pesquisar Por Nome da Empresa
+        public List<Fornecedor> PesquisarPorNomeEmpresa(string NomeEmpresa)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select * from fornecedores NomeEmpresa like @NomeEmpresa";
+
+            command.Parameters.AddWithValue("@NomeEmpresa", "%" + NomeEmpresa + "%");
+
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["Telefone"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
+        #region Pesquisar Por CNPJ
+        public List<Fornecedor> PesquisarPorCNPJ(string CNPJ)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select * from fornecedores cnpj like @CNPJ";
+
+            command.Parameters.AddWithValue("@NomeEmpresa", "%" + CNPJ + "%");
+
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["Telefone"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
+        #region Pesquisar Por Nome
+        public List<Fornecedor> PesquisarPorNome(string Nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select * from fornecedores Nome like @Nome";
+
+            command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
+
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["Telefone"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
     }
 }

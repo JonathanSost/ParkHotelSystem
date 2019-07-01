@@ -47,11 +47,14 @@
             this.msktxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.picbClear = new System.Windows.Forms.PictureBox();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.btnPesquisarPorNomeEmpresa = new System.Windows.Forms.Button();
+            this.PesquisarPorCNPJ = new System.Windows.Forms.Button();
+            this.btnPesquisarPorNomeContato = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -87,7 +90,7 @@
             this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFornecedores.Size = new System.Drawing.Size(656, 132);
             this.dgvFornecedores.TabIndex = 25;
-            this.dgvFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dgvFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFornecedores_CellDoubleClick);
             // 
             // label1
             // 
@@ -261,18 +264,6 @@
             this.label2.TabIndex = 101;
             this.label2.Text = "Telefone";
             // 
-            // picbRefresh
-            // 
-            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
-            this.picbRefresh.Location = new System.Drawing.Point(620, 137);
-            this.picbRefresh.Name = "picbRefresh";
-            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
-            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbRefresh.TabIndex = 122;
-            this.picbRefresh.TabStop = false;
-            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
-            // 
             // picbClear
             // 
             this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -285,6 +276,51 @@
             this.picbClear.TabStop = false;
             this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
             // 
+            // picbRefresh
+            // 
+            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(620, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 122;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
+            // 
+            // btnPesquisarPorNomeEmpresa
+            // 
+            this.btnPesquisarPorNomeEmpresa.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNomeEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNomeEmpresa.Location = new System.Drawing.Point(187, 284);
+            this.btnPesquisarPorNomeEmpresa.Name = "btnPesquisarPorNomeEmpresa";
+            this.btnPesquisarPorNomeEmpresa.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNomeEmpresa.TabIndex = 152;
+            this.btnPesquisarPorNomeEmpresa.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNomeEmpresa.Click += new System.EventHandler(this.btnPesquisarPorNomeEmpresa_Click);
+            // 
+            // PesquisarPorCNPJ
+            // 
+            this.PesquisarPorCNPJ.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.PesquisarPorCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PesquisarPorCNPJ.Location = new System.Drawing.Point(188, 338);
+            this.PesquisarPorCNPJ.Name = "PesquisarPorCNPJ";
+            this.PesquisarPorCNPJ.Size = new System.Drawing.Size(26, 26);
+            this.PesquisarPorCNPJ.TabIndex = 153;
+            this.PesquisarPorCNPJ.UseVisualStyleBackColor = true;
+            this.PesquisarPorCNPJ.Click += new System.EventHandler(this.PesquisarPorCNPJ_Click);
+            // 
+            // btnPesquisarPorNomeContato
+            // 
+            this.btnPesquisarPorNomeContato.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNomeContato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNomeContato.Location = new System.Drawing.Point(164, 391);
+            this.btnPesquisarPorNomeContato.Name = "btnPesquisarPorNomeContato";
+            this.btnPesquisarPorNomeContato.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNomeContato.TabIndex = 154;
+            this.btnPesquisarPorNomeContato.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNomeContato.Click += new System.EventHandler(this.btnPesquisarPorNomeContato_Click);
+            // 
             // FormFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +328,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(656, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisarPorNomeContato);
+            this.Controls.Add(this.PesquisarPorCNPJ);
+            this.Controls.Add(this.btnPesquisarPorNomeEmpresa);
             this.Controls.Add(this.picbClear);
             this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.label2);
@@ -319,8 +358,8 @@
             this.Text = "Gerenciar Fornecedores";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFornecedores_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +387,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
+        private System.Windows.Forms.Button btnPesquisarPorNomeEmpresa;
+        private System.Windows.Forms.Button PesquisarPorCNPJ;
+        private System.Windows.Forms.Button btnPesquisarPorNomeContato;
     }
 }

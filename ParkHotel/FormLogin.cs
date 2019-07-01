@@ -30,7 +30,7 @@ namespace ParkHotel
             txtSenha.Text = "altair123";
 
             //txtUsuario.Text = "vinikk03@gmail.com";
-            //txtSenha.Text = "vini123";
+            //txtSenha.Text = "kockvini123";
         }
         #endregion
 

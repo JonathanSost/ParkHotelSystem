@@ -50,6 +50,11 @@ namespace ParkHotel
             MessageBox.Show("Excluido com sucesso!");
         }
 
+        private void btnPesquisarFornecedores_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnVoltar_Click_1(object sender, EventArgs e)
         {
             this.Close();
