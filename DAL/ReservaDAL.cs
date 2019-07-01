@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ReservaDAL : IEntityCRUD<Reservas>
+    public class ReservaDAL 
     {
+        MessageResponse response = new MessageResponse();
+
         #region Atualizar
-        public string Atualizar(Reservas reserva)
+        public MessageResponse Atualizar(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -32,7 +34,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -40,12 +44,15 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Reserva atualizada com sucesso!";
+
+            response.Success = true;
+            response.Message = "Reserva atualizada com sucesso!";
+            return response;
         }
         #endregion
 
         #region Excluir
-        public string Excluir(Reservas reserva)
+        public MessageResponse Excluir(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -63,7 +70,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -71,12 +80,14 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Reserva deletada do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Reserva deletada do sistema com sucesso!";
+            return response;
         }
         #endregion
 
         #region Inserir
-        public string Inserir(Reservas reserva)
+        public MessageResponse Inserir(Reservas reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -97,7 +108,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -105,7 +118,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "";
+            response.Success = true;
+            response.Message = "Reserva cadastrada no sistema com sucesso!";
+            return response;
         }
         #endregion
 

@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ProdutoDAL : IEntityCRUD<Produto>
+    public class ProdutoDAL 
     {
+        MessageResponse response = new MessageResponse();
+
         #region Atualizar
-        public string Atualizar(Produto produto)
+        public MessageResponse Atualizar(Produto produto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -32,20 +34,23 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
                 //código executado SEMPRE
                 connection.Dispose();
             }
-
-            return "Produto atualizado com sucesso!";
+            response.Success = true;
+            response.Message =  "Produto atualizado com sucesso!";
+            return response;
         }
         #endregion
 
         #region Excluir
-        public string Excluir(Produto produto)
+        public MessageResponse Excluir(Produto produto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -63,20 +68,23 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
                 //código executado SEMPRE
                 connection.Dispose();
             }
-
-            return "Produto deletado do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Produto deletado do sistema com sucesso!";
+            return response;
         }
         #endregion
 
         #region Inserir
-        public string Inserir(Produto produto)
+        public MessageResponse Inserir(Produto produto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -97,15 +105,18 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
                 //código executado SEMPRE
                 connection.Dispose();
             }
-
-            return "";
+            response.Success = true;
+            response.Message = "Produto cadastrado no sistema com sucesso!";
+            return response;
         }
         #endregion
 

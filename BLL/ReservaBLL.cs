@@ -11,10 +11,11 @@ namespace BLL
     public class ReservaBLL
     {
         ReservaDAL dal = new ReservaDAL();
+        MessageResponse response = new MessageResponse();
 
         List<string> erros = new List<string>();
 
-        public string Cadastrar(Reservas res)
+        public MessageResponse Cadastrar(Reservas res)
         {
             if (res.DiaReserva == res.DiaQueSai)
             {
@@ -39,19 +40,25 @@ namespace BLL
                     //Environment.NewLine
                     builder.AppendLine(erros[i]);
                 }
-                return builder.ToString();
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
             }
             return dal.Inserir(res);
         }
 
-        public string Atualizar(Reservas reserva)
+        public MessageResponse Atualizar(Reservas reserva)
         {
-            return dal.Atualizar(reserva);
+            response = dal.Atualizar(reserva);
+            response.Message = "Produto atualizado com sucesso!";
+            return response;
         }
 
-        public string Excluir(Reservas reserva)
+        public MessageResponse Excluir(Reservas reserva)
         {
-            return dal.Excluir(reserva);
+            response = dal.Excluir(reserva);
+            response.Message = "Produto deletado com sucesso!";
+            return response;
         }
 
         public Reservas LerPorID(int id)

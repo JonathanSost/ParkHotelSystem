@@ -12,8 +12,9 @@ namespace BLL
     {
 
         ProdutoDAL dal = new ProdutoDAL();
+        MessageResponse response = new MessageResponse();
 
-        public string Cadastrar (Produto pro)
+        public MessageResponse Cadastrar (Produto pro)
         {
             List<string> erros = new List<string>();
 
@@ -49,19 +50,38 @@ namespace BLL
             {
                 erros.Add("Valor inexistente.");
             }
+            if (erros.Count != 0)
+            {
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    //Environment.NewLine
+                    builder.AppendLine(erros[i]);
+                }
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
+            }
+            return dal.Inserir(pro);
 
-            return "";
+            
         }
 
-        public string Atualizar(Produto produto)
+        public MessageResponse Atualizar(Produto produto)
         {
-            return dal.Atualizar(produto);
+            response = dal.Atualizar(produto);
+            response.Message = "Produto atualizado com sucesso!";
+            return response;
         }
 
-        public string Excluir(Produto produto)
+        public MessageResponse Excluir(Produto produto)
         {
-            return dal.Excluir(produto);
+            response = dal.Excluir(produto);
+            response.Message = "Produto deletado com sucesso!";
+            return response;
         }
+
+       
 
         public Produto LerPorID(int id)
         {
