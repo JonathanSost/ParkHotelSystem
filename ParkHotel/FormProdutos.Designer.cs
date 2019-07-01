@@ -47,6 +47,8 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.picbClear = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtIDFornecedor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
@@ -259,6 +261,27 @@
             this.picbClear.TabStop = false;
             this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(32, 489);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.TabIndex = 125;
+            this.label6.Text = "ID do Fornecedor";
+            // 
+            // txtIDFornecedor
+            // 
+            this.txtIDFornecedor.Enabled = false;
+            this.txtIDFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDFornecedor.Location = new System.Drawing.Point(32, 508);
+            this.txtIDFornecedor.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIDFornecedor.Name = "txtIDFornecedor";
+            this.txtIDFornecedor.Size = new System.Drawing.Size(161, 26);
+            this.txtIDFornecedor.TabIndex = 124;
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +289,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtIDFornecedor);
             this.Controls.Add(this.picbClear);
             this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.lblNome2);
@@ -319,5 +344,7 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtIDFornecedor;
     }
 }
