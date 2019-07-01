@@ -80,6 +80,16 @@ namespace ParkHotel
             btnConfirmar.Visible = true;
             lblNome.Visible = false;
 
+            lblCPFEditar.Visible = true;
+            lblRGEditar.Visible = true;
+            lblCEPEditar.Visible = true;
+            lblTelefoneEditar.Visible = true;
+            lblRuaEditar.Visible = true;
+            lblBairroEditar.Visible = true;
+            lblEmailEditar.Visible = true;
+            lblSenhaEditar.Visible = true;
+            lblNumeroEditar.Visible = true;
+
             txtNome.Visible = true;
             msktxtCPF.Visible = true;
             msktxtRG.Visible = true;
@@ -113,7 +123,8 @@ namespace ParkHotel
                 msktxtTelefone.Text, txtEmail.Text, txtSenha.Text, Parametros.FuncionarioLogado.EhADM, 
                 (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, 
                 txtNumero.Text, Parametros.FuncionarioLogado.Complemento);
-            funbll.Atualizar(fun);
+            MessageResponse response = funbll.Atualizar(fun);
+            MessageBox.Show(response.Message);
             Parametros.FuncionarioLogado = fun;
 
             #region Visible / Text
@@ -132,6 +143,16 @@ namespace ParkHotel
             btnCancelar.Visible = false;
             btnConfirmar.Visible = false;
             lblNome.Visible = true;
+
+            lblCPFEditar.Visible = false;
+            lblRGEditar.Visible = false;
+            lblCEPEditar.Visible = false;
+            lblTelefoneEditar.Visible = false;
+            lblRuaEditar.Visible = false;
+            lblBairroEditar.Visible = false;
+            lblEmailEditar.Visible = false;
+            lblSenhaEditar.Visible = false;
+            lblNumeroEditar.Visible = false;
 
             txtNome.Visible = false;
             msktxtCPF.Visible = false;
@@ -169,6 +190,7 @@ namespace ParkHotel
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            #region Visible / Text
             lblCPF.Visible = true;
             lblRG.Visible = true;
             lblCEP.Visible = true;
@@ -184,6 +206,16 @@ namespace ParkHotel
             btnCancelar.Visible = false;
             btnConfirmar.Visible = false;
             lblNome.Visible = true;
+
+            lblCPFEditar.Visible = false;
+            lblRGEditar.Visible = false;
+            lblCEPEditar.Visible = false;
+            lblTelefoneEditar.Visible = false;
+            lblRuaEditar.Visible = false;
+            lblBairroEditar.Visible = false;
+            lblEmailEditar.Visible = false;
+            lblSenhaEditar.Visible = false;
+            lblNumeroEditar.Visible = false;
 
             txtNome.Visible = false;
             msktxtCPF.Visible = false;
@@ -204,6 +236,7 @@ namespace ParkHotel
             cmbCidade.DataSource = cidbll.LerTodos();
             cmbEstado.SelectedValue = Parametros.FuncionarioLogado.Estado;
             cmbCidade.SelectedValue = Parametros.FuncionarioLogado.Cidade;
+            #endregion
         }
         #endregion
 

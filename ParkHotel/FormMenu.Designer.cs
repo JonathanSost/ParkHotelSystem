@@ -54,7 +54,7 @@
             this.btnLogoff.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogoff.Location = new System.Drawing.Point(301, 332);
+            this.btnLogoff.Location = new System.Drawing.Point(301, 356);
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
@@ -78,10 +78,10 @@
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(5, 346);
+            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Location = new System.Drawing.Point(5, 383);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(65, 22);
+            this.lblHora.Size = new System.Drawing.Size(57, 21);
             this.lblHora.TabIndex = 13;
             this.lblHora.Text = "label1";
             // 
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(452, 399);
+            this.ClientSize = new System.Drawing.Size(452, 430);
             this.ControlBox = false;
             this.Controls.Add(this.lnkFuncionarioLogado);
             this.Controls.Add(this.lbl5);

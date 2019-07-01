@@ -22,11 +22,11 @@ namespace ParkHotel
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
             if (Funci.EhADM)
             {
-                this.Size = new Size(452, 454);
+                this.Size = new Size(452, 430);
                 lnkFuncionarios.Visible = true;
                 lbl5.Visible = true;
-                lblHora.Location = new Point(5, 404);
-                btnLogoff.Location = new Point(301, 390);
+                lblHora.Location = new Point(5, 383);
+                btnLogoff.Location = new Point(301, 356);
             }
             else
             {

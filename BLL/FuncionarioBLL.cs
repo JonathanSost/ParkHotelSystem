@@ -547,7 +547,6 @@ namespace BLL
                 response.Message = errosCliente.ToString();
                 return response;
             }
-            //chamar o DAL para cadastrar
             response = dal.Atualizar(fun);
             response.Message = "Funcionário atualizado com sucesso!";
             return response;
