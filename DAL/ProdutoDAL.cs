@@ -148,8 +148,9 @@ namespace DAL
                     string descricao = Convert.ToString(reader["DESCRICAO"]);
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
                     double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
 
-                    p = new Produto(id, nome, descricao, estoque, precound);
+                    p = new Produto(id, nome, descricao, estoque, precound, idfornecedor);
                 }
             }
             catch
@@ -191,8 +192,9 @@ namespace DAL
                     string descricao = Convert.ToString(reader["DESCRICAO"]);
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
                     double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
 
-                    Produto produto = new Produto(id, nome, descricao, estoque, precound);
+                    Produto produto = new Produto(id, nome, descricao, estoque, precound, idfornecedor);
                     produtos.Add(produto);
                 }
             }
