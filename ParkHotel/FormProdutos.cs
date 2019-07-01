@@ -16,6 +16,7 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         ProdutoBLL pbll = new ProdutoBLL();
+        Produto p = null;
 
         public FormProdutos()
         {
@@ -31,7 +32,15 @@ namespace ParkHotel
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            FormCleaner.Clear(this);
+            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
+
+            MessageResponse response = pbll.Cadastrar(p);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvProdutos.DataSource = pbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
