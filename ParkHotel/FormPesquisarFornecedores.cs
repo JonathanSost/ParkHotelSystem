@@ -16,12 +16,14 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         FornecedorBLL forbll = new FornecedorBLL();
-        public FormPesquisarFornecedores()
+        public FormPesquisarFornecedores(FormProdutos formProdutos)
         {
             InitializeComponent();
             dgvFornecedores.DataSource = forbll.LerTodos();
+            formprodutos = formProdutos;
         }
 
+        private FormProdutos formprodutos { get; set; }
         public Fornecedor FornecedorSelecionado { get; set; }
         #endregion
 
@@ -79,7 +81,7 @@ namespace ParkHotel
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-                new FormProdutos().Show();
+                formprodutos.Show();
             }
         }
         #endregion

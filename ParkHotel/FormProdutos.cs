@@ -61,10 +61,8 @@ namespace ParkHotel
 
         private void btnPesquisarFornecedores_Click(object sender, EventArgs e)
         {
-            FormPesquisarFornecedores frm = new FormPesquisarFornecedores();
-            this.Hide();
+            FormPesquisarFornecedores frm = new FormPesquisarFornecedores(this);
             frm.ShowDialog();
-            this.Show();
             if (frm.FornecedorSelecionado != null)
             {
                 txtIDFornecedor.Text = frm.FornecedorSelecionado.ID.ToString();
