@@ -297,5 +297,14 @@ namespace ParkHotel
             txtNumero.Text = numero;
             txtComplemento.Text = complemento;
         }
+
+        private void txtNome_Leave(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                toolTip1.SetToolTip(txtNome, "Favor informe o nome");
+                toolTip1.Show("oijdsoijdsa", this);
+            }
+        }
     }
 }

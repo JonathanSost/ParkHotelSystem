@@ -281,5 +281,17 @@ namespace ParkHotel
             dgvClientes.DataSource = clibll.PesquisarPorRua(txtRua.Text);
         }
         #endregion
+
+        private void picbRefresh_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(picbRefresh, "Reseta a dataGridView");
+            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+        }
+
+        private void picbClear_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(picbClear, "Limpa todos os campos");
+            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+        }
     }
 }
