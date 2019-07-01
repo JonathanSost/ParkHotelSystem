@@ -61,8 +61,14 @@ namespace ParkHotel
             c = new Cliente(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
                 (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
-            MessageBox.Show(clibll.Atualizar(c));
-            dgvClientes.DataSource = clibll.LerClientes();
+
+            MessageResponse response = new MessageResponse();
+            response = clibll.Atualizar(c);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvClientes.DataSource = clibll.LerClientes();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -79,9 +85,14 @@ namespace ParkHotel
                 return;
             }
 
-            MessageBox.Show(clibll.Excluir(c));
-            clibll.LerClientes();
-            FormCleaner.Clear(this);
+            MessageResponse response = new MessageResponse();
+            response = clibll.Excluir(c);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                clibll.LerClientes();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
