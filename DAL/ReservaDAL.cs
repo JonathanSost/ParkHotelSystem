@@ -117,7 +117,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from reservas where id = @id";
+            command.CommandText = @"select res.id 'ID da Reserva', qua.id 'ID do Quarto', cli.id 'ID do Cliente',
+                res.diareserva 'Dia do Check-In', res.diaquesai 'Dia do Check-Out' from reservas res inner join
+                clientes cli on res.cliente = cli.id inner join quartos qua on res.quarto = qua.id";
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
@@ -131,10 +133,15 @@ namespace DAL
                 while (reader.Read())
                 {
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
-                    id = Convert.ToInt32(reader["ID"]);
+                    id = Convert.ToInt32(reader["ID da Reserva"]);
+                    int idQuarto = Convert.ToInt32(reader["ID do Quarto"]);
+                    int idCliente = Convert.ToInt32(reader["ID do Cliente"]);
+                    DateTime checkin = Convert.ToDateTime(reader["Dia do Check-In"]);
+                    DateTime checkout = Convert.ToDateTime(reader["Dia do Check-Out"]);
+
                     //int id = (int)reader["ID"];
-                    
-                    //r = new Reservas();
+
+                    r = new Reservas(id, idQuarto, idCliente, checkin, checkout);
                 }
             }
             catch
@@ -157,7 +164,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from reservas";
+            command.CommandText = @"select res.id 'ID da Reserva', qua.id 'ID do Quarto', cli.id 'ID do Cliente',
+                res.diareserva 'Dia do Check-In', res.diaquesai 'Dia do Check-Out' from reservas res inner join
+                clientes cli on res.cliente = cli.id inner join quartos qua on res.quarto = qua.id";
             command.Connection = connection;
 
             List<Reservas> reservas = new List<Reservas>();
