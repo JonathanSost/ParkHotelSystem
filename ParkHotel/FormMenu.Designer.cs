@@ -242,7 +242,7 @@
             this.lnkFuncionarioLogado.AutoSize = true;
             this.lnkFuncionarioLogado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkFuncionarioLogado.LinkColor = System.Drawing.Color.Blue;
-            this.lnkFuncionarioLogado.Location = new System.Drawing.Point(345, 7);
+            this.lnkFuncionarioLogado.Location = new System.Drawing.Point(345, 9);
             this.lnkFuncionarioLogado.Name = "lnkFuncionarioLogado";
             this.lnkFuncionarioLogado.Size = new System.Drawing.Size(12, 17);
             this.lnkFuncionarioLogado.TabIndex = 24;
