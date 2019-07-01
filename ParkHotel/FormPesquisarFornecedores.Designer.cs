@@ -42,6 +42,8 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
+            this.lblNome1 = new System.Windows.Forms.Label();
+            this.lblNome2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,12 +190,35 @@
             this.txtNomeEmpresa.Size = new System.Drawing.Size(151, 26);
             this.txtNomeEmpresa.TabIndex = 179;
             // 
+            // lblNome1
+            // 
+            this.lblNome1.AutoSize = true;
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Location = new System.Drawing.Point(7, 454);
+            this.lblNome1.Name = "lblNome1";
+            this.lblNome1.Size = new System.Drawing.Size(48, 17);
+            this.lblNome1.TabIndex = 188;
+            this.lblNome1.Text = "Santo";
+            // 
+            // lblNome2
+            // 
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(50, 454);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(63, 17);
+            this.lblNome2.TabIndex = 189;
+            this.lblNome2.Text = "Soninho";
+            // 
             // FormPesquisarFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.lblNome1);
+            this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.btnPesquisarPorNomeContato);
             this.Controls.Add(this.PesquisarPorCNPJ);
             this.Controls.Add(this.btnPesquisarPorNomeEmpresa);
@@ -227,5 +252,7 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeEmpresa;
+        private System.Windows.Forms.Label lblNome1;
+        private System.Windows.Forms.Label lblNome2;
     }
 }
