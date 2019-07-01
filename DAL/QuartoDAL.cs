@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class QuartoDAL : IEntityCRUD<Quarto>
+    
+    public class QuartoDAL 
     {
+        MessageResponse response = new MessageResponse();
         #region Atualizar
-        public string Atualizar(Quarto quarto)
+        public MessageResponse Atualizar(Quarto quarto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -31,7 +33,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -39,12 +43,14 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Quarto atualizado com sucesso!";
+            response.Success = true;
+            response.Message = "Quarto atualizado com sucesso!";
+            return response;
         }
         #endregion
 
         #region Excluir
-        public string Excluir(Quarto quarto)
+        public MessageResponse Excluir(Quarto quarto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -62,7 +68,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -70,12 +78,14 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Quarto deletado do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Quarto deletado do sistema com sucesso!";
+            return response;
         }
         #endregion
 
         #region Inserir
-        public string Inserir(Quarto quarto)
+        public MessageResponse Inserir(Quarto quarto)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -95,7 +105,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -103,7 +115,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "";
+            response.Success = true;
+            response.Message = "Quarto cadastrado no sistema com sucesso!";
+            return response;
         }
         #endregion
 

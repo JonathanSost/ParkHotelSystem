@@ -10,6 +10,7 @@ namespace DAL
 {
     public class FuncionarioDAL
     {
+        MessageResponse response = new MessageResponse();
         #region Atualizar
         public MessageResponse Atualizar(Funcionario funci)
         {
@@ -38,7 +39,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", funci.ID);
 
             command.Connection = connection;
-            MessageResponse response = new MessageResponse();
+            
 
             try
             {

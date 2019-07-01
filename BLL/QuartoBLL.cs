@@ -11,8 +11,9 @@ namespace BLL
     public class QuartoBLL
     {
         private QuartoDAL dal = new QuartoDAL();
+        MessageResponse response = new MessageResponse();
 
-        public string Cadastrar (Quarto qua)
+        public MessageResponse Cadastrar (Quarto qua)
         {
             
             List<string> erros = new List<string>();
@@ -37,19 +38,25 @@ namespace BLL
                     //Environment.NewLine
                     builder.AppendLine(erros[i]);
                 }
-                return builder.ToString();
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
             }
             return dal.Inserir(qua);
         }
 
-        public string Atualizar(Quarto quarto)
+        public MessageResponse Atualizar(Quarto quarto)
         {
-            return dal.Atualizar(quarto);
+            response = dal.Atualizar(quarto);
+            response.Message = "Produto atualizado com sucesso!";
+            return response;
         }
 
-        public string Excluir(Quarto quarto)
+        public MessageResponse Excluir(Quarto quarto)
         {
-            return dal.Excluir(quarto);
+            response = dal.Excluir(quarto);
+            response.Message = "Produto deletado com sucesso!";
+            return response;
         }
 
         public Quarto LerPorID(int id)

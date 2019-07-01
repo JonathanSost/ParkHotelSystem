@@ -11,9 +11,10 @@ namespace BLL
     public class VendaBLL
     {
         VendaDAL dal = new VendaDAL();
+        MessageResponse response = new MessageResponse();
         List<string> erros = new List<string>();
 
-        public string Cadastrar(Vendas ven)
+        public MessageResponse Cadastrar(Vendas ven)
         {
             if (ven.Quantidade < 1)
             {
@@ -31,19 +32,25 @@ namespace BLL
                     //Environment.NewLine
                     builder.AppendLine(erros[i]);
                 }
-                return builder.ToString();
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
             }
             return dal.Inserir(ven);
         }
 
-        public string Atualizar(Vendas venda)
+        public MessageResponse Atualizar(Vendas venda)
         {
-            return dal.Atualizar(venda);
+            response = dal.Atualizar(venda);
+            response.Message = "Produto atualizado com sucesso!";
+            return response;
         }
 
-        public string Excluir(Vendas venda)
+        public MessageResponse Excluir(Vendas venda)
         {
-            return dal.Excluir(venda);
+            response = dal.Excluir(venda);
+            response.Message = "Produto deletado com sucesso!";
+            return response;
         }
 
         public Vendas LerPorID(int id)

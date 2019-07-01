@@ -10,8 +10,9 @@ namespace DAL
 {
     public class ClienteDAL : IClienteDataService
     {
+        MessageResponse response = new MessageResponse();
         #region Atualizar
-        public string Atualizar(Cliente cli)
+        public MessageResponse Atualizar(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -45,7 +46,9 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -53,12 +56,14 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Cliente atualizado com sucesso!";
+            response.Success = true;
+            response.Message = "Cliente atualizado com sucesso!";
+            return response;
         }
         #endregion
 
         #region Excluir
-        public string Excluir(Cliente cli)
+        public MessageResponse Excluir(Cliente cli)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -78,9 +83,13 @@ namespace DAL
             {
                 if (ex.Message.Contains("FK"))
                 {
-                    return "Estado inválido!";
+                    response.Message = "Estado Inválido";
+                    return response;
                 }
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -88,7 +97,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Cliente deletado do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Cliente deletado do sistema com sucesso!";
+            return response;
         }
         #endregion
 

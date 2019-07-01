@@ -11,6 +11,7 @@ namespace BLL
 {
     public class ClienteBLL
     {
+        MessageResponse response = new MessageResponse();
         private bool ValidarCPF(string cpf)
         {
             #region Codigo Validar CPF
@@ -509,7 +510,7 @@ namespace BLL
             return response;
         }
 
-        public string Atualizar(Cliente cli)
+        public MessageResponse Atualizar(Cliente cli)
         {
             erros = new List<string>();
 
@@ -736,13 +737,15 @@ namespace BLL
                 {
                     builder.AppendLine(erros[i]);
                 }
-                return builder.ToString();
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
             }
-            dal.Atualizar(cli);
-            return "Cliente atualizado com sucesso";
+            return dal.Atualizar(cli);
+            
         }
 
-        public string Excluir(Cliente cli)
+        public MessageResponse Excluir(Cliente cli)
         {
             List<string> erros = new List<string>();
 
@@ -757,7 +760,9 @@ namespace BLL
                 {
                     builder.AppendLine(erros[i]);
                 }
-                return builder.ToString();
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
             }
             return dal.Excluir(cli);
         }
