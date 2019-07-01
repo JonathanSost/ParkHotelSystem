@@ -16,33 +16,64 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         QuartoBLL qbll = new QuartoBLL();
+        Quarto q = null;
         public FormQuartos()
         {
             InitializeComponent();
+            
         }
         #endregion
 
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            FormCleaner.Clear(this);
+            q = new Quarto(double.Parse(txtPreco.Text), txtTipo.Text, chkDisponivel.Checked);
+
+            MessageResponse response = qbll.Cadastrar(q);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvQuartos.DataSource = qbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            q = new Quarto(double.Parse(txtPreco.Text), txtTipo.Text, chkDisponivel.Checked);
 
+            MessageResponse response = qbll.Atualizar(q);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvQuartos.DataSource = qbll.LerTodos();
+                
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("ID do quarto deve ser informado.");
+                return;
+            }
+            q.ID = int.Parse(txtID.Text);
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o quarto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            MessageBox.Show("Excluido com sucesso!");
+            MessageResponse response = new MessageResponse();
+            response = qbll.Excluir(q);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                qbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)

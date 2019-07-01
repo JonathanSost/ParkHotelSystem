@@ -16,6 +16,13 @@ namespace Metadata
             this.QuartoDisponivel = quartodisponivel;
         }
 
+        public Quarto(double preco, string tipo, bool quartodisponivel)
+        {
+            this.Preco = preco;
+            this.Tipo = tipo;
+            this.QuartoDisponivel = quartodisponivel;
+        }
+
         public int ID { get; set; }
         public double Preco { get; set; }
         public string Tipo { get; set; }

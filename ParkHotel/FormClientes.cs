@@ -73,12 +73,12 @@ namespace ParkHotel
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            c.ID = int.Parse(txtID.Text);
             if (string.IsNullOrWhiteSpace(txtID.Text))
             {
                 MessageBox.Show("ID do cliente deve ser informado.");
                 return;
             }
+            c.ID = int.Parse(txtID.Text);
             DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o cliente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
