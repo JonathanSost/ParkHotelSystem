@@ -17,6 +17,8 @@ namespace ParkHotel
         #region Inicialização do Form
         FuncionarioBLL bll = new FuncionarioBLL();
         Funcionario fun = new Funcionario();
+        int aa;
+        DialogResult result = new DialogResult();
 
         //select * from sys.objects where type_desc = 'UNIQUE_CONSTRAINT'
         //ALTER TABLE FORNECEDORES DROP CONSTRAINT UQ__FORNECED__AA57D6B42ECEC601
@@ -39,7 +41,7 @@ namespace ParkHotel
         {
             if (string.IsNullOrWhiteSpace(txtSenha.Text) || string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
-                MessageBox.Show("Usuário e senha devem ser informados!");
+                result = MessageBox.Show("Usuário e senha devem ser informados!", "Erro!", MessageBoxButtons.OK);
                 return;
             }
             fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
@@ -57,8 +59,7 @@ namespace ParkHotel
                 new FormMenu(Parametros.FuncionarioLogado).Show();
                 return;
             }
-            MessageBox.Show("Usuário ou senha incorretos!");
-
+            result = MessageBox.Show("Usuário ou senha incorretos!", "Erro!", MessageBoxButtons.OK);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -92,7 +93,7 @@ namespace ParkHotel
         #region KeyUp
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && aa == 0)
             {
                 this.btnLogin.PerformClick();
             }
