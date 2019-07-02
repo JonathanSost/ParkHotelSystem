@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -76,6 +77,7 @@
             this.btnPesquisarPorCEP = new System.Windows.Forms.Button();
             this.btnPesquisarPorEstado = new System.Windows.Forms.Button();
             this.btnPesquisarPorNome = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -497,6 +499,7 @@
             this.picbClear.TabIndex = 122;
             this.picbClear.TabStop = false;
             this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            this.picbClear.MouseHover += new System.EventHandler(this.picbClear_MouseHover);
             // 
             // picbRefresh
             // 
@@ -509,6 +512,7 @@
             this.picbRefresh.TabIndex = 121;
             this.picbRefresh.TabStop = false;
             this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
+            this.picbRefresh.MouseHover += new System.EventHandler(this.picbRefresh_MouseHover);
             // 
             // btnPesquisarPorCPF
             // 
@@ -598,6 +602,16 @@
             this.btnPesquisarPorNome.TabIndex = 107;
             this.btnPesquisarPorNome.UseVisualStyleBackColor = true;
             this.btnPesquisarPorNome.Click += new System.EventHandler(this.btnPesquisarPorNome_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 1000;
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 1000;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.OwnerDraw = true;
+            this.toolTip1.ReshowDelay = 2000;
+            this.toolTip1.ToolTipTitle = "OIHSFDUIFGISAFGISA";
             // 
             // FormClientes
             // 
@@ -714,5 +728,6 @@
         private System.Windows.Forms.Button btnPesquisarPorCPF;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
+        public System.Windows.Forms.ToolTip toolTip1;
     }
 }

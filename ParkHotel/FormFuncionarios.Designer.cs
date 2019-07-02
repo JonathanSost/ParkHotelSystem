@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@
             this.btnPesquisarPorCPF = new System.Windows.Forms.Button();
             this.btnPesquisarPorNome = new System.Windows.Forms.Button();
             this.picbClear = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
@@ -264,6 +266,7 @@
             this.txtNome.Size = new System.Drawing.Size(168, 26);
             this.txtNome.TabIndex = 1;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // msktxtRG
             // 
@@ -706,5 +709,6 @@
         private System.Windows.Forms.Button btnPesquisarAdmin;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

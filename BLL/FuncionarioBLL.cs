@@ -11,6 +11,12 @@ namespace BLL
 {
     public class FuncionarioBLL
     {
+        #region Validar CPF
+        /// <summary>
+        /// Realiza a validação do CPF do Funcionário.
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
         private bool ValidarCPF(string cpf)
         {
             #region Codigo Validar CPF
@@ -47,9 +53,30 @@ namespace BLL
             return cpf.EndsWith(digito);
             #endregion
         }
+        #endregion
 
         FuncionarioDAL dal = new FuncionarioDAL();
+        MessageResponse response = new MessageResponse();
 
+        #region Logar
+        /// <summary>
+        /// Realiza o Login do Funcionário.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public Funcionario Logar(string usuario, string senha)
+        {
+            return dal.Logar(usuario, senha);
+        }
+        #endregion
+
+        #region Cadastrar
+        /// <summary>
+        /// Verifica se os dados do Funcionário estão corretos. Se estiverem, o Funcionário é cadastrado no banco.
+        /// </summary>
+        /// <param name="fun"></param>
+        /// <returns></returns>
         public MessageResponse Cadastrar(Funcionario fun)
         {
             MessageResponse response = new MessageResponse();
@@ -296,19 +323,16 @@ namespace BLL
             response.Message = "Funcionário cadastrado com sucesso!";
             return response;
         }
+        #endregion
 
-        public Funcionario FuncionarioExiste(string usuario, string senha)
-        {
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
-            {
-                
-            }
-            return dal.VerificarExistenciaFuncionario(usuario, senha);
-        }
-
+        #region Atualizar
+        /// <summary>
+        /// Verifica se os dados do Funcionário estão corretos. Se estiverem, os dados do Funcionário são atualizados no banco.
+        /// </summary>
+        /// <param name="fun"></param>
+        /// <returns></returns>
         public MessageResponse Atualizar(Funcionario fun)
         {
-            MessageResponse response = new MessageResponse();
             List<string> erros = new List<string>();
 
             #region Nome
@@ -551,70 +575,177 @@ namespace BLL
             response.Message = "Funcionário atualizado com sucesso!";
             return response;
         }
+        #endregion
 
-        public string Excluir(Funcionario funcionario)
+        #region Excluir
+        /// <summary>
+        /// Exclui o Funcionário com o ID em questão do banco de dados.
+        /// </summary>
+        /// <param name="funcionario"></param>
+        /// <returns></returns>
+        public MessageResponse Excluir(Funcionario funcionario)
         {
+            if (!dal.VerificarExistenciaFuncionario(funcionario.ID))
+            {
+                response.Success = false;
+                response.Message = "Funcionário inexistente!";
+            }
             return dal.Excluir(funcionario);
         }
+        #endregion
 
+        #region Ler Por ID
+        /// <summary>
+        /// Pesquisa pelo Funcionário com o ID especificado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Funcionario LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
+        #endregion
 
+        #region Ler Todos
+        /// <summary>
+        /// Traz uma lista com todos os Funcionários do banco de dados.
+        /// </summary>
+        /// <returns></returns>
         public List<Funcionario> LerTodos()
         {
             return dal.LerTodos();
         }
+        #endregion
 
+        #region Ler Funcionários
+        /// <summary>
+        /// Traz uma lista com todos os Funcionários do banco de dados, porém, de forma mais organizada.
+        /// </summary>
+        /// <param name="funci"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> LerFuncionarios(Funcionario funci)
         {
             return dal.LerFuncionarios(funci);
         }
+        #endregion
 
+        public bool VerificarExistenciaFuncionario(int idFuncionario)
+        {
+            return dal.VerificarExistenciaFuncionario(idFuncionario);
+        }
+
+        public bool VerificarExistenciaFuncionarioA()
+        {
+            return dal.VerificarExistenciaFuncionarioA();
+        }
+
+        #region Pesquisar Por Nome
+        /// <summary>
+        /// Traz uma lista com os Funcionários que possuem um nome parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="funci"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorNome(string Nome, Funcionario funci)
         {
             return dal.PesquisarPorNome(Nome, funci);
         }
+        #endregion
 
+        #region Pesquisar Por CPF
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem um CPF parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="CPF"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorCPF(string CPF)
         {
             return dal.PesquisarPorCPF(CPF);
         }
+        #endregion
 
+        #region Pesquisar Por RG
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem um RG parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="RG"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorRG(string RG)
         {
             return dal.PesquisarPorRG(RG);
         }
+        #endregion
 
+        #region Pesquisar Por Estado
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que residem em tal Estado.
+        /// </summary>
+        /// <param name="Estado"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorEstado(int Estado)
         {
             return dal.PesquisarPorEstado(Estado);
         }
+        #endregion
 
+        #region Pesquisar Por Cidade
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que residem em tal Cidade.
+        /// </summary>
+        /// <param name="Cidade"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorCidade(int Cidade)
         {
             return dal.PesquisarPorCidade(Cidade);
         }
+        #endregion
 
+        #region Pesquisar Por CEP
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem um CEP parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="CEP"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorCEP(string CEP)
         {
             return dal.PesquisarPorCEP(CEP);
         }
+        #endregion
 
+        #region Pesquisar Por Bairro
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem um Bairro parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="Bairro"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorBairro(string Bairro)
         {
             return dal.PesquisarPorBairro(Bairro);
         }
+        #endregion
 
+        #region Pesquisar Por Rua
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem uma Rua parecida com a do parâmetro passado.
+        /// </summary>
+        /// <param name="Rua"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarPorRua(string Rua)
         {
             return dal.PesquisarPorRua(Rua);
         }
+        #endregion
 
+        #region Pesquisar Admin
+        /// <summary>
+        /// Traz uma lista com os Funcionarios que possuem acesso de Administrador.
+        /// </summary>
+        /// <param name="Admin"></param>
+        /// <returns></returns>
         public List<FuncionarioViewModel> PesquisarAdmin(bool Admin)
         {
             return dal.PesquisarAdmin(Admin);
         }
+        #endregion
     }
 }

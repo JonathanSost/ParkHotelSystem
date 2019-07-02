@@ -39,6 +39,7 @@
             this.lblNome2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lnkCadastrarAdmin = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,6 +169,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
             // 
+            // lnkCadastrarAdmin
+            // 
+            this.lnkCadastrarAdmin.AutoSize = true;
+            this.lnkCadastrarAdmin.Location = new System.Drawing.Point(322, 9);
+            this.lnkCadastrarAdmin.Name = "lnkCadastrarAdmin";
+            this.lnkCadastrarAdmin.Size = new System.Drawing.Size(150, 21);
+            this.lnkCadastrarAdmin.TabIndex = 11;
+            this.lnkCadastrarAdmin.TabStop = true;
+            this.lnkCadastrarAdmin.Text = "Cadastrar Admin.";
+            this.lnkCadastrarAdmin.Visible = false;
+            this.lnkCadastrarAdmin.Click += new System.EventHandler(this.lnkCadastrarAdmin_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -176,6 +189,7 @@
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(480, 478);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkCadastrarAdmin);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
@@ -215,6 +229,7 @@
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel lnkCadastrarAdmin;
     }
 }
 

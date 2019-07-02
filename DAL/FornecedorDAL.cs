@@ -10,8 +10,10 @@ namespace DAL
 {
     public class FornecedorDAL
     {
+        MessageResponse response = new MessageResponse();
+
         #region Atualizar
-        public string Atualizar(Fornecedor fornecedor)
+        public MessageResponse Atualizar(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -34,7 +36,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -42,12 +46,14 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Fornecedor atualizado com sucesso!";
+            response.Success = true;
+            response.Message = "Fornecedor atualizado com sucesso!";
+            return response;
         }
         #endregion
 
         #region Excluir
-        public string Excluir(Fornecedor fornecedor)
+        public MessageResponse Excluir(Fornecedor fornecedor)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -65,7 +71,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -73,7 +81,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Cidade deletada do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Cidade deletada do sistema com sucesso!";
+            return response;
         }
         #endregion
 
@@ -92,7 +102,6 @@ namespace DAL
             command.Parameters.AddWithValue("@email", fornecedor.Email);
 
             command.Connection = connection;
-            MessageResponse response = new MessageResponse();
 
             try
             {
@@ -209,6 +218,37 @@ namespace DAL
                 connection.Dispose();
             }
             return fornecedores;
+        }
+        #endregion
+
+        #region Verificar Existência do Fornecedor
+        public bool VerificarExistenciaVenda(int idFornecedor)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from fornecedores where id = @id";
+            command.Parameters.AddWithValue("@id", idFornecedor);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
         }
         #endregion
 

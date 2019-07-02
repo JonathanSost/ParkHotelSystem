@@ -15,19 +15,20 @@ namespace BLL
 
         List<string> erros = new List<string>();
 
-        public MessageResponse Cadastrar(Reservas res)
+        #region Cadastrar
+        public MessageResponse Cadastrar(Reservas reserva)
         {
-            if (res.DiaReserva == res.DiaQueSai)
+            if (reserva.DiaReserva == reserva.DiaQueSai)
             {
                 erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
             }
             QuartoDAL quartos = new QuartoDAL();
-            if (!quartos.VerificarExistenciaQuarto(res.IDQuarto))
+            if (!quartos.VerificarExistenciaQuarto(reserva.IDQuarto))
             {
                 erros.Add("Quarto Inexistente");
             }
             ClienteDAL clientes = new ClienteDAL();
-            if (!clientes.VerificarExistenciaCliente(res.IDCliente))
+            if (!clientes.VerificarExistenciaCliente(reserva.IDCliente))
             {
                 erros.Add("Cliente Inexistente.");
             }
@@ -44,31 +45,77 @@ namespace BLL
                 response.Message = builder.ToString();
                 return response;
             }
-            return dal.Inserir(res);
+            return dal.Inserir(reserva);
         }
+        #endregion
 
+        #region Atualizar
         public MessageResponse Atualizar(Reservas reserva)
         {
-            response = dal.Atualizar(reserva);
-            response.Message = "Produto atualizado com sucesso!";
-            return response;
-        }
+            if (!dal.VerificarExistenciaReserva(reserva.ID))
+            {
+                response.Success = false;
+                response.Message = "Reserva inexistente!";
+                return response;
+            }
 
+            if (reserva.DiaReserva == reserva.DiaQueSai)
+            {
+                erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
+            }
+            QuartoDAL quartos = new QuartoDAL();
+            if (!quartos.VerificarExistenciaQuarto(reserva.IDQuarto))
+            {
+                erros.Add("Quarto Inexistente");
+            }
+            ClienteDAL clientes = new ClienteDAL();
+            if (!clientes.VerificarExistenciaCliente(reserva.IDCliente))
+            {
+                erros.Add("Cliente Inexistente.");
+            }
+
+            if (erros.Count != 0)
+            {
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    //Environment.NewLine
+                    builder.AppendLine(erros[i]);
+                }
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
+            }
+            return dal.Inserir(reserva);
+        }
+        #endregion
+
+        #region Excluir
         public MessageResponse Excluir(Reservas reserva)
         {
+            if (!dal.VerificarExistenciaReserva(reserva.ID))
+            {
+                response.Success = false;
+                response.Message = "Reserva inexistente!";
+                return response;
+            }
             response = dal.Excluir(reserva);
-            response.Message = "Produto deletado com sucesso!";
             return response;
         }
+        #endregion
 
+        #region Ler Por ID
         public Reservas LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
+        #endregion
 
+        #region Ler Todos
         public List<Reservas> LerTodos()
         {
             return dal.LerTodos();
         }
+        #endregion
     }
 }

@@ -68,7 +68,7 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public string Excluir(Funcionario funci)
+        public MessageResponse Excluir(Funcionario funci)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -86,7 +86,9 @@ namespace DAL
             }
             catch (Exception)
             {
-                return "Banco de dados indisponível, favor contatar o suporte.";
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
             }
             finally
             {
@@ -94,7 +96,9 @@ namespace DAL
                 connection.Dispose();
             }
 
-            return "Funcionário deletado do sistema com sucesso!";
+            response.Success = true;
+            response.Message = "Funcionário deletado do sistema com sucesso!";
+            return response;
         }
         #endregion
 
@@ -334,7 +338,66 @@ namespace DAL
         #endregion
 
         #region Verificar Existência do Funcionário
-        public Funcionario VerificarExistenciaFuncionario(string usuario, string senha)
+        public bool VerificarExistenciaFuncionario(int idFuncionario)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from funcionarios where id = @id";
+            command.Parameters.AddWithValue("@id", idFuncionario);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Verificar Existência do Funcionario (Inicialização do FormLogin)
+        public bool VerificarExistenciaFuncionarioA()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from funcionarios";
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Logar
+        public Funcionario Logar(string usuario, string senha)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
