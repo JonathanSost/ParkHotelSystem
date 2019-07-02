@@ -83,7 +83,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvFuncionarios.DataSource =  funbll.LerFuncionarios(f);
+                dgvFuncionarios.DataSource =  funbll.LerFuncionarios(Parametros.FuncionarioLogado);
                 FormCleaner.Clear(this);
             }
         }
@@ -97,7 +97,7 @@ namespace ParkHotel
 
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            f = new Funcionario(Registro.NOVO_REGISTRO, txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
+            f = new Funcionario(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
                 Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
                 txtComplemento.Text);
 

@@ -76,5 +76,19 @@ namespace Metadata
         public string Numero { get; set; }
         public string CEP { get; set; }
         public string Complemento { get; set; }
+
+        public string LerPrimeiroNome()
+        {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < Nome.Length; i++)
+            {
+                if (Nome[i] == ' ')
+                {
+                    break;
+                }
+                builder.Append(Nome[i]);
+            }
+            return builder.ToString();
+        }
     }
 }

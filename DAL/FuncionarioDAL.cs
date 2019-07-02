@@ -74,7 +74,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "delete from fornecedores where id = @id";
+            command.CommandText = "delete from funcionarios where id = @id";
             command.Parameters.AddWithValue("@id", funci.ID);
 
             command.Connection = connection;
@@ -84,7 +84,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";

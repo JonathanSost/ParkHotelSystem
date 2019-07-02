@@ -17,18 +17,9 @@ namespace ParkHotel
         public FormMenu(Funcionario Funci)
         {
             InitializeComponent();
-            for (int i = 0; i < Funci.Nome.Length; i++)
-            {
-                if (!char.IsLetter(Funci.Nome[i]))
-                {
-                    for (int f = i; f < Funci.Nome.Length; f++)
-                    {
-                        Funci.Nome.Replace(Funci.Nome[f],' ');
-                    }
-                }
-            }
+            
             lblNomeFuncionario.Text = "Bem-Vindo,";
-            lnkFuncionarioLogado.Text = Parametros.FuncionarioLogado.Nome;
+            lnkFuncionarioLogado.Text = Funci.LerPrimeiroNome();
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
             if (Funci.EhADM)
             {
@@ -62,17 +53,13 @@ namespace ParkHotel
             new FormLogin().Show();
         }
 
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormMenu_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
                 new FormLogin().Show();
+                return;
             }
             else if (e.KeyCode == Keys.F1)
             {
