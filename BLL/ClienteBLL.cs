@@ -514,7 +514,6 @@ namespace BLL
                 return response;
             }
             response = dal.Inserir(cli);
-            response.Message = "Cliente cadastrado com sucesso.";
             return response;
         }
 

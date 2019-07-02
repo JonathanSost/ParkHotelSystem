@@ -145,6 +145,10 @@ namespace DAL
                 {
                     response.Message = "RG já cadastrado.";
                 }
+                else if (ex.Message.ToUpper().Contains("UNIQUE_CLI_EMAIL"))
+                {
+                    response.Message = "E-Mail já cadastrado.";
+                }
                 else
                 {
                     response.Message = "Banco de dados indisponível, favor contatar o suporte.";

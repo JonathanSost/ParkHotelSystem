@@ -137,6 +137,31 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
+                if (ex.Message.Contains("UNIQUE_FUN_RG"))
+                {
+                    response.Message = "RG do funcionário já cadastrado.";
+                    return response;
+                }
+                else if (ex.Message.Contains("UNIQUE_FUN_EMAIL"))
+                {
+                    response.Message = "E-Mail do funcionário já cadastrado.";
+                    return response;
+                }
+                else if (ex.Message.Contains("UNIQUE_FUN_CPF"))
+                {
+                    response.Message = "CPF do funcionário já cadastrado.";
+                    return response;
+                }
+                else if (ex.Message.Contains("FK_FUN_ESTADO"))
+                {
+                    response.Message = "Estado inválido.";
+                    return response;
+                }
+                else if (ex.Message.Contains("FK_FUN_CIDADE"))
+                {
+                    response.Message = "Cidade inválida.";
+                    return response;
+                }
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
                 return response;
             }

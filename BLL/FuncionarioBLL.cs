@@ -579,9 +579,7 @@ namespace BLL
                 response.Message = errosCliente.ToString();
                 return response;
             }
-            response = dal.Atualizar(fun);
-            response.Message = "Funcionário atualizado com sucesso!";
-            return response;
+            return dal.Atualizar(fun);
         }
         #endregion
 
