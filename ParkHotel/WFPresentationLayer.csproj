@@ -107,6 +107,12 @@
     <Compile Include="FormQuartos.Designer.cs">
       <DependentUpon>FormQuartos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservas.Designer.cs">
+      <DependentUpon>FormReservas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuartos.resx">
       <DependentUpon>FormQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservas.resx">
+      <DependentUpon>FormReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
