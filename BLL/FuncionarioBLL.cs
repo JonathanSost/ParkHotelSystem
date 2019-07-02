@@ -285,7 +285,7 @@ namespace BLL
             else
             {
                 fun.Senha = fun.Senha.Trim();
-                if (fun.Nome.Length < 8 || fun.Nome.Length > 25)
+                if (fun.Senha.Length < 8 || fun.Senha.Length > 25)
                 {
                     erros.Add("Senha deve conter entre 8 e 25 caracteres.");
                 }
