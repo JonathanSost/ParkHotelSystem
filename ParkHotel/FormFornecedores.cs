@@ -16,6 +16,7 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         FornecedorBLL forbll = new FornecedorBLL();
+        Fornecedor f = null;
 
         public FormFornecedores()
         {
@@ -157,6 +158,23 @@ namespace ParkHotel
             {
                 return;
             }
+
+            int id = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value;
+            string nomeempresa = (string)dgvFornecedores.Rows[e.RowIndex].Cells[1].Value;
+            string cnpj = (string)dgvFornecedores.Rows[e.RowIndex].Cells[2].Value;
+            string nome = (string)dgvFornecedores.Rows[e.RowIndex].Cells[3].Value;
+            string telefone = (string)dgvFornecedores.Rows[e.RowIndex].Cells[4].Value;
+            string email = (string)dgvFornecedores.Rows[e.RowIndex].Cells[5].Value;
+
+            f = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
+
+            txtID.Text = id.ToString();
+            txtNomeEmpresa.Text = nome;
+            msktxtCNPJ.Text = cnpj;
+            txtNome.Text = nome;
+            msktxtTelefone.Text = telefone;
+            txtEmail.Text = email;
+
         }
     }
 }
