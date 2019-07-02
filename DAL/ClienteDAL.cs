@@ -47,29 +47,7 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
-                List<string> erros = new List<string>();
-                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_CPF"))
-                {
-                    erros.Add("CPF já cadastrado.");
-                }
-                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_RG"))
-                {
-                    erros.Add("RG já cadastrado.");
-                }
-                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_EMAIL"))
-                {
-                    erros.Add("E-Mail já cadastrado.");
-                }
-                else
-                {
-                    erros.Add("Banco de dados indisponível, favor contatar o suporte.");
-                }
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < erros.Count; i++)
-                {
-                    builder.AppendLine(erros[i]);
-                }
-                response.Message = builder.ToString();
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
                 return response;
             }
             finally
@@ -195,6 +173,40 @@ namespace DAL
             return response;
         }
         #endregion
+
+        public bool ChecarCPF(string cpf)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "if exists(select * from clientes where cpf = @cpf)";
+            command.Parameters.AddWithValue("@cpf", cpf);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+
+
+
+
+            //if exists (select * from clientes where cpf = '12166985971')
+        }
 
         #region Ler Clientes (ClienteViewModel)
         public List<ClienteViewModel> LerClientes()

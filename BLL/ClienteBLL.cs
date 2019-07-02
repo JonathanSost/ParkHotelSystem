@@ -318,6 +318,10 @@ namespace BLL
             {
                 erros.Add("CPF deve ser informado.");
             }
+            if (dal.ChecarCPF(cli.CPF))
+            {
+                erros.Add("CPF já cadastrado.");
+            }
             else
             {
                 cli.CPF = cli.CPF.Replace(".", "").Replace("-", "");
