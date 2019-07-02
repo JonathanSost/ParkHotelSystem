@@ -337,6 +337,10 @@ namespace BLL
             {
                 erros.Add("RG deve ser informado.");
             }
+            if (dal.ChecarRG(cli.RG))
+            {
+                erros.Add("RG já cadastrado.");
+            }
             else
             {
                 cli.RG = cli.RG.Trim();
@@ -500,6 +504,10 @@ namespace BLL
             {
                 erros.Add("Email deve ser informado.");
             }
+            if (dal.ChecarEmail(cli.Email))
+            {
+                erros.Add("E-Mail já cadastrado.");
+            }
             if (!isEmail)
             {
                 erros.Add("Email inválido.");
@@ -557,6 +565,10 @@ namespace BLL
             {
                 erros.Add("CPF deve ser informado.");
             }
+            if (dal.ChecarCPF(cli.CPF))
+            {
+                erros.Add("CPF já cadastrado.");
+            }
             else
             {
                 cli.CPF = cli.CPF.Replace(".", "").Replace("-", "");
@@ -571,6 +583,10 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(cli.RG))
             {
                 erros.Add("RG deve ser informado.");
+            }
+            if (dal.ChecarRG(cli.RG))
+            {
+                erros.Add("RG já cadastrado.");
             }
             else
             {
@@ -734,6 +750,10 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(cli.Email))
             {
                 erros.Add("Email deve ser informado.");
+            }
+            if (dal.ChecarEmail(cli.Email))
+            {
+                erros.Add("E-Mail já cadastrado.");
             }
             if (!isEmail)
             {

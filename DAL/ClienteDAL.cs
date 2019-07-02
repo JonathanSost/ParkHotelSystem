@@ -181,7 +181,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "if exists(select * from clientes where cpf = @cpf)";
+            command.CommandText = "select * from clientes where cpf = @cpf";
             command.Parameters.AddWithValue("@cpf", cpf);
             command.Connection = connection;
 
@@ -201,11 +201,64 @@ namespace DAL
                 connection.Dispose();
             }
             return false;
+        }
 
+        public bool ChecarRG(string rg)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
 
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from clientes where rg = @rg";
+            command.Parameters.AddWithValue("@rg", rg);
+            command.Connection = connection;
 
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
 
-            //if exists (select * from clientes where cpf = '12166985971')
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+
+        public bool ChecarEmail(string email)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from clientes where email = @email";
+            command.Parameters.AddWithValue("@email", email);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
         }
 
         #region Ler Clientes (ClienteViewModel)
