@@ -25,7 +25,7 @@ namespace ParkHotel
 
         private void FormProdutos_Load(object sender, EventArgs e)
         {
-
+            dgvProdutos.DataSource = pbll.LerTodos();
         }
         #endregion
 
@@ -45,9 +45,9 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
+            p = new Produto(int.Parse(txtID.Text), txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
 
-            MessageResponse response = pbll.Cadastrar(p);
+            MessageResponse response = pbll.Atualizar(p);
             MessageBox.Show(response.Message);
             if (response.Success)
             {
@@ -145,6 +145,22 @@ namespace ParkHotel
             {
                 return;
             }
+
+            int id = (int)dgvProdutos.Rows[e.RowIndex].Cells[0].Value;
+            string nomeproduto = (string)dgvProdutos.Rows[e.RowIndex].Cells[1].Value;
+            string descricao = (string)dgvProdutos.Rows[e.RowIndex].Cells[2].Value;
+            int estoque = (int)dgvProdutos.Rows[e.RowIndex].Cells[3].Value;
+            double preco = (double)dgvProdutos.Rows[e.RowIndex].Cells[4].Value;
+            int idfornecedor = (int)dgvProdutos.Rows[e.RowIndex].Cells[5].Value;
+
+            p = new Produto(nomeproduto, descricao, estoque, preco, idfornecedor);
+
+            txtID.Text = id.ToString();
+            txtNome.Text = nomeproduto;
+            txtDescricao.Text = descricao;
+            txtPreco.Text = preco.ToString();
+            txtEstoque.Text = estoque.ToString();
+            txtIDFornecedor.Text = idfornecedor.ToString();
         }
     }
 }

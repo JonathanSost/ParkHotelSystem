@@ -21,6 +21,7 @@ namespace DAL
 
             command.CommandText = "update fornecedores set nomeempresa = @nomeempresa, cnpj = @cnpj, " +
                 "nome = @nome, telefone = @telefone, email = @email where id = @id";
+            command.Parameters.AddWithValue("@id", fornecedor.ID);
             command.Parameters.AddWithValue("@nomeempresa", fornecedor.NomeEmpresa);
             command.Parameters.AddWithValue("@cnpj", fornecedor.CNPJ);
             command.Parameters.AddWithValue("@nome", fornecedor.NomeContato);
@@ -69,9 +70,14 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
+                if (ex.Message.Contains("FK_PRO_FORN"))
+                {
+                    response.Message = "O Fornecedor em questão está referenciado a um produto. Por favor, exclua o produto primeiro.";
+                    return response;
+                }
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
                 return response;
             }
@@ -82,7 +88,7 @@ namespace DAL
             }
 
             response.Success = true;
-            response.Message = "Cidade deletada do sistema com sucesso!";
+            response.Message = "Fornecedor deletado do sistema com sucesso!";
             return response;
         }
         #endregion

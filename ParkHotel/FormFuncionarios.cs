@@ -66,14 +66,26 @@ namespace ParkHotel
 
         private void btnExcluir_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("ID do funcionário deve ser informado.");
+                return;
+            }
+            f.ID = int.Parse(txtID.Text);
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o cliente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            funbll.Excluir(f);
-            MessageBox.Show("Excluido com sucesso!");
+            MessageResponse response = new MessageResponse();
+            response = funbll.Excluir(f);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvFuncionarios.DataSource =  funbll.LerFuncionarios(f);
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)

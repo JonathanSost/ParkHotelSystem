@@ -43,18 +43,39 @@ namespace ParkHotel
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
+            f = new Fornecedor(int.Parse(txtID.Text), txtNomeEmpresa.Text, msktxtCNPJ.Text, txtNome.Text, msktxtTelefone.Text, txtEmail.Text);
 
+            MessageResponse response = new MessageResponse();
+            response = forbll.Atualizar(f);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvFornecedores.DataSource = forbll.LerTodos();
+            }
         }
 
         private void btnExcluir_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Tem certeza que quer excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("ID do fornecedor deve ser informado.");
+                return;
+            }
+            f.ID = int.Parse(txtID.Text);
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o cliente?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            MessageBox.Show("Excluido com sucesso!");
+            MessageResponse response = new MessageResponse();
+            response = forbll.Excluir(f);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                forbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnVoltar_Click_1(object sender, EventArgs e)

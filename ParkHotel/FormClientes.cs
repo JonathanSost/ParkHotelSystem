@@ -90,7 +90,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                clibll.LerClientes();
+                dgvClientes.DataSource = clibll.LerClientes();
                 FormCleaner.Clear(this);
             }
         }
