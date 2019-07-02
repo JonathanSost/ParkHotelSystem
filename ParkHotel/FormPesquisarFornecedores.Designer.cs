@@ -31,11 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisarFornecedores));
             this.dgvFornecedores = new System.Windows.Forms.DataGridView();
             this.lblPesquisar = new System.Windows.Forms.Label();
-            this.btnPesquisarPorNomeContato = new System.Windows.Forms.Button();
-            this.PesquisarPorCNPJ = new System.Windows.Forms.Button();
-            this.btnPesquisarPorNomeEmpresa = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.msktxtCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,6 +42,9 @@
             this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
+            this.btnPesquisarPorNomeContato = new System.Windows.Forms.Button();
+            this.PesquisarPorCNPJ = new System.Windows.Forms.Button();
+            this.btnPesquisarPorNomeEmpresa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,39 +96,6 @@
             this.lblPesquisar.Size = new System.Drawing.Size(241, 37);
             this.lblPesquisar.TabIndex = 178;
             this.lblPesquisar.Text = "Pesquisar Por:";
-            // 
-            // btnPesquisarPorNomeContato
-            // 
-            this.btnPesquisarPorNomeContato.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorNomeContato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNomeContato.Location = new System.Drawing.Point(285, 416);
-            this.btnPesquisarPorNomeContato.Name = "btnPesquisarPorNomeContato";
-            this.btnPesquisarPorNomeContato.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorNomeContato.TabIndex = 187;
-            this.btnPesquisarPorNomeContato.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorNomeContato.Click += new System.EventHandler(this.btnPesquisarPorNomeContato_Click);
-            // 
-            // PesquisarPorCNPJ
-            // 
-            this.PesquisarPorCNPJ.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.PesquisarPorCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PesquisarPorCNPJ.Location = new System.Drawing.Point(309, 363);
-            this.PesquisarPorCNPJ.Name = "PesquisarPorCNPJ";
-            this.PesquisarPorCNPJ.Size = new System.Drawing.Size(26, 26);
-            this.PesquisarPorCNPJ.TabIndex = 186;
-            this.PesquisarPorCNPJ.UseVisualStyleBackColor = true;
-            this.PesquisarPorCNPJ.Click += new System.EventHandler(this.PesquisarPorCNPJ_Click);
-            // 
-            // btnPesquisarPorNomeEmpresa
-            // 
-            this.btnPesquisarPorNomeEmpresa.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorNomeEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNomeEmpresa.Location = new System.Drawing.Point(308, 309);
-            this.btnPesquisarPorNomeEmpresa.Name = "btnPesquisarPorNomeEmpresa";
-            this.btnPesquisarPorNomeEmpresa.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorNomeEmpresa.TabIndex = 185;
-            this.btnPesquisarPorNomeEmpresa.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorNomeEmpresa.Click += new System.EventHandler(this.btnPesquisarPorNomeEmpresa_Click);
             // 
             // label7
             // 
@@ -211,6 +179,39 @@
             this.lblNome2.TabIndex = 189;
             this.lblNome2.Text = "Soninho";
             // 
+            // btnPesquisarPorNomeContato
+            // 
+            this.btnPesquisarPorNomeContato.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNomeContato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNomeContato.Location = new System.Drawing.Point(285, 416);
+            this.btnPesquisarPorNomeContato.Name = "btnPesquisarPorNomeContato";
+            this.btnPesquisarPorNomeContato.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNomeContato.TabIndex = 187;
+            this.btnPesquisarPorNomeContato.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNomeContato.Click += new System.EventHandler(this.btnPesquisarPorNomeContato_Click);
+            // 
+            // PesquisarPorCNPJ
+            // 
+            this.PesquisarPorCNPJ.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.PesquisarPorCNPJ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PesquisarPorCNPJ.Location = new System.Drawing.Point(309, 363);
+            this.PesquisarPorCNPJ.Name = "PesquisarPorCNPJ";
+            this.PesquisarPorCNPJ.Size = new System.Drawing.Size(26, 26);
+            this.PesquisarPorCNPJ.TabIndex = 186;
+            this.PesquisarPorCNPJ.UseVisualStyleBackColor = true;
+            this.PesquisarPorCNPJ.Click += new System.EventHandler(this.PesquisarPorCNPJ_Click);
+            // 
+            // btnPesquisarPorNomeEmpresa
+            // 
+            this.btnPesquisarPorNomeEmpresa.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNomeEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNomeEmpresa.Location = new System.Drawing.Point(308, 309);
+            this.btnPesquisarPorNomeEmpresa.Name = "btnPesquisarPorNomeEmpresa";
+            this.btnPesquisarPorNomeEmpresa.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNomeEmpresa.TabIndex = 185;
+            this.btnPesquisarPorNomeEmpresa.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNomeEmpresa.Click += new System.EventHandler(this.btnPesquisarPorNomeEmpresa_Click);
+            // 
             // FormPesquisarFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +232,7 @@
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.dgvFornecedores);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormPesquisarFornecedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

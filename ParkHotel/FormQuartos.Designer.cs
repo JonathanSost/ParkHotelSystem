@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuartos));
             this.btnExcluir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -250,6 +251,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.txtPreco);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormQuartos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInfoFuncionario));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblRG = new System.Windows.Forms.Label();
@@ -506,6 +507,7 @@
             this.Controls.Add(this.lblRG);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.btnVoltar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormInfoFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

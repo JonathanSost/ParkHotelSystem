@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReservas));
             this.dgvReservas = new System.Windows.Forms.DataGridView();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
@@ -267,7 +268,7 @@
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.dgvReservas);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormReservas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
