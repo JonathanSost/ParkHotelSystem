@@ -47,7 +47,29 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
-                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                List<string> erros = new List<string>();
+                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_CPF"))
+                {
+                    erros.Add("CPF já cadastrado.");
+                }
+                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_RG"))
+                {
+                    erros.Add("RG já cadastrado.");
+                }
+                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_EMAIL"))
+                {
+                    erros.Add("E-Mail já cadastrado.");
+                }
+                else
+                {
+                    erros.Add("Banco de dados indisponível, favor contatar o suporte.");
+                }
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    builder.AppendLine(erros[i]);
+                }
+                response.Message = builder.ToString();
                 return response;
             }
             finally
@@ -137,22 +159,29 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
+                List<string> erros = new List<string>(); 
                 if (ex.Message.ToUpper().Contains("UNIQUE_CLI_CPF"))
                 {
-                    response.Message = "CPF já cadastrado.";
+                    erros.Add("CPF já cadastrado.");
                 }
-                else if (ex.Message.ToUpper().Contains("UNIQUE_CLI_RG"))
+                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_RG"))
                 {
-                    response.Message = "RG já cadastrado.";
+                    erros.Add("RG já cadastrado.");
                 }
-                else if (ex.Message.ToUpper().Contains("UNIQUE_CLI_EMAIL"))
+                if (ex.Message.ToUpper().Contains("UNIQUE_CLI_EMAIL"))
                 {
-                    response.Message = "E-Mail já cadastrado.";
+                    erros.Add("E-Mail já cadastrado.");
                 }
                 else
                 {
-                    response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                    erros.Add("Banco de dados indisponível, favor contatar o suporte.");
                 }
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    builder.AppendLine(erros[i]);
+                }
+                response.Message = builder.ToString();
                 return response;
             }
             finally
