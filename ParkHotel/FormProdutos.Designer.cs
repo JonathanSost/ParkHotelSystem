@@ -50,6 +50,8 @@
             this.btnPesquisarFornecedores = new System.Windows.Forms.Button();
             this.picbClear = new System.Windows.Forms.PictureBox();
             this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.btnPesquisarPorNomeProduto = new System.Windows.Forms.Button();
+            this.btnPesquisarPorDescricao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -295,6 +297,26 @@
             this.picbRefresh.TabStop = false;
             this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
+            // btnPesquisarPorNomeProduto
+            // 
+            this.btnPesquisarPorNomeProduto.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorNomeProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorNomeProduto.Location = new System.Drawing.Point(198, 300);
+            this.btnPesquisarPorNomeProduto.Name = "btnPesquisarPorNomeProduto";
+            this.btnPesquisarPorNomeProduto.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorNomeProduto.TabIndex = 127;
+            this.btnPesquisarPorNomeProduto.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisarPorDescricao
+            // 
+            this.btnPesquisarPorDescricao.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorDescricao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorDescricao.Location = new System.Drawing.Point(198, 352);
+            this.btnPesquisarPorDescricao.Name = "btnPesquisarPorDescricao";
+            this.btnPesquisarPorDescricao.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorDescricao.TabIndex = 128;
+            this.btnPesquisarPorDescricao.UseVisualStyleBackColor = true;
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +324,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisarPorDescricao);
+            this.Controls.Add(this.btnPesquisarPorNomeProduto);
             this.Controls.Add(this.btnPesquisarFornecedores);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtIDFornecedor);
@@ -361,5 +385,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIDFornecedor;
         private System.Windows.Forms.Button btnPesquisarFornecedores;
+        private System.Windows.Forms.Button btnPesquisarPorNomeProduto;
+        private System.Windows.Forms.Button btnPesquisarPorDescricao;
     }
 }

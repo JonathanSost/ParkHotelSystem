@@ -212,5 +212,36 @@ namespace DAL
             return reservas;
         }
         #endregion
+
+        #region Verificar Existência da Reserva
+        public bool VerificarExistenciaReserva(int idReserva)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from reservas where id = @id";
+            command.Parameters.AddWithValue("@id", idReserva);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+        #endregion
     }
 }

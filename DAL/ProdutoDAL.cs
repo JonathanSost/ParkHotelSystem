@@ -90,11 +90,12 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into produtos (nome, descricao, precound, estoque) values (@nome, @descricao, @precound, @estoque)";
+            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor) values (@nome, @descricao, @precound, @estoque, @idfornecedor)";
             command.Parameters.AddWithValue("@nome", produto.Nome);
             command.Parameters.AddWithValue("@descricao", produto.Descricao);
             command.Parameters.AddWithValue("@precound", produto.Preco);
             command.Parameters.AddWithValue("@estoque", produto.Estoque);
+            command.Parameters.AddWithValue("@idfornecedor", produto.IdFornecedor);
 
             command.Connection = connection;
 
@@ -207,6 +208,37 @@ namespace DAL
                 connection.Dispose();
             }
             return produtos;
+        }
+        #endregion
+
+        #region Verificar Existência do Produto
+        public bool VerificarExistenciaProduto(int idProduto)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from produtos where id = @id";
+            command.Parameters.AddWithValue("@id", idProduto);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
         }
         #endregion
     }

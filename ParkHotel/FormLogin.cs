@@ -17,7 +17,6 @@ namespace ParkHotel
         #region Inicialização do Form
         FuncionarioBLL bll = new FuncionarioBLL();
         Funcionario fun = new Funcionario();
-        int aa;
         DialogResult result = new DialogResult();
 
         //select * from sys.objects where type_desc = 'UNIQUE_CONSTRAINT'
@@ -33,6 +32,11 @@ namespace ParkHotel
 
             //txtUsuario.Text = "vinikk03@gmail.com";
             //txtSenha.Text = "kockvini123";
+
+            if (!bll.VerificarExistenciaFuncionarioA())
+            {
+                lnkCadastrarAdmin.Visible = true;
+            }
         }
         #endregion
 
@@ -44,7 +48,7 @@ namespace ParkHotel
                 result = MessageBox.Show("Usuário e senha devem ser informados!", "Erro!", MessageBoxButtons.OK);
                 return;
             }
-            fun = bll.FuncionarioExiste(txtUsuario.Text, txtSenha.Text);
+            fun = bll.Logar(txtUsuario.Text, txtSenha.Text);
 
 
             //Descomente a linha de abaixo e comente as linhas acima para não precisar fazer login
@@ -93,7 +97,7 @@ namespace ParkHotel
         #region KeyUp
         private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && aa == 0)
+            if (e.KeyCode == Keys.Enter)
             {
                 this.btnLogin.PerformClick();
             }
@@ -127,5 +131,11 @@ namespace ParkHotel
             }
         }
         #endregion
+
+        private void lnkCadastrarAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FormFuncionarios().Show();
+        }
     }
 }

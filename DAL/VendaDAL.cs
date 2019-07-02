@@ -208,5 +208,36 @@ namespace DAL
             return vendas;
         }
         #endregion
+
+        #region Verificar Existência da Venda
+        public bool VerificarExistenciaVenda(int idVenda)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from vendas where id = @id";
+            command.Parameters.AddWithValue("@id", idVenda);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+        #endregion
     }
 }

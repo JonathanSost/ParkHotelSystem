@@ -24,18 +24,29 @@ namespace ParkHotel
         public FormFuncionarios()
         {
             InitializeComponent();
+
+            if (!funbll.VerificarExistenciaFuncionarioA())
+            {
+                chkAdministrador.Checked = true;
+                chkAdministrador.Enabled = false;
+                btnVoltar.Visible = false;
+            }
         }
 
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
-            Admin = false;
-
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
             cmbEstado.DataSource = estbll.LerTodos();
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+
+            if (!funbll.VerificarExistenciaFuncionarioA())
+            {
+                return;
+            }
+            Admin = false;
 
             dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             dgvFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -89,6 +100,10 @@ namespace ParkHotel
 
         private void FormFuncionarios_KeyUp(object sender, KeyEventArgs e)
         {
+            if (!funbll.VerificarExistenciaFuncionarioA())
+            {
+                return;
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();

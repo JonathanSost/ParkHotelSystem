@@ -12,7 +12,7 @@ namespace BLL
     public class FornecedorBLL
     {
         /// <summary>
-        /// Realiza a validação do CNPJ
+        /// Realiza a validação do CNPJ do Fornecedor.
         /// </summary>
         public bool ValidarCNPJ(string cnpj)
         {
@@ -52,21 +52,28 @@ namespace BLL
         }
 
         FornecedorDAL dal = new FornecedorDAL();
+        MessageResponse response = new MessageResponse();
 
-        public MessageResponse Cadastrar(Fornecedor For)
+        #region Cadastrar
+        /// <summary>
+        /// Verifica se os dados do Fornecedor estão corretos. Se estiverem, o Fornecedor é cadastrado no banco.
+        /// </summary>
+        /// <param name="fornecedor"></param>
+        /// <returns></returns>
+        public MessageResponse Cadastrar(Fornecedor fornecedor)
         {
             List<string> erros = new List<string>();
 
             #region Nome Empresa
-            if (string.IsNullOrWhiteSpace(For.NomeEmpresa))
+            if (string.IsNullOrWhiteSpace(fornecedor.NomeEmpresa))
             {
                 erros.Add("O nome da empresa deve ser informado");
             }
             else
             {
-                For.NomeContato = Regex.Replace(For.NomeContato, " {2,}", " ");
-                For.NomeContato = For.NomeContato.Trim();
-                if (For.NomeEmpresa.Length < 2 || For.NomeEmpresa.Length > 60)
+                fornecedor.NomeContato = Regex.Replace(fornecedor.NomeContato, " {2,}", " ");
+                fornecedor.NomeContato = fornecedor.NomeContato.Trim();
+                if (fornecedor.NomeEmpresa.Length < 2 || fornecedor.NomeEmpresa.Length > 60)
                 {
                     erros.Add("Nome da Empresa deve conter entre 2 e 60 caracteres.");
                 }
@@ -74,23 +81,23 @@ namespace BLL
             #endregion
 
             #region Nome Contato
-            if (string.IsNullOrWhiteSpace(For.NomeContato))
+            if (string.IsNullOrWhiteSpace(fornecedor.NomeContato))
             {
                 erros.Add("Nome deve ser informado.");
             }
             else
             {
-                For.NomeContato = Regex.Replace(For.NomeContato, " {2,}", " ");
-                For.NomeContato = For.NomeContato.Trim();
-                if (For.NomeContato.Length < 3 || For.NomeContato.Length > 60)
+                fornecedor.NomeContato = Regex.Replace(fornecedor.NomeContato, " {2,}", " ");
+                fornecedor.NomeContato = fornecedor.NomeContato.Trim();
+                if (fornecedor.NomeContato.Length < 3 || fornecedor.NomeContato.Length > 60)
                 {
                     erros.Add("Nome para contato deve conter entre 3 e 60 caracteres.");
                 }
                 else
                 {
-                    for (int i = 0; i < For.NomeContato.Length; i++)
+                    for (int i = 0; i < fornecedor.NomeContato.Length; i++)
                     {
-                        if (!char.IsLetter(For.NomeContato[i]) && For.NomeContato[i] != ' ')
+                        if (!char.IsLetter(fornecedor.NomeContato[i]) && fornecedor.NomeContato[i] != ' ')
                         {
                             erros.Add("Nome para contato inválido");
                             break;
@@ -101,15 +108,15 @@ namespace BLL
             #endregion
 
             #region CNPJ
-            if (string.IsNullOrWhiteSpace(For.CNPJ))
+            if (string.IsNullOrWhiteSpace(fornecedor.CNPJ))
             {
                 erros.Add("CNPJ deve ser informado!");
             }
             else
             {
-                For.CNPJ = For.CNPJ.Trim();
-                For.CNPJ = For.CNPJ.Replace(".", "").Replace("-", "").Replace("/", "");
-                if (!this.ValidarCNPJ(For.CNPJ))
+                fornecedor.CNPJ = fornecedor.CNPJ.Trim();
+                fornecedor.CNPJ = fornecedor.CNPJ.Replace(".", "").Replace("-", "").Replace("/", "");
+                if (!this.ValidarCNPJ(fornecedor.CNPJ))
                 {
                     erros.Add("CNPJ inválido");
                 }
@@ -118,19 +125,19 @@ namespace BLL
             #endregion
 
             #region Telefone
-            if (string.IsNullOrWhiteSpace(For.Telefone))
+            if (string.IsNullOrWhiteSpace(fornecedor.Telefone))
             {
                 erros.Add("Telefone deve ser informado.");
             }
             else
             {
-                For.Telefone =
-                    For.Telefone.Replace(" ", "")
+                fornecedor.Telefone =
+                    fornecedor.Telefone.Replace(" ", "")
                                 .Replace("(", "")
                                 .Replace(")", "")
                                 .Replace("-", "");
 
-                if (For.Telefone.Length < 8 || For.Telefone.Length > 15)
+                if (fornecedor.Telefone.Length < 8 || fornecedor.Telefone.Length > 15)
                 {
                     erros.Add("Telefone deve conter entre 8 e 15 caracteres.");
                 }
@@ -138,11 +145,129 @@ namespace BLL
             #endregion
 
             #region Email
-            if (string.IsNullOrWhiteSpace(For.Email))
+            if (string.IsNullOrWhiteSpace(fornecedor.Email))
             {
                 erros.Add("Email deve ser informado!");
             }
-            bool isEmail = Regex.IsMatch(For.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            bool isEmail = Regex.IsMatch(fornecedor.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            if (!isEmail)
+            {
+                erros.Add("Email inválido.");
+            }
+            #endregion
+
+            StringBuilder ErrosFornecedor = new StringBuilder();
+            if (erros.Count != 0)
+            {
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    ErrosFornecedor.AppendLine(erros[i]);
+                }
+                response.Success = false;
+                response.Message = ErrosFornecedor.ToString();
+                return response;
+            }
+            response = dal.Inserir(fornecedor);
+            return response;
+        }
+        #endregion
+
+        #region Atualizar
+        /// <summary>
+        /// Verifica se os dados do Fornecedor estão corretos. Se estiverem, os dados do Fornecedor são atualizados no banco.
+        /// </summary>
+        /// <param name="fornecedor"></param>
+        /// <returns></returns>
+        public MessageResponse Atualizar(Fornecedor fornecedor)
+        {
+            List<string> erros = new List<string>();
+
+            #region Nome Empresa
+            if (string.IsNullOrWhiteSpace(fornecedor.NomeEmpresa))
+            {
+                erros.Add("O nome da empresa deve ser informado");
+            }
+            else
+            {
+                fornecedor.NomeContato = Regex.Replace(fornecedor.NomeContato, " {2,}", " ");
+                fornecedor.NomeContato = fornecedor.NomeContato.Trim();
+                if (fornecedor.NomeEmpresa.Length < 2 || fornecedor.NomeEmpresa.Length > 60)
+                {
+                    erros.Add("Nome da Empresa deve conter entre 2 e 60 caracteres.");
+                }
+            }
+            #endregion
+
+            #region Nome Contato
+            if (string.IsNullOrWhiteSpace(fornecedor.NomeContato))
+            {
+                erros.Add("Nome deve ser informado.");
+            }
+            else
+            {
+                fornecedor.NomeContato = Regex.Replace(fornecedor.NomeContato, " {2,}", " ");
+                fornecedor.NomeContato = fornecedor.NomeContato.Trim();
+                if (fornecedor.NomeContato.Length < 3 || fornecedor.NomeContato.Length > 60)
+                {
+                    erros.Add("Nome para contato deve conter entre 3 e 60 caracteres.");
+                }
+                else
+                {
+                    for (int i = 0; i < fornecedor.NomeContato.Length; i++)
+                    {
+                        if (!char.IsLetter(fornecedor.NomeContato[i]) && fornecedor.NomeContato[i] != ' ')
+                        {
+                            erros.Add("Nome para contato inválido");
+                            break;
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region CNPJ
+            if (string.IsNullOrWhiteSpace(fornecedor.CNPJ))
+            {
+                erros.Add("CNPJ deve ser informado!");
+            }
+            else
+            {
+                fornecedor.CNPJ = fornecedor.CNPJ.Trim();
+                fornecedor.CNPJ = fornecedor.CNPJ.Replace(".", "").Replace("-", "").Replace("/", "");
+                if (!this.ValidarCNPJ(fornecedor.CNPJ))
+                {
+                    erros.Add("CNPJ inválido");
+                }
+            }
+
+            #endregion
+
+            #region Telefone
+            if (string.IsNullOrWhiteSpace(fornecedor.Telefone))
+            {
+                erros.Add("Telefone deve ser informado.");
+            }
+            else
+            {
+                fornecedor.Telefone =
+                    fornecedor.Telefone.Replace(" ", "")
+                                .Replace("(", "")
+                                .Replace(")", "")
+                                .Replace("-", "");
+
+                if (fornecedor.Telefone.Length < 8 || fornecedor.Telefone.Length > 15)
+                {
+                    erros.Add("Telefone deve conter entre 8 e 15 caracteres.");
+                }
+            }
+            #endregion
+
+            #region Email
+            if (string.IsNullOrWhiteSpace(fornecedor.Email))
+            {
+                erros.Add("Email deve ser informado!");
+            }
+            bool isEmail = Regex.IsMatch(fornecedor.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
             if (!isEmail)
             {
                 erros.Add("Email inválido.");
@@ -161,43 +286,86 @@ namespace BLL
                 response.Message = ErrosFornecedor.ToString();
                 return response;
             }
-            response = dal.Inserir(For);
+            response = dal.Atualizar(fornecedor);
             return response;
         }
+        #endregion
 
-        public string Atualizar(Fornecedor fornecedor)
+        #region Excluir
+        /// <summary>
+        /// Exclui o Fornecedor com o ID em questão do banco de dados.
+        /// </summary>
+        /// <param name="fornecedor"></param>
+        /// <returns></returns>
+        public MessageResponse Excluir(Fornecedor fornecedor)
         {
-            return dal.Atualizar(fornecedor);
+            if (dal.VerificarExistenciaVenda(fornecedor.ID))
+            {
+                response.Success = false;
+                response.Message = "Fornecedor inexistente!";
+            }
+            response = dal.Excluir(fornecedor);
+            return response;
         }
+        #endregion
 
-        public string Excluir(Fornecedor fornecedor)
-        {
-            return dal.Excluir(fornecedor);
-        }
-
+        #region Ler Por ID
+        /// <summary>
+        /// Pesquisa pelo Fornecedor com o ID especificado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Fornecedor LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
+        #endregion
 
+        #region Ler Todos
+        /// <summary>
+        /// Traz uma lista com todos os Fornecedores do banco de dados.
+        /// </summary>
+        /// <returns></returns>
         public List<Fornecedor> LerTodos()
         {
             return dal.LerTodos();
         }
+        #endregion
 
+        #region Pesquisar Por Nome da Empresa
+        /// <summary>
+        /// Traz uma lista com os Fornecedores que possuem o nome da empresa parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="NomeEmpresa"></param>
+        /// <returns></returns>
         public List<Fornecedor> PesquisarPorNomeEmpresa(string NomeEmpresa)
         {
             return dal.PesquisarPorNomeEmpresa(NomeEmpresa);
         }
+        #endregion
 
+        #region Pesquisar Por CNPJ
+        /// <summary>
+        /// Traz uma lista com os Fornecedores que possuem um CNPJ parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="CNPJ"></param>
+        /// <returns></returns>
         public List<Fornecedor> PesquisarPorCNPJ(string CNPJ)
         {
             return dal.PesquisarPorCNPJ(CNPJ);
         }
+        #endregion
 
+        #region Pesquisar Por Nome
+        /// <summary>
+        /// Traz uma lista com os Fornecedores que possuem um nome parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <returns></returns>
         public List<Fornecedor> PesquisarPorNome(string Nome)
         {
             return dal.PesquisarPorNome(Nome);
         }
+        #endregion
     }
 }
