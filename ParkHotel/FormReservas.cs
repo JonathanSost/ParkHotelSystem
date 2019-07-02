@@ -19,15 +19,10 @@ namespace ParkHotel
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -42,7 +37,22 @@ namespace ParkHotel
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void btnCheckin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarClientes_Click(object sender, EventArgs e)
         {
 
         }

@@ -36,14 +36,16 @@
             this.btnCheckin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.btnPesquisarFornecedores = new System.Windows.Forms.Button();
+            this.btnPesquisarQuartos = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtIDFornecedor = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtIDQuarto = new System.Windows.Forms.TextBox();
+            this.btnPesquisarClientes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.dtpCheckin = new System.Windows.Forms.DateTimePicker();
             this.dtpCheckout = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +92,7 @@
             this.btnExcluir.TabIndex = 102;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -100,6 +103,7 @@
             this.btnEditar.TabIndex = 103;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCheckin
             // 
@@ -110,6 +114,7 @@
             this.btnCheckin.TabIndex = 101;
             this.btnCheckin.Text = "Check-in";
             this.btnCheckin.UseVisualStyleBackColor = true;
+            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
             // 
             // label3
             // 
@@ -132,16 +137,16 @@
             this.txtID.Size = new System.Drawing.Size(150, 26);
             this.txtID.TabIndex = 104;
             // 
-            // btnPesquisarFornecedores
+            // btnPesquisarQuartos
             // 
-            this.btnPesquisarFornecedores.Location = new System.Drawing.Point(176, 297);
-            this.btnPesquisarFornecedores.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPesquisarFornecedores.Name = "btnPesquisarFornecedores";
-            this.btnPesquisarFornecedores.Size = new System.Drawing.Size(29, 26);
-            this.btnPesquisarFornecedores.TabIndex = 129;
-            this.btnPesquisarFornecedores.Text = "...";
-            this.btnPesquisarFornecedores.UseVisualStyleBackColor = true;
-            this.btnPesquisarFornecedores.Click += new System.EventHandler(this.btnPesquisarFornecedores_Click);
+            this.btnPesquisarQuartos.Location = new System.Drawing.Point(176, 297);
+            this.btnPesquisarQuartos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarQuartos.Name = "btnPesquisarQuartos";
+            this.btnPesquisarQuartos.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarQuartos.TabIndex = 129;
+            this.btnPesquisarQuartos.Text = "...";
+            this.btnPesquisarQuartos.UseVisualStyleBackColor = true;
+            this.btnPesquisarQuartos.Click += new System.EventHandler(this.btnPesquisarFornecedores_Click);
             // 
             // label6
             // 
@@ -150,32 +155,31 @@
             this.label6.Location = new System.Drawing.Point(11, 278);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 20);
+            this.label6.Size = new System.Drawing.Size(101, 20);
             this.label6.TabIndex = 128;
-            this.label6.Text = "ID do Fornecedor";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.Text = "ID do Quarto";
             // 
-            // txtIDFornecedor
+            // txtIDQuarto
             // 
-            this.txtIDFornecedor.Enabled = false;
-            this.txtIDFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDFornecedor.Location = new System.Drawing.Point(11, 297);
-            this.txtIDFornecedor.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIDFornecedor.Name = "txtIDFornecedor";
-            this.txtIDFornecedor.Size = new System.Drawing.Size(161, 26);
-            this.txtIDFornecedor.TabIndex = 127;
-            this.txtIDFornecedor.TextChanged += new System.EventHandler(this.txtIDFornecedor_TextChanged);
+            this.txtIDQuarto.Enabled = false;
+            this.txtIDQuarto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDQuarto.Location = new System.Drawing.Point(11, 297);
+            this.txtIDQuarto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIDQuarto.Name = "txtIDQuarto";
+            this.txtIDQuarto.Size = new System.Drawing.Size(161, 26);
+            this.txtIDQuarto.TabIndex = 127;
+            this.txtIDQuarto.TextChanged += new System.EventHandler(this.txtIDFornecedor_TextChanged);
             // 
-            // button1
+            // btnPesquisarClientes
             // 
-            this.button1.Location = new System.Drawing.Point(176, 357);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(29, 26);
-            this.button1.TabIndex = 132;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPesquisarClientes.Location = new System.Drawing.Point(176, 357);
+            this.btnPesquisarClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarClientes.Name = "btnPesquisarClientes";
+            this.btnPesquisarClientes.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarClientes.TabIndex = 132;
+            this.btnPesquisarClientes.Text = "...";
+            this.btnPesquisarClientes.UseVisualStyleBackColor = true;
+            this.btnPesquisarClientes.Click += new System.EventHandler(this.btnPesquisarClientes_Click);
             // 
             // label1
             // 
@@ -184,26 +188,26 @@
             this.label1.Location = new System.Drawing.Point(11, 338);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 131;
-            this.label1.Text = "ID do Fornecedor";
+            this.label1.Text = "ID do Cliente";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // txtIDCliente
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(11, 357);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 26);
-            this.textBox1.TabIndex = 130;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtIDCliente.Enabled = false;
+            this.txtIDCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCliente.Location = new System.Drawing.Point(11, 357);
+            this.txtIDCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIDCliente.Name = "txtIDCliente";
+            this.txtIDCliente.Size = new System.Drawing.Size(161, 26);
+            this.txtIDCliente.TabIndex = 130;
+            this.txtIDCliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dtpCheckin
             // 
             this.dtpCheckin.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCheckin.Location = new System.Drawing.Point(12, 410);
+            this.dtpCheckin.Location = new System.Drawing.Point(11, 418);
             this.dtpCheckin.Name = "dtpCheckin";
             this.dtpCheckin.Size = new System.Drawing.Size(233, 20);
             this.dtpCheckin.TabIndex = 133;
@@ -211,24 +215,50 @@
             // dtpCheckout
             // 
             this.dtpCheckout.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpCheckout.Location = new System.Drawing.Point(12, 447);
+            this.dtpCheckout.Location = new System.Drawing.Point(11, 476);
             this.dtpCheckout.Name = "dtpCheckout";
             this.dtpCheckout.Size = new System.Drawing.Size(233, 20);
             this.dtpCheckout.TabIndex = 134;
             // 
-            // FormResevas
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 395);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.TabIndex = 135;
+            this.label2.Text = "Data prevista de entrada";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 453);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 20);
+            this.label4.TabIndex = 136;
+            this.label4.Text = "Data prevista de saída";
+            // 
+            // FormReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(637, 518);
+            this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpCheckout);
             this.Controls.Add(this.dtpCheckin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPesquisarClientes);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnPesquisarFornecedores);
+            this.Controls.Add(this.txtIDCliente);
+            this.Controls.Add(this.btnPesquisarQuartos);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtIDFornecedor);
+            this.Controls.Add(this.txtIDQuarto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnExcluir);
@@ -237,8 +267,8 @@
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.dgvReservas);
-            this.Name = "FormResevas";
-            this.Text = "FormResevas";
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Name = "FormReservas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -255,13 +285,15 @@
         private System.Windows.Forms.Button btnCheckin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Button btnPesquisarFornecedores;
+        private System.Windows.Forms.Button btnPesquisarQuartos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtIDFornecedor;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtIDQuarto;
+        private System.Windows.Forms.Button btnPesquisarClientes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.DateTimePicker dtpCheckin;
         private System.Windows.Forms.DateTimePicker dtpCheckout;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }

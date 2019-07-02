@@ -162,5 +162,35 @@ namespace ParkHotel
             txtEstoque.Text = estoque.ToString();
             txtIDFornecedor.Text = idfornecedor.ToString();
         }
+
+        private void btnPesquisarPorPreçosMenores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorPreçosIguais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorPreçosMaiores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorEstoquesMenores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorEstoquesIguais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorEstoquesMaiores_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

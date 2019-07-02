@@ -52,6 +52,12 @@
             this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.btnPesquisarPorNomeProduto = new System.Windows.Forms.Button();
             this.btnPesquisarPorDescricao = new System.Windows.Forms.Button();
+            this.btnPesquisarPorPreçosMenores = new System.Windows.Forms.Button();
+            this.btnPesquisarPorPreçosIguais = new System.Windows.Forms.Button();
+            this.btnPesquisarPorPreçosMaiores = new System.Windows.Forms.Button();
+            this.btnPesquisarPorEstoquesMaiores = new System.Windows.Forms.Button();
+            this.btnPesquisarPorEstoquesIguais = new System.Windows.Forms.Button();
+            this.btnPesquisarPorEstoquesMenores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -214,7 +220,7 @@
             this.lblNome2.AutoSize = true;
             this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
-            this.lblNome2.Location = new System.Drawing.Point(267, 344);
+            this.lblNome2.Location = new System.Drawing.Point(276, 344);
             this.lblNome2.Name = "lblNome2";
             this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 101;
@@ -224,7 +230,7 @@
             // 
             this.lblNome1.AutoSize = true;
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome1.Location = new System.Drawing.Point(319, 241);
+            this.lblNome1.Location = new System.Drawing.Point(328, 241);
             this.lblNome1.Name = "lblNome1";
             this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 100;
@@ -317,6 +323,78 @@
             this.btnPesquisarPorDescricao.TabIndex = 128;
             this.btnPesquisarPorDescricao.UseVisualStyleBackColor = true;
             // 
+            // btnPesquisarPorPreçosMenores
+            // 
+            this.btnPesquisarPorPreçosMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosMenores.Location = new System.Drawing.Point(198, 401);
+            this.btnPesquisarPorPreçosMenores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosMenores.Name = "btnPesquisarPorPreçosMenores";
+            this.btnPesquisarPorPreçosMenores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosMenores.TabIndex = 129;
+            this.btnPesquisarPorPreçosMenores.Text = "<";
+            this.btnPesquisarPorPreçosMenores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosMenores.Click += new System.EventHandler(this.btnPesquisarPorPreçosMenores_Click);
+            // 
+            // btnPesquisarPorPreçosIguais
+            // 
+            this.btnPesquisarPorPreçosIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(231, 402);
+            this.btnPesquisarPorPreçosIguais.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosIguais.Name = "btnPesquisarPorPreçosIguais";
+            this.btnPesquisarPorPreçosIguais.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosIguais.TabIndex = 130;
+            this.btnPesquisarPorPreçosIguais.Text = "=";
+            this.btnPesquisarPorPreçosIguais.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosIguais.Click += new System.EventHandler(this.btnPesquisarPorPreçosIguais_Click);
+            // 
+            // btnPesquisarPorPreçosMaiores
+            // 
+            this.btnPesquisarPorPreçosMaiores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosMaiores.Location = new System.Drawing.Point(264, 401);
+            this.btnPesquisarPorPreçosMaiores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosMaiores.Name = "btnPesquisarPorPreçosMaiores";
+            this.btnPesquisarPorPreçosMaiores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosMaiores.TabIndex = 131;
+            this.btnPesquisarPorPreçosMaiores.Text = ">";
+            this.btnPesquisarPorPreçosMaiores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosMaiores.Click += new System.EventHandler(this.btnPesquisarPorPreçosMaiores_Click);
+            // 
+            // btnPesquisarPorEstoquesMaiores
+            // 
+            this.btnPesquisarPorEstoquesMaiores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorEstoquesMaiores.Location = new System.Drawing.Point(264, 451);
+            this.btnPesquisarPorEstoquesMaiores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorEstoquesMaiores.Name = "btnPesquisarPorEstoquesMaiores";
+            this.btnPesquisarPorEstoquesMaiores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorEstoquesMaiores.TabIndex = 134;
+            this.btnPesquisarPorEstoquesMaiores.Text = ">";
+            this.btnPesquisarPorEstoquesMaiores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorEstoquesMaiores.Click += new System.EventHandler(this.btnPesquisarPorEstoquesMaiores_Click);
+            // 
+            // btnPesquisarPorEstoquesIguais
+            // 
+            this.btnPesquisarPorEstoquesIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorEstoquesIguais.Location = new System.Drawing.Point(231, 452);
+            this.btnPesquisarPorEstoquesIguais.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorEstoquesIguais.Name = "btnPesquisarPorEstoquesIguais";
+            this.btnPesquisarPorEstoquesIguais.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorEstoquesIguais.TabIndex = 133;
+            this.btnPesquisarPorEstoquesIguais.Text = "=";
+            this.btnPesquisarPorEstoquesIguais.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorEstoquesIguais.Click += new System.EventHandler(this.btnPesquisarPorEstoquesIguais_Click);
+            // 
+            // btnPesquisarPorEstoquesMenores
+            // 
+            this.btnPesquisarPorEstoquesMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorEstoquesMenores.Location = new System.Drawing.Point(198, 451);
+            this.btnPesquisarPorEstoquesMenores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorEstoquesMenores.Name = "btnPesquisarPorEstoquesMenores";
+            this.btnPesquisarPorEstoquesMenores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorEstoquesMenores.TabIndex = 132;
+            this.btnPesquisarPorEstoquesMenores.Text = "<";
+            this.btnPesquisarPorEstoquesMenores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorEstoquesMenores.Click += new System.EventHandler(this.btnPesquisarPorEstoquesMenores_Click);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +402,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisarPorEstoquesMaiores);
+            this.Controls.Add(this.btnPesquisarPorEstoquesIguais);
+            this.Controls.Add(this.btnPesquisarPorEstoquesMenores);
+            this.Controls.Add(this.btnPesquisarPorPreçosMaiores);
+            this.Controls.Add(this.btnPesquisarPorPreçosIguais);
+            this.Controls.Add(this.btnPesquisarPorPreçosMenores);
             this.Controls.Add(this.btnPesquisarPorDescricao);
             this.Controls.Add(this.btnPesquisarPorNomeProduto);
             this.Controls.Add(this.btnPesquisarFornecedores);
@@ -387,5 +471,11 @@
         private System.Windows.Forms.Button btnPesquisarFornecedores;
         private System.Windows.Forms.Button btnPesquisarPorNomeProduto;
         private System.Windows.Forms.Button btnPesquisarPorDescricao;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosMenores;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosIguais;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosMaiores;
+        private System.Windows.Forms.Button btnPesquisarPorEstoquesMaiores;
+        private System.Windows.Forms.Button btnPesquisarPorEstoquesIguais;
+        private System.Windows.Forms.Button btnPesquisarPorEstoquesMenores;
     }
 }

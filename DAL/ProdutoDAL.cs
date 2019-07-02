@@ -152,6 +152,7 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
                     double precound = Convert.ToDouble(reader["PRECOUND"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
+                    string nomefornecedor = Convert.ToString(reader["NOMEFORNECEDOR"]);
 
                     p = new Produto(id, nome, descricao, estoque, precound, idfornecedor);
                 }
@@ -176,7 +177,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from produtos";
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresa'
+                                  from produtos inner join fornecedores f on p.idfornecedor = f.id";
             command.Connection = connection;
 
             List<Produto> produtos = new List<Produto>();
@@ -188,9 +191,7 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
-                    //int id = (int)reader["ID"];
                     string nome = Convert.ToString(reader["NOME"]);
                     string descricao = Convert.ToString(reader["DESCRICAO"]);
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
@@ -243,5 +244,53 @@ namespace DAL
             return false;
         }
         #endregion
+
+        public List<Produto> PesquisarPorNomeProduto(string Nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresa' 
+                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where Nome = @Nome";
+
+            command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
+
+            command.Connection = connection;
+
+            List<Produto> produtos = new List<Produto>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string descricao = Convert.ToString(reader["DESCRICAO"]);
+                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    int estoque = Convert.ToInt32(reader["ESTOQUE"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
+
+                    //clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
     }
 }

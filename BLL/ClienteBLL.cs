@@ -264,9 +264,13 @@ namespace BLL
 
             #region Email
             bool isEmail = Regex.IsMatch(cli.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-            if (!isEmail)
+            if (string.IsNullOrWhiteSpace(cli.Email))
             {
                 erros.Add("Email deve ser informado.");
+            }
+            if (!isEmail)
+            {
+                erros.Add("Email inválido.");
             }
             #endregion
 
@@ -488,9 +492,13 @@ namespace BLL
 
             #region Email
             bool isEmail = Regex.IsMatch(cli.Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-            if (!isEmail)
+            if (string.IsNullOrWhiteSpace(cli.Email))
             {
                 erros.Add("Email deve ser informado.");
+            }
+            if (!isEmail)
+            {
+                erros.Add("Email inválido.");
             }
             #endregion
 
