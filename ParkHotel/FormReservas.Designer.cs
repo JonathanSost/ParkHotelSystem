@@ -266,7 +266,9 @@
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.dgvReservas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FormReservas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormReservas_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);

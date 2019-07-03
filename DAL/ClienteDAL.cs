@@ -271,7 +271,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
             cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
-            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.conta 'Conta' from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id";
 
             command.Connection = connection;
@@ -300,6 +300,7 @@ namespace DAL
                     string bairro = Convert.ToString(reader["BAIRRO"]);
                     string numero = Convert.ToString(reader["NUMERO"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+                    double conta = Convert.ToDouble(reader["Conta"]);
 
                     ClienteViewModel cli = new ClienteViewModel()
                     {
@@ -317,6 +318,7 @@ namespace DAL
                         Bairro = bairro,
                         Numero = numero,
                         Complemento = complemento,
+                        Conta = conta
                     };
                     clientes.Add(cli);
                 }

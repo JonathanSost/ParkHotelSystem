@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,49 @@ namespace ParkHotel
 {
     public partial class FormPesquisarQuartos : Form
     {
-        public FormPesquisarQuartos()
+        QuartoBLL qbll = new QuartoBLL();
+        public FormPesquisarQuartos(FormReservas formreservas)
         {
             InitializeComponent();
+            dgvQuartos.DataSource = qbll.LerQuartos();          
+            formReservas = formreservas;
+        }
+
+        private FormReservas formReservas = null;
+        public Quarto QuartoSelecionado { get; set; }
+
+        private void btnPesquisarPorPreçosMenores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorPreçosIguais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorPreçosMaiores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PesquisarPorTipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarPorQuartosDisponíveis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPesquisarQuartos_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                formReservas.Show();
+            }
         }
     }
 }

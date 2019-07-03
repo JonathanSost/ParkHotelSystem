@@ -23,7 +23,6 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-            dgvClientes.DataSource = clibll.LerClientes();
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
@@ -44,7 +43,7 @@ namespace ParkHotel
         {
             c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
-                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
+                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text, 0);
 
             MessageResponse response = clibll.Cadastrar(c);
             MessageBox.Show(response.Message);

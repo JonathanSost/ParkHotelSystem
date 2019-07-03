@@ -339,7 +339,7 @@
             // btnPesquisarPorPreçosIguais
             // 
             this.btnPesquisarPorPreçosIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(231, 402);
+            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(231, 401);
             this.btnPesquisarPorPreçosIguais.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorPreçosIguais.Name = "btnPesquisarPorPreçosIguais";
             this.btnPesquisarPorPreçosIguais.Size = new System.Drawing.Size(29, 26);

@@ -35,7 +35,8 @@ namespace ParkHotel
 
         private void btnPesquisarQuartos_Click(object sender, EventArgs e)
         {
-            this.Hide()
+            this.Hide();
+            new FormPesquisarQuartos(this).ShowDialog();
         }
 
         private void btnPesquisarClientes_Click(object sender, EventArgs e)

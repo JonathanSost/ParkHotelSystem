@@ -48,6 +48,8 @@
             this.lbl4 = new System.Windows.Forms.Label();
             this.lbl5 = new System.Windows.Forms.Label();
             this.lnkFuncionarioLogado = new System.Windows.Forms.LinkLabel();
+            this.lnkReservas = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogoff
@@ -55,7 +57,7 @@
             this.btnLogoff.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogoff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogoff.Location = new System.Drawing.Point(301, 356);
+            this.btnLogoff.Location = new System.Drawing.Point(301, 393);
             this.btnLogoff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(138, 48);
@@ -80,7 +82,7 @@
             // 
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(5, 383);
+            this.lblHora.Location = new System.Drawing.Point(5, 420);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(57, 21);
             this.lblHora.TabIndex = 13;
@@ -91,12 +93,12 @@
             this.lnkFuncionarios.AutoSize = true;
             this.lnkFuncionarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkFuncionarios.LinkColor = System.Drawing.Color.Blue;
-            this.lnkFuncionarios.Location = new System.Drawing.Point(54, 296);
+            this.lnkFuncionarios.Location = new System.Drawing.Point(55, 346);
             this.lnkFuncionarios.Name = "lnkFuncionarios";
             this.lnkFuncionarios.Size = new System.Drawing.Size(139, 21);
             this.lnkFuncionarios.TabIndex = 5;
             this.lnkFuncionarios.TabStop = true;
-            this.lnkFuncionarios.Text = "Funcionários (F5)";
+            this.lnkFuncionarios.Text = "Funcionários (F6)";
             this.lnkFuncionarios.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFuncionarios_LinkClicked);
             // 
             // lblNomeFuncionario
@@ -232,7 +234,7 @@
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5.Location = new System.Drawing.Point(36, 297);
+            this.lbl5.Location = new System.Drawing.Point(37, 347);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(16, 21);
             this.lbl5.TabIndex = 23;
@@ -251,13 +253,38 @@
             this.lnkFuncionarioLogado.Text = ".";
             this.lnkFuncionarioLogado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFuncionarioLogado_LinkClicked);
             // 
+            // lnkReservas
+            // 
+            this.lnkReservas.AutoSize = true;
+            this.lnkReservas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkReservas.LinkColor = System.Drawing.Color.Blue;
+            this.lnkReservas.Location = new System.Drawing.Point(55, 301);
+            this.lnkReservas.Name = "lnkReservas";
+            this.lnkReservas.Size = new System.Drawing.Size(111, 21);
+            this.lnkReservas.TabIndex = 25;
+            this.lnkReservas.TabStop = true;
+            this.lnkReservas.Text = "Reservas (F5)";
+            this.lnkReservas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReservas_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 301);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 21);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "*";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(452, 430);
+            this.ClientSize = new System.Drawing.Size(452, 464);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lnkReservas);
             this.Controls.Add(this.lnkFuncionarioLogado);
             this.Controls.Add(this.lbl5);
             this.Controls.Add(this.lbl4);
@@ -311,5 +338,7 @@
         private System.Windows.Forms.Label lbl4;
         private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.LinkLabel lnkFuncionarioLogado;
+        private System.Windows.Forms.LinkLabel lnkReservas;
+        private System.Windows.Forms.Label label1;
     }
 }

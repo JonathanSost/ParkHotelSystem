@@ -99,6 +99,13 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Quartos
+        public List<QuartoViewModel> LerQuartos()
+        {
+            return dal.LerQuartos();
+        }
+        #endregion
+
         #region Ler Por ID
         public Quarto LerPorID(int id)
         {

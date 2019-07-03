@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
-            this.dgvFornecedores = new System.Windows.Forms.DataGridView();
+            this.dgvQuartos = new System.Windows.Forms.DataGridView();
             this.btnPesquisarPorQuartosDisponíveis = new System.Windows.Forms.Button();
-            this.PesquisarPorTipo = new System.Windows.Forms.Button();
-            this.btnPesquisarPorPreco = new System.Windows.Forms.Button();
             this.cmbTipos = new System.Windows.Forms.ComboBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
+            this.btnPesquisarPorPreçosMaiores = new System.Windows.Forms.Button();
+            this.btnPesquisarPorPreçosIguais = new System.Windows.Forms.Button();
+            this.btnPesquisarPorPreçosMenores = new System.Windows.Forms.Button();
+            this.PesquisarPorTipo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome1
@@ -108,44 +110,44 @@
             this.lblPesquisar.TabIndex = 191;
             this.lblPesquisar.Text = "Pesquisar Por:";
             // 
-            // dgvFornecedores
+            // dgvQuartos
             // 
-            this.dgvFornecedores.AllowUserToOrderColumns = true;
-            this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvFornecedores.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFornecedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFornecedores.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvFornecedores.Location = new System.Drawing.Point(-1, 0);
-            this.dgvFornecedores.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvFornecedores.Name = "dgvFornecedores";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFornecedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvFornecedores.RowHeadersVisible = false;
-            this.dgvFornecedores.RowTemplate.Height = 24;
-            this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFornecedores.Size = new System.Drawing.Size(483, 200);
-            this.dgvFornecedores.TabIndex = 190;
+            this.dgvQuartos.AllowUserToOrderColumns = true;
+            this.dgvQuartos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvQuartos.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvQuartos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dgvQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvQuartos.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvQuartos.Location = new System.Drawing.Point(-1, 0);
+            this.dgvQuartos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvQuartos.Name = "dgvQuartos";
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvQuartos.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvQuartos.RowHeadersVisible = false;
+            this.dgvQuartos.RowTemplate.Height = 24;
+            this.dgvQuartos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvQuartos.Size = new System.Drawing.Size(483, 200);
+            this.dgvQuartos.TabIndex = 190;
             // 
             // btnPesquisarPorQuartosDisponíveis
             // 
@@ -156,26 +158,7 @@
             this.btnPesquisarPorQuartosDisponíveis.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorQuartosDisponíveis.TabIndex = 200;
             this.btnPesquisarPorQuartosDisponíveis.UseVisualStyleBackColor = true;
-            // 
-            // PesquisarPorTipo
-            // 
-            this.PesquisarPorTipo.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.PesquisarPorTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PesquisarPorTipo.Location = new System.Drawing.Point(296, 352);
-            this.PesquisarPorTipo.Name = "PesquisarPorTipo";
-            this.PesquisarPorTipo.Size = new System.Drawing.Size(26, 26);
-            this.PesquisarPorTipo.TabIndex = 199;
-            this.PesquisarPorTipo.UseVisualStyleBackColor = true;
-            // 
-            // btnPesquisarPorPreco
-            // 
-            this.btnPesquisarPorPreco.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorPreco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorPreco.Location = new System.Drawing.Point(295, 298);
-            this.btnPesquisarPorPreco.Name = "btnPesquisarPorPreco";
-            this.btnPesquisarPorPreco.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorPreco.TabIndex = 198;
-            this.btnPesquisarPorPreco.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorQuartosDisponíveis.Click += new System.EventHandler(this.btnPesquisarPorQuartosDisponíveis_Click);
             // 
             // cmbTipos
             // 
@@ -198,6 +181,53 @@
             this.chkDisponivel.Text = "Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
             // 
+            // btnPesquisarPorPreçosMaiores
+            // 
+            this.btnPesquisarPorPreçosMaiores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosMaiores.Location = new System.Drawing.Point(362, 297);
+            this.btnPesquisarPorPreçosMaiores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosMaiores.Name = "btnPesquisarPorPreçosMaiores";
+            this.btnPesquisarPorPreçosMaiores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosMaiores.TabIndex = 207;
+            this.btnPesquisarPorPreçosMaiores.Text = ">";
+            this.btnPesquisarPorPreçosMaiores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosMaiores.Click += new System.EventHandler(this.btnPesquisarPorPreçosMaiores_Click);
+            // 
+            // btnPesquisarPorPreçosIguais
+            // 
+            this.btnPesquisarPorPreçosIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(329, 297);
+            this.btnPesquisarPorPreçosIguais.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosIguais.Name = "btnPesquisarPorPreçosIguais";
+            this.btnPesquisarPorPreçosIguais.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosIguais.TabIndex = 206;
+            this.btnPesquisarPorPreçosIguais.Text = "=";
+            this.btnPesquisarPorPreçosIguais.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosIguais.Click += new System.EventHandler(this.btnPesquisarPorPreçosIguais_Click);
+            // 
+            // btnPesquisarPorPreçosMenores
+            // 
+            this.btnPesquisarPorPreçosMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPorPreçosMenores.Location = new System.Drawing.Point(296, 297);
+            this.btnPesquisarPorPreçosMenores.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPesquisarPorPreçosMenores.Name = "btnPesquisarPorPreçosMenores";
+            this.btnPesquisarPorPreçosMenores.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisarPorPreçosMenores.TabIndex = 205;
+            this.btnPesquisarPorPreçosMenores.Text = "<";
+            this.btnPesquisarPorPreçosMenores.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorPreçosMenores.Click += new System.EventHandler(this.btnPesquisarPorPreçosMenores_Click);
+            // 
+            // PesquisarPorTipo
+            // 
+            this.PesquisarPorTipo.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.PesquisarPorTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PesquisarPorTipo.Location = new System.Drawing.Point(296, 352);
+            this.PesquisarPorTipo.Name = "PesquisarPorTipo";
+            this.PesquisarPorTipo.Size = new System.Drawing.Size(26, 26);
+            this.PesquisarPorTipo.TabIndex = 199;
+            this.PesquisarPorTipo.UseVisualStyleBackColor = true;
+            this.PesquisarPorTipo.Click += new System.EventHandler(this.PesquisarPorTipo_Click);
+            // 
             // FormPesquisarQuartos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,22 +235,27 @@
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(482, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisarPorPreçosMaiores);
+            this.Controls.Add(this.btnPesquisarPorPreçosIguais);
+            this.Controls.Add(this.btnPesquisarPorPreçosMenores);
             this.Controls.Add(this.chkDisponivel);
             this.Controls.Add(this.cmbTipos);
             this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.btnPesquisarPorQuartosDisponíveis);
             this.Controls.Add(this.PesquisarPorTipo);
-            this.Controls.Add(this.btnPesquisarPorPreco);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeEmpresa);
             this.Controls.Add(this.lblPesquisar);
-            this.Controls.Add(this.dgvFornecedores);
+            this.Controls.Add(this.dgvQuartos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "FormPesquisarQuartos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPesquisarQuartos";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormPesquisarQuartos_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,14 +266,16 @@
         private System.Windows.Forms.Label lblNome1;
         private System.Windows.Forms.Label lblNome2;
         private System.Windows.Forms.Button btnPesquisarPorQuartosDisponíveis;
-        private System.Windows.Forms.Button PesquisarPorTipo;
-        private System.Windows.Forms.Button btnPesquisarPorPreco;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeEmpresa;
         private System.Windows.Forms.Label lblPesquisar;
-        private System.Windows.Forms.DataGridView dgvFornecedores;
+        private System.Windows.Forms.DataGridView dgvQuartos;
         private System.Windows.Forms.ComboBox cmbTipos;
         private System.Windows.Forms.CheckBox chkDisponivel;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosMaiores;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosIguais;
+        private System.Windows.Forms.Button btnPesquisarPorPreçosMenores;
+        private System.Windows.Forms.Button PesquisarPorTipo;
     }
 }

@@ -121,6 +121,54 @@ namespace DAL
         }
         #endregion
 
+        public List<QuartoViewModel> LerQuartos()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoQuarto', t.tipostring 'TipoQuarto', 
+                                    q.disponivel 'Disponivel' from quartos inner join tipos t on q.tipo = t.id";
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDQuarto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoQuarto"]);
+                    string tipoquarto = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponivel"]);
+
+                    QuartoViewModel quarto = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipoquarto,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(quarto);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
+        }
+
         #region Ler Por ID
         public Quarto LerPorID(int id)
         {

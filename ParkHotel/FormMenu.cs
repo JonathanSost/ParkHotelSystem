@@ -23,19 +23,19 @@ namespace ParkHotel
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
             if (Funci.EhADM)
             {
-                this.Size = new Size(452, 430);
+                this.Size = new Size(452, 464);
                 lnkFuncionarios.Visible = true;
                 lbl5.Visible = true;
-                lblHora.Location = new Point(5, 383);
-                btnLogoff.Location = new Point(301, 356);
+                lblHora.Location = new Point(5, 420);
+                btnLogoff.Location = new Point(301, 393);
             }
             else
             {
-                this.Size = new Size(452, 399);
+                this.Size = new Size(452, 416);
                 lnkFuncionarios.Visible = false;
                 lbl5.Visible = false;
-                lblHora.Location = new Point(5, 346);
-                btnLogoff.Location = new Point(301, 332);
+                lblHora.Location = new Point(5, 376);
+                btnLogoff.Location = new Point(301, 349);
             }
         }
         #endregion
@@ -88,6 +88,12 @@ namespace ParkHotel
             else if (e.KeyCode == Keys.F5)
             {
                 IButtonControl i = null;
+                i = lnkReservas;
+                i.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F6)
+            {
+                IButtonControl i = null;
                 i = lnkFuncionarios;
                 i.PerformClick();
             }
@@ -117,6 +123,12 @@ namespace ParkHotel
             new FormQuartos().Show();
         }
 
+        private void lnkReservas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            new FormReservas().Show();
+        }
+
         private void lnkFuncionarios_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -136,5 +148,7 @@ namespace ParkHotel
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
         #endregion
+
+        
     }
 }
