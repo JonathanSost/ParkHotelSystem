@@ -48,6 +48,10 @@ namespace ParkHotel
             }
             Admin = false;
 
+            if (Parametros.FuncionarioLogado == null)
+            {
+                return;
+            }
             dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             dgvFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
@@ -106,6 +110,12 @@ namespace ParkHotel
             if (response.Success)
             {
                 FormCleaner.Clear(this);
+                if (Parametros.FuncionarioLogado == null)
+                {
+                    dgvFuncionarios.DataSource = funbll.LerFuncionarios(f);
+                    Parametros.FuncionarioLogado = f;
+                    return;
+                }
                 dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             }
         }

@@ -11,6 +11,11 @@ namespace BLL
 {
     public class FornecedorBLL
     {
+        FornecedorDAL dal = new FornecedorDAL();
+        MessageResponse response = new MessageResponse();
+        List<string> erros = new List<string>();
+
+        #region Validar CNPJ
         /// <summary>
         /// Realiza a validação do CNPJ do Fornecedor.
         /// </summary>
@@ -50,9 +55,7 @@ namespace BLL
             return cnpj.EndsWith(digito);
             #endregion
         }
-
-        FornecedorDAL dal = new FornecedorDAL();
-        MessageResponse response = new MessageResponse();
+        #endregion
 
         #region Cadastrar
         /// <summary>
@@ -62,8 +65,6 @@ namespace BLL
         /// <returns></returns>
         public MessageResponse Cadastrar(Fornecedor fornecedor)
         {
-            List<string> erros = new List<string>();
-
             #region Nome Empresa
             if (string.IsNullOrWhiteSpace(fornecedor.NomeEmpresa))
             {

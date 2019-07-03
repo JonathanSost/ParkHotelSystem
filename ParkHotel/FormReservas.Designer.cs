@@ -147,7 +147,7 @@
             this.btnPesquisarQuartos.TabIndex = 129;
             this.btnPesquisarQuartos.Text = "...";
             this.btnPesquisarQuartos.UseVisualStyleBackColor = true;
-            this.btnPesquisarQuartos.Click += new System.EventHandler(this.btnPesquisarFornecedores_Click);
+            this.btnPesquisarQuartos.Click += new System.EventHandler(this.btnPesquisarQuartos_Click);
             // 
             // label6
             // 
@@ -169,7 +169,6 @@
             this.txtIDQuarto.Name = "txtIDQuarto";
             this.txtIDQuarto.Size = new System.Drawing.Size(161, 26);
             this.txtIDQuarto.TabIndex = 127;
-            this.txtIDQuarto.TextChanged += new System.EventHandler(this.txtIDFornecedor_TextChanged);
             // 
             // btnPesquisarClientes
             // 
@@ -192,7 +191,6 @@
             this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 131;
             this.label1.Text = "ID do Cliente";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtIDCliente
             // 
@@ -203,7 +201,6 @@
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.Size = new System.Drawing.Size(161, 26);
             this.txtIDCliente.TabIndex = 130;
-            this.txtIDCliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dtpCheckin
             // 
@@ -270,6 +267,7 @@
             this.Controls.Add(this.dgvReservas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormReservas";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormReservas_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

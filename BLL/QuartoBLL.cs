@@ -10,14 +10,13 @@ namespace BLL
 {
     public class QuartoBLL
     {
-        private QuartoDAL dal = new QuartoDAL();
+        List<string> erros = new List<string>();
+        QuartoDAL dal = new QuartoDAL();
         MessageResponse response = new MessageResponse();
 
         #region Cadastrar
         public MessageResponse Cadastrar (Quarto quarto)
         {
-            List<string> erros = new List<string>();
-
             if (quarto.Preco < 0)
             {
                 erros.Add("Preço do quarto inválido.");

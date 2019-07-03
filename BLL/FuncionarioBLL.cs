@@ -11,6 +11,10 @@ namespace BLL
 {
     public class FuncionarioBLL
     {
+        FuncionarioDAL dal = new FuncionarioDAL();
+        MessageResponse response = new MessageResponse();
+        List<string> erros = new List<string>();
+
         #region Validar CPF
         /// <summary>
         /// Realiza a validação do CPF do Funcionário.
@@ -55,9 +59,6 @@ namespace BLL
         }
         #endregion
 
-        FuncionarioDAL dal = new FuncionarioDAL();
-        MessageResponse response = new MessageResponse();
-
         #region Logar
         /// <summary>
         /// Realiza o Login do Funcionário.
@@ -79,9 +80,6 @@ namespace BLL
         /// <returns></returns>
         public MessageResponse Cadastrar(Funcionario fun)
         {
-            MessageResponse response = new MessageResponse();
-            List<string> erros = new List<string>();
-
             #region Nome
             if (string.IsNullOrWhiteSpace(fun.Nome))
             {
@@ -204,7 +202,7 @@ namespace BLL
             }
             else
             {
-                fun.Bairro = fun.Bairro.Replace(" ", "");
+                fun.Bairro = Regex.Replace(fun.Bairro, " {2,}", " ");
                 if (fun.Bairro.Length < 3 || fun.Bairro.Length > 50)
                 {
                     erros.Add("Bairro deve conter entre 3 e 50 caracteres");
@@ -322,7 +320,6 @@ namespace BLL
                 response.Message = errosCliente.ToString();
                 return response;
             }
-            //chamar o DAL para cadastrar
             response = dal.Inserir(fun);
             response.Message = "Funcionário cadastrado com sucesso!";
             return response;
@@ -625,7 +622,7 @@ namespace BLL
 
         #region Ler Funcionários
         /// <summary>
-        /// Traz uma lista com todos os Funcionários do banco de dados, porém, de forma mais organizada.
+        /// Traz uma lista com todos os Funcionários do banco de dados, porém, de forma aprimorada.
         /// </summary>
         /// <param name="funci"></param>
         /// <returns></returns>
@@ -635,15 +632,28 @@ namespace BLL
         }
         #endregion
 
+        #region Verificar Existência do Funcionário (ID)
+        /// <summary>
+        /// Verifica a existência do Funcionário através do ID
+        /// </summary>
+        /// <param name="idFuncionario"></param>
+        /// <returns></returns>
         public bool VerificarExistenciaFuncionario(int idFuncionario)
         {
             return dal.VerificarExistenciaFuncionario(idFuncionario);
         }
+        #endregion
 
+        #region Verificar Existência do Funcionário
+        /// <summary>
+        /// Verifica a existência do Funcionário sem nenhum parâmetro (Utilizado especificamente na inicialização do FormLogin)
+        /// </summary>
+        /// <returns></returns>
         public bool VerificarExistenciaFuncionarioA()
         {
             return dal.VerificarExistenciaFuncionarioA();
         }
+        #endregion
 
         #region Pesquisar Por Nome
         /// <summary>

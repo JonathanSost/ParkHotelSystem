@@ -52,6 +52,7 @@
             // 
             this.dgvFornecedores.AllowUserToOrderColumns = true;
             this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvFornecedores.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,9 +126,9 @@
             this.label4.Location = new System.Drawing.Point(152, 396);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.Size = new System.Drawing.Size(148, 20);
             this.label4.TabIndex = 183;
-            this.label4.Text = "Nome";
+            this.label4.Text = "Nome para Contato";
             // 
             // txtNome
             // 
@@ -135,7 +136,7 @@
             this.txtNome.Location = new System.Drawing.Point(152, 415);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(128, 26);
+            this.txtNome.Size = new System.Drawing.Size(152, 26);
             this.txtNome.TabIndex = 181;
             // 
             // label1
@@ -173,7 +174,7 @@
             this.lblNome2.AutoSize = true;
             this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
-            this.lblNome2.Location = new System.Drawing.Point(50, 454);
+            this.lblNome2.Location = new System.Drawing.Point(52, 454);
             this.lblNome2.Name = "lblNome2";
             this.lblNome2.Size = new System.Drawing.Size(63, 17);
             this.lblNome2.TabIndex = 189;
@@ -183,7 +184,7 @@
             // 
             this.btnPesquisarPorNomeContato.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
             this.btnPesquisarPorNomeContato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNomeContato.Location = new System.Drawing.Point(285, 416);
+            this.btnPesquisarPorNomeContato.Location = new System.Drawing.Point(309, 416);
             this.btnPesquisarPorNomeContato.Name = "btnPesquisarPorNomeContato";
             this.btnPesquisarPorNomeContato.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorNomeContato.TabIndex = 187;

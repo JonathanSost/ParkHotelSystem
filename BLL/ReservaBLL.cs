@@ -12,7 +12,6 @@ namespace BLL
     {
         ReservaDAL dal = new ReservaDAL();
         MessageResponse response = new MessageResponse();
-
         List<string> erros = new List<string>();
 
         #region Cadastrar

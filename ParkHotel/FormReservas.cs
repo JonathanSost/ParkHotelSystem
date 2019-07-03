@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,26 +18,6 @@ namespace ParkHotel
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIDFornecedor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPesquisarFornecedores_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCheckin_Click(object sender, EventArgs e)
         {
 
@@ -52,9 +33,23 @@ namespace ParkHotel
 
         }
 
+        private void btnPesquisarQuartos_Click(object sender, EventArgs e)
+        {
+            this.Hide()
+        }
+
         private void btnPesquisarClientes_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormReservas_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                new FormMenu(Parametros.FuncionarioLogado).Show();
+            }
         }
     }
 }

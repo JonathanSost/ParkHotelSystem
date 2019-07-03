@@ -10,14 +10,13 @@ namespace BLL
 {
     public class ProdutoBLL
     {
-
         ProdutoDAL dal = new ProdutoDAL();
         MessageResponse response = new MessageResponse();
+        List<string> erros = new List<string>();
 
         #region Cadastrar
         public MessageResponse Cadastrar (Produto produto)
         {
-            List<string> erros = new List<string>();
 
             if (string.IsNullOrWhiteSpace(produto.Nome))
             {
