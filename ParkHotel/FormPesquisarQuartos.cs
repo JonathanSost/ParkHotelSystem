@@ -50,6 +50,19 @@ namespace ParkHotel
 
         }
 
+        private void dgvQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            this.QuartoSelecionado = new Quarto()
+            {
+                ID = (int)dgvQuartos.Rows[e.RowIndex].Cells[0].Value
+            };
+            this.Close();
+        }
+
         private void FormPesquisarQuartos_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)

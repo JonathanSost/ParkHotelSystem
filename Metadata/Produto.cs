@@ -32,28 +32,11 @@ namespace Metadata
             this.IdFornecedor = idfornecedor;
         }
 
-        public Produto(int id, string nome, string descricao, int estoque, double preco, int idfornecedor, string nomefornecedor)
-        {
-            this.ID = id;
-            this.Nome = nome;
-            this.Descricao = descricao;
-            this.Estoque = estoque;
-            this.Preco = preco;
-            this.IdFornecedor = idfornecedor;
-            this.NomeFornecedor = nomefornecedor;
-        }
-
         public int ID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int Estoque { get; set; }
         public double Preco { get; set; }
         public int IdFornecedor { get; set; }
-        public string NomeFornecedor { get; set; }
-
-        public string LerDadosProduto()
-        {
-            return Nome + "\r\n" + Descricao + "\r\n" + Preco + "\r\n";
-        }
     }
 }

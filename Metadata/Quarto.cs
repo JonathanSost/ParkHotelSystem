@@ -8,6 +8,11 @@ namespace Metadata
 {
     public class Quarto
     {
+        public Quarto()
+        {
+
+        }
+
         public Quarto (int id, double preco, string tipo, bool quartodisponivel)
         {
             this.ID = id;

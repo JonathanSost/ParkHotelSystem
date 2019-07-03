@@ -53,6 +53,7 @@
     <Compile Include="MessageResponse.cs" />
     <Compile Include="Parametros.cs" />
     <Compile Include="Produto.cs" />
+    <Compile Include="ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quarto.cs" />
     <Compile Include="QuartoViewModel.cs" />
