@@ -165,17 +165,17 @@ namespace ParkHotel
 
         private void btnPesquisarPorPreçosMenores_Click(object sender, EventArgs e)
         {
-
+            pbll.PesquisarPorPrecosMenores(int.Parse(txtPreco.Text));
         }
 
         private void btnPesquisarPorPreçosIguais_Click(object sender, EventArgs e)
         {
-
+            pbll.PesquisarPorPrecosIguais(int.Parse(txtPreco.Text));
         }
 
         private void btnPesquisarPorPreçosMaiores_Click(object sender, EventArgs e)
         {
-
+            pbll.PesquisarPorPrecosMaiores(int.Parse(txtPreco.Text));
         }
 
         private void btnPesquisarPorEstoquesMenores_Click(object sender, EventArgs e)
