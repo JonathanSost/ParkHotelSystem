@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVendas));
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.btnPesquisarClientes = new System.Windows.Forms.Button();
@@ -160,6 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 464);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label3);
@@ -171,6 +173,7 @@
             this.Controls.Add(this.txtIDCliente);
             this.Controls.Add(this.lblNome2);
             this.Controls.Add(this.lblNome1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVendas";
             this.Text = "FormVendas";
             this.ResumeLayout(false);

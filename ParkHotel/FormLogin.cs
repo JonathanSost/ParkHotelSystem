@@ -24,6 +24,13 @@ namespace ParkHotel
         //CONSTRAINT UNIQUE_FUN_EMAIL UNIQUE (EMAIL)
         //alter table vendas add constraint FK_VENDA_PRODUTO foreign key (produto) references produtos
 
+        DateTime HorarioAtual = DateTime.Now;
+
+        //if ((HorarioAtual.Hour == 6) && (HorarioAtual.Minute == 30))
+        //{
+        //    // Chame aqui o seu método
+        //}
+
         public FormLogin()
         {
             InitializeComponent();

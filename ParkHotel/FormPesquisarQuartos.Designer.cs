@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisarQuartos));
             this.lblNome1 = new System.Windows.Forms.Label();
             this.lblNome2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -251,6 +252,7 @@
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.dgvQuartos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormPesquisarQuartos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
