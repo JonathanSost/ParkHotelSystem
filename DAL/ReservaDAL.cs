@@ -86,8 +86,8 @@ namespace DAL
         }
         #endregion
 
-        #region Inserir
-        public MessageResponse Inserir(Reserva reserva)
+        #region Checkin
+        public MessageResponse Checkin(Reserva reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);

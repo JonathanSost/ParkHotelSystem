@@ -1,4 +1,5 @@
-﻿using Metadata;
+﻿using BLL;
+using Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,21 +17,58 @@ namespace ParkHotel
         public FormReservas()
         {
             InitializeComponent();
+            
         }
+        ReservaBLL resbll = new ReservaBLL();
+        Reserva r = null;
 
         private void btnCheckin_Click(object sender, EventArgs e)
         {
+            //r = new Reserva(int.Parse(txtID.Text), int.Parse(txtIDQuarto.Text), int.Parse(txtIDCliente.Text), dtpCheckin.Value, dtpCheckout.Value);
 
+
+            //MessageResponse response = resbll.Cadastrar(r);
+            //MessageBox.Show(response.Message);
+
+            //if (response.Success)
+            //{
+            //    dgvReservas.DataSource = resbll.LerTodos();
+            //    FormCleaner.Clear(this);
+            //}
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("ID do Quarto deve ser informado.");
+            }
+            r.ID = int.Parse(txtID.Text);
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir a reserva?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            MessageResponse response = new MessageResponse();
+            response = resbll.Excluir(r);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvReservas.DataSource = resbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            r = new Reserva(int.Parse(txtID.Text), int.Parse(txtIDQuarto.Text), int.Parse(txtIDCliente.Text), dtpCheckin.Value, dtpCheckout.Value);
+            MessageResponse response = new MessageResponse();
+            response = resbll.Atualizar(r);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvReservas.DataSource = resbll.LerTodos();
+            }
         }
 
         private void btnPesquisarQuartos_Click(object sender, EventArgs e)
