@@ -243,5 +243,12 @@ namespace DAL
             return false;
         }
         #endregion
+
+        #region Check-Out
+        public void Checkout()
+        {
+
+        }
+        #endregion
     }
 }
