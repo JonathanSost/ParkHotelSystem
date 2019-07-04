@@ -21,10 +21,6 @@ namespace BLL
             {
                 erros.Add("Preço do quarto inválido.");
             }
-            if (string.IsNullOrWhiteSpace(quarto.Tipo))
-            {
-                erros.Add("Tipo do Quarto deve ser informado.");
-            }
             if (!quarto.QuartoDisponivel)
             {
                 erros.Add("Quarto Indisponível");
@@ -60,10 +56,6 @@ namespace BLL
             if (quarto.Preco < 0)
             {
                 erros.Add("Preço do quarto inválido.");
-            }
-            if (string.IsNullOrWhiteSpace(quarto.Tipo))
-            {
-                erros.Add("Tipo do Quarto deve ser informado.");
             }
             if (!quarto.QuartoDisponivel)
             {

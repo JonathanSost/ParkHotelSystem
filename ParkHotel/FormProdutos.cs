@@ -25,7 +25,7 @@ namespace ParkHotel
 
         private void FormProdutos_Load(object sender, EventArgs e)
         {
-            dgvProdutos.DataSource = pbll.LerTodos();
+            dgvProdutos.DataSource = pbll.LerProdutos();
         }
         #endregion
 
@@ -38,7 +38,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvProdutos.DataSource = pbll.LerTodos();
+                dgvProdutos.DataSource = pbll.LerProdutos();
                 FormCleaner.Clear(this);
             }
         }
@@ -51,7 +51,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvProdutos.DataSource = pbll.LerTodos();
+                dgvProdutos.DataSource = pbll.LerProdutos();
             }
         }
 
@@ -74,7 +74,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                pbll.LerTodos();
+                dgvProdutos.DataSource = pbll.LerProdutos();
                 FormCleaner.Clear(this);
             }
         }
@@ -108,7 +108,7 @@ namespace ParkHotel
 
         private void picbRefresh_Click(object sender, EventArgs e)
         {
-            dgvProdutos.DataSource = pbll.LerTodos();
+            dgvProdutos.DataSource = pbll.LerProdutos();
         }
 
         private void picbClear_Click(object sender, EventArgs e)

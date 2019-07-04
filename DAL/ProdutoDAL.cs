@@ -106,7 +106,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
@@ -253,9 +253,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id";
 
             command.Connection = connection;
 
@@ -272,7 +272,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -310,9 +310,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where Nome = @Nome";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where Nome = @Nome";
 
             command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
 
@@ -331,7 +331,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -369,9 +369,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where descricao = @descricao";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where descricao = @descricao";
 
             command.Parameters.AddWithValue("@Descricao", "%" + Descricao + "%");
 
@@ -390,7 +390,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -428,9 +428,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where preco < @preco";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound < @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
 
@@ -449,7 +449,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -487,9 +487,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where preco = @preco";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound = @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
 
@@ -508,7 +508,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -546,9 +546,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where preco > @preco";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound > @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
 
@@ -567,7 +567,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -605,9 +605,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where estoque < @estoque";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque < @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
 
@@ -626,7 +626,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -664,9 +664,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where estoque = @estoque";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque = @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
 
@@ -685,7 +685,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
@@ -723,9 +723,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos inner join fornecedores f on p.idfornecedor = f.id where estoque > @estoque";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque > @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
 
@@ -744,7 +744,7 @@ namespace DAL
 
                     string nome = Convert.ToString(reader["NomeProduto"]);
                     string descricao = Convert.ToString(reader["DescricaoProduto"]);
-                    double precound = Convert.ToDouble(reader["PRECOUND"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);

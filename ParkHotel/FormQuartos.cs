@@ -16,6 +16,7 @@ namespace ParkHotel
     {
         #region Inicialização do Form
         QuartoBLL qbll = new QuartoBLL();
+        TipoBLL tbll = new TipoBLL();
         Quarto q = null;
         public FormQuartos()
         {
@@ -23,13 +24,14 @@ namespace ParkHotel
 
             cmbTipo.DisplayMember = "TipoString";
             cmbTipo.ValueMember = "ID";
+            cmbTipo.DataSource = tbll.LerTodos();
         }
         #endregion
 
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            q = new Quarto(double.Parse(txtPreco.Text), txtTipo.Text, chkDisponivel.Checked);
+            q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
 
             MessageResponse response = qbll.Cadastrar(q);
             MessageBox.Show(response.Message);
@@ -43,7 +45,7 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            q = new Quarto(double.Parse(txtPreco.Text), txtTipo.Text, chkDisponivel.Checked);
+            q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
 
             MessageResponse response = qbll.Atualizar(q);
             MessageBox.Show(response.Message);
@@ -116,14 +118,11 @@ namespace ParkHotel
         {
             FormCleaner.Clear(this);
         }
-        #endregion
 
-        #region Componente Changed
-        private void txtPreco_TextChanged(object sender, EventArgs e)
+        private void btnCriarTipo_Click(object sender, EventArgs e)
         {
-            txtPreco.MaxLength = 10;
+            new FormCriarTipo(this).ShowDialog();
         }
-        #endregion
 
         private void dgvQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -132,10 +131,13 @@ namespace ParkHotel
                 return;
             }
         }
+        #endregion
 
-        private void btnCriarTipo_Click(object sender, EventArgs e)
+        #region Componente Changed
+        private void txtPreco_TextChanged(object sender, EventArgs e)
         {
-
+            txtPreco.MaxLength = 10;
         }
+        #endregion
     }
 }

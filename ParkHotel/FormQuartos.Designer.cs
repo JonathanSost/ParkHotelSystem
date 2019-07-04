@@ -41,11 +41,11 @@
             this.lblNome2 = new System.Windows.Forms.Label();
             this.lblNome1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.picbClear = new System.Windows.Forms.PictureBox();
-            this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCriarTipo = new System.Windows.Forms.Button();
+            this.picbClear = new System.Windows.Forms.PictureBox();
+            this.picbRefresh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -96,6 +96,7 @@
             // 
             // dgvQuartos
             // 
+            this.dgvQuartos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuartos.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvQuartos.Location = new System.Drawing.Point(0, 0);
@@ -126,9 +127,9 @@
             this.label1.Location = new System.Drawing.Point(34, 269);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Preço";
+            this.label1.Text = "Preço (Diária)";
             // 
             // txtPreco
             // 
@@ -184,30 +185,6 @@
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
             // 
-            // picbClear
-            // 
-            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
-            this.picbClear.Location = new System.Drawing.Point(595, 173);
-            this.picbClear.Name = "picbClear";
-            this.picbClear.Size = new System.Drawing.Size(30, 35);
-            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbClear.TabIndex = 123;
-            this.picbClear.TabStop = false;
-            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
-            // 
-            // picbRefresh
-            // 
-            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
-            this.picbRefresh.Location = new System.Drawing.Point(595, 137);
-            this.picbRefresh.Name = "picbRefresh";
-            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
-            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picbRefresh.TabIndex = 122;
-            this.picbRefresh.TabStop = false;
-            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
-            // 
             // cmbTipo
             // 
             this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -238,6 +215,30 @@
             this.btnCriarTipo.Text = "Criar Novo Tipo de Quarto";
             this.btnCriarTipo.UseVisualStyleBackColor = true;
             this.btnCriarTipo.Click += new System.EventHandler(this.btnCriarTipo_Click);
+            // 
+            // picbClear
+            // 
+            this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
+            this.picbClear.Location = new System.Drawing.Point(595, 173);
+            this.picbClear.Name = "picbClear";
+            this.picbClear.Size = new System.Drawing.Size(30, 35);
+            this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbClear.TabIndex = 123;
+            this.picbClear.TabStop = false;
+            this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
+            // 
+            // picbRefresh
+            // 
+            this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
+            this.picbRefresh.Location = new System.Drawing.Point(595, 137);
+            this.picbRefresh.Name = "picbRefresh";
+            this.picbRefresh.Size = new System.Drawing.Size(30, 30);
+            this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picbRefresh.TabIndex = 122;
+            this.picbRefresh.TabStop = false;
+            this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
             // FormQuartos
             // 

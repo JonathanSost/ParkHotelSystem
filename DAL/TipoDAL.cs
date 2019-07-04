@@ -199,5 +199,48 @@ namespace DAL
             return tipos;
         }
         #endregion
+
+        #region Pesquisar Por Tipo
+        public List<Tipo> PesquisarPorTipo(string tipo)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select * from tipos where tipostring = @tipostring";
+            command.Parameters.AddWithValue("@tipostring", tipo);
+
+            command.Connection = connection;
+
+            List<Tipo> tipos = new List<Tipo>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string tipostring = Convert.ToString(reader["TIPOSTRING"]);
+
+                    Tipo Tipo = new Tipo(tipostring);
+                    tipos.Add(Tipo);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+
+            return tipos;
+        }
+        #endregion
     }
 }

@@ -196,7 +196,7 @@ namespace DAL
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     double preco = Convert.ToDouble(reader["PRECO"]);
-                    string tipo = Convert.ToString(reader["TIPO"]);
+                    int tipo = Convert.ToInt32(reader["TIPO"]);
                     bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
                     q = new Quarto(id, preco, tipo, disponivel);
                 }
@@ -237,7 +237,7 @@ namespace DAL
                     int id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
                     double preco = Convert.ToDouble(reader["PRECO"]);
-                    string tipo = Convert.ToString(reader["TIPO"]);
+                    int tipo = Convert.ToInt32(reader["TIPO"]);
                     bool disponivel = Convert.ToBoolean(reader["DISPONIVEL"]);
                     Quarto quarto = new Quarto(id, preco, tipo, disponivel);
                     quartos.Add(quarto);

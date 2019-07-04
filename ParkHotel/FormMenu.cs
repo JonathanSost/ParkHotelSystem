@@ -148,7 +148,5 @@ namespace ParkHotel
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
         }
         #endregion
-
-        
     }
 }

@@ -13,7 +13,7 @@ namespace Metadata
 
         }
 
-        public Quarto (int id, double preco, string tipo, bool quartodisponivel)
+        public Quarto (int id, double preco, int tipo, bool quartodisponivel)
         {
             this.ID = id;
             this.Preco = preco;
@@ -21,7 +21,7 @@ namespace Metadata
             this.QuartoDisponivel = quartodisponivel;
         }
 
-        public Quarto(double preco, string tipo, bool quartodisponivel)
+        public Quarto(double preco, int tipo, bool quartodisponivel)
         {
             this.Preco = preco;
             this.Tipo = tipo;
@@ -30,7 +30,7 @@ namespace Metadata
 
         public int ID { get; set; }
         public double Preco { get; set; }
-        public string Tipo { get; set; }
+        public int Tipo { get; set; }
         public bool QuartoDisponivel { get; set; }
     }
 }
