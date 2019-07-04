@@ -47,6 +47,7 @@
             this.dtpCheckout = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,6 +241,18 @@
             this.label4.TabIndex = 136;
             this.label4.Text = "Data prevista de saída";
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(490, 467);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(125, 39);
+            this.btnVoltar.TabIndex = 141;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // FormReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +260,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(637, 518);
             this.ControlBox = false;
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpCheckout);
@@ -296,5 +310,6 @@
         private System.Windows.Forms.DateTimePicker dtpCheckout;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

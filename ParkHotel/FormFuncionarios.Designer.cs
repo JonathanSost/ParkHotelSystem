@@ -368,6 +368,7 @@
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(767, 551);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";

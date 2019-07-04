@@ -216,7 +216,7 @@ namespace BLL
             }
             else
             {
-                cli.Rua = cli.Rua.Replace(" ", "");
+                cli.Rua = Regex.Replace(cli.Rua, " {2,}", " ");
                 if (cli.Rua.Length < 3 || cli.Rua.Length > 70)
                 {
                     erros.Add("Rua deve conter entre 3 e 70 caracteres");
@@ -358,10 +358,6 @@ namespace BLL
             {
                 erros.Add("CPF deve ser informado.");
             }
-            if (dal.ChecarCPF(cli.CPF))
-            {
-                erros.Add("CPF já cadastrado.");
-            }
             else
             {
                 cli.CPF = cli.CPF.Replace(".", "").Replace("-", "");
@@ -376,10 +372,6 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(cli.RG))
             {
                 erros.Add("RG deve ser informado.");
-            }
-            if (dal.ChecarRG(cli.RG))
-            {
-                erros.Add("RG já cadastrado.");
             }
             else
             {
@@ -470,7 +462,7 @@ namespace BLL
             }
             else
             {
-                cli.Rua = cli.Rua.Replace(" ", "");
+                cli.Rua = Regex.Replace(cli.Rua, " {2,}", " ");
                 if (cli.Rua.Length < 3 || cli.Rua.Length > 70)
                 {
                     erros.Add("Rua deve conter entre 3 e 70 caracteres");
@@ -543,10 +535,6 @@ namespace BLL
             if (string.IsNullOrWhiteSpace(cli.Email))
             {
                 erros.Add("Email deve ser informado.");
-            }
-            if (dal.ChecarEmail(cli.Email))
-            {
-                erros.Add("E-Mail já cadastrado.");
             }
             if (!isEmail)
             {
