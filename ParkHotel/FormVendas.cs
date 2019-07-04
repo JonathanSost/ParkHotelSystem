@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,12 @@ namespace ParkHotel
         public FormVendas()
         {
             InitializeComponent();
+            cmbProdutos.ValueMember = "ID";
+            cmbProdutos.DisplayMember = "NOME";
+            cmbProdutos.DataSource = pbll.LerProdutos();
         }
+
+        ProdutoBLL pbll = new ProdutoBLL();
 
        
     }

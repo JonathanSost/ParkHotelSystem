@@ -44,7 +44,7 @@ namespace BLL
                 response.Message = builder.ToString();
                 return response;
             }
-            return dal.Inserir(reserva);
+            return dal.Checkin(reserva);
         }
         #endregion
 
@@ -85,7 +85,8 @@ namespace BLL
                 response.Message = builder.ToString();
                 return response;
             }
-            return dal.Inserir(reserva);
+
+            return dal.Checkin(reserva);
         }
         #endregion
 
