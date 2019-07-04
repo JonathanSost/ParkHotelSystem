@@ -174,6 +174,7 @@ namespace DAL
         }
         #endregion
 
+        #region Checar CPF
         public bool ChecarCPF(string cpf)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -202,7 +203,9 @@ namespace DAL
             }
             return false;
         }
+        #endregion
 
+        #region Checar RG
         public bool ChecarRG(string rg)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -231,7 +234,9 @@ namespace DAL
             }
             return false;
         }
+        #endregion
 
+        #region Checar E-Mail
         public bool ChecarEmail(string email)
         {
             string connectionString = Parametros.GetConnectionString();
@@ -260,6 +265,7 @@ namespace DAL
             }
             return false;
         }
+        #endregion
 
         #region Ler Clientes (ClienteViewModel)
         public List<ClienteViewModel> LerClientes()

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-    public class Reservas
+    public class Reserva
     {
         //int id, int idQuarto, int idCliente, DateTime diaReserva, DateTime diaQueSai
 
-        public Reservas(int id, int idquarto, int idcliente, DateTime diareserva, DateTime diaquesai )
+        public Reserva(int id, int idquarto, int idcliente, DateTime diareserva, DateTime diaquesai )
         {
             this.ID = id;
             this.IDQuarto = idquarto;

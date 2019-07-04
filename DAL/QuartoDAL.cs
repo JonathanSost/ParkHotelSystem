@@ -121,6 +121,7 @@ namespace DAL
         }
         #endregion
 
+        #region Ler Quartos
         public List<QuartoViewModel> LerQuartos()
         {
             string connectionString = Parametros.GetConnectionString();
@@ -168,6 +169,7 @@ namespace DAL
             }
             return quartos;
         }
+        #endregion
 
         #region Ler Por ID
         public Quarto LerPorID(int id)
@@ -281,6 +283,266 @@ namespace DAL
                 connection.Dispose();
             }
             return false;
+        }
+        #endregion
+
+        #region Pesquisar Por Preços Menores
+        public List<QuartoViewModel> PesquisarPorPrecosMenores(double Preco)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoDiária', t.tipostring 'TipoQuarto', q.disponivel 'Disponível' from quartos q 
+                                  inner join tipos t on q.tipo = t.id where preco < @preco";
+
+            command.Parameters.AddWithValue("@preco", Preco);
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string tipo = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponível"]);
+
+                    QuartoViewModel q = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipo,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(q);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
+        }
+        #endregion
+
+        #region Pesquisar Por Preços Iguais
+        public List<QuartoViewModel> PesquisarPorPrecosIguais(double Preco)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoDiária', t.tipostring 'TipoQuarto', q.disponivel 'Disponível' from quartos q 
+                                  inner join tipos t on q.tipo = t.id where preco = @preco";
+
+            command.Parameters.AddWithValue("@preco", Preco);
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string tipo = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponível"]);
+
+                    QuartoViewModel q = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipo,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(q);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
+        }
+        #endregion
+
+        #region Pesquisar Por Preços Maiores
+        public List<QuartoViewModel> PesquisarPorPrecosMaiores(double Preco)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoDiária', t.tipostring 'TipoQuarto', q.disponivel 'Disponível' from quartos q 
+                                  inner join tipos t on q.tipo = t.id where preco > @preco";
+
+            command.Parameters.AddWithValue("@preco", Preco);
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string tipo = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponível"]);
+
+                    QuartoViewModel q = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipo,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(q);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
+        }
+        #endregion
+
+        #region Pesquisar Por Tipo
+        public List<QuartoViewModel> PesquisarPorTipo(int Tipo)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoDiária', t.tipostring 'TipoQuarto', q.disponivel 'Disponível' from quartos q 
+                                  inner join tipos t on q.tipo = t.id where tipo = @tipo";
+
+            command.Parameters.AddWithValue("@tipo", Tipo);
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string tipo = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponível"]);
+
+                    QuartoViewModel q = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipo,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(q);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
+        }
+        #endregion
+
+        #region Pesquisar Por Disponíveis
+        public List<QuartoViewModel> PesquisarPorDisponiveis(bool Disponivel)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoDiária', t.tipostring 'TipoQuarto', q.disponivel 'Disponível' from quartos q 
+                                  inner join tipos t on q.tipo = t.id where disponivel = @disponivel";
+
+            command.Parameters.AddWithValue("@disponivel", Disponivel);
+
+            command.Connection = connection;
+
+            List<QuartoViewModel> quartos = new List<QuartoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string tipo = Convert.ToString(reader["TipoQuarto"]);
+                    bool disponivel = Convert.ToBoolean(reader["Disponível"]);
+
+                    QuartoViewModel q = new QuartoViewModel()
+                    {
+                        ID = id,
+                        Preco = preco,
+                        Tipo = tipo,
+                        Disponivel = disponivel
+                    };
+                    quartos.Add(q);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return quartos;
         }
         #endregion
     }

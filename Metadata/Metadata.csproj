@@ -58,8 +58,9 @@
     <Compile Include="Quarto.cs" />
     <Compile Include="QuartoViewModel.cs" />
     <Compile Include="Registro.cs" />
-    <Compile Include="Reservas.cs" />
-    <Compile Include="Vendas.cs" />
+    <Compile Include="Reserva.cs" />
+    <Compile Include="Tipo.cs" />
+    <Compile Include="Venda.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

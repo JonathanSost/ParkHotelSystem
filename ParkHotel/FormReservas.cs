@@ -41,7 +41,8 @@ namespace ParkHotel
 
         private void btnPesquisarClientes_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            new FormPesquisarClientes(this).ShowDialog();
         }
 
         private void FormReservas_KeyUp(object sender, KeyEventArgs e)

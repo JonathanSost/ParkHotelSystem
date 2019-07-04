@@ -8,25 +8,19 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class VendaDAL 
+    public class TipoDAL
     {
-        MessageResponse response = new MessageResponse();
-
         #region Atualizar
-        public MessageResponse Atualizar(Venda venda)
+        public MessageResponse Atualizar(Tipo tipo)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
+            MessageResponse response = new MessageResponse();
 
-            command.CommandText = "update vendas set datadevenda = @datadevenda, funcionario = @funcionario, " +
-                "cliente = @cliente, produto = @produto, quantidade = @quantidade, valor = @valor where id = @id";
-            command.Parameters.AddWithValue("@datadevenda", venda.DataDeVenda);
-            command.Parameters.AddWithValue("@funcionario", venda.IdCliente);
-            command.Parameters.AddWithValue("@cliente", venda.IdCliente);
-            command.Parameters.AddWithValue("@produto", venda.Produto);
-            command.Parameters.AddWithValue("@quantidade", venda.Quantidade);
-            command.Parameters.AddWithValue("@valor", venda.Valor);
+            command.CommandText = "update tipos set tipostring = @tipostring where id = @id";
+            command.Parameters.AddWithValue("@tipostring", tipo.NomeTipo);
+            command.Parameters.AddWithValue("@id", tipo.ID);
 
             command.Connection = connection;
 
@@ -35,7 +29,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
@@ -43,25 +37,25 @@ namespace DAL
             }
             finally
             {
-                //código executado SEMPRE
                 connection.Dispose();
             }
 
             response.Success = true;
-            response.Message = "Venda atualizada com sucesso!";
+            response.Message = "Tipo de quarto atualizado com sucesso!";
             return response;
         }
         #endregion
 
         #region Excluir
-        public MessageResponse Excluir(Venda venda)
+        public MessageResponse Excluir(Tipo tipo)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
+            MessageResponse response = new MessageResponse();
 
-            command.CommandText = "delete from vendas where id = @id";
-            command.Parameters.AddWithValue("@id", venda.IDVenda);
+            command.CommandText = "delete from tipos where id = @id";
+            command.Parameters.AddWithValue("@id", tipo.ID);
 
             command.Connection = connection;
 
@@ -70,7 +64,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
@@ -83,26 +77,21 @@ namespace DAL
             }
 
             response.Success = true;
-            response.Message = "Venda deletada do sistema com sucesso!";
+            response.Message = "Tipo deletado do sistema com sucesso!";
             return response;
         }
         #endregion
 
         #region Inserir
-        public MessageResponse Inserir(Venda venda)
+        public MessageResponse Inserir(Tipo tipo)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
+            MessageResponse response = new MessageResponse();
 
-            command.CommandText = "insert into vendas (datadevenda, funcionario, cliente, produto, quantidade, valor) values " +
-                "(@datadevenda, @funcionario, @cliente, @produto, @quantidade, @valor)";
-            command.Parameters.AddWithValue("@datadevenda", venda.DataDeVenda);
-            command.Parameters.AddWithValue("@funcionario", venda.IdFuncionario);
-            command.Parameters.AddWithValue("@cliente", venda.IdCliente);
-            command.Parameters.AddWithValue("@produto", venda.Produto);
-            command.Parameters.AddWithValue("@quantidade", venda.Quantidade);
-            command.Parameters.AddWithValue("@valor", venda.Valor);
+            command.CommandText = "insert into tipos (tipostring) values (@tipostring)";
+            command.Parameters.AddWithValue("@tipostring", tipo.NomeTipo);
 
             command.Connection = connection;
 
@@ -111,7 +100,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
@@ -119,29 +108,28 @@ namespace DAL
             }
             finally
             {
-                //código executado SEMPRE
                 connection.Dispose();
             }
 
             response.Success = true;
-            response.Message = "Venda cadastrada no sistema com sucesso!";
+            response.Message = "Tipo cadastrado com sucesso!";
             return response;
         }
         #endregion
 
         #region Ler Por ID
-        public Venda LerPorID(int id)
+        public Tipo LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from vendas where id = @id";
+            command.CommandText = "select * from tipos where id = @id";
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Venda v = null;
+            Tipo tipo = null;
 
             try
             {
@@ -153,8 +141,9 @@ namespace DAL
                     //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     id = Convert.ToInt32(reader["ID"]);
                     //int id = (int)reader["ID"];
+                    string tipostring = Convert.ToString(reader["TIPOSTRING"]);
 
-                    //v = new Vendas();
+                    tipo = new Tipo(tipostring);
                 }
             }
             catch
@@ -165,22 +154,23 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return v;
+            return tipo;
         }
         #endregion
 
         #region Ler Todos
-        public List<Venda> LerTodos()
+        public List<Tipo> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from vendas";
+            command.CommandText = @"select * from tipos";
+
             command.Connection = connection;
 
-            List<Venda> vendas = new List<Venda>();
+            List<Tipo> tipos = new List<Tipo>();
 
             try
             {
@@ -189,15 +179,15 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
                     int id = Convert.ToInt32(reader["ID"]);
-                    //int id = (int)reader["ID"];
 
-                    //Vendas venda = new Vendas();
-                    //vendas.Add(venda);
+                    string tipostring = Convert.ToString(reader["TIPOSTRING"]);
+
+                    Tipo tipo = new Tipo(tipostring);
+                    tipos.Add(tipo);
                 }
             }
-            catch
+            catch (Exception ex)
             {
 
             }
@@ -205,38 +195,8 @@ namespace DAL
             {
                 connection.Dispose();
             }
-            return vendas;
-        }
-        #endregion
 
-        #region Verificar Existência da Venda
-        public bool VerificarExistenciaVenda(int idVenda)
-        {
-            string connectionString = Parametros.GetConnectionString();
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = connectionString;
-
-            SqlCommand command = new SqlCommand();
-            command.CommandText = "select * from vendas where id = @id";
-            command.Parameters.AddWithValue("@id", idVenda);
-            command.Connection = connection;
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                return reader.Read();
-            }
-            catch
-            {
-
-            }
-            finally
-            {
-                connection.Dispose();
-            }
-            return false;
+            return tipos;
         }
         #endregion
     }

@@ -13,7 +13,7 @@ namespace DAL
         MessageResponse response = new MessageResponse();
 
         #region Atualizar
-        public MessageResponse Atualizar(Reservas reserva)
+        public MessageResponse Atualizar(Reserva reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -52,7 +52,7 @@ namespace DAL
         #endregion
 
         #region Excluir
-        public MessageResponse Excluir(Reservas reserva)
+        public MessageResponse Excluir(Reserva reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -87,7 +87,7 @@ namespace DAL
         #endregion
 
         #region Inserir
-        public MessageResponse Inserir(Reservas reserva)
+        public MessageResponse Inserir(Reserva reserva)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
@@ -125,7 +125,7 @@ namespace DAL
         #endregion
 
         #region Ler Por ID
-        public Reservas LerPorID(int id)
+        public Reserva LerPorID(int id)
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -138,7 +138,7 @@ namespace DAL
             command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
-            Reservas r = null;
+            Reserva r = null;
 
             try
             {
@@ -156,7 +156,7 @@ namespace DAL
 
                     //int id = (int)reader["ID"];
 
-                    r = new Reservas(id, idQuarto, idCliente, checkin, checkout);
+                    r = new Reserva(id, idQuarto, idCliente, checkin, checkout);
                 }
             }
             catch
@@ -172,7 +172,7 @@ namespace DAL
         #endregion
 
         #region Ler Todos
-        public List<Reservas> LerTodos()
+        public List<Reserva> LerTodos()
         {
             string connectionString = Parametros.GetConnectionString();
             SqlConnection connection = new SqlConnection();
@@ -184,7 +184,7 @@ namespace DAL
                 clientes cli on res.cliente = cli.id inner join quartos qua on res.quarto = qua.id";
             command.Connection = connection;
 
-            List<Reservas> reservas = new List<Reservas>();
+            List<Reserva> reservas = new List<Reserva>();
 
             try
             {

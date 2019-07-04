@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metadata
+namespace BLL
 {
-    public interface IClienteDataService
+    public class TipoBLL
     {
-        List<ClienteViewModel> LerClientes();
+        public MessageResponse Atualizar(Tipo tipo)
+        {
+
+            
+        }
     }
 }

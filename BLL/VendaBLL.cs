@@ -15,7 +15,7 @@ namespace BLL
         List<string> erros = new List<string>();
 
         #region Cadatrar
-        public MessageResponse Cadastrar(Vendas venda)
+        public MessageResponse Cadastrar(Venda venda)
         {
             if (venda.Quantidade < 1)
             {
@@ -42,7 +42,7 @@ namespace BLL
         #endregion
 
         #region Atualizar
-        public MessageResponse Atualizar(Vendas venda)
+        public MessageResponse Atualizar(Venda venda)
         {
             if (!dal.VerificarExistenciaVenda(venda.IDVenda))
             {
@@ -76,7 +76,7 @@ namespace BLL
         #endregion
 
         #region Excluir
-        public MessageResponse Excluir(Vendas venda)
+        public MessageResponse Excluir(Venda venda)
         {
             if (!dal.VerificarExistenciaVenda(venda.IDVenda))
             {
@@ -91,14 +91,14 @@ namespace BLL
         #endregion
 
         #region Ler Por ID
-        public Vendas LerPorID(int id)
+        public Venda LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
         #endregion
 
         #region Ler Todos
-        public List<Vendas> LerTodos()
+        public List<Venda> LerTodos()
         {
             return dal.LerTodos();
         }

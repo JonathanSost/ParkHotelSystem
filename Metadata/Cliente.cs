@@ -8,6 +8,11 @@ namespace Metadata
 {
     public class Cliente
     {
+        public Cliente()
+        {
+
+        }
+
         public Cliente (string nome, string cpf, string rg, string telefone1, 
             string telefone2, string email, string cep, int estado, int cidade, string rua, 
             string bairro, string numero, string complemento)

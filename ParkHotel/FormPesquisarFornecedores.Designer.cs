@@ -92,11 +92,11 @@
             // 
             this.lblPesquisar.AutoSize = true;
             this.lblPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPesquisar.Location = new System.Drawing.Point(118, 226);
+            this.lblPesquisar.Location = new System.Drawing.Point(12, 234);
             this.lblPesquisar.Name = "lblPesquisar";
-            this.lblPesquisar.Size = new System.Drawing.Size(241, 37);
+            this.lblPesquisar.Size = new System.Drawing.Size(460, 37);
             this.lblPesquisar.TabIndex = 178;
-            this.lblPesquisar.Text = "Pesquisar Por:";
+            this.lblPesquisar.Text = "Pesquisar Fornecedores Por:";
             // 
             // label7
             // 
@@ -162,21 +162,21 @@
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(7, 454);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(48, 17);
+            this.lblNome1.Size = new System.Drawing.Size(48, 16);
             this.lblNome1.TabIndex = 188;
             this.lblNome1.Text = "Santo";
             // 
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
-            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(52, 454);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(63, 17);
+            this.lblNome2.Size = new System.Drawing.Size(64, 16);
             this.lblNome2.TabIndex = 189;
             this.lblNome2.Text = "Soninho";
             // 

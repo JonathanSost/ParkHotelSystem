@@ -203,5 +203,26 @@ namespace BLL
             return dal.PesquisarPorPrecosMaiores(preco);
         }
         #endregion
+
+        #region Pesquisar Por Estoques Menores
+        public List<ProdutoViewModel> PesquisarPorEstoquesMenores(int Estoque)
+        {
+            return dal.PesquisarPorEstoquesMenores(Estoque);
+        }
+        #endregion
+
+        #region Pesquisar Por Estoques Iguais
+        public List<ProdutoViewModel> PesquisarPorEstoquesIguais(int Estoque)
+        {
+            return dal.PesquisarPorEstoquesIguais(Estoque);
+        }
+        #endregion
+
+        #region Pesquisar Por Estoques Maiores
+        public List<ProdutoViewModel> PesquisarPorEstoquesMaiores(int Estoque)
+        {
+            return dal.PesquisarPorEstoquesMaiores(Estoque);
+        }
+        #endregion
     }
 }

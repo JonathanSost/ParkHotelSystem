@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Metadata
 {
-
-
     public class Funcionario
     {
         public Funcionario()

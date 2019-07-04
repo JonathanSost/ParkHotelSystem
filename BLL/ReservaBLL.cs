@@ -15,7 +15,7 @@ namespace BLL
         List<string> erros = new List<string>();
 
         #region Cadastrar
-        public MessageResponse Cadastrar(Reservas reserva)
+        public MessageResponse Cadastrar(Reserva reserva)
         {
             if (reserva.DiaReserva == reserva.DiaQueSai)
             {
@@ -49,7 +49,7 @@ namespace BLL
         #endregion
 
         #region Atualizar
-        public MessageResponse Atualizar(Reservas reserva)
+        public MessageResponse Atualizar(Reserva reserva)
         {
             if (!dal.VerificarExistenciaReserva(reserva.ID))
             {
@@ -90,7 +90,7 @@ namespace BLL
         #endregion
 
         #region Excluir
-        public MessageResponse Excluir(Reservas reserva)
+        public MessageResponse Excluir(Reserva reserva)
         {
             if (!dal.VerificarExistenciaReserva(reserva.ID))
             {
@@ -104,14 +104,14 @@ namespace BLL
         #endregion
 
         #region Ler Por ID
-        public Reservas LerPorID(int id)
+        public Reserva LerPorID(int id)
         {
             return dal.LerPorID(id);
         }
         #endregion
 
         #region Ler Todos
-        public List<Reservas> LerTodos()
+        public List<Reserva> LerTodos()
         {
             return dal.LerTodos();
         }

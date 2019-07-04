@@ -119,5 +119,47 @@ namespace BLL
             return dal.LerTodos();
         }
         #endregion
+
+        #region Verificar Existência do Quarto
+        public bool VerificarExistenciaQuarto(int idquarto)
+        {
+            return dal.VerificarExistenciaQuarto(idquarto);
+        }
+        #endregion
+
+        #region Pesquisar Por Preços Menores
+        public List<QuartoViewModel> PesquisarPorPrecosMenores(double Preco)
+        {
+            return dal.PesquisarPorPrecosMenores(Preco);
+        }
+        #endregion
+
+        #region Pesquisar Preços Iguais
+        public List<QuartoViewModel> PesquisarPorPrecosIguais(double Preco)
+        {
+            return dal.PesquisarPorPrecosIguais(Preco);
+        }
+        #endregion
+
+        #region Pesquisar Por Preços Maiores
+        public List<QuartoViewModel> PesquisarPorPrecosMaiores(double Preco)
+        {
+            return dal.PesquisarPorPrecosMaiores(Preco);
+        }
+        #endregion
+
+        #region Pesquisar Por Tipo
+        public List<QuartoViewModel> PesquisarPorTipo(int Tipo)
+        {
+            return dal.PesquisarPorTipo(Tipo);
+        }
+        #endregion
+
+        #region Pesquisar Por Disponíveis
+        public List<QuartoViewModel> PesquisarPorDisponiveis(bool Disponivel)
+        {
+            return dal.PesquisarPorDisponiveis(Disponivel);
+        }
+        #endregion
     }
 }

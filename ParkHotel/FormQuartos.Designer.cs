@@ -35,9 +35,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvQuartos = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
             this.lblNome2 = new System.Windows.Forms.Label();
@@ -45,6 +43,9 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.picbClear = new System.Windows.Forms.PictureBox();
             this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCriarTipo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -118,17 +119,6 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 323);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Tipo";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -140,23 +130,13 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Preço";
             // 
-            // txtTipo
-            // 
-            this.txtTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipo.Location = new System.Drawing.Point(34, 340);
-            this.txtTipo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(152, 26);
-            this.txtTipo.TabIndex = 2;
-            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
-            // 
             // txtPreco
             // 
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreco.Location = new System.Drawing.Point(34, 288);
             this.txtPreco.Margin = new System.Windows.Forms.Padding(2);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(150, 26);
+            this.txtPreco.Size = new System.Drawing.Size(152, 26);
             this.txtPreco.TabIndex = 1;
             this.txtPreco.TextChanged += new System.EventHandler(this.txtPreco_TextChanged);
             // 
@@ -175,21 +155,21 @@
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
-            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(221, 314);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(409, 127);
+            this.lblNome2.Size = new System.Drawing.Size(402, 108);
             this.lblNome2.TabIndex = 98;
             this.lblNome2.Text = "Soninho";
             // 
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(275, 207);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(316, 127);
+            this.lblNome1.Size = new System.Drawing.Size(300, 108);
             this.lblNome1.TabIndex = 97;
             this.lblNome1.Text = "Santo";
             // 
@@ -228,6 +208,37 @@
             this.picbRefresh.TabStop = false;
             this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(34, 336);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(152, 28);
+            this.cmbTipo.TabIndex = 124;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(34, 321);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 20);
+            this.label4.TabIndex = 125;
+            this.label4.Text = "Tipo";
+            // 
+            // btnCriarTipo
+            // 
+            this.btnCriarTipo.Location = new System.Drawing.Point(463, 135);
+            this.btnCriarTipo.Name = "btnCriarTipo";
+            this.btnCriarTipo.Size = new System.Drawing.Size(93, 37);
+            this.btnCriarTipo.TabIndex = 126;
+            this.btnCriarTipo.Text = "Criar Novo Tipo de Quarto";
+            this.btnCriarTipo.UseVisualStyleBackColor = true;
+            this.btnCriarTipo.Click += new System.EventHandler(this.btnCriarTipo_Click);
+            // 
             // FormQuartos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +246,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(637, 518);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCriarTipo);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.picbClear);
             this.Controls.Add(this.picbRefresh);
             this.Controls.Add(this.lblNome2);
@@ -247,9 +261,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvQuartos);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.txtPreco);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -272,9 +284,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvQuartos;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.CheckBox chkDisponivel;
         private System.Windows.Forms.Label lblNome2;
@@ -282,5 +292,8 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCriarTipo;
     }
 }

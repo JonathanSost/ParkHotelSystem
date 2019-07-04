@@ -20,7 +20,9 @@ namespace ParkHotel
         public FormQuartos()
         {
             InitializeComponent();
-            
+
+            cmbTipo.DisplayMember = "TipoString";
+            cmbTipo.ValueMember = "ID";
         }
         #endregion
 
@@ -121,11 +123,6 @@ namespace ParkHotel
         {
             txtPreco.MaxLength = 10;
         }
-
-        private void txtTipo_TextChanged(object sender, EventArgs e)
-        {
-            txtTipo.MaxLength = 2;
-        }
         #endregion
 
         private void dgvQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -134,6 +131,11 @@ namespace ParkHotel
             {
                 return;
             }
+        }
+
+        private void btnCriarTipo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

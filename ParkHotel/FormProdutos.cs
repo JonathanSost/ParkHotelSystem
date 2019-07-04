@@ -115,29 +115,6 @@ namespace ParkHotel
         {
             FormCleaner.Clear(this);
         }
-        #endregion
-
-        #region Componente Changed
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-            txtNome.MaxLength = 70;
-        }
-
-        private void txtDescricao_TextChanged(object sender, EventArgs e)
-        {
-            txtDescricao.MaxLength = 80;
-        }
-
-        private void txtPreco_TextChanged(object sender, EventArgs e)
-        {
-            txtPreco.MaxLength = 10;
-        }
-
-        private void txtEstoque_TextChanged(object sender, EventArgs e)
-        {
-            txtEstoque.MaxLength = 4;
-        }
-        #endregion
 
         private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -162,35 +139,78 @@ namespace ParkHotel
             txtEstoque.Text = estoque.ToString();
             txtIDFornecedor.Text = idfornecedor.ToString();
         }
+        #endregion
 
+        #region Componente Changed
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.MaxLength = 70;
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+            txtDescricao.MaxLength = 80;
+        }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+            txtPreco.MaxLength = 10;
+        }
+
+        private void txtEstoque_TextChanged(object sender, EventArgs e)
+        {
+            txtEstoque.MaxLength = 4;
+        }
+        #endregion
+
+        #region Pesquisar
         private void btnPesquisarPorPreçosMenores_Click(object sender, EventArgs e)
         {
-            pbll.PesquisarPorPrecosMenores(int.Parse(txtPreco.Text));
+            if (!string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorPrecosMenores(int.Parse(txtPreco.Text));
+            }
         }
 
         private void btnPesquisarPorPreçosIguais_Click(object sender, EventArgs e)
         {
-            pbll.PesquisarPorPrecosIguais(int.Parse(txtPreco.Text));
+            if (!string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorPrecosIguais(int.Parse(txtPreco.Text));
+            }
         }
 
         private void btnPesquisarPorPreçosMaiores_Click(object sender, EventArgs e)
         {
-            pbll.PesquisarPorPrecosMaiores(int.Parse(txtPreco.Text));
+            if (!string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorPrecosMaiores(int.Parse(txtPreco.Text));
+            }
         }
 
         private void btnPesquisarPorEstoquesMenores_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtEstoque.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorEstoquesMenores(int.Parse(txtEstoque.Text));
+            }
         }
 
         private void btnPesquisarPorEstoquesIguais_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtEstoque.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorEstoquesIguais(int.Parse(txtEstoque.Text));
+            }
         }
 
         private void btnPesquisarPorEstoquesMaiores_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtEstoque.Text))
+            {
+                dgvProdutos.DataSource = pbll.PesquisarPorEstoquesMaiores(int.Parse(txtEstoque.Text));
+            }
         }
+        #endregion
     }
 }

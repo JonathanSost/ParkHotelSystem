@@ -36,7 +36,7 @@
             this.lblNome2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.dgvQuartos = new System.Windows.Forms.DataGridView();
             this.btnPesquisarPorQuartosDisponíveis = new System.Windows.Forms.Button();
@@ -52,21 +52,21 @@
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(6, 454);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(48, 17);
+            this.lblNome1.Size = new System.Drawing.Size(48, 16);
             this.lblNome1.TabIndex = 201;
             this.lblNome1.Text = "Santo";
             // 
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
-            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(51, 454);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(63, 17);
+            this.lblNome2.Size = new System.Drawing.Size(64, 16);
             this.lblNome2.TabIndex = 202;
             this.lblNome2.Text = "Soninho";
             // 
@@ -92,24 +92,24 @@
             this.label1.TabIndex = 195;
             this.label1.Text = "Preço";
             // 
-            // txtNomeEmpresa
+            // txtPreco
             // 
-            this.txtNomeEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeEmpresa.Location = new System.Drawing.Point(139, 297);
-            this.txtNomeEmpresa.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNomeEmpresa.Name = "txtNomeEmpresa";
-            this.txtNomeEmpresa.Size = new System.Drawing.Size(151, 26);
-            this.txtNomeEmpresa.TabIndex = 192;
+            this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPreco.Location = new System.Drawing.Point(139, 297);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(151, 26);
+            this.txtPreco.TabIndex = 192;
             // 
             // lblPesquisar
             // 
             this.lblPesquisar.AutoSize = true;
             this.lblPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPesquisar.Location = new System.Drawing.Point(117, 226);
+            this.lblPesquisar.Location = new System.Drawing.Point(57, 227);
             this.lblPesquisar.Name = "lblPesquisar";
-            this.lblPesquisar.Size = new System.Drawing.Size(241, 37);
+            this.lblPesquisar.Size = new System.Drawing.Size(373, 37);
             this.lblPesquisar.TabIndex = 191;
-            this.lblPesquisar.Text = "Pesquisar Por:";
+            this.lblPesquisar.Text = "Pesquisar Quartos Por:";
             // 
             // dgvQuartos
             // 
@@ -248,7 +248,7 @@
             this.Controls.Add(this.PesquisarPorTipo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNomeEmpresa);
+            this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.dgvQuartos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -271,7 +271,7 @@
         private System.Windows.Forms.Button btnPesquisarPorQuartosDisponíveis;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNomeEmpresa;
+        private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.DataGridView dgvQuartos;
         private System.Windows.Forms.ComboBox cmbTipos;
