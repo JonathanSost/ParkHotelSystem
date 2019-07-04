@@ -277,8 +277,8 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
-            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.conta 'Conta' from clientes cli inner join 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id";
 
             command.Connection = connection;
@@ -299,7 +299,7 @@ namespace DAL
                     string rg = Convert.ToString(reader["RG"]);
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
-                    string email = Convert.ToString(reader["E-mail"]);
+                    string email = Convert.ToString(reader["Email"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["Cidade"]);

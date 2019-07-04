@@ -312,7 +312,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where Nome = @Nome";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.nome like @Nome";
 
             command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
 
@@ -369,9 +369,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where descricao = @descricao";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where descricao like @Descricao";
 
             command.Parameters.AddWithValue("@Descricao", "%" + Descricao + "%");
 

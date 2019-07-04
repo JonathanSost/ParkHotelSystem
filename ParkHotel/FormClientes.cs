@@ -23,11 +23,14 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
+            
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
             dgvClientes.DataSource = clibll.LerClientes();
+            dgvClientes.Columns["Email"].HeaderText = "E-Mail";
+            dgvClientes.Columns["Telefone2"].HeaderText = "Celular";
 
             cmbEstado.DisplayMember = "Sigla";
             cmbEstado.ValueMember = "ID";
@@ -35,6 +38,8 @@ namespace ParkHotel
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+
+
         }
         #endregion
 

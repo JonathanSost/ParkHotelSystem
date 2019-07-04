@@ -358,6 +358,7 @@
             this.Name = "FormFornecedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Fornecedores";
+            this.Load += new System.EventHandler(this.FormFornecedores_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFornecedores_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();

@@ -32,8 +32,15 @@ namespace ParkHotel
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtIDFornecedor.Text))
+            {
+                MessageBox.Show("ID do Fornecedor deve ser informado.");
+                return;
+            }
+
             p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
 
+           
             MessageResponse response = pbll.Cadastrar(p);
             MessageBox.Show(response.Message);
             if (response.Success)
@@ -212,5 +219,15 @@ namespace ParkHotel
             }
         }
         #endregion
+
+        private void btnPesquisarPorDescricao_Click(object sender, EventArgs e)
+        {
+            dgvProdutos.DataSource =  pbll.PesquisarPorDescricao(txtDescricao.Text);
+        }
+
+        private void btnPesquisarPorNomeProduto_Click(object sender, EventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.PesquisarPorNome(txtNome.Text);
+        }
     }
 }

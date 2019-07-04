@@ -266,7 +266,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select * from fornecedores NomeEmpresa like @NomeEmpresa";
+            command.CommandText = @"select * from fornecedores where nomeempresa like @NomeEmpresa";
 
             command.Parameters.AddWithValue("@NomeEmpresa", "%" + NomeEmpresa + "%");
 
@@ -313,9 +313,9 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select * from fornecedores cnpj like @CNPJ";
+            command.CommandText = @"select * from fornecedores where cnpj like @CNPJ";
 
-            command.Parameters.AddWithValue("@NomeEmpresa", "%" + CNPJ + "%");
+            command.Parameters.AddWithValue("@CNPJ", "%" + CNPJ + "%");
 
             command.Connection = connection;
 
@@ -360,7 +360,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select * from fornecedores Nome like @Nome";
+            command.CommandText = @"select * from fornecedores where nome like @Nome";
 
             command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
 

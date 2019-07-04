@@ -197,5 +197,10 @@ namespace ParkHotel
             txtEmail.Text = email;
 
         }
+
+        private void FormFornecedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

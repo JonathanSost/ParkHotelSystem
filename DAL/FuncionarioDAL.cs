@@ -723,7 +723,7 @@ namespace DAL
             from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
             fun.estado = est.id where fun.Estado like @Estado";
 
-            command.Parameters.AddWithValue("@Estado", "%" + Estado + "%");
+            command.Parameters.AddWithValue("@Estado", Estado);
 
             command.Connection = connection;
 

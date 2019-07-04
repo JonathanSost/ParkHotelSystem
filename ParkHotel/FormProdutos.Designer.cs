@@ -313,6 +313,7 @@
             this.btnPesquisarPorNomeProduto.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorNomeProduto.TabIndex = 127;
             this.btnPesquisarPorNomeProduto.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorNomeProduto.Click += new System.EventHandler(this.btnPesquisarPorNomeProduto_Click);
             // 
             // btnPesquisarPorDescricao
             // 
@@ -323,6 +324,7 @@
             this.btnPesquisarPorDescricao.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorDescricao.TabIndex = 128;
             this.btnPesquisarPorDescricao.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorDescricao.Click += new System.EventHandler(this.btnPesquisarPorDescricao_Click);
             // 
             // btnPesquisarPorPreçosMenores
             // 
