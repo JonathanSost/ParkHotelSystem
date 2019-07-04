@@ -111,8 +111,8 @@ namespace DAL
             SqlCommand command = new SqlCommand();
 
             command.CommandText = "insert into clientes (nome, cpf, rg, telefone1, telefone2, email, cep, estado, " +
-                "cidade, rua, bairro, numero, complemento) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email, " +
-                "@cep, @estado, @cidade, @rua, @bairro, @numero, @complemento)";
+                "cidade, rua, bairro, numero, complemento, conta) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email, " +
+                "@cep, @estado, @cidade, @rua, @bairro, @numero, @complemento, @conta)";
             command.Parameters.AddWithValue("@nome", cli.Nome);
             command.Parameters.AddWithValue("@cpf", cli.CPF);
             command.Parameters.AddWithValue("@rg", cli.RG);
@@ -126,6 +126,7 @@ namespace DAL
             command.Parameters.AddWithValue("@bairro", cli.Bairro);
             command.Parameters.AddWithValue("@numero", cli.Numero);
             command.Parameters.AddWithValue("@complemento", cli.Complemento);
+            command.Parameters.AddWithValue("@conta", cli.Conta);
 
             command.Connection = connection;
             MessageResponse response = new MessageResponse();
@@ -275,7 +276,7 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
             cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.conta 'Conta' from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id";
@@ -293,7 +294,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["ID"]);
 
-                    string nome = Convert.ToString(reader["NOME"]);
+                    string nome = Convert.ToString(reader["Nome"]);
                     string cpf = Convert.ToString(reader["CPF"]);
                     string rg = Convert.ToString(reader["RG"]);
                     string telefone1 = Convert.ToString(reader["Telefone"]);
@@ -301,11 +302,11 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
-                    string cidade = Convert.ToString(reader["CIDADE"]);
-                    string rua = Convert.ToString(reader["RUA"]);
-                    string bairro = Convert.ToString(reader["BAIRRO"]);
-                    string numero = Convert.ToString(reader["NUMERO"]);
-                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+                    string cidade = Convert.ToString(reader["Cidade"]);
+                    string rua = Convert.ToString(reader["Rua"]);
+                    string bairro = Convert.ToString(reader["Bairro"]);
+                    string numero = Convert.ToString(reader["Numero"]);
+                    string complemento = Convert.ToString(reader["Complemento"]);
                     double conta = Convert.ToDouble(reader["Conta"]);
 
                     ClienteViewModel cli = new ClienteViewModel()
