@@ -11,10 +11,32 @@ namespace BLL
     public class TipoBLL
     {
         TipoDAL dal = new TipoDAL();
+        MessageResponse response = new MessageResponse();
         #region Atualizar
         public MessageResponse Atualizar(Tipo tipo)
         {
-            return dal.Atualizar(tipo);
+            List<string> erros = new List<string>();
+            if (string.IsNullOrWhiteSpace(tipo.NomeTipo))
+            {
+                erros.Add("Tipo deve ser informado");
+            }
+            else if (tipo.NomeTipo.Length > 30)
+            {
+                erros.Add("Nome do tipo deve conter até 30 caracteres.");
+            }
+            StringBuilder builder = new StringBuilder();
+            if (erros.Count != 0)
+            {
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    builder.AppendLine(erros[i]);
+                }
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
+            }
+            response = dal.Inserir(tipo);
+            return response;
         }
         #endregion
 
@@ -28,7 +50,28 @@ namespace BLL
         #region Inserir
         public MessageResponse Inserir(Tipo tipo)
         {
-            return dal.Inserir(tipo);
+            List<string> erros = new List<string>();
+            if (string.IsNullOrWhiteSpace(tipo.NomeTipo))
+            {
+                erros.Add("Tipo deve ser informado");
+            }
+            else if (tipo.NomeTipo.Length > 30)
+            {
+                erros.Add("Nome do tipo deve conter até 30 caracteres.");
+            }
+            StringBuilder builder = new StringBuilder();
+            if (erros.Count != 0)
+            {
+                for (int i = 0; i < erros.Count; i++)
+                {
+                    builder.AppendLine(erros[i]);
+                }
+                response.Success = false;
+                response.Message = builder.ToString();
+                return response;
+            }
+            response = dal.Inserir(tipo);
+            return response;
         }
         #endregion
 

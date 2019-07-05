@@ -25,6 +25,7 @@ namespace ParkHotel
         private FormQuartos formQuartos { get; set; }
         TipoBLL tbll = new TipoBLL();
         Tipo t = null;
+        MessageResponse response = new MessageResponse();
         #endregion
 
         #region Buttons
@@ -35,17 +36,34 @@ namespace ParkHotel
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            tbll.Inserir(new Tipo(txtTipo.Text));
+            response = tbll.Inserir(new Tipo(txtTipo.Text));
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                FormCleaner.Clear(this);
+                dgvTipos.DataSource = tbll.LerTodos();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            tbll.Excluir(t);
+            response = tbll.Excluir(t);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                FormCleaner.Clear(this);
+                dgvTipos.DataSource = tbll.LerTodos();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            tbll.Atualizar(t);
+            response = tbll.Atualizar(t);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvTipos.DataSource = tbll.LerTodos();
+            }
         }
 
         private void dgvTipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -67,8 +85,16 @@ namespace ParkHotel
         #region Pesquisar
         private void btnPesquisarPorTipo_Click(object sender, EventArgs e)
         {
-            tbll.PesquisarPorTipo(txtTipo.Text);
+            dgvTipos.DataSource = tbll.PesquisarPorTipo(txtTipo.Text);
         }
         #endregion
+
+        private void FormCriarTipo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -22,12 +22,12 @@ namespace ParkHotel
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (DateTime.Now.Hour == 12 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+            if (DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
             {
                 //bll.RealizarCheckoutAutomatico();
                 MessageBox.Show("aaaaaaaaaaaaaa");
             }
-            else if (DateTime.Now.Hour == 14 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+            else if (DateTime.Now.Minute == 30 && DateTime.Now.Second == 00)
             {
                 //bll.RealizarCheckoutAutomatico();
             }

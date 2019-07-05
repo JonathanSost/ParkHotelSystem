@@ -9,7 +9,7 @@ namespace Metadata
     public class QuartoViewModel
     {
         public int ID { get; set; }
-        public double Preco { get; set; }
+        public string Preco { get; set; }
         public string Tipo { get; set; }
         public bool Disponivel { get; set; }
     }

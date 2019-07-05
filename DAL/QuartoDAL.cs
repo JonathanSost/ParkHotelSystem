@@ -91,7 +91,7 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into produtos (preco, tipo, disponivel) values (@preco, @tipo, @disponivel)";
+            command.CommandText = "insert into quartos (preco, tipo, disponivel) values (@preco, @tipo, @disponivel)";
             command.Parameters.AddWithValue("@preco", quarto.Preco);
             command.Parameters.AddWithValue("@tipo", quarto.Tipo);
             command.Parameters.AddWithValue("@disponivel", quarto.QuartoDisponivel);
@@ -103,7 +103,7 @@ namespace DAL
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
@@ -130,7 +130,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select q.id 'IDQuarto', q.preco 'PreçoQuarto', t.tipostring 'TipoQuarto', 
-                                    q.disponivel 'Disponivel' from quartos inner join tipos t on q.tipo = t.id";
+                                    q.disponivel 'Disponivel' from quartos q inner join tipos t on q.tipo = t.id";
 
             command.Connection = connection;
 
@@ -145,7 +145,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDQuarto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoQuarto"]);
+                    string preco = Convert.ToString("R$ " + reader["PreçoQuarto"]);
                     string tipoquarto = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponivel"]);
 
@@ -312,7 +312,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"]);
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 
@@ -364,7 +364,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string preco = Convert.ToString("R$" + reader["PreçoDiária"]);
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 
@@ -416,7 +416,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"]);
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 
@@ -468,7 +468,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"]);
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 
@@ -520,7 +520,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    double preco = Convert.ToDouble(reader["PreçoDiária"]);
+                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"].ToString("C2"));
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 

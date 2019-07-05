@@ -21,23 +21,27 @@ namespace ParkHotel
         public FormQuartos()
         {
             InitializeComponent();
+        }
 
-            cmbTipo.DisplayMember = "TipoString";
+        private void FormQuartos_Load(object sender, EventArgs e)
+        {
+            cmbTipo.DisplayMember = "NomeTipo";
             cmbTipo.ValueMember = "ID";
             cmbTipo.DataSource = tbll.LerTodos();
+            dgvQuartos.DataSource = qbll.LerQuartos();
         }
         #endregion
 
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
+            q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, true);
 
             MessageResponse response = qbll.Cadastrar(q);
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvQuartos.DataSource = qbll.LerTodos();
+                dgvQuartos.DataSource = qbll.LerQuartos();
                 FormCleaner.Clear(this);
             }
 
@@ -51,8 +55,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvQuartos.DataSource = qbll.LerTodos();
-                
+                dgvQuartos.DataSource = qbll.LerQuartos();
             }
         }
 
@@ -75,7 +78,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                qbll.LerTodos();
+                qbll.LerQuartos();
                 FormCleaner.Clear(this);
             }
         }
@@ -139,5 +142,7 @@ namespace ParkHotel
             txtPreco.MaxLength = 10;
         }
         #endregion
+
+        
     }
 }

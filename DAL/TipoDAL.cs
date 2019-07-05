@@ -143,7 +143,7 @@ namespace DAL
                     //int id = (int)reader["ID"];
                     string tipostring = Convert.ToString(reader["TIPOSTRING"]);
 
-                    tipo = new Tipo(tipostring);
+                    tipo = new Tipo(id, tipostring);
                 }
             }
             catch
@@ -183,7 +183,7 @@ namespace DAL
 
                     string tipostring = Convert.ToString(reader["TIPOSTRING"]);
 
-                    Tipo tipo = new Tipo(tipostring);
+                    Tipo tipo = new Tipo(id, tipostring);
                     tipos.Add(tipo);
                 }
             }
@@ -208,8 +208,8 @@ namespace DAL
             connection.ConnectionString = connectionString;
 
             SqlCommand command = new SqlCommand();
-            command.CommandText = @"select * from tipos where tipostring = @tipostring";
-            command.Parameters.AddWithValue("@tipostring", tipo);
+            command.CommandText = @"select * from tipos where tipostring like @tipostring";
+            command.Parameters.AddWithValue("@tipostring", "%" + tipo + "%");
 
             command.Connection = connection;
 
@@ -226,7 +226,7 @@ namespace DAL
 
                     string tipostring = Convert.ToString(reader["TIPOSTRING"]);
 
-                    Tipo Tipo = new Tipo(tipostring);
+                    Tipo Tipo = new Tipo(id, tipostring);
                     tipos.Add(Tipo);
                 }
             }

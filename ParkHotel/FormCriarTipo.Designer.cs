@@ -193,8 +193,11 @@
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.txtTipo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "FormCriarTipo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCriarTipo";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormCriarTipo_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

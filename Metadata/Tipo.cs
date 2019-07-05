@@ -8,6 +8,12 @@ namespace Metadata
 {
     public class Tipo
     {
+        public Tipo(int id, string tipo)
+        {
+            this.NomeTipo = tipo;
+            this.ID = id;
+        }
+
         public Tipo(string tipo)
         {
             this.NomeTipo = tipo;

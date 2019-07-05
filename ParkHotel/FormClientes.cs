@@ -23,7 +23,6 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-
         }
 
         private void FormClientes_Load(object sender, EventArgs e)
@@ -38,8 +37,6 @@ namespace ParkHotel
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
-
-
         }
         #endregion
 

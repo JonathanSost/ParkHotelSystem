@@ -96,7 +96,7 @@
             // 
             // dgvQuartos
             // 
-            this.dgvQuartos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvQuartos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuartos.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvQuartos.Location = new System.Drawing.Point(0, 0);
@@ -270,6 +270,7 @@
             this.Name = "FormQuartos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Quartos";
+            this.Load += new System.EventHandler(this.FormQuartos_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormQuartos_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();

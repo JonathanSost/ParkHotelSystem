@@ -17,13 +17,9 @@ namespace BLL
         #region Cadastrar
         public MessageResponse Cadastrar (Quarto quarto)
         {
-            if (quarto.Preco < 0)
+            if (quarto.Preco <= 0)
             {
                 erros.Add("Preço do quarto inválido.");
-            }
-            if (!quarto.QuartoDisponivel)
-            {
-                erros.Add("Quarto Indisponível");
             }
             if (erros.Count != 0)
             {
