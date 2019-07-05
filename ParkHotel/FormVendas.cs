@@ -22,7 +22,5 @@ namespace ParkHotel
         }
 
         ProdutoBLL pbll = new ProdutoBLL();
-
-       
     }
 }

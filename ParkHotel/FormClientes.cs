@@ -23,7 +23,7 @@ namespace ParkHotel
         public FormClientes()
         {
             InitializeComponent();
-            
+
         }
 
         private void FormClientes_Load(object sender, EventArgs e)

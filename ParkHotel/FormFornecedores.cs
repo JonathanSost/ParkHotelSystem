@@ -28,7 +28,7 @@ namespace ParkHotel
         #region Buttons
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text, 
+            Fornecedor fornecedor = new Fornecedor(Registro.NOVO_REGISTRO, txtNomeEmpresa.Text,
                 msktxtCNPJ.Text, txtNome.Text, msktxtTelefone.Text, txtEmail.Text);
 
             MessageResponse response = forbll.Cadastrar(fornecedor);

@@ -17,7 +17,7 @@ namespace ParkHotel
         public FormReservas()
         {
             InitializeComponent();
-            
+
         }
         ReservaBLL resbll = new ReservaBLL();
         Reserva r = null;
@@ -90,13 +90,6 @@ namespace ParkHotel
                 this.Close();
                 new FormMenu(Parametros.FuncionarioLogado).Show();
             }
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
-            menu.Show();
         }
     }
 }

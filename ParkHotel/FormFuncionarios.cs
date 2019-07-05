@@ -87,7 +87,7 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
-                dgvFuncionarios.DataSource =  funbll.LerFuncionarios(Parametros.FuncionarioLogado);
+                dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
                 FormCleaner.Clear(this);
             }
         }
@@ -336,7 +336,5 @@ namespace ParkHotel
         }
 
         #endregion
-
-        
     }
 }
