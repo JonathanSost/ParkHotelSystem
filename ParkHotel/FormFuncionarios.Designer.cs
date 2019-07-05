@@ -596,6 +596,9 @@
             this.picbClear.TabStop = false;
             this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
             // 
+            // toolTip1
+            // 
+            // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;

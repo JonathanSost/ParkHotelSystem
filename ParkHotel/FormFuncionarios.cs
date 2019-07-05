@@ -30,6 +30,8 @@ namespace ParkHotel
                 chkAdministrador.Checked = true;
                 chkAdministrador.Enabled = false;
                 btnVoltar.Visible = false;
+                chkAtivo.Checked = true;
+                chkAtivo.Enabled = false;
             }
         }
 
@@ -183,13 +185,14 @@ namespace ParkHotel
             string email = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[5].Value;
             string senha = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[6].Value;
             bool ehadm = (bool)dgvFuncionarios.Rows[e.RowIndex].Cells[7].Value;
-            int estado = estbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[8].Value);
-            int cidade = cidbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[9].Value);
-            string rua = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[11].Value;
-            string numero = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[12].Value;
-            string cep = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[14].Value;
+            bool ativo = (bool)dgvFuncionarios.Rows[e.RowIndex].Cells[8].Value;
+            int estado = estbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[9].Value);
+            int cidade = cidbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[10].Value);
+            string rua = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[11].Value;
+            string bairro = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[12].Value;
+            string numero = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[13].Value;
+            string cep = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[14].Value;
+            string complemento = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[15].Value;
 
             cmbEstado.SelectedValue = estado;
             cmbCidade.SelectedValue = cidade;
@@ -205,6 +208,7 @@ namespace ParkHotel
             txtEmail.Text = email;
             txtSenha.Text = senha;
             chkAdministrador.Checked = ehadm;
+            chkAtivo.Checked = ativo;
             msktxtCEP.Text = cep;
             cmbEstado.Text = estado.ToString();
             cmbCidade.Text = cidade.ToString();

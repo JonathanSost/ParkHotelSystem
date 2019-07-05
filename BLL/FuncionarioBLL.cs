@@ -218,7 +218,7 @@ namespace BLL
             }
             else
             {
-                fun.Rua = fun.Rua.Replace(" ", "");
+                fun.Nome = Regex.Replace(fun.Nome, " {2,}", " ");
                 if (fun.Rua.Length < 3 || fun.Rua.Length > 70)
                 {
                     erros.Add("Rua deve conter entre 3 e 70 caracteres");
