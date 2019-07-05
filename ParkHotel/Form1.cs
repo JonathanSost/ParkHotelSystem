@@ -15,6 +15,7 @@ namespace ParkHotel
         public Form1()
         {
             InitializeComponent();
+            txtBairro.Text = dateTimePicker1.Value.ToString();
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ReservaDAL 
+    public class ReservaDAL
     {
         MessageResponse response = new MessageResponse();
 
@@ -274,18 +274,19 @@ namespace DAL
                     DateTime checkin = Convert.ToDateTime(reader["Dia do Check-In"]);
                     DateTime checkout = Convert.ToDateTime(reader["Dia do Check-Out"]);
 
-                    if (checkout.Day <= DateTime.Now.Day && SelecionarClienteAtivo(idcliente))
+                    if (checkout.Date <= DateTime.Now && SelecionarClienteAtivo(idcliente))
                     {
-                        List<string> comandos = new List<string>();
-                        comandos.Add("update quartos set disponivel = 1 where id = @idquarto");
-                        comandos.Add("update clientes set ativo = 0 where id = @idcliente");
-
-                        command.Parameters.AddWithValue("@idquarto", idquarto);
+                        List<SqlCommand> comandos = new List<SqlCommand>();
+                        SqlCommand command1 = new SqlCommand();
+                        command1.CommandText = "update quartos set disponivel = 1 where id = @idquarto";
+                        command1.Parameters.AddWithValue("@idquarto", idquarto);
+                        SqlCommand command2 = new SqlCommand();
+                        command2.CommandText = "update clientes set ativo = 0 where id = @idcliente";
                         command.Parameters.AddWithValue("@idcliente", idcliente);
+                        connection.Open();
                         for (int i = 0; i < comandos.Count; i++)
                         {
-                            command.CommandText = comandos[i];
-                            connection.Open();
+                            comandos[i].ExecuteNonQuery();
                         }
                     }
                 }
@@ -331,5 +332,56 @@ namespace DAL
             return false;
         }
         #endregion
+
+        public void RealizarCheckin()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select res.id 'ID da Reserva', qua.id 'ID do Quarto', cli.id 'ID do Cliente',
+                res.diareserva 'Dia do Check-In', res.diaquesai 'Dia do Check-Out' from reservas res inner join
+                clientes cli on res.cliente = cli.id inner join quartos qua on res.quarto = qua.id";
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID da Reserva"]);
+                    int idquarto = Convert.ToInt32(reader["ID do Quarto"]);
+                    int idcliente = Convert.ToInt32(reader["ID do Cliente"]);
+                    DateTime checkin = Convert.ToDateTime(reader["Dia do Check-In"]);
+                    DateTime checkout = Convert.ToDateTime(reader["Dia do Check-Out"]);
+
+                    if (checkout.Day <= DateTime.Now.Day && SelecionarClienteAtivo(idcliente))
+                    {
+                        List<string> comandos = new List<string>();
+                        comandos.Add("update quartos set disponivel = 1 where id = @idquarto");
+                        comandos.Add("update clientes set ativo = 0 where id = @idcliente");
+
+                        command.Parameters.AddWithValue("@idquarto", idquarto);
+                        command.Parameters.AddWithValue("@idcliente", idcliente);
+                        for (int i = 0; i < comandos.Count; i++)
+                        {
+                            command.CommandText = comandos[i];
+                            connection.Open();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+        }
     }
 }

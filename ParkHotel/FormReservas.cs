@@ -26,6 +26,8 @@ namespace ParkHotel
         #region Buttons
         private void btnCheckin_Click(object sender, EventArgs e)
         {
+            DateTime checkout = dtpCheckout.Value;
+
             r = new Reserva(int.Parse(txtID.Text), int.Parse(txtIDQuarto.Text), int.Parse(txtIDCliente.Text), dtpCheckin.Value, dtpCheckout.Value);
 
             MessageResponse response = resbll.Cadastrar(r);

@@ -39,6 +39,7 @@
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.cmbCidade = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // msktxtCEP
@@ -110,7 +111,6 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(137, 26);
             this.txtBairro.TabIndex = 74;
-            this.txtBairro.Visible = false;
             // 
             // txtRua
             // 
@@ -152,11 +152,19 @@
             this.cmbEstado.Size = new System.Drawing.Size(137, 28);
             this.cmbEstado.TabIndex = 70;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(272, 55);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 81;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.msktxtCEP);
             this.Controls.Add(this.msktxtTelefone);
             this.Controls.Add(this.msktxtCPF);
@@ -188,5 +196,6 @@
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.ComboBox cmbCidade;
         private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

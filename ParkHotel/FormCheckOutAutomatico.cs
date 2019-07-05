@@ -22,7 +22,15 @@ namespace ParkHotel
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //bll.RealizarCheckoutAutomatico();
+            if (DateTime.Now.Hour == 12 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+            {
+                //bll.RealizarCheckoutAutomatico();
+                MessageBox.Show("aaaaaaaaaaaaaa");
+            }
+            else if (DateTime.Now.Hour == 14 && DateTime.Now.Minute == 00 && DateTime.Now.Second == 00)
+            {
+                //bll.RealizarCheckoutAutomatico();
+            }
         }
 
         private void FormCheckOutAutomatico_Load(object sender, EventArgs e)
