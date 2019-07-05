@@ -91,5 +91,12 @@ namespace ParkHotel
                 new FormMenu(Parametros.FuncionarioLogado).Show();
             }
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+            menu.Show();
+        }
     }
 }

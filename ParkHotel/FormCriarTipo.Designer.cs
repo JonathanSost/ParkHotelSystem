@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnPesquisarPorTipo = new System.Windows.Forms.Button();
+            this.lblNome2 = new System.Windows.Forms.Label();
+            this.lblNome1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(322, 328);
+            this.btnVoltar.Location = new System.Drawing.Point(509, 460);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(104, 36);
             this.btnVoltar.TabIndex = 2;
@@ -74,6 +76,7 @@
             // 
             this.dgvTipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTipos.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvTipos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvTipos.Location = new System.Drawing.Point(0, 0);
             this.dgvTipos.Margin = new System.Windows.Forms.Padding(2);
@@ -81,7 +84,7 @@
             this.dgvTipos.RowHeadersVisible = false;
             this.dgvTipos.RowTemplate.Height = 24;
             this.dgvTipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTipos.Size = new System.Drawing.Size(637, 132);
+            this.dgvTipos.Size = new System.Drawing.Size(640, 132);
             this.dgvTipos.TabIndex = 26;
             this.dgvTipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipos_CellDoubleClick);
             // 
@@ -150,12 +153,35 @@
             this.btnPesquisarPorTipo.UseVisualStyleBackColor = true;
             this.btnPesquisarPorTipo.Click += new System.EventHandler(this.btnPesquisarPorTipo_Click);
             // 
+            // lblNome2
+            // 
+            this.lblNome2.AutoSize = true;
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.ForeColor = System.Drawing.Color.Gold;
+            this.lblNome2.Location = new System.Drawing.Point(298, 312);
+            this.lblNome2.Name = "lblNome2";
+            this.lblNome2.Size = new System.Drawing.Size(341, 107);
+            this.lblNome2.TabIndex = 110;
+            this.lblNome2.Text = "Soninho";
+            // 
+            // lblNome1
+            // 
+            this.lblNome1.AutoSize = true;
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Location = new System.Drawing.Point(350, 209);
+            this.lblNome1.Name = "lblNome1";
+            this.lblNome1.Size = new System.Drawing.Size(263, 107);
+            this.lblNome1.TabIndex = 109;
+            this.lblNome1.Text = "Santo";
+            // 
             // FormCriarTipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 634);
+            this.ClientSize = new System.Drawing.Size(640, 518);
             this.ControlBox = false;
+            this.Controls.Add(this.lblNome2);
+            this.Controls.Add(this.lblNome1);
             this.Controls.Add(this.btnPesquisarPorTipo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtID);
@@ -187,5 +213,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnPesquisarPorTipo;
+        private System.Windows.Forms.Label lblNome2;
+        private System.Windows.Forms.Label lblNome1;
     }
 }

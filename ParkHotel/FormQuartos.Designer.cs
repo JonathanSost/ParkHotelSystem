@@ -156,26 +156,27 @@
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
-            this.lblNome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(221, 314);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(402, 108);
+            this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 98;
             this.lblNome2.Text = "Soninho";
             // 
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(275, 207);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(300, 108);
+            this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 97;
             this.lblNome1.Text = "Santo";
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(501, 464);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
