@@ -16,14 +16,19 @@ namespace ParkHotel
         public FormCheckOutAutomatico()
         {
             InitializeComponent();
-            this.Hide();
         }
 
         ReservaBLL bll = new ReservaBLL();
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //bll.RealizarCheckoutAutomatico();
+        }
 
+        private void FormCheckOutAutomatico_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            timer1.Start();
         }
     }
 }

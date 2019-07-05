@@ -34,6 +34,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormCheckOutAutomatico
@@ -43,6 +44,7 @@
             this.ClientSize = new System.Drawing.Size(190, 38);
             this.Name = "FormCheckOutAutomatico";
             this.Text = "FormCheckOutAutomatico";
+            this.Load += new System.EventHandler(this.FormCheckOutAutomatico_Load);
             this.ResumeLayout(false);
 
         }

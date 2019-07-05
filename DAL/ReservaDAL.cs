@@ -329,7 +329,7 @@ namespace DAL
                 connection.Dispose();
             }
             return false;
-            #endregion
         }
+        #endregion
     }
 }

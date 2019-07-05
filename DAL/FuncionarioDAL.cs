@@ -20,7 +20,7 @@ namespace DAL
 
             command.CommandText = @"update funcionarios set nome = @nome, cpf = @cpf, rg = @rg,
                 telefone = @telefone, cep = @cep, estado = @estado, cidade = @cidade, rua = @rua, bairro = @bairro,
-                numero = @numero, complemento = @complemento, email = @email, senha = @senha, ehadm = @ehadm 
+                numero = @numero, complemento = @complemento, email = @email, senha = @senha, ehadm = @ehadm, ativo = @ativo
                 where id = @id";
             command.Parameters.AddWithValue("@nome", funci.Nome);
             command.Parameters.AddWithValue("@cpf", funci.CPF);
@@ -36,6 +36,7 @@ namespace DAL
             command.Parameters.AddWithValue("@email", funci.Email);
             command.Parameters.AddWithValue("@senha", funci.Senha);
             command.Parameters.AddWithValue("@ehadm", funci.EhADM);
+            command.Parameters.AddWithValue("@ativo", funci.Ativo);
             command.Parameters.AddWithValue("@id", funci.ID);
 
             command.Connection = connection;
@@ -49,10 +50,6 @@ namespace DAL
             catch (Exception ex)
             {
                 response.Success = false;
-                if (ex.Message.Contains(""))
-                {
-
-                }
                 response.Message = "Banco de dados indisponível, favor contatar o suporte.";
                 return response;
             }
@@ -109,8 +106,8 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into funcionarios (nome, cpf, rg, telefone, email, senha, ehadm, estado, cidade, rua, bairro, numero, cep, complemento) " +
-                "values (@nome, @cpf, @rg, @telefone, @email, @senha, @admin, @estado, @cidade, @rua, @bairro, @numero, @cep, @complemento)";
+            command.CommandText = "insert into funcionarios (nome, cpf, rg, telefone, email, senha, ehadm, estado, cidade, rua, bairro, numero, cep, complemento, ativo) " +
+                "values (@nome, @cpf, @rg, @telefone, @email, @senha, @admin, @estado, @cidade, @rua, @bairro, @numero, @cep, @complemento, @ativo)";
             command.Parameters.AddWithValue("@nome", fun.Nome);
             command.Parameters.AddWithValue("@cpf", fun.CPF);
             command.Parameters.AddWithValue("@rg", fun.RG);
@@ -125,6 +122,7 @@ namespace DAL
             command.Parameters.AddWithValue("@numero", fun.Numero);
             command.Parameters.AddWithValue("@cep", fun.CEP);
             command.Parameters.AddWithValue("@complemento", fun.Complemento);
+            command.Parameters.AddWithValue("@ativo", fun.Ativo);
 
 
             command.Connection = connection;
@@ -212,9 +210,10 @@ namespace DAL
                     string cep = Convert.ToString(reader["CEP"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
 
                     Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm,
-                        estado, cidade, cep, bairro, rua, numero, complemento);
+                        estado, cidade, cep, bairro, rua, numero, complemento, ativo);
                 }
             }
             catch
@@ -266,9 +265,10 @@ namespace DAL
                     string cep = Convert.ToString(reader["CEP"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
 
                     Funcionario funcionario = new Funcionario(id, nome, cpf, rg, telefone, email, senha, ehadm, 
-                        estado, cidade, cep, bairro, rua, numero, complemento);
+                        estado, cidade, cep, bairro, rua, numero, complemento, ativo);
                     funcionarios.Add(funcionario);
                 }
             }
@@ -293,7 +293,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
-            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento, fun.ativo 
             from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
             fun.estado = est.id where fun.id not like @funid";
 
@@ -321,6 +321,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -339,6 +340,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -457,10 +459,10 @@ namespace DAL
                     string cep = Convert.ToString(reader["CEP"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
-
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
 
                     f = new Funcionario(id, nome, cpf, rg, telefone, usuario, senha, ehadm,
-                        estado, cidade, cep, bairro, rua, numero, complemento);
+                        estado, cidade, cep, bairro, rua, numero, complemento, ativo);
                 }
             }
             catch
@@ -484,7 +486,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
-            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento, fun.ativo
             from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
             fun.estado = est.id where fun.Nome like @Nome and fun.id not like @funid";
 
@@ -513,6 +515,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -531,6 +534,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -591,6 +595,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -609,6 +614,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -669,6 +675,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -687,6 +694,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -747,6 +755,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -765,6 +774,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -825,6 +835,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -843,6 +854,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -903,6 +915,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -921,6 +934,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -981,6 +995,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -999,6 +1014,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -1059,6 +1075,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -1077,6 +1094,7 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -1137,6 +1155,7 @@ namespace DAL
                     string email = Convert.ToString(reader["E-mail"]);
                     string senha = Convert.ToString(reader["SENHA"]);
                     bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -1155,6 +1174,87 @@ namespace DAL
                         Email = email,
                         Senha = senha,
                         EhAdm = ehadm,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    funcionarios.Add(fun);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return funcionarios;
+        }
+        #endregion
+
+        #region Pesquisar Ativos
+        public List<FuncionarioViewModel> PesquisarAtivos(bool Ativo)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select fun.ID, fun.Nome, fun.CPF, fun.RG, fun.telefone, fun.email 'E-mail', fun.Senha, fun.ehadm,
+            fun.CEP, est.Nome 'Estado', cid.nome 'Cidade', fun.Rua, fun.Bairro, fun.Numero, fun.Complemento 
+            from funcionarios fun inner join cidades cid on fun.cidade = cid.id inner join estados est on 
+            fun.estado = est.id where fun.ativo = @ativo";
+
+            command.Parameters.AddWithValue("@ativo", Ativo);
+
+            command.Connection = connection;
+
+            List<FuncionarioViewModel> funcionarios = new List<FuncionarioViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    string senha = Convert.ToString(reader["SENHA"]);
+                    bool ehadm = Convert.ToBoolean(reader["EHADM"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    FuncionarioViewModel fun = new FuncionarioViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone = telefone,
+                        Email = email,
+                        Senha = senha,
+                        EhAdm = ehadm,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,

@@ -763,5 +763,12 @@ namespace BLL
             return dal.PesquisarAdmin(Admin);
         }
         #endregion
+
+        #region Pesquisar Ativos
+        public List<FuncionarioViewModel> PesquisarAtivos(bool Ativo)
+        {
+            return dal.PesquisarAtivos(Ativo);
+        }
+        #endregion
     }
 }

@@ -34,6 +34,10 @@ namespace ParkHotel
         public FormLogin()
         {
             InitializeComponent();
+
+            FormCheckOutAutomatico formchk = new FormCheckOutAutomatico();
+            formchk.Show();
+            formchk.Hide();
             txtUsuario.Text = "altairobama@outlook.com";
             txtSenha.Text = "altair123";
 
@@ -55,19 +59,19 @@ namespace ParkHotel
                 result = MessageBox.Show("Usuário e senha devem ser informados!", "Erro!", MessageBoxButtons.OK);
                 return;
             }
+            
             fun = bll.Logar(txtUsuario.Text, txtSenha.Text);
 
-
-            //Descomente a linha de abaixo e comente as linhas acima para não precisar fazer login
-
-            //fun = new Funcionario();
-
-
-            if (fun != null)
+            if (fun != null && fun.Ativo)
             {
                 Parametros.FuncionarioLogado = fun;
                 this.Hide();
                 new FormMenu(Parametros.FuncionarioLogado).Show();
+                return;
+            }
+            else if (!fun.Ativo)
+            {
+                result = MessageBox.Show("Você não possui acesso ao servidor.", "Erro!", MessageBoxButtons.OK);
                 return;
             }
             result = MessageBox.Show("Usuário ou senha incorretos!", "Erro!", MessageBoxButtons.OK);

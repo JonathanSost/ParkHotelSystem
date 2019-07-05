@@ -14,27 +14,28 @@ namespace ParkHotel
 {
     public partial class FormReservas : Form
     {
+        #region Inicialização do Form
         public FormReservas()
         {
             InitializeComponent();
-
         }
         ReservaBLL resbll = new ReservaBLL();
         Reserva r = null;
+        #endregion
 
+        #region Buttons
         private void btnCheckin_Click(object sender, EventArgs e)
         {
-            //r = new Reserva(int.Parse(txtID.Text), int.Parse(txtIDQuarto.Text), int.Parse(txtIDCliente.Text), dtpCheckin.Value, dtpCheckout.Value);
+            r = new Reserva(int.Parse(txtID.Text), int.Parse(txtIDQuarto.Text), int.Parse(txtIDCliente.Text), dtpCheckin.Value, dtpCheckout.Value);
 
+            MessageResponse response = resbll.Cadastrar(r);
+            MessageBox.Show(response.Message);
 
-            //MessageResponse response = resbll.Cadastrar(r);
-            //MessageBox.Show(response.Message);
-
-            //if (response.Success)
-            //{
-            //    dgvReservas.DataSource = resbll.LerTodos();
-            //    FormCleaner.Clear(this);
-            //}
+            if (response.Success)
+            {
+                dgvReservas.DataSource = resbll.LerTodos();
+                FormCleaner.Clear(this);
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -70,7 +71,9 @@ namespace ParkHotel
                 dgvReservas.DataSource = resbll.LerTodos();
             }
         }
+        #endregion
 
+        #region Pesquisar
         private void btnPesquisarQuartos_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -91,5 +94,6 @@ namespace ParkHotel
                 new FormMenu(Parametros.FuncionarioLogado).Show();
             }
         }
+        #endregion
     }
 }

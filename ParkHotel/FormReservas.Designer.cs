@@ -251,7 +251,6 @@
             this.btnVoltar.TabIndex = 141;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FormReservas
             // 

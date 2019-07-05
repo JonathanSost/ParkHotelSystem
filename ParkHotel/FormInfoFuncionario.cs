@@ -122,7 +122,7 @@ namespace ParkHotel
             Funcionario fun = new Funcionario(Parametros.FuncionarioLogado.ID, txtNome.Text, msktxtCPF.Text, msktxtRG.Text, 
                 msktxtTelefone.Text, txtEmail.Text, txtSenha.Text, Parametros.FuncionarioLogado.EhADM, 
                 (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, 
-                txtNumero.Text, Parametros.FuncionarioLogado.Complemento);
+                txtNumero.Text, Parametros.FuncionarioLogado.Complemento, true);
             MessageResponse response = funbll.Atualizar(fun);
             MessageBox.Show(response.Message);
             Parametros.FuncionarioLogado = fun;

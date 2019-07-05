@@ -62,7 +62,7 @@ namespace ParkHotel
         {
             f = new Funcionario(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
                 Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
-                txtComplemento.Text);
+                txtComplemento.Text, chkAtivo.Checked);
             MessageResponse response = funbll.Atualizar(f);
             MessageBox.Show(response.Message);
             dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
@@ -103,7 +103,7 @@ namespace ParkHotel
         {
             f = new Funcionario(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
                 Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
-                txtComplemento.Text);
+                txtComplemento.Text, chkAtivo.Checked);
 
             MessageResponse response = funbll.Cadastrar(f);
             MessageBox.Show(response.Message);
@@ -183,7 +183,7 @@ namespace ParkHotel
             cmbCidade.SelectedValue = cidade;
 
             f = new Funcionario(nome, cpf, rg, telefone, email, senha, ehadm,
-                (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, cep, bairro, rua, numero, complemento);
+                (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, cep, bairro, rua, numero, complemento, true);
 
             txtID.Text = id.ToString();
             txtNome.Text = nome;
@@ -335,6 +335,10 @@ namespace ParkHotel
             dgvFuncionarios.DataSource = funbll.PesquisarAdmin(Admin);
         }
 
+        private void btnPesquisarPorAtivos_Click(object sender, EventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.PesquisarAtivos(chkAtivo.Checked);
+        }
         #endregion
     }
 }
