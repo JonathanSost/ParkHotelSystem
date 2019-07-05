@@ -105,7 +105,7 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 52);
-            this.btnExcluir.TabIndex = 16;
+            this.btnExcluir.TabIndex = 17;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
@@ -116,7 +116,7 @@
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
-            this.btnEditar.TabIndex = 17;
+            this.btnEditar.TabIndex = 18;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
@@ -127,7 +127,7 @@
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 52);
-            this.btnCadastrar.TabIndex = 15;
+            this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
@@ -340,7 +340,7 @@
             this.chkAdministrador.Location = new System.Drawing.Point(466, 555);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(130, 24);
-            this.chkAdministrador.TabIndex = 14;
+            this.chkAdministrador.TabIndex = 15;
             this.chkAdministrador.Text = " Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = true;
             this.chkAdministrador.CheckedChanged += new System.EventHandler(this.chkAdministrador_CheckedChanged);
@@ -374,7 +374,7 @@
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
-            this.btnVoltar.TabIndex = 18;
+            this.btnVoltar.TabIndex = 19;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
@@ -603,9 +603,10 @@
             this.chkAtivo.Location = new System.Drawing.Point(466, 501);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(63, 24);
-            this.chkAtivo.TabIndex = 162;
+            this.chkAtivo.TabIndex = 14;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
+            this.chkAtivo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkAtivo_KeyUp);
             // 
             // btnPesquisarPorAtivos
             // 

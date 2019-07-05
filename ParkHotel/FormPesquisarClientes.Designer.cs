@@ -162,7 +162,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(168, 26);
-            this.txtNome.TabIndex = 203;
+            this.txtNome.TabIndex = 0;
             // 
             // btnPesquisarPorCPF
             // 
@@ -215,7 +215,7 @@
             this.msktxtCPF.Mask = "000,000,000-00";
             this.msktxtCPF.Name = "msktxtCPF";
             this.msktxtCPF.Size = new System.Drawing.Size(120, 26);
-            this.msktxtCPF.TabIndex = 206;
+            this.msktxtCPF.TabIndex = 1;
             this.msktxtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // msktxtRG
@@ -225,7 +225,7 @@
             this.msktxtRG.Mask = "0,000,000";
             this.msktxtRG.Name = "msktxtRG";
             this.msktxtRG.Size = new System.Drawing.Size(91, 26);
-            this.msktxtRG.TabIndex = 207;
+            this.msktxtRG.TabIndex = 2;
             this.msktxtRG.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnPesquisarPorCidade
@@ -326,7 +326,7 @@
             this.cmbCidade.Location = new System.Drawing.Point(300, 347);
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(204, 28);
-            this.cmbCidade.TabIndex = 213;
+            this.cmbCidade.TabIndex = 5;
             // 
             // cmbEstado
             // 
@@ -343,7 +343,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(300, 298);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(204, 28);
-            this.cmbEstado.TabIndex = 212;
+            this.cmbEstado.TabIndex = 4;
             // 
             // msktxtCEP
             // 
@@ -352,7 +352,7 @@
             this.msktxtCEP.Mask = "00000-000";
             this.msktxtCEP.Name = "msktxtCEP";
             this.msktxtCEP.Size = new System.Drawing.Size(90, 26);
-            this.msktxtCEP.TabIndex = 214;
+            this.msktxtCEP.TabIndex = 3;
             this.msktxtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label10
@@ -381,7 +381,7 @@
             this.txtRua.Location = new System.Drawing.Point(300, 470);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(204, 26);
-            this.txtRua.TabIndex = 216;
+            this.txtRua.TabIndex = 7;
             // 
             // txtBairro
             // 
@@ -389,7 +389,7 @@
             this.txtBairro.Location = new System.Drawing.Point(300, 411);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(204, 26);
-            this.txtBairro.TabIndex = 215;
+            this.txtBairro.TabIndex = 6;
             // 
             // FormPesquisarClientes
             // 

@@ -116,7 +116,7 @@
             this.msktxtCNPJ.Mask = "99,999,999/9999-99";
             this.msktxtCNPJ.Name = "msktxtCNPJ";
             this.msktxtCNPJ.Size = new System.Drawing.Size(151, 26);
-            this.msktxtCNPJ.TabIndex = 180;
+            this.msktxtCNPJ.TabIndex = 1;
             this.msktxtCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label4
@@ -137,7 +137,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(152, 26);
-            this.txtNome.TabIndex = 181;
+            this.txtNome.TabIndex = 2;
             // 
             // label1
             // 
@@ -157,7 +157,7 @@
             this.txtNomeEmpresa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
             this.txtNomeEmpresa.Size = new System.Drawing.Size(151, 26);
-            this.txtNomeEmpresa.TabIndex = 179;
+            this.txtNomeEmpresa.TabIndex = 0;
             // 
             // lblNome1
             // 

@@ -200,6 +200,7 @@
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
+            this.btnVoltar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnVoltar_KeyUp);
             // 
             // lblNome2
             // 

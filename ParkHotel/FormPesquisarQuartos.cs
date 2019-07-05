@@ -67,6 +67,18 @@ namespace ParkHotel
             };
             this.Close();
         }
+
+        private void chkDisponivel_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chkDisponivel.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkDisponivel.Checked = true;
+            }
+            else if (chkDisponivel.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkDisponivel.Checked = false;
+            }
+        }
         #endregion
 
         #region KeyUp

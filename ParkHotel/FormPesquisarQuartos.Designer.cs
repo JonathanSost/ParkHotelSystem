@@ -99,7 +99,7 @@
             this.txtPreco.Margin = new System.Windows.Forms.Padding(2);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(151, 26);
-            this.txtPreco.TabIndex = 192;
+            this.txtPreco.TabIndex = 0;
             // 
             // lblPesquisar
             // 
@@ -159,7 +159,7 @@
             this.cmbTipos.Location = new System.Drawing.Point(139, 351);
             this.cmbTipos.Name = "cmbTipos";
             this.cmbTipos.Size = new System.Drawing.Size(152, 28);
-            this.cmbTipos.TabIndex = 203;
+            this.cmbTipos.TabIndex = 1;
             // 
             // chkDisponivel
             // 
@@ -168,9 +168,10 @@
             this.chkDisponivel.Location = new System.Drawing.Point(139, 396);
             this.chkDisponivel.Name = "chkDisponivel";
             this.chkDisponivel.Size = new System.Drawing.Size(100, 24);
-            this.chkDisponivel.TabIndex = 204;
+            this.chkDisponivel.TabIndex = 2;
             this.chkDisponivel.Text = "Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
+            this.chkDisponivel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkDisponivel_KeyUp);
             // 
             // btnPesquisarPorPreçosMaiores
             // 

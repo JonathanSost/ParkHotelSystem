@@ -92,7 +92,7 @@
             this.txtIDCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.Size = new System.Drawing.Size(161, 26);
-            this.txtIDCliente.TabIndex = 133;
+            this.txtIDCliente.TabIndex = 0;
             // 
             // label2
             // 
@@ -112,7 +112,7 @@
             this.cmbProdutos.Location = new System.Drawing.Point(23, 125);
             this.cmbProdutos.Name = "cmbProdutos";
             this.cmbProdutos.Size = new System.Drawing.Size(161, 28);
-            this.cmbProdutos.TabIndex = 137;
+            this.cmbProdutos.TabIndex = 1;
             // 
             // label3
             // 
@@ -133,7 +133,7 @@
             this.txtQuantidade.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(161, 26);
-            this.txtQuantidade.TabIndex = 138;
+            this.txtQuantidade.TabIndex = 2;
             // 
             // btnVoltar
             // 
@@ -142,7 +142,7 @@
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
-            this.btnVoltar.TabIndex = 140;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             // 
@@ -153,7 +153,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 41);
-            this.button1.TabIndex = 141;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Registrar";
             this.button1.UseVisualStyleBackColor = true;
             // 

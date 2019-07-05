@@ -181,7 +181,7 @@
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
-            this.btnVoltar.TabIndex = 7;
+            this.btnVoltar.TabIndex = 8;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
@@ -194,7 +194,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(34, 336);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(152, 28);
-            this.cmbTipo.TabIndex = 124;
+            this.cmbTipo.TabIndex = 2;
             // 
             // label4
             // 
@@ -212,7 +212,7 @@
             this.btnCriarTipo.Location = new System.Drawing.Point(463, 135);
             this.btnCriarTipo.Name = "btnCriarTipo";
             this.btnCriarTipo.Size = new System.Drawing.Size(93, 37);
-            this.btnCriarTipo.TabIndex = 126;
+            this.btnCriarTipo.TabIndex = 7;
             this.btnCriarTipo.Text = "Criar Novo Tipo de Quarto";
             this.btnCriarTipo.UseVisualStyleBackColor = true;
             this.btnCriarTipo.Click += new System.EventHandler(this.btnCriarTipo_Click);

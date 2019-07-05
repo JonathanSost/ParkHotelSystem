@@ -77,7 +77,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(524, 315);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 46);
-            this.btnVoltar.TabIndex = 0;
+            this.btnVoltar.TabIndex = 14;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -88,7 +88,7 @@
             this.lblCPF.Location = new System.Drawing.Point(32, 98);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(30, 13);
-            this.lblCPF.TabIndex = 2;
+            this.lblCPF.TabIndex = 1;
             this.lblCPF.Text = "CPF:";
             // 
             // lblRG
@@ -97,7 +97,7 @@
             this.lblRG.Location = new System.Drawing.Point(33, 150);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(26, 13);
-            this.lblRG.TabIndex = 3;
+            this.lblRG.TabIndex = 2;
             this.lblRG.Text = "RG:";
             // 
             // lblTelefone
@@ -115,7 +115,7 @@
             this.lblCEP.Location = new System.Drawing.Point(33, 198);
             this.lblCEP.Name = "lblCEP";
             this.lblCEP.Size = new System.Drawing.Size(31, 13);
-            this.lblCEP.TabIndex = 5;
+            this.lblCEP.TabIndex = 3;
             this.lblCEP.Text = "CEP:";
             // 
             // lblRua
@@ -142,7 +142,7 @@
             this.lblNumero.Location = new System.Drawing.Point(428, 198);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(47, 13);
-            this.lblNumero.TabIndex = 8;
+            this.lblNumero.TabIndex = 10;
             this.lblNumero.Text = "Número:";
             // 
             // lblEmail
@@ -151,7 +151,7 @@
             this.lblEmail.Location = new System.Drawing.Point(428, 98);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(38, 13);
-            this.lblEmail.TabIndex = 10;
+            this.lblEmail.TabIndex = 8;
             this.lblEmail.Text = "E-mail:";
             // 
             // lblSenha
@@ -160,7 +160,7 @@
             this.lblSenha.Location = new System.Drawing.Point(428, 150);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(41, 13);
-            this.lblSenha.TabIndex = 11;
+            this.lblSenha.TabIndex = 9;
             this.lblSenha.Text = "Senha:";
             // 
             // btnEditar
@@ -182,7 +182,7 @@
             this.btnConfirmar.Location = new System.Drawing.Point(28, 315);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 46);
-            this.btnConfirmar.TabIndex = 16;
+            this.btnConfirmar.TabIndex = 12;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Visible = false;
@@ -204,7 +204,7 @@
             this.txtNome.Location = new System.Drawing.Point(28, 26);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(474, 29);
-            this.txtNome.TabIndex = 39;
+            this.txtNome.TabIndex = 0;
             this.txtNome.Visible = false;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
@@ -236,7 +236,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(144, 315);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 46);
-            this.btnCancelar.TabIndex = 72;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Visible = false;
@@ -379,7 +379,7 @@
             this.msktxtCPF.Mask = "000,000,000-00";
             this.msktxtCPF.Name = "msktxtCPF";
             this.msktxtCPF.Size = new System.Drawing.Size(126, 26);
-            this.msktxtCPF.TabIndex = 91;
+            this.msktxtCPF.TabIndex = 1;
             this.msktxtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.msktxtCPF.Visible = false;
             // 
@@ -400,7 +400,7 @@
             this.txtSenha.Location = new System.Drawing.Point(428, 142);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(121, 26);
-            this.txtSenha.TabIndex = 90;
+            this.txtSenha.TabIndex = 10;
             this.txtSenha.Visible = false;
             // 
             // txtEmail
@@ -409,7 +409,7 @@
             this.txtEmail.Location = new System.Drawing.Point(428, 90);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(121, 26);
-            this.txtEmail.TabIndex = 89;
+            this.txtEmail.TabIndex = 9;
             this.txtEmail.Visible = false;
             // 
             // txtBairro
@@ -418,7 +418,7 @@
             this.txtBairro.Location = new System.Drawing.Point(225, 238);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(137, 26);
-            this.txtBairro.TabIndex = 88;
+            this.txtBairro.TabIndex = 8;
             this.txtBairro.Visible = false;
             // 
             // txtRua
@@ -427,7 +427,7 @@
             this.txtRua.Location = new System.Drawing.Point(225, 190);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(137, 26);
-            this.txtRua.TabIndex = 87;
+            this.txtRua.TabIndex = 7;
             this.txtRua.Visible = false;
             // 
             // txtNumero
@@ -436,7 +436,7 @@
             this.txtNumero.Location = new System.Drawing.Point(428, 190);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(121, 26);
-            this.txtNumero.TabIndex = 86;
+            this.txtNumero.TabIndex = 11;
             this.txtNumero.Visible = false;
             // 
             // cmbCidade
@@ -448,7 +448,7 @@
             this.cmbCidade.Location = new System.Drawing.Point(225, 142);
             this.cmbCidade.Name = "cmbCidade";
             this.cmbCidade.Size = new System.Drawing.Size(137, 28);
-            this.cmbCidade.TabIndex = 85;
+            this.cmbCidade.TabIndex = 6;
             // 
             // cmbEstado
             // 
@@ -459,7 +459,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(225, 90);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(137, 28);
-            this.cmbEstado.TabIndex = 84;
+            this.cmbEstado.TabIndex = 5;
             // 
             // FormInfoFuncionario
             // 

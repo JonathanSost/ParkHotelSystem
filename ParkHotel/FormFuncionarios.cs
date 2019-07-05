@@ -146,6 +146,18 @@ namespace ParkHotel
             }
         }
 
+        private void chkAtivo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!chkAtivo.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkAtivo.Checked = true;
+            }
+            else if (chkAtivo.Checked && e.KeyCode == Keys.Enter)
+            {
+                chkAtivo.Checked = false;
+            }
+        }
+
         private void picbRefresh_Click(object sender, EventArgs e)
         {
             dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);

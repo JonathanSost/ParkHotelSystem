@@ -19,7 +19,7 @@ namespace ParkHotel
             InitializeComponent();
             
             lblNomeFuncionario.Text = "Bem-Vindo,";
-            lnkFuncionarioLogado.Text = Funci.LerPrimeiroNome();
+            //lnkFuncionarioLogado.Text = Funci.LerPrimeiroNome();
             lblHora.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy, HH:mm");
             if (Funci.EhADM)
             {

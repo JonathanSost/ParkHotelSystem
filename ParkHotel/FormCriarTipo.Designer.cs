@@ -49,7 +49,7 @@
             this.txtTipo.Location = new System.Drawing.Point(23, 285);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(228, 26);
-            this.txtTipo.TabIndex = 0;
+            this.txtTipo.TabIndex = 1;
             // 
             // btnVoltar
             // 
@@ -57,7 +57,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(509, 460);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(104, 36);
-            this.btnVoltar.TabIndex = 2;
+            this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -94,7 +94,7 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(110, 52);
-            this.btnExcluir.TabIndex = 28;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -105,7 +105,7 @@
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 52);
-            this.btnEditar.TabIndex = 29;
+            this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -116,7 +116,7 @@
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(110, 52);
-            this.btnCadastrar.TabIndex = 27;
+            this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -140,7 +140,7 @@
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(98, 26);
-            this.txtID.TabIndex = 30;
+            this.txtID.TabIndex = 0;
             // 
             // btnPesquisarPorTipo
             // 
@@ -149,7 +149,7 @@
             this.btnPesquisarPorTipo.Location = new System.Drawing.Point(258, 285);
             this.btnPesquisarPorTipo.Name = "btnPesquisarPorTipo";
             this.btnPesquisarPorTipo.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorTipo.TabIndex = 108;
+            this.btnPesquisarPorTipo.TabIndex = 2;
             this.btnPesquisarPorTipo.UseVisualStyleBackColor = true;
             this.btnPesquisarPorTipo.Click += new System.EventHandler(this.btnPesquisarPorTipo_Click);
             // 
