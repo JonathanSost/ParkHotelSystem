@@ -59,6 +59,9 @@
             this.btnPesquisarPorEstoquesMaiores = new System.Windows.Forms.Button();
             this.btnPesquisarPorEstoquesIguais = new System.Windows.Forms.Button();
             this.btnPesquisarPorEstoquesMenores = new System.Windows.Forms.Button();
+            this.btnAdicionarEstoque = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -68,7 +71,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 227);
+            this.label3.Location = new System.Drawing.Point(56, 227);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 20);
@@ -79,7 +82,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(34, 246);
+            this.txtID.Location = new System.Drawing.Point(56, 246);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(161, 26);
@@ -103,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 334);
+            this.label2.Location = new System.Drawing.Point(54, 334);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
@@ -114,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 280);
+            this.label1.Location = new System.Drawing.Point(54, 280);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 20);
@@ -124,7 +127,7 @@
             // txtDescricao
             // 
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(32, 351);
+            this.txtDescricao.Location = new System.Drawing.Point(54, 351);
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(161, 26);
@@ -134,7 +137,7 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(32, 299);
+            this.txtNome.Location = new System.Drawing.Point(54, 299);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(161, 26);
@@ -178,7 +181,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 384);
+            this.label4.Location = new System.Drawing.Point(54, 384);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 20);
@@ -188,7 +191,7 @@
             // txtPreco
             // 
             this.txtPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreco.Location = new System.Drawing.Point(32, 401);
+            this.txtPreco.Location = new System.Drawing.Point(54, 401);
             this.txtPreco.Margin = new System.Windows.Forms.Padding(2);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(161, 26);
@@ -199,7 +202,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 435);
+            this.label5.Location = new System.Drawing.Point(54, 435);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 20);
@@ -209,7 +212,7 @@
             // txtEstoque
             // 
             this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoque.Location = new System.Drawing.Point(32, 452);
+            this.txtEstoque.Location = new System.Drawing.Point(54, 452);
             this.txtEstoque.Margin = new System.Windows.Forms.Padding(2);
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(161, 26);
@@ -253,7 +256,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 489);
+            this.label6.Location = new System.Drawing.Point(54, 489);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 20);
@@ -264,7 +267,7 @@
             // 
             this.txtIDFornecedor.Enabled = false;
             this.txtIDFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDFornecedor.Location = new System.Drawing.Point(32, 508);
+            this.txtIDFornecedor.Location = new System.Drawing.Point(54, 508);
             this.txtIDFornecedor.Margin = new System.Windows.Forms.Padding(2);
             this.txtIDFornecedor.Name = "txtIDFornecedor";
             this.txtIDFornecedor.Size = new System.Drawing.Size(161, 26);
@@ -272,7 +275,7 @@
             // 
             // btnPesquisarFornecedores
             // 
-            this.btnPesquisarFornecedores.Location = new System.Drawing.Point(197, 508);
+            this.btnPesquisarFornecedores.Location = new System.Drawing.Point(219, 508);
             this.btnPesquisarFornecedores.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarFornecedores.Name = "btnPesquisarFornecedores";
             this.btnPesquisarFornecedores.Size = new System.Drawing.Size(29, 26);
@@ -309,7 +312,7 @@
             // 
             this.btnPesquisarPorNomeProduto.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
             this.btnPesquisarPorNomeProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorNomeProduto.Location = new System.Drawing.Point(198, 300);
+            this.btnPesquisarPorNomeProduto.Location = new System.Drawing.Point(220, 300);
             this.btnPesquisarPorNomeProduto.Name = "btnPesquisarPorNomeProduto";
             this.btnPesquisarPorNomeProduto.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorNomeProduto.TabIndex = 127;
@@ -320,7 +323,7 @@
             // 
             this.btnPesquisarPorDescricao.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
             this.btnPesquisarPorDescricao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorDescricao.Location = new System.Drawing.Point(198, 352);
+            this.btnPesquisarPorDescricao.Location = new System.Drawing.Point(220, 352);
             this.btnPesquisarPorDescricao.Name = "btnPesquisarPorDescricao";
             this.btnPesquisarPorDescricao.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisarPorDescricao.TabIndex = 128;
@@ -330,7 +333,7 @@
             // btnPesquisarPorPreçosMenores
             // 
             this.btnPesquisarPorPreçosMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorPreçosMenores.Location = new System.Drawing.Point(198, 401);
+            this.btnPesquisarPorPreçosMenores.Location = new System.Drawing.Point(220, 401);
             this.btnPesquisarPorPreçosMenores.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorPreçosMenores.Name = "btnPesquisarPorPreçosMenores";
             this.btnPesquisarPorPreçosMenores.Size = new System.Drawing.Size(29, 26);
@@ -342,7 +345,7 @@
             // btnPesquisarPorPreçosIguais
             // 
             this.btnPesquisarPorPreçosIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(231, 401);
+            this.btnPesquisarPorPreçosIguais.Location = new System.Drawing.Point(253, 401);
             this.btnPesquisarPorPreçosIguais.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorPreçosIguais.Name = "btnPesquisarPorPreçosIguais";
             this.btnPesquisarPorPreçosIguais.Size = new System.Drawing.Size(29, 26);
@@ -354,7 +357,7 @@
             // btnPesquisarPorPreçosMaiores
             // 
             this.btnPesquisarPorPreçosMaiores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorPreçosMaiores.Location = new System.Drawing.Point(264, 401);
+            this.btnPesquisarPorPreçosMaiores.Location = new System.Drawing.Point(286, 401);
             this.btnPesquisarPorPreçosMaiores.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorPreçosMaiores.Name = "btnPesquisarPorPreçosMaiores";
             this.btnPesquisarPorPreçosMaiores.Size = new System.Drawing.Size(29, 26);
@@ -366,7 +369,7 @@
             // btnPesquisarPorEstoquesMaiores
             // 
             this.btnPesquisarPorEstoquesMaiores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorEstoquesMaiores.Location = new System.Drawing.Point(264, 451);
+            this.btnPesquisarPorEstoquesMaiores.Location = new System.Drawing.Point(286, 451);
             this.btnPesquisarPorEstoquesMaiores.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorEstoquesMaiores.Name = "btnPesquisarPorEstoquesMaiores";
             this.btnPesquisarPorEstoquesMaiores.Size = new System.Drawing.Size(29, 26);
@@ -378,7 +381,7 @@
             // btnPesquisarPorEstoquesIguais
             // 
             this.btnPesquisarPorEstoquesIguais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorEstoquesIguais.Location = new System.Drawing.Point(231, 452);
+            this.btnPesquisarPorEstoquesIguais.Location = new System.Drawing.Point(253, 452);
             this.btnPesquisarPorEstoquesIguais.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorEstoquesIguais.Name = "btnPesquisarPorEstoquesIguais";
             this.btnPesquisarPorEstoquesIguais.Size = new System.Drawing.Size(29, 26);
@@ -390,7 +393,7 @@
             // btnPesquisarPorEstoquesMenores
             // 
             this.btnPesquisarPorEstoquesMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPorEstoquesMenores.Location = new System.Drawing.Point(198, 451);
+            this.btnPesquisarPorEstoquesMenores.Location = new System.Drawing.Point(220, 451);
             this.btnPesquisarPorEstoquesMenores.Margin = new System.Windows.Forms.Padding(2);
             this.btnPesquisarPorEstoquesMenores.Name = "btnPesquisarPorEstoquesMenores";
             this.btnPesquisarPorEstoquesMenores.Size = new System.Drawing.Size(29, 26);
@@ -399,6 +402,41 @@
             this.btnPesquisarPorEstoquesMenores.UseVisualStyleBackColor = true;
             this.btnPesquisarPorEstoquesMenores.Click += new System.EventHandler(this.btnPesquisarPorEstoquesMenores_Click);
             // 
+            // btnAdicionarEstoque
+            // 
+            this.btnAdicionarEstoque.Location = new System.Drawing.Point(14, 453);
+            this.btnAdicionarEstoque.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdicionarEstoque.Name = "btnAdicionarEstoque";
+            this.btnAdicionarEstoque.Size = new System.Drawing.Size(26, 26);
+            this.btnAdicionarEstoque.TabIndex = 135;
+            this.btnAdicionarEstoque.Text = "+";
+            this.btnAdicionarEstoque.UseVisualStyleBackColor = true;
+            this.btnAdicionarEstoque.Click += new System.EventHandler(this.btnAdicionarEstoque_Click);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Location = new System.Drawing.Point(14, 540);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(108, 39);
+            this.btnConfirmar.TabIndex = 136;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Visible = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(141, 540);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(108, 39);
+            this.btnCancelar.TabIndex = 137;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +444,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(683, 587);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.btnAdicionarEstoque);
             this.Controls.Add(this.btnPesquisarPorEstoquesMaiores);
             this.Controls.Add(this.btnPesquisarPorEstoquesIguais);
             this.Controls.Add(this.btnPesquisarPorEstoquesMenores);
@@ -482,5 +523,8 @@
         private System.Windows.Forms.Button btnPesquisarPorEstoquesMaiores;
         private System.Windows.Forms.Button btnPesquisarPorEstoquesIguais;
         private System.Windows.Forms.Button btnPesquisarPorEstoquesMenores;
+        private System.Windows.Forms.Button btnAdicionarEstoque;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

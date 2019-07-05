@@ -229,5 +229,74 @@ namespace ParkHotel
         {
             dgvProdutos.DataSource = pbll.PesquisarPorNome(txtNome.Text);
         }
+
+        private void btnAdicionarEstoque_Click(object sender, EventArgs e)
+        {
+            txtID.Enabled = false;
+            txtDescricao.Enabled = false;
+            txtNome.Enabled = false;
+            txtPreco.Enabled = false;
+            btnPesquisarFornecedores.Visible = false;
+            btnPesquisarPorDescricao.Visible = false;
+            btnCadastrar.Visible = false;
+            btnEditar.Visible = false;
+            btnExcluir.Visible = false;
+            btnPesquisarPorEstoquesIguais.Visible = false;
+            btnPesquisarPorEstoquesMaiores.Visible = false;
+            btnPesquisarPorEstoquesMenores.Visible = false;
+            btnPesquisarPorNomeProduto.Visible = false;
+            btnPesquisarPorPreçosIguais.Visible = false;
+            btnPesquisarPorPreçosMaiores.Visible = false;
+            btnPesquisarPorPreçosMenores.Visible = false;
+            btnAdicionarEstoque.Visible = false;
+            btnConfirmar.Visible = true;
+            btnCancelar.Visible = true;
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            txtID.Enabled = true;
+            txtDescricao.Enabled = true;
+            txtNome.Enabled = true;
+            txtPreco.Enabled = true;
+            btnPesquisarFornecedores.Visible = true;
+            btnPesquisarPorDescricao.Visible = true;
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
+            btnPesquisarPorEstoquesIguais.Visible = true;
+            btnPesquisarPorEstoquesMaiores.Visible = true;
+            btnPesquisarPorEstoquesMenores.Visible = true;
+            btnPesquisarPorNomeProduto.Visible = true;
+            btnPesquisarPorPreçosIguais.Visible = true;
+            btnPesquisarPorPreçosMaiores.Visible = true;
+            btnPesquisarPorPreçosMenores.Visible = true;
+            btnAdicionarEstoque.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtID.Enabled = true;
+            txtDescricao.Enabled = true;
+            txtNome.Enabled = true;
+            txtPreco.Enabled = true;
+            btnPesquisarFornecedores.Visible = true;
+            btnPesquisarPorDescricao.Visible = true;
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
+            btnPesquisarPorEstoquesIguais.Visible = true;
+            btnPesquisarPorEstoquesMaiores.Visible = true;
+            btnPesquisarPorEstoquesMenores.Visible = true;
+            btnPesquisarPorNomeProduto.Visible = true;
+            btnPesquisarPorPreçosIguais.Visible = true;
+            btnPesquisarPorPreçosMaiores.Visible = true;
+            btnPesquisarPorPreçosMenores.Visible = true;
+            btnAdicionarEstoque.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+        }
     }
 }
