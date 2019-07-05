@@ -17,7 +17,7 @@ namespace BLL
         #region Cadastrar
         public MessageResponse Cadastrar(Reserva reserva)
         {
-            if (reserva.DiaReserva == reserva.DiaQueSai)
+            if (reserva.CheckIn == reserva.CheckOut)
             {
                 erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
             }
@@ -58,7 +58,7 @@ namespace BLL
                 return response;
             }
 
-            if (reserva.DiaReserva == reserva.DiaQueSai)
+            if (reserva.CheckIn == reserva.CheckOut)
             {
                 erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
             }
@@ -115,6 +115,13 @@ namespace BLL
         public List<Reserva> LerTodos()
         {
             return dal.LerTodos();
+        }
+        #endregion
+
+        #region Realizar Check-Out Automático
+        public void RealizarCheckoutAutomatico()
+        {
+            dal.RealizarCheckoutAutomatico();
         }
         #endregion
     }

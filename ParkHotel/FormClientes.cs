@@ -130,13 +130,16 @@ namespace ParkHotel
             string telefone1 = (string)dgvClientes.Rows[e.RowIndex].Cells[4].Value;
             string telefone2 = (string)dgvClientes.Rows[e.RowIndex].Cells[5].Value;
             string email = (string)dgvClientes.Rows[e.RowIndex].Cells[6].Value;
-            string estado = (string)dgvClientes.Rows[e.RowIndex].Cells[8].Value;
-            string cidade = (string)dgvClientes.Rows[e.RowIndex].Cells[9].Value;
-            string rua = (string)dgvClientes.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dgvClientes.Rows[e.RowIndex].Cells[11].Value;
-            string numero = (string)dgvClientes.Rows[e.RowIndex].Cells[12].Value;
-            string cep = (string)dgvClientes.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dgvClientes.Rows[e.RowIndex].Cells[14].Value;
+            int estado = estbll.LerPorCliente((string)dgvClientes.Rows[e.RowIndex].Cells[7].Value);
+            int cidade = cidbll.LerPorCliente((string)dgvClientes.Rows[e.RowIndex].Cells[8].Value);
+            string rua = (string)dgvClientes.Rows[e.RowIndex].Cells[9].Value;
+            string bairro = (string)dgvClientes.Rows[e.RowIndex].Cells[10].Value;
+            string numero = (string)dgvClientes.Rows[e.RowIndex].Cells[11].Value;
+            string cep = (string)dgvClientes.Rows[e.RowIndex].Cells[12].Value;
+            string complemento = (string)dgvClientes.Rows[e.RowIndex].Cells[13].Value;
+
+            cmbEstado.SelectedValue = estado;
+            cmbCidade.SelectedValue = cidade;
 
             c = new Cliente(nome, cpf, rg, telefone1, telefone2, email, cep, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, rua, bairro, numero, complemento);
 
@@ -148,8 +151,6 @@ namespace ParkHotel
             msktxtCelular.Text = telefone2;
             txtEmail.Text = email;
             msktxtCEP.Text = cep;
-            cmbEstado.Text = estado.ToString();
-            cmbCidade.Text = cidade.ToString();
             txtRua.Text = rua;
             txtBairro.Text = bairro;
             txtNumero.Text = numero;

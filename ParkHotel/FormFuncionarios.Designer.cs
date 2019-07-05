@@ -95,7 +95,7 @@
             this.dgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionarios.Size = new System.Drawing.Size(924, 132);
             this.dgvFuncionarios.TabIndex = 150;
-            this.dgvFuncionarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellContentClick);
+            this.dgvFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellDoubleClick);
             // 
             // btnExcluir
             // 
@@ -267,7 +267,6 @@
             this.txtNome.Size = new System.Drawing.Size(168, 26);
             this.txtNome.TabIndex = 1;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
-            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // msktxtRG
             // 

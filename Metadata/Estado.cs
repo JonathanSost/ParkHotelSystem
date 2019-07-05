@@ -8,6 +8,11 @@ namespace Metadata
 {
     public class Estado
     {
+        public Estado(int id)
+        {
+            this.ID = id;
+        }
+
         public Estado(int id, string sigla, string nome)
         {
             this.ID = id;

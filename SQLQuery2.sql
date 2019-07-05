@@ -1,1 +1,0 @@
-﻿select res.id 'ID da Reserva', qua.id 'ID do Quarto', cli.id 'ID do Cliente', res.diareserva 'Dia do Check-In', res.diaquesai 'Dia do Check-Out' from reservas res inner join clientes cli on res.cliente = cli.id inner join quartos qua on res.quarto = qua.id

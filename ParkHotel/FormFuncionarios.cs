@@ -155,6 +155,52 @@ namespace ParkHotel
         {
             FormCleaner.Clear(this);
         }
+
+        private void dgvFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            int id = (int)dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value;
+            string nome = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value;
+            string cpf = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[2].Value;
+            string rg = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[3].Value;
+            string telefone = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[4].Value;
+            string email = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[5].Value;
+            string senha = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[6].Value;
+            bool ehadm = (bool)dgvFuncionarios.Rows[e.RowIndex].Cells[7].Value;
+            int estado = estbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[8].Value);
+            int cidade = cidbll.LerPorCliente((string)dgvFuncionarios.Rows[e.RowIndex].Cells[9].Value);
+            string rua = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[10].Value;
+            string bairro = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[11].Value;
+            string numero = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[12].Value;
+            string cep = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[13].Value;
+            string complemento = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[14].Value;
+
+            cmbEstado.SelectedValue = estado;
+            cmbCidade.SelectedValue = cidade;
+
+            f = new Funcionario(nome, cpf, rg, telefone, email, senha, ehadm,
+                (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, cep, bairro, rua, numero, complemento);
+
+            txtID.Text = id.ToString();
+            txtNome.Text = nome;
+            msktxtCPF.Text = cpf;
+            msktxtRG.Text = rg;
+            msktxtTelefone.Text = telefone;
+            txtEmail.Text = email;
+            txtSenha.Text = senha;
+            chkAdministrador.Checked = ehadm;
+            msktxtCEP.Text = cep;
+            cmbEstado.Text = estado.ToString();
+            cmbCidade.Text = cidade.ToString();
+            txtRua.Text = rua;
+            txtBairro.Text = bairro;
+            txtNumero.Text = numero;
+            txtComplemento.Text = complemento;
+        }
         #endregion
 
         #region Componente Changed
@@ -291,57 +337,6 @@ namespace ParkHotel
 
         #endregion
 
-        private void dgvFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-
-            int id = (int)dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value;
-            string nome = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value;
-            string cpf = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[2].Value;
-            string rg = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[3].Value;
-            string telefone = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[4].Value;
-            string email = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[5].Value;
-            string senha = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[6].Value;
-            bool ehadm = (bool)dgvFuncionarios.Rows[e.RowIndex].Cells[7].Value;
-            string estado = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[8].Value;
-            string cidade = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[9].Value;
-            string rua = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[10].Value;
-            string bairro = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[11].Value;
-            string numero = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[12].Value;
-            string cep = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[13].Value;
-            string complemento = (string)dgvFuncionarios.Rows[e.RowIndex].Cells[14].Value;
-
-
-            f = new Funcionario(nome, cpf, rg, telefone, email, senha, ehadm, 
-                (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, cep, bairro, rua, numero, complemento);
-
-            txtID.Text = id.ToString();
-            txtNome.Text = nome;
-            msktxtCPF.Text = cpf;
-            msktxtRG.Text = rg;
-            msktxtTelefone.Text = telefone;
-            txtEmail.Text = email;
-            txtSenha.Text = senha;
-            chkAdministrador.Checked = ehadm;
-            msktxtCEP.Text = cep;
-            cmbEstado.Text = estado.ToString();
-            cmbCidade.Text = cidade.ToString();
-            txtRua.Text = rua;
-            txtBairro.Text = bairro;
-            txtNumero.Text = numero;
-            txtComplemento.Text = complemento;
-        }
-
-        private void txtNome_Leave(object sender, EventArgs e)
-        {
-            if (txtNome.Text == "")
-            {
-                toolTip1.SetToolTip(txtNome, "Favor informe o nome");
-                toolTip1.Show("oijdsoijdsa", this);
-            }
-        }
+        
     }
 }

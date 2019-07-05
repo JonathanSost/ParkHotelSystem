@@ -51,5 +51,10 @@ namespace BLL
         {
             return dal.LerPorEstado(idestado);
         }
+
+        public int LerPorCliente(string nome)
+        {
+            return dal.LerPorUsuario(nome);
+        }
     }
 }

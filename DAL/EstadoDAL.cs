@@ -219,5 +219,45 @@ namespace DAL
             return false;
         }
         #endregion
+
+        #region Ler Por Usuário
+        public int LerPorUsuario(string nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select id from estados where nome = @nome";
+            command.Parameters.AddWithValue("@nome", nome);
+            command.Connection = connection;
+
+            Estado e = null;
+            int eid = -1;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    eid = id;
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return eid;
+        }
+        #endregion
     }
 }

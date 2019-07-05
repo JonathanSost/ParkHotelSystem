@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,10 @@ namespace ParkHotel
         public FormCheckOutAutomatico()
         {
             InitializeComponent();
+            this.Hide();
         }
+
+        ReservaBLL bll = new ReservaBLL();
 
         private void timer1_Tick(object sender, EventArgs e)
         {

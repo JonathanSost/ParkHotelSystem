@@ -8,21 +8,24 @@ namespace Metadata
 {
     public class Reserva
     {
-        //int id, int idQuarto, int idCliente, DateTime diaReserva, DateTime diaQueSai
+        public Reserva()
+        {
 
-        public Reserva(int id, int idquarto, int idcliente, DateTime diareserva, DateTime diaquesai )
+        }
+
+        public Reserva(int id, int idquarto, int idcliente, DateTime checkin, DateTime checkout)
         {
             this.ID = id;
             this.IDQuarto = idquarto;
             this.IDCliente = idcliente;
-            this.DiaReserva = diareserva;
-            this.DiaQueSai = diaquesai;
+            this.CheckIn = checkin;
+            this.CheckOut = checkout;
         }
 
         public int ID { get; set; }
         public int IDQuarto { get; set; }
         public int IDCliente { get; set; }
-        public DateTime DiaReserva { get; set; }
-        public DateTime DiaQueSai { get; set; }
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set; }
     }
 }

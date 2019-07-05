@@ -39,12 +39,12 @@
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.dgvQuartos = new System.Windows.Forms.DataGridView();
-            this.btnPesquisarPorQuartosDisponíveis = new System.Windows.Forms.Button();
             this.cmbTipos = new System.Windows.Forms.ComboBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
             this.btnPesquisarPorPreçosMaiores = new System.Windows.Forms.Button();
             this.btnPesquisarPorPreçosIguais = new System.Windows.Forms.Button();
             this.btnPesquisarPorPreçosMenores = new System.Windows.Forms.Button();
+            this.btnPesquisarPorQuartosDisponíveis = new System.Windows.Forms.Button();
             this.PesquisarPorTipo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).BeginInit();
             this.SuspendLayout();
@@ -151,17 +151,6 @@
             this.dgvQuartos.TabIndex = 190;
             this.dgvQuartos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuartos_CellDoubleClick);
             // 
-            // btnPesquisarPorQuartosDisponíveis
-            // 
-            this.btnPesquisarPorQuartosDisponíveis.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
-            this.btnPesquisarPorQuartosDisponíveis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPesquisarPorQuartosDisponíveis.Location = new System.Drawing.Point(245, 394);
-            this.btnPesquisarPorQuartosDisponíveis.Name = "btnPesquisarPorQuartosDisponíveis";
-            this.btnPesquisarPorQuartosDisponíveis.Size = new System.Drawing.Size(26, 26);
-            this.btnPesquisarPorQuartosDisponíveis.TabIndex = 200;
-            this.btnPesquisarPorQuartosDisponíveis.UseVisualStyleBackColor = true;
-            this.btnPesquisarPorQuartosDisponíveis.Click += new System.EventHandler(this.btnPesquisarPorQuartosDisponíveis_Click);
-            // 
             // cmbTipos
             // 
             this.cmbTipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -218,6 +207,17 @@
             this.btnPesquisarPorPreçosMenores.Text = "<";
             this.btnPesquisarPorPreçosMenores.UseVisualStyleBackColor = true;
             this.btnPesquisarPorPreçosMenores.Click += new System.EventHandler(this.btnPesquisarPorPreçosMenores_Click);
+            // 
+            // btnPesquisarPorQuartosDisponíveis
+            // 
+            this.btnPesquisarPorQuartosDisponíveis.BackgroundImage = global::ParkHotel.Properties.Resources.lupahiafugfiasf;
+            this.btnPesquisarPorQuartosDisponíveis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPesquisarPorQuartosDisponíveis.Location = new System.Drawing.Point(245, 394);
+            this.btnPesquisarPorQuartosDisponíveis.Name = "btnPesquisarPorQuartosDisponíveis";
+            this.btnPesquisarPorQuartosDisponíveis.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisarPorQuartosDisponíveis.TabIndex = 200;
+            this.btnPesquisarPorQuartosDisponíveis.UseVisualStyleBackColor = true;
+            this.btnPesquisarPorQuartosDisponíveis.Click += new System.EventHandler(this.btnPesquisarPorQuartosDisponíveis_Click);
             // 
             // PesquisarPorTipo
             // 

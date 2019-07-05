@@ -15,5 +15,10 @@ namespace BLL
         {
             return dal.LerTodos();
         }
+
+        public int LerPorCliente(string nome)
+        {
+            return dal.LerPorUsuario(nome);
+        }
     }
 }
