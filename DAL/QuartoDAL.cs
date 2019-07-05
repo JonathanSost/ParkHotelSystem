@@ -520,7 +520,7 @@ namespace DAL
                 {
                     int id = Convert.ToInt32(reader["IDProduto"]);
 
-                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"].ToString("C2"));
+                    string preco = Convert.ToString("R$ " + reader["PreçoDiária"]);
                     string tipo = Convert.ToString(reader["TipoQuarto"]);
                     bool disponivel = Convert.ToBoolean(reader["Disponível"]);
 

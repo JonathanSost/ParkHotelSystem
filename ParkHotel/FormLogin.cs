@@ -41,8 +41,8 @@ namespace ParkHotel
             txtUsuario.Text = "altairobama@outlook.com";
             txtSenha.Text = "altair123";
 
-            //txtUsuario.Text = "vinikk03@gmail.com";
-            //txtSenha.Text = "vini1234";
+            txtUsuario.Text = "vinikk03@gmail.com";
+            txtSenha.Text = "vini1234";
 
             if (!bll.VerificarExistenciaFuncionarioA())
             {
@@ -69,7 +69,7 @@ namespace ParkHotel
                 new FormMenu(Parametros.FuncionarioLogado).Show();
                 return;
             }
-            else if (!fun.Ativo)
+            else if (fun != null && !fun.Ativo)
             {
                 result = MessageBox.Show("Você não possui acesso ao servidor.", "Erro!", MessageBoxButtons.OK);
                 return;
