@@ -54,7 +54,6 @@ namespace ParkHotel
                 dgvQuartos.DataSource = qbll.LerQuartos();
                 FormCleaner.Clear(this);
             }
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -151,6 +150,7 @@ namespace ParkHotel
         private void btnCriarTipo_Click(object sender, EventArgs e)
         {
             new FormCriarTipo(this).ShowDialog();
+            cmbTipo.DataSource = tbll.LerTodos();
         }
 
         private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
