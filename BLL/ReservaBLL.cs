@@ -13,6 +13,8 @@ namespace BLL
         ReservaDAL dal = new ReservaDAL();
         MessageResponse response = new MessageResponse();
         List<string> erros = new List<string>();
+        QuartoBLL qbll = new QuartoBLL();
+
 
         #region Cadastrar
         public MessageResponse Cadastrar(Reserva reserva)
@@ -20,24 +22,23 @@ namespace BLL
             ClienteBLL clibll = new ClienteBLL();
             if (clibll.ChecarAtivos(reserva.IDCliente))
             {
-                //erros.Add("A reserva não pôde ser concluída pois o cliente em questão já está em uma reserva.");
+                erros.Add("A reserva não pôde ser concluída pois o cliente em questão já está em uma reserva.");
             }
 
-            //QuartoBLL qbll = new QuartoBLL();    
-            //else if (qbll.ChecarDisponiveis(reserva.IDQuarto))
-            //{
-            //    erros.Add("Quarto indisponivel.");
-            //}
+            else if (qbll.ChecarDisponiveis(reserva.IDQuarto))
+            {
+                erros.Add("Quarto indisponivel.");
+            }
             else
             {
-                //if (reserva.CheckIn.Day == reserva.CheckOut.Day)
-                //{
-                //    erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
-                //}
-                //else if (reserva.CheckIn.Day > reserva.CheckOut.Day)
-                //{
-                //    erros.Add("Data de Saída inválida.");
-                //}
+                if (reserva.CheckIn.Day == reserva.CheckOut.Day)
+                {
+                    erros.Add("Você deve ficar no mínimo 1 dia no Hotel Santo Soninho.");
+                }
+                else if (reserva.CheckIn.Day > reserva.CheckOut.Day)
+                {
+                    erros.Add("Data de Saída inválida.");
+                }
                 QuartoDAL quartos = new QuartoDAL();
                 if (!quartos.VerificarExistenciaQuarto(reserva.IDQuarto))
                 {
