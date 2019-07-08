@@ -40,13 +40,15 @@ namespace ParkHotel
                 return;
             }
 
-            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "Entrada", DateTime.Now);
+            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "", DateTime.Now);
 
 
             MessageResponse response = pbll.Cadastrar(p);
             MessageBox.Show(response.Message);
             if (response.Success)
             {
+                p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "Entrada", DateTime.Now);
+                pbll.InserirHistorico(p);
                 dgvProdutos.DataSource = pbll.LerProdutos();
                 FormCleaner.Clear(this);
             }
@@ -54,7 +56,7 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            p = new Produto(int.Parse(txtID.Text), txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "Entrada", dateTimePicker1.Value);
+            p = new Produto(int.Parse(txtID.Text), txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "", dateTimePicker1.Value);
 
             MessageResponse response = pbll.Atualizar(p);
             MessageBox.Show(response.Message);
@@ -182,7 +184,7 @@ namespace ParkHotel
             string status = (string)dgvProdutos.Rows[e.RowIndex].Cells[7].Value;
             DateTime datadetransferencia = (DateTime)(dgvProdutos.Rows[e.RowIndex].Cells[8].Value);
 
-            p = new Produto(nomeproduto, descricao, estoque, preco, idfornecedor, status, datadetransferencia);
+            p = new Produto(nomeproduto, descricao, estoque, preco, idfornecedor, "Entrada", datadetransferencia);
 
             txtID.Text = id.ToString();
             txtNome.Text = nomeproduto;
@@ -254,7 +256,7 @@ namespace ParkHotel
             {
                 p.Estoque = int.Parse(txtEstoque.Text);
                 pbll.InserirHistorico(p);
-                dgvProdutos.DataSource = pbll.LerProdutosEntrada();
+                dgvProdutos.DataSource = pbll.LerProdutos();
             }
         }
 

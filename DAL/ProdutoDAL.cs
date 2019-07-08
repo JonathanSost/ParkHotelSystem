@@ -136,13 +136,12 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor, status, datadetransferencia) values (@nome, @descricao, @precound, @estoque, @idfornecedor, @status, @datadetransferencia)";
+            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor, status, datadetransferencia) values (@nome, @descricao, @precound, @estoque, @idfornecedor, 'Entrada', @datadetransferencia)";
             command.Parameters.AddWithValue("@nome", produto.Nome);
             command.Parameters.AddWithValue("@descricao", produto.Descricao);
             command.Parameters.AddWithValue("@precound", produto.Preco);
             command.Parameters.AddWithValue("@estoque", produto.Estoque);
             command.Parameters.AddWithValue("@idfornecedor", produto.IdFornecedor);
-            command.Parameters.AddWithValue("@status", produto.Status);
             command.Parameters.AddWithValue("@datadetransferencia", produto.DataDeTransferencia);
 
             command.Connection = connection;
@@ -167,7 +166,6 @@ namespace DAL
             return response;
         }
         #endregion
-
 
         #region Ler Por ID
         public Produto LerPorID(int id)
@@ -304,7 +302,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = ''";
 
             command.Connection = connection;
 
@@ -365,7 +363,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.id";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.id";
 
             command.Connection = connection;
 
@@ -426,7 +424,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.id desc";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.id desc";
 
             command.Connection = connection;
 
@@ -487,7 +485,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.nome";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.nome";
 
             command.Connection = connection;
 
@@ -548,7 +546,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.nome desc";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.nome desc";
 
             command.Connection = connection;
 
@@ -609,7 +607,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.precound";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.precound";
 
             command.Connection = connection;
 
@@ -670,7 +668,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.precound desc";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.precound desc";
 
             command.Connection = connection;
 
@@ -731,7 +729,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.estoque";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.estoque";
 
             command.Connection = connection;
 
@@ -792,7 +790,7 @@ namespace DAL
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
                                   p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
-                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.estoque desc";
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = '' order by p.estoque desc";
 
             command.Connection = connection;
 
