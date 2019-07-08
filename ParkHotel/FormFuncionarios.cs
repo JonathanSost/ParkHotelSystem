@@ -34,6 +34,11 @@ namespace ParkHotel
                 btnVoltar.Visible = false;
                 chkAtivo.Checked = true;
                 chkAtivo.Enabled = false;
+                label5.Visible = false;
+                lnkOrderByID.Visible = false;
+                lnkOrderByIDDesc.Visible = false;
+                lnkOrderByName.Visible = false;
+                lnkOrderByNameDesc.Visible = false;
             }
         }
 
