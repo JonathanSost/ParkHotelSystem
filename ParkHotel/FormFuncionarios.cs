@@ -27,6 +27,8 @@ namespace ParkHotel
 
             if (!funbll.VerificarExistenciaFuncionarioA())
             {
+                btnEditar.Visible = false;
+                btnExcluir.Visible = false;
                 chkAdministrador.Checked = true;
                 chkAdministrador.Enabled = false;
                 btnVoltar.Visible = false;
