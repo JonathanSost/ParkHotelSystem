@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHistórico));
             this.dgvEntradaProdutos = new System.Windows.Forms.DataGridView();
             this.dgvSaidaProdutos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,6 +129,7 @@
             this.Controls.Add(this.dgvSaidaProdutos);
             this.Controls.Add(this.dgvEntradaProdutos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormHistórico";
             this.Text = "FormHistórico";

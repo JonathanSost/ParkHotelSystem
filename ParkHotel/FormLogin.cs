@@ -32,6 +32,9 @@ namespace ParkHotel
             txtUsuario.Text = "altairobama@outlook.com";
             txtSenha.Text = "altair123";
 
+            txtUsuario.Text = "vinikk03@gmail.com";
+            txtSenha.Text = "vini1234";
+
             if (!bll.VerificarExistenciaFuncionarioA())
             {
                 lnkCadastrarAdmin.Visible = true;
