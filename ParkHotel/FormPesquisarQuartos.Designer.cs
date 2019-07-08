@@ -52,21 +52,21 @@
             // lblNome1
             // 
             this.lblNome1.AutoSize = true;
-            this.lblNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(6, 454);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(48, 16);
+            this.lblNome1.Size = new System.Drawing.Size(43, 17);
             this.lblNome1.TabIndex = 201;
             this.lblNome1.Text = "Santo";
             // 
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
-            this.lblNome2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(51, 454);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(64, 16);
+            this.lblNome2.Size = new System.Drawing.Size(56, 17);
             this.lblNome2.TabIndex = 202;
             this.lblNome2.Text = "Soninho";
             // 

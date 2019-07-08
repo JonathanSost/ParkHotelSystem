@@ -17,6 +17,8 @@ namespace ParkHotel
         #region Inicialização do Form
         ProdutoBLL pbll = new ProdutoBLL();
         Produto p = null;
+        MessageResponse response = new MessageResponse();
+        int estoque;
 
         public FormProdutos()
         {
@@ -38,7 +40,7 @@ namespace ParkHotel
                 return;
             }
 
-            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
+            p = new Produto(txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "Entrada", DateTime.Now);
 
 
             MessageResponse response = pbll.Cadastrar(p);
@@ -52,7 +54,7 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            p = new Produto(int.Parse(txtID.Text), txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text));
+            p = new Produto(int.Parse(txtID.Text), txtNome.Text, txtDescricao.Text, int.Parse(txtEstoque.Text), double.Parse(txtPreco.Text), int.Parse(txtIDFornecedor.Text), "Entrada", dateTimePicker1.Value);
 
             MessageResponse response = pbll.Atualizar(p);
             MessageBox.Show(response.Message);
@@ -123,6 +125,46 @@ namespace ParkHotel
             FormCleaner.Clear(this);
         }
 
+        private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByID();
+        }
+
+        private void lnkOrderByIDDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByIDDesc();
+        }
+
+        private void lnkOrderByName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByName();
+        }
+
+        private void lnkOrderByNameDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByNameDesc();
+        }
+
+        private void lnkOrderByPreco_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByPreco();
+        }
+
+        private void lnkOrderByPrecoDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByPrecoDesc();
+        }
+
+        private void lnkOrderByEstoque_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByEstoque();
+        }
+
+        private void lnkOrderByEstoqueDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvProdutos.DataSource = pbll.LerProdutosByEstoqueDesc();
+        }
+
         private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -136,8 +178,11 @@ namespace ParkHotel
             int estoque = (int)dgvProdutos.Rows[e.RowIndex].Cells[3].Value;
             double preco = (double)dgvProdutos.Rows[e.RowIndex].Cells[4].Value;
             int idfornecedor = (int)dgvProdutos.Rows[e.RowIndex].Cells[5].Value;
+            string nomefornecedor = (string)dgvProdutos.Rows[e.RowIndex].Cells[6].Value;
+            string status = (string)dgvProdutos.Rows[e.RowIndex].Cells[7].Value;
+            DateTime datadetransferencia = (DateTime)(dgvProdutos.Rows[e.RowIndex].Cells[8].Value);
 
-            p = new Produto(nomeproduto, descricao, estoque, preco, idfornecedor);
+            p = new Produto(nomeproduto, descricao, estoque, preco, idfornecedor, status, datadetransferencia);
 
             txtID.Text = id.ToString();
             txtNome.Text = nomeproduto;
@@ -145,6 +190,95 @@ namespace ParkHotel
             txtPreco.Text = preco.ToString();
             txtEstoque.Text = estoque.ToString();
             txtIDFornecedor.Text = idfornecedor.ToString();
+            dateTimePicker1.Value = datadetransferencia;
+        }
+
+        private void btnAdicionarEstoque_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("Favor informar o ID do Produto.");
+                return;
+            }
+            txtID.Enabled = false;
+            txtDescricao.Enabled = false;
+            txtNome.Enabled = false;
+            txtPreco.Enabled = false;
+            btnPesquisarFornecedores.Visible = false;
+            btnPesquisarPorDescricao.Visible = false;
+            btnCadastrar.Visible = false;
+            btnEditar.Visible = false;
+            btnExcluir.Visible = false;
+            btnPesquisarPorEstoquesIguais.Visible = false;
+            btnPesquisarPorEstoquesMaiores.Visible = false;
+            btnPesquisarPorEstoquesMenores.Visible = false;
+            btnPesquisarPorNomeProduto.Visible = false;
+            btnPesquisarPorPreçosIguais.Visible = false;
+            btnPesquisarPorPreçosMaiores.Visible = false;
+            btnPesquisarPorPreçosMenores.Visible = false;
+            btnAdicionarEstoque.Visible = false;
+            btnConfirmar.Visible = true;
+            btnCancelar.Visible = true;
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            if (int.Parse(txtEstoque.Text) <= 0)
+            {
+                MessageBox.Show("A quantia a adicionar deve ser maior do que 0.");
+                return;
+            }
+            txtID.Enabled = true;
+            txtDescricao.Enabled = true;
+            txtNome.Enabled = true;
+            txtPreco.Enabled = true;
+            btnPesquisarFornecedores.Visible = true;
+            btnPesquisarPorDescricao.Visible = true;
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
+            btnPesquisarPorEstoquesIguais.Visible = true;
+            btnPesquisarPorEstoquesMaiores.Visible = true;
+            btnPesquisarPorEstoquesMenores.Visible = true;
+            btnPesquisarPorNomeProduto.Visible = true;
+            btnPesquisarPorPreçosIguais.Visible = true;
+            btnPesquisarPorPreçosMaiores.Visible = true;
+            btnPesquisarPorPreçosMenores.Visible = true;
+            btnAdicionarEstoque.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+
+            estoque = pbll.TrazerEstoqueProduto(int.Parse(txtID.Text));
+            estoque += int.Parse(txtEstoque.Text);
+            response = pbll.AtualizarEstoqueProduto(int.Parse(txtID.Text), estoque);
+            MessageBox.Show(response.Message);
+            if (response.Success)
+            {
+                dgvProdutos.DataSource = pbll.LerProdutosEntrada();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtID.Enabled = true;
+            txtDescricao.Enabled = true;
+            txtNome.Enabled = true;
+            txtPreco.Enabled = true;
+            btnPesquisarFornecedores.Visible = true;
+            btnPesquisarPorDescricao.Visible = true;
+            btnCadastrar.Visible = true;
+            btnEditar.Visible = true;
+            btnExcluir.Visible = true;
+            btnPesquisarPorEstoquesIguais.Visible = true;
+            btnPesquisarPorEstoquesMaiores.Visible = true;
+            btnPesquisarPorEstoquesMenores.Visible = true;
+            btnPesquisarPorNomeProduto.Visible = true;
+            btnPesquisarPorPreçosIguais.Visible = true;
+            btnPesquisarPorPreçosMaiores.Visible = true;
+            btnPesquisarPorPreçosMenores.Visible = true;
+            btnAdicionarEstoque.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
         }
         #endregion
 
@@ -218,7 +352,6 @@ namespace ParkHotel
                 dgvProdutos.DataSource = pbll.PesquisarPorEstoquesMaiores(int.Parse(txtEstoque.Text));
             }
         }
-        #endregion
 
         private void btnPesquisarPorDescricao_Click(object sender, EventArgs e)
         {
@@ -229,74 +362,6 @@ namespace ParkHotel
         {
             dgvProdutos.DataSource = pbll.PesquisarPorNome(txtNome.Text);
         }
-
-        private void btnAdicionarEstoque_Click(object sender, EventArgs e)
-        {
-            txtID.Enabled = false;
-            txtDescricao.Enabled = false;
-            txtNome.Enabled = false;
-            txtPreco.Enabled = false;
-            btnPesquisarFornecedores.Visible = false;
-            btnPesquisarPorDescricao.Visible = false;
-            btnCadastrar.Visible = false;
-            btnEditar.Visible = false;
-            btnExcluir.Visible = false;
-            btnPesquisarPorEstoquesIguais.Visible = false;
-            btnPesquisarPorEstoquesMaiores.Visible = false;
-            btnPesquisarPorEstoquesMenores.Visible = false;
-            btnPesquisarPorNomeProduto.Visible = false;
-            btnPesquisarPorPreçosIguais.Visible = false;
-            btnPesquisarPorPreçosMaiores.Visible = false;
-            btnPesquisarPorPreçosMenores.Visible = false;
-            btnAdicionarEstoque.Visible = false;
-            btnConfirmar.Visible = true;
-            btnCancelar.Visible = true;
-        }
-
-        private void btnConfirmar_Click(object sender, EventArgs e)
-        {
-            txtID.Enabled = true;
-            txtDescricao.Enabled = true;
-            txtNome.Enabled = true;
-            txtPreco.Enabled = true;
-            btnPesquisarFornecedores.Visible = true;
-            btnPesquisarPorDescricao.Visible = true;
-            btnCadastrar.Visible = true;
-            btnEditar.Visible = true;
-            btnExcluir.Visible = true;
-            btnPesquisarPorEstoquesIguais.Visible = true;
-            btnPesquisarPorEstoquesMaiores.Visible = true;
-            btnPesquisarPorEstoquesMenores.Visible = true;
-            btnPesquisarPorNomeProduto.Visible = true;
-            btnPesquisarPorPreçosIguais.Visible = true;
-            btnPesquisarPorPreçosMaiores.Visible = true;
-            btnPesquisarPorPreçosMenores.Visible = true;
-            btnAdicionarEstoque.Visible = true;
-            btnConfirmar.Visible = false;
-            btnCancelar.Visible = false;
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            txtID.Enabled = true;
-            txtDescricao.Enabled = true;
-            txtNome.Enabled = true;
-            txtPreco.Enabled = true;
-            btnPesquisarFornecedores.Visible = true;
-            btnPesquisarPorDescricao.Visible = true;
-            btnCadastrar.Visible = true;
-            btnEditar.Visible = true;
-            btnExcluir.Visible = true;
-            btnPesquisarPorEstoquesIguais.Visible = true;
-            btnPesquisarPorEstoquesMaiores.Visible = true;
-            btnPesquisarPorEstoquesMenores.Visible = true;
-            btnPesquisarPorNomeProduto.Visible = true;
-            btnPesquisarPorPreçosIguais.Visible = true;
-            btnPesquisarPorPreçosMaiores.Visible = true;
-            btnPesquisarPorPreçosMenores.Visible = true;
-            btnAdicionarEstoque.Visible = true;
-            btnConfirmar.Visible = false;
-            btnCancelar.Visible = false;
-        }
+        #endregion
     }
 }

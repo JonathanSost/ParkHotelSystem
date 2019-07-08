@@ -35,6 +35,16 @@ namespace ParkHotel
         #region Buttons
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                MessageBox.Show("Favor informar o preço do quarto.");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(cmbTipo.Text))
+            {
+                MessageBox.Show("Favor informar o tipo do quarto.");
+                return;
+            }
             q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, true);
 
             MessageResponse response = qbll.Cadastrar(q);
@@ -49,7 +59,17 @@ namespace ParkHotel
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            q = new Quarto(double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                MessageBox.Show("Favor informar o ID da reserva.");
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                MessageBox.Show("Favor informar o preço da reserva.");
+                return;
+            }
+            q = new Quarto(int.Parse(txtID.Text), double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
 
             MessageResponse response = qbll.Atualizar(q);
             MessageBox.Show(response.Message);
@@ -66,15 +86,21 @@ namespace ParkHotel
                 MessageBox.Show("ID do quarto deve ser informado.");
                 return;
             }
-            q.ID = int.Parse(txtID.Text);
+            else if (string.IsNullOrWhiteSpace(txtPreco.Text))
+            {
+                MessageBox.Show("Favor informar o preço da reserva.");
+                return;
+            }
+            
             DialogResult result = MessageBox.Show("Tem certeza que deseja excluir o quarto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            MessageResponse response = new MessageResponse();
-            response = qbll.Excluir(q);
+            q = new Quarto(int.Parse(txtID.Text), double.Parse(txtPreco.Text), (int)cmbTipo.SelectedValue, chkDisponivel.Checked);
+
+            MessageResponse response = qbll.Excluir(q);
             MessageBox.Show(response.Message);
             if (response.Success)
             {
@@ -127,12 +153,45 @@ namespace ParkHotel
             new FormCriarTipo(this).ShowDialog();
         }
 
+        private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvQuartos.DataSource = qbll.LerQuartosByID();
+        }
+
+        private void lnkOrderByIDDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvQuartos.DataSource = qbll.LerQuartosByIDDesc();
+        }
+
+        private void lnkOrderByPreco_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvQuartos.DataSource = qbll.LerQuartosByPreco();
+        }
+
+        private void lnkOrderByPrecoDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvQuartos.DataSource = qbll.LerQuartosByPrecoDesc();
+        }
+
         private void dgvQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
                 return;
             }
+
+            int id = (int)dgvQuartos.Rows[e.RowIndex].Cells[0].Value;
+            double preco = qbll.TrazerPrecoPorID(id);
+            int tipo = tbll.LerPorNome((string)dgvQuartos.Rows[e.RowIndex].Cells[2].Value);
+            bool disponivel = (bool)dgvQuartos.Rows[e.RowIndex].Cells[3].Value;
+
+            cmbTipo.SelectedValue = tipo;
+
+            q = new Quarto(id, preco, (int)cmbTipo.SelectedValue, disponivel);
+
+            txtID.Text = id.ToString();
+            txtPreco.Text = preco.ToString();
+            chkDisponivel.Checked = disponivel;
         }
         #endregion
 
@@ -142,7 +201,5 @@ namespace ParkHotel
             txtPreco.MaxLength = 10;
         }
         #endregion
-
-        
     }
 }

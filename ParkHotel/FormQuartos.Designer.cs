@@ -46,6 +46,11 @@
             this.btnCriarTipo = new System.Windows.Forms.Button();
             this.picbClear = new System.Windows.Forms.PictureBox();
             this.picbRefresh = new System.Windows.Forms.PictureBox();
+            this.lnkOrderByPrecoDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByPreco = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lnkOrderByIDDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByID = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuartos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -53,6 +58,7 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(127, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
@@ -85,6 +91,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(250, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
@@ -111,6 +118,7 @@
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(3, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -160,7 +168,7 @@
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(221, 314);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(409, 127);
+            this.lblNome2.Size = new System.Drawing.Size(403, 127);
             this.lblNome2.TabIndex = 98;
             this.lblNome2.Text = "Soninho";
             // 
@@ -170,7 +178,7 @@
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(275, 207);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(316, 127);
+            this.lblNome1.Size = new System.Drawing.Size(312, 127);
             this.lblNome1.TabIndex = 97;
             this.lblNome1.Text = "Santo";
             // 
@@ -209,7 +217,7 @@
             // 
             // btnCriarTipo
             // 
-            this.btnCriarTipo.Location = new System.Drawing.Point(463, 135);
+            this.btnCriarTipo.Location = new System.Drawing.Point(284, 469);
             this.btnCriarTipo.Name = "btnCriarTipo";
             this.btnCriarTipo.Size = new System.Drawing.Size(93, 37);
             this.btnCriarTipo.TabIndex = 7;
@@ -241,6 +249,59 @@
             this.picbRefresh.TabStop = false;
             this.picbRefresh.Click += new System.EventHandler(this.picbRefresh_Click);
             // 
+            // lnkOrderByPrecoDesc
+            // 
+            this.lnkOrderByPrecoDesc.AutoSize = true;
+            this.lnkOrderByPrecoDesc.Location = new System.Drawing.Point(523, 175);
+            this.lnkOrderByPrecoDesc.Name = "lnkOrderByPrecoDesc";
+            this.lnkOrderByPrecoDesc.Size = new System.Drawing.Size(63, 13);
+            this.lnkOrderByPrecoDesc.TabIndex = 148;
+            this.lnkOrderByPrecoDesc.TabStop = true;
+            this.lnkOrderByPrecoDesc.Text = "Preço Desc";
+            this.lnkOrderByPrecoDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByPrecoDesc_LinkClicked);
+            // 
+            // lnkOrderByPreco
+            // 
+            this.lnkOrderByPreco.AutoSize = true;
+            this.lnkOrderByPreco.Location = new System.Drawing.Point(523, 150);
+            this.lnkOrderByPreco.Name = "lnkOrderByPreco";
+            this.lnkOrderByPreco.Size = new System.Drawing.Size(35, 13);
+            this.lnkOrderByPreco.TabIndex = 147;
+            this.lnkOrderByPreco.TabStop = true;
+            this.lnkOrderByPreco.Text = "Preço";
+            this.lnkOrderByPreco.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByPreco_LinkClicked);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(378, 150);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 146;
+            this.label7.Text = "Ordenar Por:";
+            // 
+            // lnkOrderByIDDesc
+            // 
+            this.lnkOrderByIDDesc.AutoSize = true;
+            this.lnkOrderByIDDesc.Location = new System.Drawing.Point(466, 175);
+            this.lnkOrderByIDDesc.Name = "lnkOrderByIDDesc";
+            this.lnkOrderByIDDesc.Size = new System.Drawing.Size(46, 13);
+            this.lnkOrderByIDDesc.TabIndex = 150;
+            this.lnkOrderByIDDesc.TabStop = true;
+            this.lnkOrderByIDDesc.Text = "ID Desc";
+            this.lnkOrderByIDDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByIDDesc_LinkClicked);
+            // 
+            // lnkOrderByID
+            // 
+            this.lnkOrderByID.AutoSize = true;
+            this.lnkOrderByID.Location = new System.Drawing.Point(466, 150);
+            this.lnkOrderByID.Name = "lnkOrderByID";
+            this.lnkOrderByID.Size = new System.Drawing.Size(18, 13);
+            this.lnkOrderByID.TabIndex = 149;
+            this.lnkOrderByID.TabStop = true;
+            this.lnkOrderByID.Text = "ID";
+            this.lnkOrderByID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByID_LinkClicked);
+            // 
             // FormQuartos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +309,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(637, 518);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkOrderByIDDesc);
+            this.Controls.Add(this.lnkOrderByID);
+            this.Controls.Add(this.lnkOrderByPrecoDesc);
+            this.Controls.Add(this.lnkOrderByPreco);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCriarTipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbTipo);
@@ -298,5 +364,10 @@
         private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCriarTipo;
+        private System.Windows.Forms.LinkLabel lnkOrderByPrecoDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByPreco;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel lnkOrderByIDDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByID;
     }
 }

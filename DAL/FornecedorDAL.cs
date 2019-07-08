@@ -227,6 +227,187 @@ namespace DAL
         }
         #endregion
 
+        #region Ler Todos (Order By ID)
+        public List<Fornecedor> LerTodosByID()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from fornecedores order by id" +
+                "";
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
+        #region Ler Todos (Order By ID Desc)
+        public List<Fornecedor> LerTodosByIDDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from fornecedores order by id desc";
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
+        #region Ler Todos (Order By Name)
+        public List<Fornecedor> LerTodosByName()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from fornecedores order by nome";
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
+        #region Ler Todos (Order By Name Desc)
+        public List<Fornecedor> LerTodosByNameDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from fornecedores order by nome desc";
+            command.Connection = connection;
+
+            List<Fornecedor> fornecedores = new List<Fornecedor>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    string nomeempresa = Convert.ToString(reader["NOMEEMPRESA"]);
+                    string cnpj = Convert.ToString(reader["CNPJ"]);
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string telefone = Convert.ToString(reader["TELEFONE"]);
+                    string email = Convert.ToString(reader["EMAIL"]);
+
+                    Fornecedor fornecedor = new Fornecedor(id, nomeempresa, cnpj, nome, telefone, email);
+                    fornecedores.Add(fornecedor);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return fornecedores;
+        }
+        #endregion
+
         #region Verificar Existência do Fornecedor
         public bool VerificarExistenciaVenda(int idFornecedor)
         {

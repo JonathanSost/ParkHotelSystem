@@ -232,7 +232,6 @@ namespace DAL
             command.Parameters.AddWithValue("@nome", nome);
             command.Connection = connection;
 
-            Estado e = null;
             int eid = -1;
 
             try

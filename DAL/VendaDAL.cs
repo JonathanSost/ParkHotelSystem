@@ -239,5 +239,198 @@ namespace DAL
             return false;
         }
         #endregion
+
+        #region Ler Vendas
+        public List<VendaViewModel> LerVendas()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select v.id 'IDVenda', v.funcionario 'IDFuncionario', f.nome 'NomeFuncionario', 
+                                  v.cliente 'IDCliente', cli.nome 'NomeCliente', v.datadevenda 'DataDeSaída', v.quantidade 'Quantidade', 
+                                  v.valor 'Valor', v.produto 'IDProduto', p.nome 'NomeProduto' from vendas v inner join funcionarios f on v.funcionario = f.id
+                                  inner join clientes cli on v.cliente = cli.id inner join produtos p on v.produto = p.id";
+
+            command.Connection = connection;
+
+            List<VendaViewModel> vendas = new List<VendaViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDVenda"]);
+
+                    int idfuncionario = Convert.ToInt32(reader["IDFuncionario"]);
+                    string nomefuncionario = Convert.ToString(reader["NomeFuncionario"]);
+                    int idcliente = Convert.ToInt32(reader["IDCliente"]);
+                    string nomecliente = Convert.ToString(reader["NomeCliente"]);
+                    DateTime datadesaida = Convert.ToDateTime(reader["DataDeSaída"]);
+                    int quantidade = Convert.ToInt32(reader["Quantidade"]);
+                    double valor = Convert.ToDouble(reader["Valor"]);
+                    int idproduto = Convert.ToInt32(reader["IDProduto"]);
+                    string nomeproduto = Convert.ToString(reader["NomeProduto"]);
+
+                    VendaViewModel venda = new VendaViewModel()
+                    {
+                        IDVenda = id,
+                        IDFuncionario = idfuncionario,
+                        NomeFuncionario = nomefuncionario,
+                        IDCliente = idcliente,
+                        NomeCliente = nomecliente,
+                        DataDeVenda = datadesaida,
+                        Quantidade = quantidade,
+                        Valor = valor,
+                        IDProduto = idproduto,
+                        NomeProduto = nomeproduto
+                    };
+                    vendas.Add(venda);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return vendas;
+        }
+        #endregion
+
+        #region Ler Vendas (Order By ID)
+        public List<VendaViewModel> LerVendasByID()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select v.id 'IDVenda', v.funcionario 'IDFuncionario', f.nome 'NomeFuncionario', 
+                                  v.cliente 'IDCliente', cli.nome 'NomeCliente', v.datadevenda 'DataDeSaída', v.quantidade 'Quantidade', 
+                                  v.valor 'Valor', v.produto 'IDProduto', p.nome 'NomeProduto' from vendas v inner join funcionarios f on v.funcionario = f.id
+                                  inner join clientes cli on v.cliente = cli.id inner join produtos p on v.produto = p.id order by v.id";
+
+            command.Connection = connection;
+
+            List<VendaViewModel> vendas = new List<VendaViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDVenda"]);
+
+                    int idfuncionario = Convert.ToInt32(reader["IDFuncionario"]);
+                    string nomefuncionario = Convert.ToString(reader["NomeFuncionario"]);
+                    int idcliente = Convert.ToInt32(reader["IDCliente"]);
+                    string nomecliente = Convert.ToString(reader["NomeCliente"]);
+                    DateTime datadesaida = Convert.ToDateTime(reader["DataDeSaída"]);
+                    int quantidade = Convert.ToInt32(reader["Quantidade"]);
+                    double valor = Convert.ToDouble(reader["Valor"]);
+                    int idproduto = Convert.ToInt32(reader["IDProduto"]);
+                    string nomeproduto = Convert.ToString(reader["NomeProduto"]);
+
+                    VendaViewModel venda = new VendaViewModel()
+                    {
+                        IDVenda = id,
+                        IDFuncionario = idfuncionario,
+                        NomeFuncionario = nomefuncionario,
+                        IDCliente = idcliente,
+                        NomeCliente = nomecliente,
+                        DataDeVenda = datadesaida,
+                        Quantidade = quantidade,
+                        Valor = valor,
+                        IDProduto = idproduto,
+                        NomeProduto = nomeproduto
+                    };
+                    vendas.Add(venda);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return vendas;
+        }
+        #endregion
+
+        #region Ler Vendas (Order By ID Desc)
+        public List<VendaViewModel> LerVendasByIDDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select v.id 'IDVenda', v.funcionario 'IDFuncionario', f.nome 'NomeFuncionario', 
+                                  v.cliente 'IDCliente', cli.nome 'NomeCliente', v.datadevenda 'DataDeSaída', v.quantidade 'Quantidade', 
+                                  v.valor 'Valor', v.produto 'IDProduto', p.nome 'NomeProduto' from vendas v inner join funcionarios f on v.funcionario = f.id
+                                  inner join clientes cli on v.cliente = cli.id inner join produtos p on v.produto = p.id order by v.id desc";
+
+            command.Connection = connection;
+
+            List<VendaViewModel> vendas = new List<VendaViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDVenda"]);
+
+                    int idfuncionario = Convert.ToInt32(reader["IDFuncionario"]);
+                    string nomefuncionario = Convert.ToString(reader["NomeFuncionario"]);
+                    int idcliente = Convert.ToInt32(reader["IDCliente"]);
+                    string nomecliente = Convert.ToString(reader["NomeCliente"]);
+                    DateTime datadesaida = Convert.ToDateTime(reader["DataDeSaída"]);
+                    int quantidade = Convert.ToInt32(reader["Quantidade"]);
+                    double valor = Convert.ToDouble(reader["Valor"]);
+                    int idproduto = Convert.ToInt32(reader["IDProduto"]);
+                    string nomeproduto = Convert.ToString(reader["NomeProduto"]);
+
+                    VendaViewModel venda = new VendaViewModel()
+                    {
+                        IDVenda = id,
+                        IDFuncionario = idfuncionario,
+                        NomeFuncionario = nomefuncionario,
+                        IDCliente = idcliente,
+                        NomeCliente = nomecliente,
+                        DataDeVenda = datadesaida,
+                        Quantidade = quantidade,
+                        Valor = valor,
+                        IDProduto = idproduto,
+                        NomeProduto = nomeproduto
+                    };
+                    vendas.Add(venda);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return vendas;
+        }
+        #endregion
+
     }
 }

@@ -19,13 +19,17 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "update produtos set nome = @nome, descricao = @descricao, precound = @precound, estoque = @estoque, idfornecedor = @idfornecedor where id = @id";
+            command.CommandText = @"update produtos set nome = @nome, descricao = @descricao,
+                precound = @precound, estoque = @estoque, idfornecedor = @idfornecedor, status = @status,
+                datadetransferencia = @datadetransferencia where id = @id";
             command.Parameters.AddWithValue("@id", produto.ID);
             command.Parameters.AddWithValue("@nome", produto.Nome);
             command.Parameters.AddWithValue("@descricao", produto.Descricao);
             command.Parameters.AddWithValue("@precound", produto.Preco);
             command.Parameters.AddWithValue("@estoque", produto.Estoque);
             command.Parameters.AddWithValue("@idfornecedor", produto.IdFornecedor);
+            command.Parameters.AddWithValue("@status", produto.Status);
+            command.Parameters.AddWithValue("@datadetransferencia", produto.DataDeTransferencia);
 
             command.Connection = connection;
 
@@ -46,7 +50,7 @@ namespace DAL
                 connection.Dispose();
             }
             response.Success = true;
-            response.Message =  "Produto atualizado com sucesso!";
+            response.Message = "Produto atualizado com sucesso!";
             return response;
         }
         #endregion
@@ -92,12 +96,14 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor) values (@nome, @descricao, @precound, @estoque, @idfornecedor)";
+            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor, status, datadetransferencia) values (@nome, @descricao, @precound, @estoque, @idfornecedor, @status, @datadetransferencia)";
             command.Parameters.AddWithValue("@nome", produto.Nome);
             command.Parameters.AddWithValue("@descricao", produto.Descricao);
             command.Parameters.AddWithValue("@precound", produto.Preco);
             command.Parameters.AddWithValue("@estoque", produto.Estoque);
             command.Parameters.AddWithValue("@idfornecedor", produto.IdFornecedor);
+            command.Parameters.AddWithValue("@status", produto.Status);
+            command.Parameters.AddWithValue("@datadetransferencia", produto.DataDeTransferencia);
 
             command.Connection = connection;
 
@@ -152,12 +158,13 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
                     double precound = Convert.ToDouble(reader["PRECOUND"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
-                    string nomefornecedor = Convert.ToString(reader["NOMEFORNECEDOR"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
-                    p = new Produto(id, nome, descricao, estoque, precound, idfornecedor);
+                    p = new Produto(id, nome, descricao, estoque, precound, idfornecedor, status, datadetransferencia);
                 }
             }
-            catch
+            catch(Exception ex)
             {
 
             }
@@ -178,7 +185,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', 
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresa'
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresa', p.status, p.datadetransferencia
                                   from produtos inner join fornecedores f on p.idfornecedor = f.id";
             command.Connection = connection;
 
@@ -197,8 +204,10 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["ESTOQUE"]);
                     double precound = Convert.ToDouble(reader["PRECOUND"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFORNECEDOR"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
-                    Produto produto = new Produto(id, nome, descricao, estoque, precound, idfornecedor);
+                    Produto produto = new Produto(id, nome, descricao, estoque, precound, idfornecedor, status, datadetransferencia);
                     produtos.Add(produto);
                 }
             }
@@ -254,7 +263,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id";
 
             command.Connection = connection;
@@ -276,6 +285,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -285,7 +296,619 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By ID)
+        public List<ProdutoViewModel> LerProdutosByID()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.id";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By ID Desc)
+        public List<ProdutoViewModel> LerProdutosByIDDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.id desc";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Name)
+        public List<ProdutoViewModel> LerProdutosByName()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.nome";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Name Desc)
+        public List<ProdutoViewModel> LerProdutosByNameDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.nome desc";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Preço)
+        public List<ProdutoViewModel> LerProdutosByPreco()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.precound";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Preço Desc)
+        public List<ProdutoViewModel> LerProdutosByPrecoDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.precound desc";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Estoque)
+        public List<ProdutoViewModel> LerProdutosByEstoque()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.estoque";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Estoque Desc)
+        public List<ProdutoViewModel> LerProdutosByEstoqueDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id order by p.estoque desc";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Entrada de Produtos
+        public List<ProdutoViewModel> LerProdutosEntrada()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = 'Entrada'";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
+                    };
+                    produtos.Add(p);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return produtos;
+        }
+        #endregion
+
+        #region Ler Saída de Produtos
+        public List<ProdutoViewModel> LerProdutosSaida()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
+                                  from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.status = 'Saída'";
+
+            command.Connection = connection;
+
+            List<ProdutoViewModel> produtos = new List<ProdutoViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["IDProduto"]);
+
+                    string nome = Convert.ToString(reader["NomeProduto"]);
+                    string descricao = Convert.ToString(reader["DescricaoProduto"]);
+                    double precound = Convert.ToDouble(reader["PreçoUnidade"]);
+                    int estoque = Convert.ToInt32(reader["Estoque"]);
+                    int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
+                    string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
+
+                    ProdutoViewModel p = new ProdutoViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        Descricao = descricao,
+                        Preco = precound,
+                        Estoque = estoque,
+                        IdFornecedor = idfornecedor,
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -311,7 +934,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where p.nome like @Nome";
 
             command.Parameters.AddWithValue("@Nome", "%" + Nome + "%");
@@ -335,6 +958,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -344,7 +969,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -370,7 +997,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto', p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where descricao like @Descricao";
 
             command.Parameters.AddWithValue("@Descricao", "%" + Descricao + "%");
@@ -394,6 +1021,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -403,7 +1032,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -429,7 +1060,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound < @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
@@ -453,6 +1084,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -462,7 +1095,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -488,7 +1123,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound = @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
@@ -512,6 +1147,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -521,7 +1158,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -547,7 +1186,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where precound > @preco";
 
             command.Parameters.AddWithValue("@preco", preco);
@@ -571,6 +1210,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -580,7 +1221,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -606,7 +1249,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque < @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
@@ -630,6 +1273,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -639,7 +1284,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -665,7 +1312,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque = @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
@@ -689,6 +1336,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -698,7 +1347,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -724,7 +1375,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select p.id 'IDProduto', p.nome 'NomeProduto', p.descricao 'DescricaoProduto',  p.precound 'PreçoUnidade',
-                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora' 
+                                  p.estoque 'Estoque', p.idfornecedor 'IDFornecedor', f.nomeempresa 'NomeEmpresaFornecedora', p.status, p.datadetransferencia 
                                   from produtos p inner join fornecedores f on p.idfornecedor = f.id where estoque > @estoque";
 
             command.Parameters.AddWithValue("@estoque", Estoque);
@@ -748,6 +1399,8 @@ namespace DAL
                     int estoque = Convert.ToInt32(reader["Estoque"]);
                     int idfornecedor = Convert.ToInt32(reader["IDFornecedor"]);
                     string nomefornecedor = Convert.ToString(reader["NomeEmpresaFornecedora"]);
+                    string status = Convert.ToString(reader["STATUS"]);
+                    DateTime datadetransferencia = Convert.ToDateTime(reader["DATADETRANSFERENCIA"]);
 
                     ProdutoViewModel p = new ProdutoViewModel()
                     {
@@ -757,7 +1410,9 @@ namespace DAL
                         Preco = precound,
                         Estoque = estoque,
                         IdFornecedor = idfornecedor,
-                        NomeEmpresaFornecedora = nomefornecedor
+                        NomeEmpresaFornecedora = nomefornecedor,
+                        Status = status,
+                        DataDeTransferencia = datadetransferencia
                     };
                     produtos.Add(p);
                 }
@@ -771,6 +1426,148 @@ namespace DAL
                 connection.Dispose();
             }
             return produtos;
+        }
+        #endregion
+
+        #region Trazer Preço do Produto
+        public double TrazerPrecoProduto(int idproduto)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select precound from produtos where id = @id";
+            command.Parameters.AddWithValue("@id", idproduto);
+            command.Connection = connection;
+
+            double preco = 0;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    preco = Convert.ToDouble(reader["PRECOUND"]);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return preco;
+        }
+        #endregion
+
+        #region Trazer Estoque do Produto
+        public int TrazerEstoqueProduto(int idproduto)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select estoque from produtos where id = @id";
+            command.Parameters.AddWithValue("@id", idproduto);
+            command.Connection = connection;
+
+            int estoque = 0;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    estoque = Convert.ToInt32(reader["ESTOQUE"]);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return estoque;
+        }
+        #endregion
+
+        #region Atualizar Estoque do Produto
+        public MessageResponse AtualizarEstoqueProduto(int idproduto, int estoque)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command1 = new SqlCommand();
+            command1.CommandText = @"update produtos set estoque = @estoque where id = @idproduto";
+            command1.Parameters.AddWithValue("@idproduto", idproduto);
+            command1.Parameters.AddWithValue("@estoque", estoque);
+            command1.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command1.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Algo inesperado aconteceu.";
+                return response;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            response.Success = true;
+            response.Message = "Estoque atualizado com sucesso!";
+            return response;
+        }
+        #endregion
+
+        #region Trazer Por Nome
+        public int TrazerPorNome(string nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select id from produtos where nome = @nome";
+            command.Parameters.AddWithValue("@nome", nome);
+            command.Connection = connection;
+
+            int id = 0;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32(reader["ID"]);
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return id;
         }
         #endregion
     }

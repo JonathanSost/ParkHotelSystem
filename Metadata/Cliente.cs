@@ -34,7 +34,7 @@ namespace Metadata
 
         public Cliente(string nome, string cpf, string rg, string telefone1,
             string telefone2, string email, string cep, int estado, int cidade, string rua,
-            string bairro, string numero, string complemento, double conta)
+            string bairro, string numero, string complemento, double conta, bool ativo)
         {
             this.Nome = nome;
             this.CPF = cpf;
@@ -50,11 +50,12 @@ namespace Metadata
             this.Numero = numero;
             this.Complemento = complemento;
             this.Conta = conta;
+            this.Ativo = ativo;
         }
 
         public Cliente(int id, string nome, string cpf, string rg, string telefone1,
             string telefone2, string email, string cep, int estado, int cidade, string rua,
-            string bairro, string numero, string complemento)
+            string bairro, string numero, string complemento, bool ativo)
         {
             this.ID = id;
             this.Nome = nome;
@@ -70,6 +71,7 @@ namespace Metadata
             this.Bairro = bairro;
             this.Numero = numero;
             this.Complemento = complemento;
+            this.Ativo = ativo;
         }
 
         public int ID { get; set; }
@@ -80,6 +82,7 @@ namespace Metadata
         public string Telefone2 { get; set; }
         public string Email { get; set; }
         public double Conta { get; set; }
+        public bool Ativo { get; set; }
 
         public int Estado { get; set; }
         public int Cidade { get; set; }

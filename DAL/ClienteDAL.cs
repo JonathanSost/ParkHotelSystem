@@ -110,9 +110,9 @@ namespace DAL
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand();
 
-            command.CommandText = "insert into clientes (nome, cpf, rg, telefone1, telefone2, email, cep, estado, " +
-                "cidade, rua, bairro, numero, complemento, conta) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email, " +
-                "@cep, @estado, @cidade, @rua, @bairro, @numero, @complemento, @conta)";
+            command.CommandText = @"insert into clientes (nome, cpf, rg, telefone1, telefone2, email, cep, estado,
+                cidade, rua, bairro, numero, complemento, conta, ativo) values (@nome, @cpf, @rg, @telefone1, @telefone2, @email,
+                @cep, @estado, @cidade, @rua, @bairro, @numero, @complemento, @conta, @ativo)";
             command.Parameters.AddWithValue("@nome", cli.Nome);
             command.Parameters.AddWithValue("@cpf", cli.CPF);
             command.Parameters.AddWithValue("@rg", cli.RG);
@@ -127,6 +127,7 @@ namespace DAL
             command.Parameters.AddWithValue("@numero", cli.Numero);
             command.Parameters.AddWithValue("@complemento", cli.Complemento);
             command.Parameters.AddWithValue("@conta", cli.Conta);
+            command.Parameters.AddWithValue("@ativo", cli.Ativo);
 
             command.Connection = connection;
             MessageResponse response = new MessageResponse();
@@ -268,7 +269,38 @@ namespace DAL
         }
         #endregion
 
-        #region Ler Clientes (ClienteViewModel)
+        #region Checar Ativos
+        public bool ChecarAtivos(int id)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select * from clientes where ativo = 1 and id = @id";
+            command.Parameters.AddWithValue("@id", id);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                return reader.Read();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return false;
+        }
+        #endregion
+
+        #region Ler Clientes
         public List<ClienteViewModel> LerClientes()
         {
             string connectionString = Parametros.GetConnectionString();
@@ -277,7 +309,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'Email', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id";
 
@@ -300,6 +332,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["Email"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["Cidade"]);
@@ -318,6 +351,311 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                        Conta = conta
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+        #endregion
+
+        #region Ler Clientes (Order By ID)
+        public List<ClienteViewModel> LerClientesByID()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id order by cli.id";
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nome = Convert.ToString(reader["Nome"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["Email"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["Cidade"]);
+                    string rua = Convert.ToString(reader["Rua"]);
+                    string bairro = Convert.ToString(reader["Bairro"]);
+                    string numero = Convert.ToString(reader["Numero"]);
+                    string complemento = Convert.ToString(reader["Complemento"]);
+                    double conta = Convert.ToDouble(reader["Conta"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                        Conta = conta
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+        #endregion
+
+        #region Ler Clientes (Order By ID Desc)
+        public List<ClienteViewModel> LerClientesByIDDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id order by cli.id desc";
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nome = Convert.ToString(reader["Nome"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["Email"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["Cidade"]);
+                    string rua = Convert.ToString(reader["Rua"]);
+                    string bairro = Convert.ToString(reader["Bairro"]);
+                    string numero = Convert.ToString(reader["Numero"]);
+                    string complemento = Convert.ToString(reader["Complemento"]);
+                    double conta = Convert.ToDouble(reader["Conta"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                        Conta = conta
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+        #endregion
+
+        #region Ler Clientes (Order By Name)
+        public List<ClienteViewModel> LerClientesByName()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id order by cli.nome";
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nome = Convert.ToString(reader["Nome"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["Email"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["Cidade"]);
+                    string rua = Convert.ToString(reader["Rua"]);
+                    string bairro = Convert.ToString(reader["Bairro"]);
+                    string numero = Convert.ToString(reader["Numero"]);
+                    string complemento = Convert.ToString(reader["Complemento"]);
+                    double conta = Convert.ToDouble(reader["Conta"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                        Conta = conta
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+        #endregion
+
+        #region Ler Clientes (Order By Name Desc)
+        public List<ClienteViewModel> LerClientesByNameDesc()
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome 'Nome', cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'Email', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.Nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento, cli.Conta from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id order by cli.nome desc";
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["ID"]);
+
+                    string nome = Convert.ToString(reader["Nome"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["Email"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["Cidade"]);
+                    string rua = Convert.ToString(reader["Rua"]);
+                    string bairro = Convert.ToString(reader["Bairro"]);
+                    string numero = Convert.ToString(reader["Numero"]);
+                    string complemento = Convert.ToString(reader["Complemento"]);
+                    double conta = Convert.ToDouble(reader["Conta"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -380,9 +718,10 @@ namespace DAL
                     string numero = Convert.ToString(reader["NUMERO"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
                     double conta = Convert.ToDouble(reader["CONTA"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
 
                     cli = new Cliente(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade,
-                        rua, bairro, numero, complemento);
+                        rua, bairro, numero, complemento, ativo);
                 }
             }
             catch
@@ -435,9 +774,11 @@ namespace DAL
                     string bairro = Convert.ToString(reader["BAIRRO"]);
                     string numero = Convert.ToString(reader["NUMERO"]);
                     string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+                    double conta = Convert.ToDouble(reader["CONTA"]);
+                    bool ativo = Convert.ToBoolean(reader["ATIVO"]);
 
                     Cliente cli = new Cliente(id, nome, cpf, rg, telefone1, telefone2, email, cep, estado, cidade,
-                        rua, bairro, numero, complemento);
+                        rua, bairro, numero, complemento, ativo);
                     clientes.Add(cli);
                 }
             }
@@ -494,7 +835,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.Nome like @Nome";
 
@@ -521,6 +862,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -538,6 +880,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -570,7 +913,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.CPF like @CPF";
 
@@ -597,6 +940,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -614,6 +958,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -646,7 +991,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.RG like @RG";
 
@@ -673,6 +1018,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -690,6 +1036,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -722,7 +1069,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.estado like @estado";
 
@@ -749,6 +1096,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -766,6 +1114,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -798,7 +1147,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.cidade like @cidade";
 
@@ -825,6 +1174,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -842,6 +1192,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -874,7 +1225,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.CEP like @CEP";
 
@@ -901,6 +1252,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -918,6 +1270,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -950,7 +1303,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.bairro like @bairro";
 
@@ -977,6 +1330,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -994,6 +1348,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -1026,7 +1381,7 @@ namespace DAL
 
             SqlCommand command = new SqlCommand();
             command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
-            cli.Telefone2 'Celular', cli.email 'E-mail', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
             cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
             cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.rua like @rua";
 
@@ -1053,6 +1408,7 @@ namespace DAL
                     string telefone1 = Convert.ToString(reader["Telefone"]);
                     string telefone2 = Convert.ToString(reader["Celular"]);
                     string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
                     string cep = Convert.ToString(reader["CEP"]);
                     string estado = Convert.ToString(reader["Estado"]);
                     string cidade = Convert.ToString(reader["CIDADE"]);
@@ -1070,6 +1426,7 @@ namespace DAL
                         Telefone1 = telefone1,
                         Telefone2 = telefone2,
                         Email = email,
+                        Ativo = ativo,
                         CEP = cep,
                         Estado = estado,
                         Cidade = cidade,
@@ -1090,6 +1447,149 @@ namespace DAL
                 connection.Dispose();
             }
             return clientes;
+        }
+        #endregion
+
+        #region Pesquisar Por Ativos
+        public List<ClienteViewModel> PesquisarPorAtivos(bool Ativo)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = @"select cli.ID, cli.Nome, cli.CPF, cli.RG, cli.Telefone1 'Telefone', 
+            cli.Telefone2 'Celular', cli.email 'E-mail', cli.ativo 'Ativo', cli.CEP, est.Nome 'Estado', cid.nome 'Cidade', 
+            cli.Rua, cli.Bairro, cli.Numero, cli.Complemento from clientes cli inner join 
+            cidades cid on cli.cidade = cid.id inner join estados est on cli.estado = est.id where cli.ativo like @ativo";
+
+            command.Parameters.AddWithValue("@ativo", Ativo);
+
+            command.Connection = connection;
+
+            List<ClienteViewModel> clientes = new List<ClienteViewModel>();
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+
+                    string nome = Convert.ToString(reader["NOME"]);
+                    string cpf = Convert.ToString(reader["CPF"]);
+                    string rg = Convert.ToString(reader["RG"]);
+                    string telefone1 = Convert.ToString(reader["Telefone"]);
+                    string telefone2 = Convert.ToString(reader["Celular"]);
+                    string email = Convert.ToString(reader["E-mail"]);
+                    bool ativo = Convert.ToBoolean(reader["Ativo"]);
+                    string cep = Convert.ToString(reader["CEP"]);
+                    string estado = Convert.ToString(reader["Estado"]);
+                    string cidade = Convert.ToString(reader["CIDADE"]);
+                    string rua = Convert.ToString(reader["RUA"]);
+                    string bairro = Convert.ToString(reader["BAIRRO"]);
+                    string numero = Convert.ToString(reader["NUMERO"]);
+                    string complemento = Convert.ToString(reader["COMPLEMENTO"]);
+
+                    ClienteViewModel cli = new ClienteViewModel()
+                    {
+                        ID = id,
+                        Nome = nome,
+                        CPF = cpf,
+                        RG = rg,
+                        Telefone1 = telefone1,
+                        Telefone2 = telefone2,
+                        Email = email,
+                        Ativo = ativo,
+                        CEP = cep,
+                        Estado = estado,
+                        Cidade = cidade,
+                        Rua = rua,
+                        Bairro = bairro,
+                        Numero = numero,
+                        Complemento = complemento,
+                    };
+                    clientes.Add(cli);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return clientes;
+        }
+        #endregion
+
+        #region Trazer Conta do Cliente
+        public double TrazerContaCliente(int idcliente)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select conta from clientes where id = @id";
+            command.Parameters.AddWithValue("@id", idcliente);
+            command.Connection = connection;
+
+            double conta = 0;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    conta = Convert.ToDouble(reader["CONTA"]);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return conta;
+        }
+        #endregion
+
+        #region Atualizar Conta do Cliente
+        public void AtualizarContaCliente(double conta, int idcliente)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "update clientes set conta = @conta where id = @id";
+            command.Parameters.AddWithValue("@conta", conta);
+            command.Parameters.AddWithValue("@id", idcliente);
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
         }
         #endregion
     }

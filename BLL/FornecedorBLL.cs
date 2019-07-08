@@ -333,6 +333,34 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Todos (Order By ID)
+        public List<Fornecedor> LerTodosByID()
+        {
+            return dal.LerTodosByID();
+        }
+        #endregion
+
+        #region Ler Todos (Order By ID Desc)
+        public List<Fornecedor> LerTodosByIDDesc()
+        {
+            return dal.LerTodosByIDDesc();
+        }
+        #endregion
+
+        #region Ler Todos (Order By Name)
+        public List<Fornecedor> LerTodosByName()
+        {
+            return dal.LerTodosByName();
+        }
+        #endregion
+
+        #region Ler Todos (Order By Name Desc)
+        public List<Fornecedor> LerTodosByNameDesc()
+        {
+            return dal.LerTodosByNameDesc();
+        }
+        #endregion
+
         #region Pesquisar Por Nome da Empresa
         /// <summary>
         /// Traz uma lista com os Fornecedores que possuem o nome da empresa parecido com o do parâmetro passado.

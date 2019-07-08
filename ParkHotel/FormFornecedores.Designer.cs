@@ -53,6 +53,11 @@
             this.btnPesquisarPorNomeEmpresa = new System.Windows.Forms.Button();
             this.PesquisarPorCNPJ = new System.Windows.Forms.Button();
             this.btnPesquisarPorNomeContato = new System.Windows.Forms.Button();
+            this.lnkOrderByIDDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByID = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByNameDesc = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lnkOrderByName = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -81,6 +86,7 @@
             // 
             // dgvFornecedores
             // 
+            this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFornecedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvFornecedores.Location = new System.Drawing.Point(0, 0);
@@ -89,7 +95,7 @@
             this.dgvFornecedores.RowHeadersVisible = false;
             this.dgvFornecedores.RowTemplate.Height = 24;
             this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFornecedores.Size = new System.Drawing.Size(656, 132);
+            this.dgvFornecedores.Size = new System.Drawing.Size(701, 132);
             this.dgvFornecedores.TabIndex = 25;
             this.dgvFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFornecedores_CellDoubleClick);
             // 
@@ -158,6 +164,7 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(125, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
@@ -169,6 +176,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(254, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
@@ -180,6 +188,7 @@
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(3, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -192,7 +201,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(520, 521);
+            this.btnVoltar.Location = new System.Drawing.Point(565, 520);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
@@ -200,14 +209,13 @@
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click_1);
-            this.btnVoltar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnVoltar_KeyUp);
             // 
             // lblNome2
             // 
             this.lblNome2.AutoSize = true;
             this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
-            this.lblNome2.Location = new System.Drawing.Point(241, 326);
+            this.lblNome2.Location = new System.Drawing.Point(267, 361);
             this.lblNome2.Name = "lblNome2";
             this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 97;
@@ -217,7 +225,7 @@
             // 
             this.lblNome1.AutoSize = true;
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome1.Location = new System.Drawing.Point(295, 219);
+            this.lblNome1.Location = new System.Drawing.Point(321, 254);
             this.lblNome1.Name = "lblNome1";
             this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 96;
@@ -271,7 +279,7 @@
             // 
             this.picbClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbClear.Image = global::ParkHotel.Properties.Resources.lvasivdnlkvndbçslnzbihçbp_gspi;
-            this.picbClear.Location = new System.Drawing.Point(620, 173);
+            this.picbClear.Location = new System.Drawing.Point(659, 173);
             this.picbClear.Name = "picbClear";
             this.picbClear.Size = new System.Drawing.Size(30, 35);
             this.picbClear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -283,7 +291,7 @@
             // 
             this.picbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbRefresh.Image = global::ParkHotel.Properties.Resources.a;
-            this.picbRefresh.Location = new System.Drawing.Point(620, 137);
+            this.picbRefresh.Location = new System.Drawing.Point(659, 137);
             this.picbRefresh.Name = "picbRefresh";
             this.picbRefresh.Size = new System.Drawing.Size(30, 30);
             this.picbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -324,13 +332,71 @@
             this.btnPesquisarPorNomeContato.UseVisualStyleBackColor = true;
             this.btnPesquisarPorNomeContato.Click += new System.EventHandler(this.btnPesquisarPorNomeContato_Click);
             // 
+            // lnkOrderByIDDesc
+            // 
+            this.lnkOrderByIDDesc.AutoSize = true;
+            this.lnkOrderByIDDesc.Location = new System.Drawing.Point(461, 174);
+            this.lnkOrderByIDDesc.Name = "lnkOrderByIDDesc";
+            this.lnkOrderByIDDesc.Size = new System.Drawing.Size(46, 13);
+            this.lnkOrderByIDDesc.TabIndex = 173;
+            this.lnkOrderByIDDesc.TabStop = true;
+            this.lnkOrderByIDDesc.Text = "ID Desc";
+            this.lnkOrderByIDDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByIDDesc_LinkClicked);
+            // 
+            // lnkOrderByID
+            // 
+            this.lnkOrderByID.AutoSize = true;
+            this.lnkOrderByID.Location = new System.Drawing.Point(461, 149);
+            this.lnkOrderByID.Name = "lnkOrderByID";
+            this.lnkOrderByID.Size = new System.Drawing.Size(18, 13);
+            this.lnkOrderByID.TabIndex = 172;
+            this.lnkOrderByID.TabStop = true;
+            this.lnkOrderByID.Text = "ID";
+            this.lnkOrderByID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByID_LinkClicked);
+            // 
+            // lnkOrderByNameDesc
+            // 
+            this.lnkOrderByNameDesc.AutoSize = true;
+            this.lnkOrderByNameDesc.Location = new System.Drawing.Point(533, 174);
+            this.lnkOrderByNameDesc.Name = "lnkOrderByNameDesc";
+            this.lnkOrderByNameDesc.Size = new System.Drawing.Size(63, 13);
+            this.lnkOrderByNameDesc.TabIndex = 171;
+            this.lnkOrderByNameDesc.TabStop = true;
+            this.lnkOrderByNameDesc.Text = "Nome Desc";
+            this.lnkOrderByNameDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByNameDesc_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(388, 149);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 170;
+            this.label5.Text = "Ordenar Por:";
+            // 
+            // lnkOrderByName
+            // 
+            this.lnkOrderByName.AutoSize = true;
+            this.lnkOrderByName.Location = new System.Drawing.Point(533, 149);
+            this.lnkOrderByName.Name = "lnkOrderByName";
+            this.lnkOrderByName.Size = new System.Drawing.Size(35, 13);
+            this.lnkOrderByName.TabIndex = 169;
+            this.lnkOrderByName.TabStop = true;
+            this.lnkOrderByName.Text = "Nome";
+            this.lnkOrderByName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByName_LinkClicked);
+            // 
             // FormFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(656, 571);
+            this.ClientSize = new System.Drawing.Size(701, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkOrderByIDDesc);
+            this.Controls.Add(this.lnkOrderByID);
+            this.Controls.Add(this.lnkOrderByNameDesc);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lnkOrderByName);
             this.Controls.Add(this.btnPesquisarPorNomeContato);
             this.Controls.Add(this.PesquisarPorCNPJ);
             this.Controls.Add(this.btnPesquisarPorNomeEmpresa);
@@ -360,7 +426,6 @@
             this.Name = "FormFornecedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Fornecedores";
-            this.Load += new System.EventHandler(this.FormFornecedores_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormFornecedores_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).EndInit();
@@ -395,5 +460,10 @@
         private System.Windows.Forms.Button btnPesquisarPorNomeEmpresa;
         private System.Windows.Forms.Button PesquisarPorCNPJ;
         private System.Windows.Forms.Button btnPesquisarPorNomeContato;
+        private System.Windows.Forms.LinkLabel lnkOrderByIDDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByID;
+        private System.Windows.Forms.LinkLabel lnkOrderByNameDesc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel lnkOrderByName;
     }
 }

@@ -19,7 +19,6 @@ namespace ParkHotel
         EstadoBLL estbll = new EstadoBLL();
         FuncionarioBLL funbll = new FuncionarioBLL();
         Funcionario f = null;
-        bool Admin;
 
         public FormFuncionarios()
         {
@@ -48,7 +47,6 @@ namespace ParkHotel
             {
                 return;
             }
-            Admin = false;
 
             if (Parametros.FuncionarioLogado == null)
             {
@@ -63,7 +61,7 @@ namespace ParkHotel
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
             f = new Funcionario(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
-                Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
+                chkAdministrador.Checked, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
                 txtComplemento.Text, chkAtivo.Checked);
             MessageResponse response = funbll.Atualizar(f);
             MessageBox.Show(response.Message);
@@ -104,7 +102,7 @@ namespace ParkHotel
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
             f = new Funcionario(txtNome.Text, msktxtCPF.Text, msktxtRG.Text, msktxtTelefone.Text, txtEmail.Text, txtSenha.Text,
-                Admin, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
+                chkAdministrador.Checked, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
                 txtComplemento.Text, chkAtivo.Checked);
 
             MessageResponse response = funbll.Cadastrar(f);
@@ -112,10 +110,12 @@ namespace ParkHotel
             if (response.Success)
             {
                 FormCleaner.Clear(this);
+                chkAdministrador.Enabled = true;
+                chkAtivo.Enabled = true;
                 if (Parametros.FuncionarioLogado == null)
                 {
-                    dgvFuncionarios.DataSource = funbll.LerFuncionarios(f);
                     Parametros.FuncionarioLogado = f;
+                    dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
                     return;
                 }
                 dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
@@ -168,6 +168,26 @@ namespace ParkHotel
         private void picbClear_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
+        }
+
+        private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.LerFuncionariosByID(Parametros.FuncionarioLogado);
+        }
+
+        private void lnkOrderByIDDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.LerFuncionariosByIDDesc(Parametros.FuncionarioLogado);
+        }
+
+        private void lnkOrderByName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.LerFuncionariosByName(Parametros.FuncionarioLogado);
+        }
+
+        private void lnkOrderByNameDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFuncionarios.DataSource = funbll.LerFuncionariosByNameDesc(Parametros.FuncionarioLogado);
         }
 
         private void dgvFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -291,18 +311,6 @@ namespace ParkHotel
                 txtBairro.Focus();
             }
         }
-
-        private void chkAdministrador_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkAdministrador.Checked)
-            {
-                Admin = true;
-            }
-            else
-            {
-                Admin = false;
-            }
-        }
         #endregion
 
         #region Pesquisar
@@ -348,7 +356,7 @@ namespace ParkHotel
 
         private void btnPesquisarAdmin_Click(object sender, EventArgs e)
         {
-            dgvFuncionarios.DataSource = funbll.PesquisarAdmin(Admin);
+            dgvFuncionarios.DataSource = funbll.PesquisarAdmin(chkAdministrador.Checked);
         }
 
         private void btnPesquisarPorAtivos_Click(object sender, EventArgs e)

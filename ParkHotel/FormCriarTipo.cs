@@ -75,7 +75,7 @@ namespace ParkHotel
             int id = (int)dgvTipos.Rows[e.RowIndex].Cells[0].Value;
             string tipo = (string)dgvTipos.Rows[e.RowIndex].Cells[1].Value;
 
-            t = new Tipo(tipo);
+            t = new Tipo(id, tipo);
 
             txtID.Text = id.ToString();
             txtTipo.Text = tipo;

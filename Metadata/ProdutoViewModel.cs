@@ -15,5 +15,7 @@ namespace Metadata
         public double Preco { get; set; }
         public int IdFornecedor { get; set; }
         public string NomeEmpresaFornecedora { get; set; }
+        public string Status { get; set; }
+        public DateTime DataDeTransferencia { get; set; }
     }
 }

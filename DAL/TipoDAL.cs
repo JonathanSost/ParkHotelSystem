@@ -200,6 +200,45 @@ namespace DAL
         }
         #endregion
 
+        #region Ler Por Nome
+        public int LerPorNome(string nome)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = connectionString;
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "select id from tipos where tipostring = @tipostring";
+            command.Parameters.AddWithValue("@tipostring", nome);
+            command.Connection = connection;
+
+            int tid = -1;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Em cada loop, o objeto Reader aponta para um registro do banco de dados que retornou do teu comando select
+                    int id = Convert.ToInt32(reader["ID"]);
+                    //int id = (int)reader["ID"];
+                    tid = id;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            return tid;
+        }
+        #endregion
+
         #region Pesquisar Por Tipo
         public List<Tipo> PesquisarPorTipo(string tipo)
         {

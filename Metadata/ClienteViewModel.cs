@@ -18,6 +18,7 @@ namespace Metadata
         [DisplayName("Celular")]
         public string Telefone2 { get; set; }
         public string Email { get; set; }
+        public bool Ativo { get; set; }
         
         public string Estado { get; set; }
         public string Cidade { get; set; }

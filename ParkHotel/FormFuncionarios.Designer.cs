@@ -80,6 +80,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.btnPesquisarPorAtivos = new System.Windows.Forms.Button();
+            this.lnkOrderByIDDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByID = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByNameDesc = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lnkOrderByName = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
@@ -101,6 +106,7 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(127, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
@@ -112,6 +118,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(250, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
@@ -123,6 +130,7 @@
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(3, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -343,7 +351,6 @@
             this.chkAdministrador.TabIndex = 15;
             this.chkAdministrador.Text = " Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = true;
-            this.chkAdministrador.CheckedChanged += new System.EventHandler(this.chkAdministrador_CheckedChanged);
             this.chkAdministrador.KeyUp += new System.Windows.Forms.KeyEventHandler(this.chkAdministrador_KeyUp);
             // 
             // lblNome2
@@ -353,7 +360,7 @@
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(488, 356);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(409, 127);
+            this.lblNome2.Size = new System.Drawing.Size(403, 127);
             this.lblNome2.TabIndex = 131;
             this.lblNome2.Text = "Soninho";
             // 
@@ -363,7 +370,7 @@
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(542, 249);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(316, 127);
+            this.lblNome1.Size = new System.Drawing.Size(312, 127);
             this.lblNome1.TabIndex = 130;
             this.lblNome1.Text = "Santo";
             // 
@@ -596,9 +603,6 @@
             this.picbClear.TabStop = false;
             this.picbClear.Click += new System.EventHandler(this.picbClear_Click);
             // 
-            // toolTip1
-            // 
-            // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
@@ -622,6 +626,59 @@
             this.btnPesquisarPorAtivos.UseVisualStyleBackColor = true;
             this.btnPesquisarPorAtivos.Click += new System.EventHandler(this.btnPesquisarPorAtivos_Click);
             // 
+            // lnkOrderByIDDesc
+            // 
+            this.lnkOrderByIDDesc.AutoSize = true;
+            this.lnkOrderByIDDesc.Location = new System.Drawing.Point(543, 177);
+            this.lnkOrderByIDDesc.Name = "lnkOrderByIDDesc";
+            this.lnkOrderByIDDesc.Size = new System.Drawing.Size(46, 13);
+            this.lnkOrderByIDDesc.TabIndex = 168;
+            this.lnkOrderByIDDesc.TabStop = true;
+            this.lnkOrderByIDDesc.Text = "ID Desc";
+            this.lnkOrderByIDDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByIDDesc_LinkClicked);
+            // 
+            // lnkOrderByID
+            // 
+            this.lnkOrderByID.AutoSize = true;
+            this.lnkOrderByID.Location = new System.Drawing.Point(543, 152);
+            this.lnkOrderByID.Name = "lnkOrderByID";
+            this.lnkOrderByID.Size = new System.Drawing.Size(18, 13);
+            this.lnkOrderByID.TabIndex = 167;
+            this.lnkOrderByID.TabStop = true;
+            this.lnkOrderByID.Text = "ID";
+            this.lnkOrderByID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByID_LinkClicked);
+            // 
+            // lnkOrderByNameDesc
+            // 
+            this.lnkOrderByNameDesc.AutoSize = true;
+            this.lnkOrderByNameDesc.Location = new System.Drawing.Point(615, 177);
+            this.lnkOrderByNameDesc.Name = "lnkOrderByNameDesc";
+            this.lnkOrderByNameDesc.Size = new System.Drawing.Size(63, 13);
+            this.lnkOrderByNameDesc.TabIndex = 166;
+            this.lnkOrderByNameDesc.TabStop = true;
+            this.lnkOrderByNameDesc.Text = "Nome Desc";
+            this.lnkOrderByNameDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByNameDesc_LinkClicked);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(470, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 165;
+            this.label5.Text = "Ordenar Por:";
+            // 
+            // lnkOrderByName
+            // 
+            this.lnkOrderByName.AutoSize = true;
+            this.lnkOrderByName.Location = new System.Drawing.Point(615, 152);
+            this.lnkOrderByName.Name = "lnkOrderByName";
+            this.lnkOrderByName.Size = new System.Drawing.Size(35, 13);
+            this.lnkOrderByName.TabIndex = 164;
+            this.lnkOrderByName.TabStop = true;
+            this.lnkOrderByName.Text = "Nome";
+            this.lnkOrderByName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByName_LinkClicked);
+            // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,6 +686,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(924, 602);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkOrderByIDDesc);
+            this.Controls.Add(this.lnkOrderByID);
+            this.Controls.Add(this.lnkOrderByNameDesc);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lnkOrderByName);
             this.Controls.Add(this.btnPesquisarPorAtivos);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.picbClear);
@@ -744,5 +806,10 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.Button btnPesquisarPorAtivos;
+        private System.Windows.Forms.LinkLabel lnkOrderByIDDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByID;
+        private System.Windows.Forms.LinkLabel lnkOrderByNameDesc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel lnkOrderByName;
     }
 }

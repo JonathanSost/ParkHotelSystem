@@ -105,21 +105,49 @@ namespace ParkHotel
             FormCleaner.Clear(this);
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            dgvFornecedores.DataSource = forbll.LerTodosByID();
+        }
+
+        private void lnkOrderByIDDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.LerTodosByIDDesc();
+        }
+
+        private void lnkOrderByName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.LerTodosByName();
+        }
+
+        private void lnkOrderByNameDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvFornecedores.DataSource = forbll.LerTodosByNameDesc();
+        }
+
+        private void dgvFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
             int id = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value;
-            string nomeEmpresa = (string)dgvFornecedores.Rows[e.RowIndex].Cells[1].Value;
+            string nomeempresa = (string)dgvFornecedores.Rows[e.RowIndex].Cells[1].Value;
             string cnpj = (string)dgvFornecedores.Rows[e.RowIndex].Cells[2].Value;
             string nome = (string)dgvFornecedores.Rows[e.RowIndex].Cells[3].Value;
             string telefone = (string)dgvFornecedores.Rows[e.RowIndex].Cells[4].Value;
             string email = (string)dgvFornecedores.Rows[e.RowIndex].Cells[5].Value;
 
+            f = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
+
             txtID.Text = id.ToString();
-            txtNomeEmpresa.Text = nomeEmpresa;
+            txtNomeEmpresa.Text = nome;
             msktxtCNPJ.Text = cnpj;
             txtNome.Text = nome;
             msktxtTelefone.Text = telefone;
             txtEmail.Text = email;
+
         }
         #endregion
 
@@ -172,40 +200,5 @@ namespace ParkHotel
             dgvFornecedores.DataSource = forbll.PesquisarPorNome(txtNome.Text);
         }
         #endregion
-
-        private void dgvFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-
-            int id = (int)dgvFornecedores.Rows[e.RowIndex].Cells[0].Value;
-            string nomeempresa = (string)dgvFornecedores.Rows[e.RowIndex].Cells[1].Value;
-            string cnpj = (string)dgvFornecedores.Rows[e.RowIndex].Cells[2].Value;
-            string nome = (string)dgvFornecedores.Rows[e.RowIndex].Cells[3].Value;
-            string telefone = (string)dgvFornecedores.Rows[e.RowIndex].Cells[4].Value;
-            string email = (string)dgvFornecedores.Rows[e.RowIndex].Cells[5].Value;
-
-            f = new Fornecedor(nomeempresa, cnpj, nome, telefone, email);
-
-            txtID.Text = id.ToString();
-            txtNomeEmpresa.Text = nome;
-            msktxtCNPJ.Text = cnpj;
-            txtNome.Text = nome;
-            msktxtTelefone.Text = telefone;
-            txtEmail.Text = email;
-
-        }
-
-        private void FormFornecedores_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVoltar_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-        }
     }
 }

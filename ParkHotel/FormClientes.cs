@@ -19,6 +19,7 @@ namespace ParkHotel
         CidadeBLL cidbll = new CidadeBLL();
         EstadoBLL estbll = new EstadoBLL();
         Cliente c = null;
+        MessageResponse response = new MessageResponse();
 
         public FormClientes()
         {
@@ -37,6 +38,7 @@ namespace ParkHotel
             cmbCidade.DisplayMember = "Nome";
             cmbCidade.ValueMember = "ID";
             cmbCidade.DataSource = cidbll.LerPorEstado((int)cmbEstado.SelectedValue);
+
         }
         #endregion
 
@@ -45,9 +47,9 @@ namespace ParkHotel
         {
             c = new Cliente(txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
-                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text, 0);
+                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text, 0, false);
 
-            MessageResponse response = clibll.Cadastrar(c);
+            response = clibll.Cadastrar(c);
             MessageBox.Show(response.Message);
 
             if (response.Success)
@@ -61,9 +63,8 @@ namespace ParkHotel
         {
             c = new Cliente(int.Parse(txtID.Text), txtNome.Text, msktxtCPF.Text, msktxtRG.Text,
                 msktxtTelefone.Text, msktxtCelular.Text, txtEmail.Text, msktxtCEP.Text, (int)cmbEstado.SelectedValue,
-                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text);
+                (int)cmbCidade.SelectedValue, txtRua.Text, txtBairro.Text, txtNumero.Text, txtComplemento.Text, false);
 
-            MessageResponse response = new MessageResponse();
             response = clibll.Atualizar(c);
             MessageBox.Show(response.Message);
             if (response.Success)
@@ -86,7 +87,6 @@ namespace ParkHotel
                 return;
             }
 
-            MessageResponse response = new MessageResponse();
             response = clibll.Excluir(c);
             MessageBox.Show(response.Message);
             if (response.Success)
@@ -111,6 +111,26 @@ namespace ParkHotel
         private void picbClear_Click(object sender, EventArgs e)
         {
             FormCleaner.Clear(this);
+        }
+
+        private void lnkOrderByID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvClientes.DataSource = clibll.LerClientesByID();
+        }
+
+        private void lnkOrderByIDDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvClientes.DataSource = clibll.LerClientesByIDDesc();
+        }
+
+        private void lnkOrderByName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvClientes.DataSource = clibll.LerClientesByName();
+        }
+
+        private void lnkOrderByNameDesc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvClientes.DataSource = clibll.LerClientesByNameDesc();
         }
 
         private void dataGridView1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
@@ -152,16 +172,6 @@ namespace ParkHotel
             txtBairro.Text = bairro;
             txtNumero.Text = numero;
             txtComplemento.Text = complemento;
-        }
-
-        private void FormClientes_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
-                menu.Show();
-            }
         }
         #endregion
 
@@ -240,6 +250,36 @@ namespace ParkHotel
                 txtBairro.Focus();
             }
         }
+
+        private void msktxtCPF_Click(object sender, EventArgs e)
+        {
+            msktxtCPF.SelectionStart = msktxtCPF.Text.Length;
+            if (msktxtCPF.Text.Length >= 10)
+            {
+                msktxtCPF.SelectionStart = msktxtCPF.Text.Length + 3;
+            }
+            else if (msktxtCPF.Text.Length >= 7)
+            {
+                msktxtCPF.SelectionStart = msktxtCPF.Text.Length + 2;
+            }
+            else if (msktxtCPF.Text.Length >= 4)
+            {
+                msktxtCPF.SelectionStart = msktxtCPF.Text.Length + 1;
+            }
+        }
+
+        private void msktxtRG_Click(object sender, EventArgs e)
+        {
+            msktxtRG.SelectionStart = msktxtRG.Text.Length;
+            if (msktxtRG.Text.Length >= 5)
+            {
+                msktxtRG.SelectionStart = msktxtRG.Text.Length + 2;
+            }
+            else if (msktxtRG.Text.Length >= 2)
+            {
+                msktxtRG.SelectionStart = msktxtRG.Text.Length + 1;
+            }
+        }
         #endregion
 
         #region Pesquisar
@@ -284,16 +324,16 @@ namespace ParkHotel
         }
         #endregion
 
-        private void picbRefresh_MouseHover(object sender, EventArgs e)
+        #region KeyDown
+        private void FormClientes_KeyDown(object sender, KeyEventArgs e)
         {
-            toolTip1.SetToolTip(picbRefresh, "Reseta a dataGridView");
-            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+                FormMenu menu = new FormMenu(Parametros.FuncionarioLogado);
+                menu.Show();
+            }
         }
-
-        private void picbClear_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(picbClear, "Limpa todos os campos");
-            toolTip1.ToolTipIcon = ToolTipIcon.Info;
-        }
+        #endregion
     }
 }

@@ -15,15 +15,13 @@ namespace ParkHotel
     public partial class FormPesquisarClientes : Form
     {
         #region Inicialização do Form
-        public FormPesquisarClientes(FormReservas formreservas)
+        public FormPesquisarClientes()
         {
             InitializeComponent();
             dgvClientes.DataSource = clibll.LerClientes();
-            formReservas = formreservas;
         }
 
         ClienteBLL clibll = new ClienteBLL();
-        FormReservas formReservas = null;
         public Cliente ClienteSelecionado { get; set; }
         #endregion
 
@@ -75,7 +73,7 @@ namespace ParkHotel
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-                formReservas.Show();
+                new FormReservas().Show();
             }
         }
         #endregion

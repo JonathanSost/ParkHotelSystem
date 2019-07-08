@@ -15,6 +15,7 @@ namespace ParkHotel
     public partial class FormLogin : Form
     {
         #region Inicialização do Form
+        ReservaBLL rbll = new ReservaBLL();
         FuncionarioBLL bll = new FuncionarioBLL();
         Funcionario fun = new Funcionario();
         DialogResult result = new DialogResult();
@@ -24,25 +25,12 @@ namespace ParkHotel
         //CONSTRAINT UNIQUE_FUN_EMAIL UNIQUE (EMAIL)
         //alter table vendas add constraint FK_VENDA_PRODUTO foreign key (produto) references produtos
 
-        DateTime HorarioAtual = DateTime.Now;
-
-        //if ((HorarioAtual.Hour == 6) && (HorarioAtual.Minute == 30))
-        //{
-        //    // Chame aqui o seu método
-        //}
-
         public FormLogin()
         {
             InitializeComponent();
 
-            FormCheckOutAutomatico formchk = new FormCheckOutAutomatico();
-            formchk.Show();
-            formchk.Hide();
             txtUsuario.Text = "altairobama@outlook.com";
             txtSenha.Text = "altair123";
-
-            txtUsuario.Text = "vinikk03@gmail.com";
-            txtSenha.Text = "vini1234";
 
             if (!bll.VerificarExistenciaFuncionarioA())
             {
@@ -77,6 +65,12 @@ namespace ParkHotel
             result = MessageBox.Show("Usuário ou senha incorretos!", "Erro!", MessageBoxButtons.OK);
         }
 
+        private void lnkCadastrarAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FormFuncionarios().Show();
+        }
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -105,32 +99,8 @@ namespace ParkHotel
         }
         #endregion
 
-        #region KeyUp
-        private void txtUsuario_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.btnLogin.PerformClick();
-            }
-        }
-
-        private void txtSenha_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.btnLogin.PerformClick();
-            }
-        }
-
-        private void FormLogin_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void cbVerSenha_KeyUp(object sender, KeyEventArgs e)
+        #region KeyDown
+        private void chkVerSenha_KeyDown(object sender, KeyEventArgs e)
         {
             if (!chkVerSenha.Checked && e.KeyCode == Keys.Enter)
             {
@@ -141,12 +111,47 @@ namespace ParkHotel
                 chkVerSenha.Checked = false;
             }
         }
+
+        private void FormLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin.PerformClick();
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin.PerformClick();
+            }
+        }
         #endregion
 
-        private void lnkCadastrarAdmin_Click(object sender, EventArgs e)
+        #region Timer
+        private void tmCheckOut_Tick(object sender, EventArgs e)
         {
-            this.Hide();
-            new FormFuncionarios().Show();
+            FormCheckOut frm = new FormCheckOut();
+            if (DateTime.Now.Minute == 00 && DateTime.Now.Second == 00 && rbll.ChecarReservasExpiradas(DateTime.Now))
+            {
+                frm.Hide();
+                frm.Show();
+            }
+            else if (DateTime.Now.Minute == 30 && DateTime.Now.Second == 00 && rbll.ChecarReservasExpiradas(DateTime.Now))
+            {
+                frm.Hide();
+                frm.Show();
+            }
         }
+        #endregion
     }
 }

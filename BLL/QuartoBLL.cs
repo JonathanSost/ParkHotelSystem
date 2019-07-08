@@ -42,34 +42,28 @@ namespace BLL
         {
             List<string> erros = new List<string>();
 
-            if (dal.VerificarExistenciaQuarto(quarto.ID))
+            if (!dal.VerificarExistenciaQuarto(quarto.ID))
             {
                 response.Success = false;
                 response.Message = "Quarto inexistente!";
                 return response;
             }
-
             if (quarto.Preco < 0)
             {
                 erros.Add("Preço do quarto inválido.");
-            }
-            if (!quarto.QuartoDisponivel)
-            {
-                erros.Add("Quarto Indisponível");
             }
             if (erros.Count != 0)
             {
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < erros.Count; i++)
                 {
-                    //Environment.NewLine
                     builder.AppendLine(erros[i]);
                 }
                 response.Success = false;
                 response.Message = builder.ToString();
                 return response;
             }
-            return dal.Inserir(quarto);
+            return dal.Atualizar(quarto);
         }
         #endregion
 
@@ -94,6 +88,34 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Quartos (Order By ID)
+        public List<QuartoViewModel> LerQuartosByID()
+        {
+            return dal.LerQuartosByID();
+        }
+        #endregion
+
+        #region Ler Quartos (Order By ID Desc)
+        public List<QuartoViewModel> LerQuartosByIDDesc()
+        {
+            return dal.LerQuartosByIDDesc();
+        }
+        #endregion
+
+        #region Ler Quartos (Order By Preço)
+        public List<QuartoViewModel> LerQuartosByPreco()
+        {
+            return dal.LerQuartosByPreco();
+        }
+        #endregion
+
+        #region Ler Quartos (Order By Preço Desc)
+        public List<QuartoViewModel> LerQuartosByPrecoDesc()
+        {
+            return dal.LerQuartosByPrecoDesc();
+        }
+        #endregion
+
         #region Ler Por ID
         public Quarto LerPorID(int id)
         {
@@ -112,6 +134,13 @@ namespace BLL
         public bool VerificarExistenciaQuarto(int idquarto)
         {
             return dal.VerificarExistenciaQuarto(idquarto);
+        }
+        #endregion
+
+        #region Trazer Preço Por ID
+        public double TrazerPrecoPorID(int id)
+        {
+            return dal.TrazerPrecoPorID(id);
         }
         #endregion
 
@@ -147,6 +176,13 @@ namespace BLL
         public List<QuartoViewModel> PesquisarPorDisponiveis(bool Disponivel)
         {
             return dal.PesquisarPorDisponiveis(Disponivel);
+        }
+        #endregion
+
+        #region Checar Disponíveis
+        public bool ChecarDisponiveis(int id)
+        {
+            return dal.ChecarDisponiveis(id);
         }
         #endregion
     }

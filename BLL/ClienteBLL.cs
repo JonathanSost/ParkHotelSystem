@@ -99,6 +99,13 @@ namespace BLL
             }
             #endregion
 
+            #region Ativo
+            if (cli.Ativo)
+            {
+                erros.Add("O cliente não pode realizar uma nova reserva pois já está em uma.");
+            }
+            #endregion
+
             #region CPF
             if (string.IsNullOrWhiteSpace(cli.CPF))
             {
@@ -353,6 +360,13 @@ namespace BLL
             }
             #endregion
 
+            #region Ativo
+            if (cli.Ativo)
+            {
+                erros.Add("O cliente não pode realizar uma nova reserva pois já está em uma.");
+            }
+            #endregion
+        
             #region CPF
             if (string.IsNullOrWhiteSpace(cli.CPF))
             {
@@ -620,6 +634,34 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Clientes (Order By ID)
+        public List<ClienteViewModel> LerClientesByID()
+        {
+            return dal.LerClientesByID();
+        }
+        #endregion
+
+        #region Ler Clientes (Order By ID Desc)
+        public List<ClienteViewModel> LerClientesByIDDesc()
+        {
+            return dal.LerClientesByIDDesc();
+        }
+        #endregion
+
+        #region Ler Clientes (Order By Name)
+        public List<ClienteViewModel> LerClientesByName()
+        {
+            return dal.LerClientesByName();
+        }
+        #endregion
+
+        #region Ler Clientes (Order By Name Desc)
+        public List<ClienteViewModel> LerClientesByNameDesc()
+        {
+            return dal.LerClientesByNameDesc();
+        }
+        #endregion
+
         #region Pesquisar Por Nome
         /// <summary>
         /// Traz uma lista com os Clientes que possuem um nome parecido com o do parâmetro passado.
@@ -713,6 +755,34 @@ namespace BLL
         public List<ClienteViewModel> PesquisarPorRua(string Rua)
         {
             return dal.PesquisarPorRua(Rua);
+        }
+        #endregion
+
+        #region Pesquisar Por Ativos
+        public List<ClienteViewModel> PesquisarPorAtivos(bool Ativo)
+        {
+            return dal.PesquisarPorAtivos(Ativo);
+        }
+        #endregion
+
+        #region Checar Ativos
+        public bool ChecarAtivos(int id)
+        {
+            return dal.ChecarAtivos(id);
+        }
+        #endregion
+
+        #region Trazer Conta do Cliente
+        public double TrazerContaCliente(int idcliente)
+        {
+            return dal.TrazerContaCliente(idcliente);
+        }
+        #endregion
+
+        #region Atualizar Conta do Cliente
+        public void AtualizarContaCliente(double conta, int idcliente)
+        {
+            dal.AtualizarContaCliente(conta, idcliente);
         }
         #endregion
     }

@@ -169,6 +169,76 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Produtos (Order By ID)
+        public List<ProdutoViewModel> LerProdutosByID()
+        {
+            return dal.LerProdutosByID();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By ID Desc)
+        public List<ProdutoViewModel> LerProdutosByIDDesc()
+        {
+            return dal.LerProdutosByIDDesc();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Name)
+        public List<ProdutoViewModel> LerProdutosByName()
+        {
+            return dal.LerProdutosByName();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Name Desc)
+        public List<ProdutoViewModel> LerProdutosByNameDesc()
+        {
+            return dal.LerProdutosByNameDesc();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Preço)
+        public List<ProdutoViewModel> LerProdutosByPreco()
+        {
+            return dal.LerProdutosByPreco();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Preço Desc)
+        public List<ProdutoViewModel> LerProdutosByPrecoDesc()
+        {
+            return dal.LerProdutosByPrecoDesc();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Estoque)
+        public List<ProdutoViewModel> LerProdutosByEstoque()
+        {
+            return dal.LerProdutosByEstoque();
+        }
+        #endregion
+
+        #region Ler Produtos (Order By Estoque Desc)
+        public List<ProdutoViewModel> LerProdutosByEstoqueDesc()
+        {
+            return dal.LerProdutosByEstoqueDesc();
+        }
+        #endregion
+
+        #region Ler Entrada de Produtos
+        public List<ProdutoViewModel> LerProdutosEntrada()
+        {
+            return dal.LerProdutosEntrada();
+        }
+        #endregion
+
+        #region Ler Saída de Produtos
+        public List<ProdutoViewModel> LerProdutosSaida()
+        {
+            return dal.LerProdutosSaida();
+        }
+        #endregion
+
         #region Pesquisar Por Nome
         public List<ProdutoViewModel> PesquisarPorNome(string Nome)
         {
@@ -222,6 +292,34 @@ namespace BLL
         public List<ProdutoViewModel> PesquisarPorEstoquesMaiores(int Estoque)
         {
             return dal.PesquisarPorEstoquesMaiores(Estoque);
+        }
+        #endregion
+
+        #region Trazer Preço do Produto
+        public double TrazerPrecoProduto(int idproduto)
+        {
+            return dal.TrazerPrecoProduto(idproduto);
+        }
+        #endregion
+
+        #region Trazer Estoque do Produto
+        public int TrazerEstoqueProduto(int idproduto)
+        {
+            return dal.TrazerEstoqueProduto(idproduto);
+        }
+        #endregion
+
+        #region Atualizar Estoque do Produto
+        public MessageResponse AtualizarEstoqueProduto(int idproduto, int estoque)
+        {
+            return dal.AtualizarEstoqueProduto(idproduto, estoque);
+        }
+        #endregion
+
+        #region Trazer Por Nome
+        public int TrazerPorNome(string nome)
+        {
+            return dal.TrazerPorNome(nome);
         }
         #endregion
     }

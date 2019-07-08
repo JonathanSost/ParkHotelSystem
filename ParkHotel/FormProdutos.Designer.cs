@@ -62,6 +62,16 @@
             this.btnAdicionarEstoque = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lnkOrderByIDDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByID = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByNameDesc = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lnkOrderByName = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByPrecoDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByPreco = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByEstoqueDesc = new System.Windows.Forms.LinkLabel();
+            this.lnkOrderByEstoque = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbRefresh)).BeginInit();
@@ -146,6 +156,7 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(127, 136);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcluir.Name = "btnExcluir";
@@ -157,6 +168,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(250, 136);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
@@ -168,6 +180,7 @@
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(3, 135);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -224,9 +237,9 @@
             this.lblNome2.AutoSize = true;
             this.lblNome2.Font = new System.Drawing.Font("Matura MT Script Capitals", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
-            this.lblNome2.Location = new System.Drawing.Point(338, 349);
+            this.lblNome2.Location = new System.Drawing.Point(338, 379);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(341, 107);
+            this.lblNome2.Size = new System.Drawing.Size(335, 107);
             this.lblNome2.TabIndex = 101;
             this.lblNome2.Text = "Soninho";
             // 
@@ -234,16 +247,16 @@
             // 
             this.lblNome1.AutoSize = true;
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome1.Location = new System.Drawing.Point(390, 246);
+            this.lblNome1.Location = new System.Drawing.Point(390, 276);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(263, 107);
+            this.lblNome1.Size = new System.Drawing.Size(260, 107);
             this.lblNome1.TabIndex = 100;
             this.lblNome1.Text = "Santo";
             // 
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(546, 539);
+            this.btnVoltar.Location = new System.Drawing.Point(546, 596);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(125, 39);
@@ -415,7 +428,8 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(14, 540);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Location = new System.Drawing.Point(14, 597);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(108, 39);
@@ -427,7 +441,8 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(141, 540);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(141, 597);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 39);
@@ -437,13 +452,128 @@
             this.btnCancelar.Visible = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1000, 1000);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(10, 20);
+            this.dateTimePicker1.TabIndex = 138;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // lnkOrderByIDDesc
+            // 
+            this.lnkOrderByIDDesc.AutoSize = true;
+            this.lnkOrderByIDDesc.Location = new System.Drawing.Point(448, 169);
+            this.lnkOrderByIDDesc.Name = "lnkOrderByIDDesc";
+            this.lnkOrderByIDDesc.Size = new System.Drawing.Size(46, 13);
+            this.lnkOrderByIDDesc.TabIndex = 143;
+            this.lnkOrderByIDDesc.TabStop = true;
+            this.lnkOrderByIDDesc.Text = "ID Desc";
+            this.lnkOrderByIDDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByIDDesc_LinkClicked);
+            // 
+            // lnkOrderByID
+            // 
+            this.lnkOrderByID.AutoSize = true;
+            this.lnkOrderByID.Location = new System.Drawing.Point(448, 144);
+            this.lnkOrderByID.Name = "lnkOrderByID";
+            this.lnkOrderByID.Size = new System.Drawing.Size(18, 13);
+            this.lnkOrderByID.TabIndex = 142;
+            this.lnkOrderByID.TabStop = true;
+            this.lnkOrderByID.Text = "ID";
+            this.lnkOrderByID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByID_LinkClicked);
+            // 
+            // lnkOrderByNameDesc
+            // 
+            this.lnkOrderByNameDesc.AutoSize = true;
+            this.lnkOrderByNameDesc.Location = new System.Drawing.Point(520, 169);
+            this.lnkOrderByNameDesc.Name = "lnkOrderByNameDesc";
+            this.lnkOrderByNameDesc.Size = new System.Drawing.Size(63, 13);
+            this.lnkOrderByNameDesc.TabIndex = 141;
+            this.lnkOrderByNameDesc.TabStop = true;
+            this.lnkOrderByNameDesc.Text = "Nome Desc";
+            this.lnkOrderByNameDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByNameDesc_LinkClicked);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(375, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 140;
+            this.label7.Text = "Ordenar Por:";
+            // 
+            // lnkOrderByName
+            // 
+            this.lnkOrderByName.AutoSize = true;
+            this.lnkOrderByName.Location = new System.Drawing.Point(520, 144);
+            this.lnkOrderByName.Name = "lnkOrderByName";
+            this.lnkOrderByName.Size = new System.Drawing.Size(35, 13);
+            this.lnkOrderByName.TabIndex = 139;
+            this.lnkOrderByName.TabStop = true;
+            this.lnkOrderByName.Text = "Nome";
+            this.lnkOrderByName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByName_LinkClicked);
+            // 
+            // lnkOrderByPrecoDesc
+            // 
+            this.lnkOrderByPrecoDesc.AutoSize = true;
+            this.lnkOrderByPrecoDesc.Location = new System.Drawing.Point(448, 233);
+            this.lnkOrderByPrecoDesc.Name = "lnkOrderByPrecoDesc";
+            this.lnkOrderByPrecoDesc.Size = new System.Drawing.Size(63, 13);
+            this.lnkOrderByPrecoDesc.TabIndex = 145;
+            this.lnkOrderByPrecoDesc.TabStop = true;
+            this.lnkOrderByPrecoDesc.Text = "Preço Desc";
+            this.lnkOrderByPrecoDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByPrecoDesc_LinkClicked);
+            // 
+            // lnkOrderByPreco
+            // 
+            this.lnkOrderByPreco.AutoSize = true;
+            this.lnkOrderByPreco.Location = new System.Drawing.Point(448, 208);
+            this.lnkOrderByPreco.Name = "lnkOrderByPreco";
+            this.lnkOrderByPreco.Size = new System.Drawing.Size(35, 13);
+            this.lnkOrderByPreco.TabIndex = 144;
+            this.lnkOrderByPreco.TabStop = true;
+            this.lnkOrderByPreco.Text = "Preço";
+            this.lnkOrderByPreco.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByPreco_LinkClicked);
+            // 
+            // lnkOrderByEstoqueDesc
+            // 
+            this.lnkOrderByEstoqueDesc.AutoSize = true;
+            this.lnkOrderByEstoqueDesc.Location = new System.Drawing.Point(520, 233);
+            this.lnkOrderByEstoqueDesc.Name = "lnkOrderByEstoqueDesc";
+            this.lnkOrderByEstoqueDesc.Size = new System.Drawing.Size(74, 13);
+            this.lnkOrderByEstoqueDesc.TabIndex = 147;
+            this.lnkOrderByEstoqueDesc.TabStop = true;
+            this.lnkOrderByEstoqueDesc.Text = "Estoque Desc";
+            this.lnkOrderByEstoqueDesc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByEstoqueDesc_LinkClicked);
+            // 
+            // lnkOrderByEstoque
+            // 
+            this.lnkOrderByEstoque.AutoSize = true;
+            this.lnkOrderByEstoque.Location = new System.Drawing.Point(520, 208);
+            this.lnkOrderByEstoque.Name = "lnkOrderByEstoque";
+            this.lnkOrderByEstoque.Size = new System.Drawing.Size(46, 13);
+            this.lnkOrderByEstoque.TabIndex = 146;
+            this.lnkOrderByEstoque.TabStop = true;
+            this.lnkOrderByEstoque.Text = "Estoque";
+            this.lnkOrderByEstoque.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOrderByEstoque_LinkClicked);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(683, 587);
+            this.ClientSize = new System.Drawing.Size(683, 661);
             this.ControlBox = false;
+            this.Controls.Add(this.lnkOrderByEstoqueDesc);
+            this.Controls.Add(this.lnkOrderByEstoque);
+            this.Controls.Add(this.lnkOrderByPrecoDesc);
+            this.Controls.Add(this.lnkOrderByPreco);
+            this.Controls.Add(this.lnkOrderByIDDesc);
+            this.Controls.Add(this.lnkOrderByID);
+            this.Controls.Add(this.lnkOrderByNameDesc);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lnkOrderByName);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnAdicionarEstoque);
@@ -526,5 +656,15 @@
         private System.Windows.Forms.Button btnAdicionarEstoque;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.LinkLabel lnkOrderByIDDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByID;
+        private System.Windows.Forms.LinkLabel lnkOrderByNameDesc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel lnkOrderByName;
+        private System.Windows.Forms.LinkLabel lnkOrderByPrecoDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByPreco;
+        private System.Windows.Forms.LinkLabel lnkOrderByEstoqueDesc;
+        private System.Windows.Forms.LinkLabel lnkOrderByEstoque;
     }
 }

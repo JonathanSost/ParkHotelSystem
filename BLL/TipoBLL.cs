@@ -89,6 +89,13 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Por Nome
+        public int LerPorNome(string nome)
+        {
+            return dal.LerPorNome(nome);
+        }
+        #endregion
+
         #region Pesquisar Por Tipo
         public List<Tipo> PesquisarPorTipo(string tipo)
         {

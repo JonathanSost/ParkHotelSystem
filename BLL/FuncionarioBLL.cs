@@ -303,9 +303,6 @@ namespace BLL
                     }
                 }
             }
-
-
-
             #endregion
 
             StringBuilder errosCliente = new StringBuilder();
@@ -632,6 +629,34 @@ namespace BLL
         }
         #endregion
 
+        #region Ler Funcionários (Order By ID)
+        public List<FuncionarioViewModel> LerFuncionariosByID(Funcionario funci)
+        {
+            return dal.LerFuncionariosByID(funci);
+        }
+        #endregion
+
+        #region Ler Funcionários (Order By ID Desc)
+        public List<FuncionarioViewModel> LerFuncionariosByIDDesc(Funcionario funci)
+        {
+            return dal.LerFuncionariosByIDDesc(funci);
+        }
+        #endregion
+
+        #region Ler Funcionários (Order By Name)
+        public List<FuncionarioViewModel> LerFuncionariosByName(Funcionario funci)
+        {
+            return dal.LerFuncionariosByName(funci);
+        }
+        #endregion
+
+        #region Ler Funcionários (Order By Name Desc)
+        public List<FuncionarioViewModel> LerFuncionariosByNameDesc(Funcionario funci)
+        {
+            return dal.LerFuncionariosByNameDesc(funci);
+        }
+        #endregion
+
         #region Verificar Existência do Funcionário (ID)
         /// <summary>
         /// Verifica a existência do Funcionário através do ID
@@ -665,6 +690,19 @@ namespace BLL
         public List<FuncionarioViewModel> PesquisarPorNome(string Nome, Funcionario funci)
         {
             return dal.PesquisarPorNome(Nome, funci);
+        }
+        #endregion
+
+        #region Pesquisar Por Nome (Reservas/Produtos)
+        /// <summary>
+        /// Traz uma lista com os Funcionários que possuem um nome parecido com o do parâmetro passado.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="funci"></param>
+        /// <returns></returns>
+        public List<FuncionarioViewModel> PesquisarPorNomeReservasProdutos(string Nome)
+        {
+            return dal.PesquisarPorNomeReservasProdutos(Nome);
         }
         #endregion
 

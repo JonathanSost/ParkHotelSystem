@@ -15,15 +15,19 @@ namespace BLL
         List<string> erros = new List<string>();
 
         #region Cadatrar
-        public MessageResponse Cadastrar(Venda venda)
+        public MessageResponse Cadastrar(Venda venda, Produto produto)
         {
             if (venda.Quantidade < 1)
             {
                 erros.Add("Quantidade Requisitada Inválida.");
             }
-            if (venda.DataDeVenda.ToString("dd/MM/yyyy - HH:mm") != DateTime.Now.ToString("dd/MM/yyyy - HH:mm"))
+            else if (venda.Quantidade > produto.Estoque)
             {
-                erros.Add("Você está a frente do seu tempo.");
+                erros.Add("Não há estoque suficiente para esta venda.");
+            }
+            if (venda.Valor < 0)
+            {
+                erros.Add("Valor inválido.");
             }
             if (erros.Count != 0)
             {
@@ -101,6 +105,27 @@ namespace BLL
         public List<Venda> LerTodos()
         {
             return dal.LerTodos();
+        }
+        #endregion
+
+        #region Ler Vendas
+        public List<VendaViewModel> LerVendas()
+        {
+            return dal.LerVendas();
+        }
+        #endregion
+
+        #region Ler Vendas (Order By ID)
+        public List<VendaViewModel> LerVendasByID()
+        {
+            return dal.LerVendasByID();
+        }
+        #endregion
+
+        #region Ler Vendas (Order By ID Desc)
+        public List<VendaViewModel> LerVendasByIDDesc()
+        {
+            return dal.LerVendasByIDDesc();
         }
         #endregion
     }
