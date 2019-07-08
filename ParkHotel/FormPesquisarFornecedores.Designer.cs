@@ -51,7 +51,7 @@
             // dgvFornecedores
             // 
             this.dgvFornecedores.AllowUserToOrderColumns = true;
-            this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFornecedores.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -165,7 +165,7 @@
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(7, 454);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(43, 17);
+            this.lblNome1.Size = new System.Drawing.Size(48, 17);
             this.lblNome1.TabIndex = 188;
             this.lblNome1.Text = "Santo";
             // 
@@ -176,7 +176,7 @@
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(52, 454);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(56, 17);
+            this.lblNome2.Size = new System.Drawing.Size(63, 17);
             this.lblNome2.TabIndex = 189;
             this.lblNome2.Text = "Soninho";
             // 
