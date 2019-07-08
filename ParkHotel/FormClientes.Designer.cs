@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -68,7 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.picbClear = new System.Windows.Forms.PictureBox();
             this.picbRefresh = new System.Windows.Forms.PictureBox();
             this.btnPesquisarPorCPF = new System.Windows.Forms.Button();
@@ -369,7 +367,7 @@
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(542, 249);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(312, 127);
+            this.lblNome1.Size = new System.Drawing.Size(316, 127);
             this.lblNome1.TabIndex = 94;
             this.lblNome1.Text = "Santo";
             // 
@@ -380,7 +378,7 @@
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(488, 356);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(403, 127);
+            this.lblNome2.Size = new System.Drawing.Size(409, 127);
             this.lblNome2.TabIndex = 95;
             this.lblNome2.Text = "Soninho";
             // 
@@ -466,9 +464,9 @@
             this.label19.Location = new System.Drawing.Point(24, 497);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 20);
+            this.label19.Size = new System.Drawing.Size(134, 20);
             this.label19.TabIndex = 103;
-            this.label19.Text = "Celular";
+            this.label19.Text = "Celular (Opcional)";
             // 
             // label1
             // 
@@ -499,16 +497,6 @@
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 104;
             this.label4.Text = "CEP";
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutomaticDelay = 1000;
-            this.toolTip1.AutoPopDelay = 10000;
-            this.toolTip1.InitialDelay = 1000;
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.OwnerDraw = true;
-            this.toolTip1.ReshowDelay = 2000;
-            this.toolTip1.ToolTipTitle = "OIHSFDUIFGISAFGISA";
             // 
             // picbClear
             // 
@@ -797,7 +785,6 @@
         private System.Windows.Forms.Button btnPesquisarPorCPF;
         private System.Windows.Forms.PictureBox picbRefresh;
         private System.Windows.Forms.PictureBox picbClear;
-        public System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.LinkLabel lnkOrderByName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel lnkOrderByNameDesc;

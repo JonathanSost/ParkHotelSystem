@@ -239,7 +239,7 @@
             this.lblNome2.ForeColor = System.Drawing.Color.Gold;
             this.lblNome2.Location = new System.Drawing.Point(338, 379);
             this.lblNome2.Name = "lblNome2";
-            this.lblNome2.Size = new System.Drawing.Size(335, 107);
+            this.lblNome2.Size = new System.Drawing.Size(341, 107);
             this.lblNome2.TabIndex = 101;
             this.lblNome2.Text = "Soninho";
             // 
@@ -249,7 +249,7 @@
             this.lblNome1.Font = new System.Drawing.Font("Matura MT Script Capitals", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome1.Location = new System.Drawing.Point(390, 276);
             this.lblNome1.Name = "lblNome1";
-            this.lblNome1.Size = new System.Drawing.Size(260, 107);
+            this.lblNome1.Size = new System.Drawing.Size(263, 107);
             this.lblNome1.TabIndex = 100;
             this.lblNome1.Text = "Santo";
             // 

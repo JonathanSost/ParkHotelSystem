@@ -200,7 +200,6 @@ namespace ParkHotel
                 MessageBox.Show("Favor informar o ID do Produto.");
                 return;
             }
-            txtID.Enabled = false;
             txtDescricao.Enabled = false;
             txtNome.Enabled = false;
             txtPreco.Enabled = false;
@@ -228,7 +227,6 @@ namespace ParkHotel
                 MessageBox.Show("A quantia a adicionar deve ser maior do que 0.");
                 return;
             }
-            txtID.Enabled = true;
             txtDescricao.Enabled = true;
             txtNome.Enabled = true;
             txtPreco.Enabled = true;
@@ -254,13 +252,14 @@ namespace ParkHotel
             MessageBox.Show(response.Message);
             if (response.Success)
             {
+                p.Estoque = int.Parse(txtEstoque.Text);
+                pbll.InserirHistorico(p);
                 dgvProdutos.DataSource = pbll.LerProdutosEntrada();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtID.Enabled = true;
             txtDescricao.Enabled = true;
             txtNome.Enabled = true;
             txtPreco.Enabled = true;

@@ -66,6 +66,13 @@ namespace BLL
         }
         #endregion
 
+        #region Inserir Histórico
+        public MessageResponse InserirHistorico(Produto produto)
+        {
+            return dal.InserirHistorico(produto);
+        }
+        #endregion
+
         #region Atualizar
         public MessageResponse Atualizar(Produto produto)
         {

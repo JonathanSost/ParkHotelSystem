@@ -129,6 +129,46 @@ namespace DAL
         }
         #endregion
 
+        #region Inserir Histórico
+        public MessageResponse InserirHistorico(Produto produto)
+        {
+            string connectionString = Parametros.GetConnectionString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = "insert into produtos (nome, descricao, precound, estoque, idfornecedor, status, datadetransferencia) values (@nome, @descricao, @precound, @estoque, @idfornecedor, @status, @datadetransferencia)";
+            command.Parameters.AddWithValue("@nome", produto.Nome);
+            command.Parameters.AddWithValue("@descricao", produto.Descricao);
+            command.Parameters.AddWithValue("@precound", produto.Preco);
+            command.Parameters.AddWithValue("@estoque", produto.Estoque);
+            command.Parameters.AddWithValue("@idfornecedor", produto.IdFornecedor);
+            command.Parameters.AddWithValue("@status", produto.Status);
+            command.Parameters.AddWithValue("@datadetransferencia", produto.DataDeTransferencia);
+
+            command.Connection = connection;
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Banco de dados indisponível, favor contatar o suporte.";
+                return response;
+            }
+            finally
+            {
+                connection.Dispose();
+            }
+            response.Success = true;
+            response.Message = "Produto cadastrado no sistema com sucesso!";
+            return response;
+        }
+        #endregion
+
+
         #region Ler Por ID
         public Produto LerPorID(int id)
         {

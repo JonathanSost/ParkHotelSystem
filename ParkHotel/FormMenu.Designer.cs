@@ -72,12 +72,12 @@
             // lblGerenciamento
             // 
             this.lblGerenciamento.AutoSize = true;
-            this.lblGerenciamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGerenciamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGerenciamento.ForeColor = System.Drawing.Color.Black;
-            this.lblGerenciamento.Location = new System.Drawing.Point(135, 62);
+            this.lblGerenciamento.Location = new System.Drawing.Point(138, 66);
             this.lblGerenciamento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGerenciamento.Name = "lblGerenciamento";
-            this.lblGerenciamento.Size = new System.Drawing.Size(158, 25);
+            this.lblGerenciamento.Size = new System.Drawing.Size(215, 33);
             this.lblGerenciamento.TabIndex = 0;
             this.lblGerenciamento.Text = "Gerenciamento";
             // 
@@ -95,7 +95,7 @@
             // 
             this.lnkFuncionarios.AutoSize = true;
             this.lnkFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkFuncionarios.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkFuncionarios.LinkColor = System.Drawing.Color.Gold;
             this.lnkFuncionarios.Location = new System.Drawing.Point(157, 394);
             this.lnkFuncionarios.Name = "lnkFuncionarios";
             this.lnkFuncionarios.Size = new System.Drawing.Size(133, 20);
@@ -118,7 +118,7 @@
             // 
             this.lnkQuartos.AutoSize = true;
             this.lnkQuartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkQuartos.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkQuartos.LinkColor = System.Drawing.SystemColors.ControlText;
             this.lnkQuartos.Location = new System.Drawing.Point(158, 256);
             this.lnkQuartos.Name = "lnkQuartos";
             this.lnkQuartos.Size = new System.Drawing.Size(99, 20);
@@ -142,7 +142,7 @@
             // 
             this.lnkFornecedores.AutoSize = true;
             this.lnkFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkFornecedores.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkFornecedores.LinkColor = System.Drawing.Color.Gold;
             this.lnkFornecedores.Location = new System.Drawing.Point(158, 214);
             this.lnkFornecedores.Name = "lnkFornecedores";
             this.lnkFornecedores.Size = new System.Drawing.Size(141, 20);
@@ -165,7 +165,7 @@
             // 
             this.lnkClientes.AutoSize = true;
             this.lnkClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkClientes.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkClientes.LinkColor = System.Drawing.SystemColors.ControlText;
             this.lnkClientes.Location = new System.Drawing.Point(158, 170);
             this.lnkClientes.Name = "lnkClientes";
             this.lnkClientes.Size = new System.Drawing.Size(99, 20);
@@ -178,7 +178,7 @@
             // 
             this.lnkProdutos.AutoSize = true;
             this.lnkProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkProdutos.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkProdutos.LinkColor = System.Drawing.Color.Gold;
             this.lnkProdutos.Location = new System.Drawing.Point(157, 128);
             this.lnkProdutos.Name = "lnkProdutos";
             this.lnkProdutos.Size = new System.Drawing.Size(106, 20);
@@ -260,7 +260,7 @@
             // 
             this.lnkReservas.AutoSize = true;
             this.lnkReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkReservas.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkReservas.LinkColor = System.Drawing.Color.Gold;
             this.lnkReservas.Location = new System.Drawing.Point(158, 302);
             this.lnkReservas.Name = "lnkReservas";
             this.lnkReservas.Size = new System.Drawing.Size(109, 20);
@@ -293,7 +293,7 @@
             // 
             this.lnkVendas.AutoSize = true;
             this.lnkVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkVendas.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkVendas.LinkColor = System.Drawing.SystemColors.ControlText;
             this.lnkVendas.Location = new System.Drawing.Point(158, 348);
             this.lnkVendas.Name = "lnkVendas";
             this.lnkVendas.Size = new System.Drawing.Size(97, 20);
@@ -306,7 +306,7 @@
             // 
             this.lnkHistórico.AutoSize = true;
             this.lnkHistórico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkHistórico.LinkColor = System.Drawing.Color.Crimson;
+            this.lnkHistórico.LinkColor = System.Drawing.Color.Gold;
             this.lnkHistórico.Location = new System.Drawing.Point(279, 128);
             this.lnkHistórico.Name = "lnkHistórico";
             this.lnkHistórico.Size = new System.Drawing.Size(79, 20);

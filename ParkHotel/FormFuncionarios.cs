@@ -19,6 +19,7 @@ namespace ParkHotel
         EstadoBLL estbll = new EstadoBLL();
         FuncionarioBLL funbll = new FuncionarioBLL();
         Funcionario f = null;
+        MessageResponse response = new MessageResponse();
 
         public FormFuncionarios()
         {
@@ -105,19 +106,26 @@ namespace ParkHotel
                 chkAdministrador.Checked, (int)cmbEstado.SelectedValue, (int)cmbCidade.SelectedValue, msktxtCEP.Text, txtBairro.Text, txtRua.Text, txtNumero.Text,
                 txtComplemento.Text, chkAtivo.Checked);
 
-            MessageResponse response = funbll.Cadastrar(f);
+            if (!funbll.VerificarExistenciaFuncionarioA())
+            {
+                response = funbll.Cadastrar(f);
+                MessageBox.Show(response.Message);
+                if (response.Success)
+                {
+                    Parametros.FuncionarioLogado = f;
+                    this.Close();
+                    new FormMenu(Parametros.FuncionarioLogado).Show();
+                    return;
+                }
+            }
+
+            response = funbll.Cadastrar(f);
             MessageBox.Show(response.Message);
             if (response.Success)
             {
                 FormCleaner.Clear(this);
                 chkAdministrador.Enabled = true;
                 chkAtivo.Enabled = true;
-                if (Parametros.FuncionarioLogado == null)
-                {
-                    Parametros.FuncionarioLogado = f;
-                    dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
-                    return;
-                }
                 dgvFuncionarios.DataSource = funbll.LerFuncionarios(Parametros.FuncionarioLogado);
             }
         }
